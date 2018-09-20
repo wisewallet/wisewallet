@@ -15,7 +15,7 @@ import GridItem from "components/Grid/GridItem.jsx";
 import Button from "components/CustomButtons/Button.jsx";
 import HeaderLinks from "components/Header/HeaderLinks.jsx";
 import Parallax from "components/Parallax/Parallax.jsx";
-
+import ReactGA from 'react-ga';
 import landingPageStyle from "assets/jss/material-kit-pro-react/views/landingPageStyle.jsx";
 
 // Sections for this page
@@ -29,6 +29,8 @@ class LandingPage extends React.Component {
   componentDidMount() {
     window.scrollTo(0, 0);
     document.body.scrollTop = 0;
+    ReactGA.initialize('UA-125368215-1');
+    ReactGA.pageview(window.location.pathname + window.location.search);
   }
   render() {
     const { classes, ...rest } = this.props;
