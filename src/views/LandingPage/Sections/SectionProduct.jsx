@@ -38,7 +38,7 @@ class SectionProduct extends React.Component {
                 title="Suggested Alternatives"
                 description="WiseWallet curates recommendations to guide you towards more sustainable and ethical purchases within your budget."
                 icon={List}
-                iconColor="success"
+                iconColor="warning"
                 vertical
               />
             </GridItem>
@@ -62,9 +62,9 @@ We have partnered with Plaid, the easiest and most secure way for you to link yo
 
                 icon={VerifiedUser}
                 iconColor="success"
-                horizontal
+                vertical
               />
-              <img src={plaid} />
+              <img src={plaid} style={{width: "20%", height: "auto"}} />
               </GridItem>
             </GridContainer>
         </div>

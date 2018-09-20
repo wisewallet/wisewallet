@@ -17,7 +17,7 @@ import Menu from "@material-ui/icons/Menu";
 import Close from "@material-ui/icons/Close";
 // core components
 import headerStyle from "assets/jss/material-kit-pro-react/components/headerStyle.jsx";
-
+import plaid from "assets/img/logo.png";
 class Header extends React.Component {
   constructor(props) {
     super(props);
@@ -71,6 +71,7 @@ class Header extends React.Component {
       <AppBar className={appBarClasses}>
         <Toolbar className={classes.container}>
           <Button className={classes.title}>
+          <img src={logo} />
             <Link to="/">{brand}</Link>
           </Button>
           <Hidden smDown implementation="css" className={classes.hidden}>
