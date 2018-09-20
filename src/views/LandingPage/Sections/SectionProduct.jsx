@@ -50,7 +50,7 @@ class SectionProduct extends React.Component {
           </GridContainer>
             <GridContainer justify="center">
               <GridItem xs={12} sm={8} md={8}>
-                <h2 className={classes.title}>Safe. Secure</h2>
+                <h2 className={classes.title}><VerifiedUser className={classes.icon} />Safe. Secure.</h2>
                 <h5 className={classes.description}>
                 At WiseWallet, we take security very seriously. We only collect the necessary transactional data to provide you with relevant scores and ratings. Your information is secured using AES-256 bank-level encryption in our database.
 

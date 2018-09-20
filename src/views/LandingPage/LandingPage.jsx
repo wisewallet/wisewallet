@@ -52,15 +52,14 @@ class LandingPage extends React.Component {
               <GridItem xs={12} sm={6} md={6}>
                 <h1 className={classes.title}>Say Hello to Impact Spending</h1>
                 <h4>
-                  Wisewallet allows you to make a difference with your dollars.
+                  WiseWallet allows you to make a difference with your dollars.
                 </h4>
                 <br />
                 <Button
                   color="info"
                   size="lg"
-                  href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#waitlisted"
+                  target=""
                 >
                   Get Early Access
                 </Button>
@@ -80,7 +79,7 @@ class LandingPage extends React.Component {
                 <List className={classes.list}>
                   <ListItem className={classes.inlineBlock}>
                     <a
-                      href="//blog.creative-tim.com/"
+                      href="https://medium.com/@wisewallet"
                       className={classes.block}
                     >
                       Blog
