@@ -94,7 +94,7 @@ class LoginPage extends React.Component {
                       />
                     </CardBody>
                     <div className={classes.textCenter}>
-                      <Button simple color="primary" size="lg">
+                      <Button simple color="info" size="lg">
                         Log In
                       </Button>
                     </div>

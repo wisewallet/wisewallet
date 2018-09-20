@@ -15,6 +15,7 @@ import GridItem from "components/Grid/GridItem.jsx";
 import InfoArea from "components/InfoArea/InfoArea.jsx";
 
 import productStyle from "assets/jss/material-kit-pro-react/views/landingPageSections/productStyle.jsx";
+import plaid from "assets/img/plaid-logo-horizontal-RGB.png";
 
 class SectionProduct extends React.Component {
   render() {
@@ -61,8 +62,9 @@ We have partnered with Plaid, the easiest and most secure way for you to link yo
 
                 icon={VerifiedUser}
                 iconColor="success"
-                vertical
+                horizontal
               />
+              <img src={plaid} />
               </GridItem>
             </GridContainer>
         </div>
