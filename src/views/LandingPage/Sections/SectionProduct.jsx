@@ -18,24 +18,12 @@ class SectionProduct extends React.Component {
     const { classes } = this.props;
     return (
       <div className={classes.section}>
-        <GridContainer justify="center">
-          <GridItem xs={12} sm={8} md={8}>
-            <h2 className={classes.title}>Let's talk product</h2>
-            <h5 className={classes.description}>
-              This is the paragraph where you can write more details about your
-              product. Keep you user engaged by providing meaningful
-              information. Remember that by this time, the user is curious,
-              otherwise he wouldn't scroll to get here. Add a button if you want
-              the user to see more.
-            </h5>
-          </GridItem>
-        </GridContainer>
         <div>
           <GridContainer>
             <GridItem xs={12} sm={4} md={4}>
               <InfoArea
-                title="Free Chat"
-                description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+                title="Personal Impact Score"
+                description="Get personal scores based on your impact on people, the planet, and policy through your transactions."
                 icon={Chat}
                 iconColor="info"
                 vertical
@@ -43,8 +31,8 @@ class SectionProduct extends React.Component {
             </GridItem>
             <GridItem xs={12} sm={4} md={4}>
               <InfoArea
-                title="Verified Users"
-                description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+                title="Suggested Alternatives"
+                description="WiseWallet curates recommendations to guide you towards more sustainable and ethical purchases within your budget."
                 icon={VerifiedUser}
                 iconColor="success"
                 vertical
@@ -52,14 +40,24 @@ class SectionProduct extends React.Component {
             </GridItem>
             <GridItem xs={12} sm={4} md={4}>
               <InfoArea
-                title="Fingerprint"
-                description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+                title="Rewards"
+                description="Benefit from discounts and giveaways through our responsible business partners for exemplary performance. It’s a win-win!"
                 icon={Fingerprint}
                 iconColor="danger"
                 vertical
               />
             </GridItem>
           </GridContainer>
+            <GridContainer justify="center">
+              <GridItem xs={12} sm={8} md={8}>
+                <h2 className={classes.title}>Safe. Secure</h2>
+                <h5 className={classes.description}>
+                At WiseWallet, we take security very seriously. We only collect the necessary transactional data to provide you with relevant scores and ratings. Your information is secured using AES-256 bank-level encryption in our database.
+
+We have partnered with Plaid, the easiest and most secure way for you to link your bank account. Plaid is trusted by dozens of financial applications and institutions, and tens of millions of people in North America.
+                </h5>
+              </GridItem>
+            </GridContainer>
         </div>
       </div>
     );
