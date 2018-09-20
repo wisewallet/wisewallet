@@ -38,7 +38,6 @@ class LoginPage extends React.Component {
           absolute
           color="transparent"
           brand="WiseWallet"
-          links={<HeaderLinks dropdownHoverColor="info" />}
         />
         <div
           className={classes.pageHeader}
@@ -54,7 +53,7 @@ class LoginPage extends React.Component {
                 <Card>
                   <form className={classes.form}>
                     <CardHeader
-                      color="primary"
+                      color="info"
                       signup
                       className={classes.cardHeader}
                     >
