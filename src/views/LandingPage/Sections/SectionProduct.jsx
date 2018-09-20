@@ -6,6 +6,9 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import Chat from "@material-ui/icons/Chat";
 import VerifiedUser from "@material-ui/icons/VerifiedUser";
 import Fingerprint from "@material-ui/icons/Fingerprint";
+import InsertChart from "@material-ui/icons/InsertChart";
+import List from "@material-ui/icons/List";
+import Loyalty from "@material-ui/icons/Loyalty";
 // core components
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
@@ -24,7 +27,7 @@ class SectionProduct extends React.Component {
               <InfoArea
                 title="Personal Impact Score"
                 description="Get personal scores based on your impact on people, the planet, and policy through your transactions."
-                icon={Chat}
+                icon={InsertChart}
                 iconColor="info"
                 vertical
               />
@@ -33,7 +36,7 @@ class SectionProduct extends React.Component {
               <InfoArea
                 title="Suggested Alternatives"
                 description="WiseWallet curates recommendations to guide you towards more sustainable and ethical purchases within your budget."
-                icon={VerifiedUser}
+                icon={List}
                 iconColor="success"
                 vertical
               />
@@ -42,7 +45,7 @@ class SectionProduct extends React.Component {
               <InfoArea
                 title="Rewards"
                 description="Benefit from discounts and giveaways through our responsible business partners for exemplary performance. It’s a win-win!"
-                icon={Fingerprint}
+                icon={Loyalty}
                 iconColor="danger"
                 vertical
               />
@@ -51,6 +54,12 @@ class SectionProduct extends React.Component {
             <GridContainer justify="center">
               <GridItem xs={12} sm={8} md={8}>
                 <h2 className={classes.title}><VerifiedUser className={classes.icon} />Safe. Secure.</h2>
+                <InfoArea
+                  title="Safe. Secure."
+                  icon={VerifiedUser}
+                  iconColor="success"
+                  vertical
+                />
                 <h5 className={classes.description}>
                 At WiseWallet, we take security very seriously. We only collect the necessary transactional data to provide you with relevant scores and ratings. Your information is secured using AES-256 bank-level encryption in our database.
 

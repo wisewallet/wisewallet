@@ -90,11 +90,11 @@ function HeaderLinks({ ...props }) {
         <Button
           href="http://mywisewallet.com/login"
           color={window.innerWidth < 960 ? "info" : "white"}
-          target="_blank"
+          target=""
           className={classes.navButton}
           round
         >
-          <ShoppingCart className={classes.icons} />Log In
+          Log In
         </Button>
       </ListItem>
     </List>
