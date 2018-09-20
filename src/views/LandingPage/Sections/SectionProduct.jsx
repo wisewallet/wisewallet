@@ -38,7 +38,7 @@ class SectionProduct extends React.Component {
                 title="Suggested Alternatives"
                 description="WiseWallet curates recommendations to guide you towards more sustainable and ethical purchases within your budget."
                 icon={List}
-                iconColor="warning"
+                iconColor="info"
                 vertical
               />
             </GridItem>
@@ -47,7 +47,7 @@ class SectionProduct extends React.Component {
                 title="Rewards"
                 description="Benefit from discounts and giveaways through our responsible business partners for exemplary performance. It’s a win-win!"
                 icon={Loyalty}
-                iconColor="danger"
+                iconColor="info"
                 vertical
               />
             </GridItem>
@@ -61,7 +61,7 @@ class SectionProduct extends React.Component {
 We have partnered with Plaid, the easiest and most secure way for you to link your bank account. Plaid is trusted by dozens of financial applications and institutions, and tens of millions of people in North America."
 
                 icon={VerifiedUser}
-                iconColor="success"
+                iconColor="info"
                 vertical
               />
               <img src={plaid} style={{width: "20%", height: "auto"}} />
