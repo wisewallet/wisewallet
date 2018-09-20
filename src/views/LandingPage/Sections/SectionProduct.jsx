@@ -64,7 +64,7 @@ We have partnered with Plaid, the easiest and most secure way for you to link yo
                 iconColor="info"
                 vertical
               />
-              <img src={plaid} style={{width: "20%", height: "auto"}} />
+              <img src={plaid} style={{width: "200px", height: "auto"}} />
               </GridItem>
             </GridContainer>
         </div>
