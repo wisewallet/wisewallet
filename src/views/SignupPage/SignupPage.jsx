@@ -59,7 +59,17 @@ class Components extends React.Component {
 	};
 	onSignUp() {
 		const {email, password, firstName, lastName} = this.state;
-		fetch("https://jsonplaceholder.typicode.com/todos/1")
+		fetch("https://jsonplaceholder.typicode.com/todos/1", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify({
+				email: "hugh.daniel@gmail.com",
+				name: "Hugh Daniel",
+				password: "1234"
+			})
+		})
 			.then(response => response.json())
 			.then(json => console.log(json));
 	}
