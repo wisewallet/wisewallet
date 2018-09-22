@@ -60,7 +60,7 @@ class Components extends React.Component {
 	onSignUp() {
 		const {email, password, firstName, lastName} = this.state;
 		fetch(
-			"https://tldpv6umn7.execute-api.us-east-1.amazonaws.com/default/signUp",
+			"https://jsonplaceholder.typicode.com/todos/1",
 			{
 				method: "POST",
 				headers: {
