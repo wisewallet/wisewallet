@@ -39,28 +39,25 @@ import image from "assets/img/bg7.jpg";
 class Components extends React.Component {
 	constructor(props) {
 		super(props);
+
 		this.state = {
-			checked: [1]
+			email: "",
+			password: "",
+			firstName: "",
+			lastName: ""
 		};
+		this;
 		this.handleToggle = this.handleToggle.bind(this);
-	}
-	handleToggle(value) {
-		const {checked} = this.state;
-		const currentIndex = checked.indexOf(value);
-		const newChecked = [...checked];
-
-		if (currentIndex === -1) {
-			newChecked.push(value);
-		} else {
-			newChecked.splice(currentIndex, 1);
-		}
-
-		this.setState({checked: newChecked});
 	}
 	componentDidMount() {
 		window.scrollTo(0, 0);
 		document.body.scrollTop = 0;
 	}
+	handleChange = name => event => {
+		this.setState({
+			[name]: event.target.value
+		});
+	};
 	render() {
 		const {classes, ...rest} = this.props;
 		return (
@@ -112,68 +109,37 @@ class Components extends React.Component {
 											</GridItem>
 											<GridItem xs={12} sm={5} md={5}>
 												<form className={classes.form}>
-													<CustomInput
-														formControlProps={{
-															fullWidth: true,
-															className: classes.customFormControlClasses
-														}}
-														inputProps={{
-															startAdornment: (
-																<InputAdornment
-																	position="start"
-																	className={classes.inputAdornment}
-																>
-																	<Face
-																		className={classes.inputAdornmentIcon}
-																	/>
-																</InputAdornment>
-															),
-															placeholder: "First Name..."
-														}}
-													/>
-													<CustomInput
-														formControlProps={{
-															fullWidth: true,
-															className: classes.customFormControlClasses
-														}}
-														inputProps={{
-															startAdornment: (
-																<InputAdornment
-																	position="start"
-																	className={classes.inputAdornment}
-																>
-																	<Face
-																		className={classes.inputAdornmentIcon}
-																	/>
-																</InputAdornment>
-															),
-															placeholder: "Last Name..."
-														}}
-													/>
-													<CustomInput
-														formControlProps={{
-															fullWidth: true,
-															className: classes.customFormControlClasses
-														}}
-														inputProps={{
-															startAdornment: (
-																<InputAdornment
-																	position="start"
-																	className={classes.inputAdornment}
-																>
-																	<Email
-																		className={classes.inputAdornmentIcon}
-																	/>
-																</InputAdornment>
-															),
-															placeholder: "Email..."
-														}}
+													<TextField
+														id="firstName"
+														label="First Name"
+														className={classes.textField}
+														value={this.state.firstName}
+														onChange={this.handleChange("firstName")}
+														margin="normal"
 													/>
 													<TextField
-														id="standard-password-input"
+														id="lastName"
+														label="Last Name"
+														className={classes.textField}
+														value={this.state.lastName}
+														onChange={this.handleChange("lastName")}
+														margin="normal"
+													/>
+													<TextField
+														id="email"
+														label="Email"
+														className={classes.textField}
+														value={this.state.email}
+														onChange={this.handleChange("email")}
+														margin="normal"
+													/>
+													<TextField
+														id="password"
 														label="Password"
 														className={classes.textField}
 														type="password"
+														value={this.state.password}
+														onChange={this.handleChange("password")}
 														autoComplete="current-password"
 														margin="normal"
 													/>
