@@ -97,7 +97,7 @@ class Components extends React.Component {
 													className={classes.infoArea}
 													title="Suggested Alternatives"
 													description="WiseWallet curates recommendations to guide you towards more sustainable and ethical purchases within your budget."
-													icon={Listicon}
+													icon={ListIcon}
 													iconColor="primary"
 												/>
 												<InfoArea
