@@ -23,10 +23,6 @@ const signupPageStyle = {
     "&:before": {
       background: "rgba(0, 0, 0, 0.5)"
     },
-    "&:after": {
-      background:
-        "linear-gradient(60deg,rgba(225,190,231,.56),rgba(186,104,200,.95))"
-    },
     "&:before,&:after": {
       position: "absolute",
       zIndex: "1",
