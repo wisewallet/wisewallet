@@ -47,7 +47,6 @@ class Components extends React.Component {
 			lastName: ""
 		};
 		this;
-		this.handleToggle = this.handleToggle.bind(this);
 	}
 	componentDidMount() {
 		window.scrollTo(0, 0);
