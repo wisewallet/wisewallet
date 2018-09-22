@@ -16,7 +16,7 @@ import Email from "@material-ui/icons/Email";
 import Check from "@material-ui/icons/Check";
 import Favorite from "@material-ui/icons/Favorite";
 import InsertChart from "@material-ui/icons/InsertChart";
-import List from "@material-ui/icons/List";
+import ListIcon from "@material-ui/icons/List";
 import Loyalty from "@material-ui/icons/Loyalty";
 // core components
 import Header from "components/Header/Header.jsx";
@@ -97,7 +97,7 @@ class Components extends React.Component {
 													className={classes.infoArea}
 													title="Suggested Alternatives"
 													description="WiseWallet curates recommendations to guide you towards more sustainable and ethical purchases within your budget."
-													icon={List}
+													icon={Listicon}
 													iconColor="primary"
 												/>
 												<InfoArea
