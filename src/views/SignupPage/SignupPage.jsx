@@ -39,13 +39,13 @@ import image from "assets/img/bg7.jpg";
 class Components extends React.Component {
 	constructor(props) {
 		super(props);
-
 		this.state = {
 			email: "",
 			password: "",
 			firstName: "",
 			lastName: ""
 		};
+		this.onSignUp = this.onSignUp.bind(this);
 		this;
 	}
 	componentDidMount() {
@@ -57,6 +57,31 @@ class Components extends React.Component {
 			[name]: event.target.value
 		});
 	};
+	onSignUp() {
+		const {email, password, firstName, lastName} = this.state;
+		this.setState({
+			isLoading: true
+		});
+		fetch(
+			"https://tldpv6umn7.execute-api.us-east-1.amazonaws.com/default/signUp",
+			{
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json"
+				},
+				body: JSON.stringify({
+					email: email,
+					password: password,
+					firstName: firstName,
+					lastName: lastName
+				})
+			}
+		)
+			.then(res => res.json())
+			.then(json => {
+				console.log("json", json);
+			});
+	}
 	render() {
 		const {classes, ...rest} = this.props;
 		return (
@@ -142,11 +167,13 @@ class Components extends React.Component {
 														autoComplete="current-password"
 														margin="normal"
 													/>
-													<div className={classes.textCenter}>
-														<Button round="round" color="primary">
-															Get started
-														</Button>
-													</div>
+													<Button
+														round="round"
+														color="primary"
+														onClick={this.onSignUp}
+													>
+														Get started
+													</Button>
 												</form>
 											</GridItem>
 										</GridContainer>
