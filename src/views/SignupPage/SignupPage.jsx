@@ -7,6 +7,8 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Icon from "@material-ui/core/Icon";
+import Input from "@material-ui/core/Input";
+import TextField from "@material-ui/core/TextField";
 // @material-ui/icons
 import Timeline from "@material-ui/icons/Timeline";
 import Code from "@material-ui/icons/Code";
@@ -167,31 +169,13 @@ class Components extends React.Component {
 															placeholder: "Email..."
 														}}
 													/>
-													<CustomInput
-														formControlProps={{
-															fullWidth: true,
-															className: classes.customFormControlClasses
-														}}
-														inputProps={{
-															startAdornment: (
-																<InputAdornment
-																	position="start"
-																	className={classes.inputAdornment}
-																>
-																	<Icon className={classes.inputAdornmentIcon}>
-																		lock_outline
-																	</Icon>
-																</InputAdornment>
-															),
-															placeholder: "Password..."
-														}}
-													/>
-													<label for="exampleInputPassword1">Password</label>
-													<input
+													<TextField
+														id="standard-password-input"
+														label="Password"
+														className={classes.textField}
 														type="password"
-														class="form-control"
-														id="exampleInputPassword1"
-														placeholder="Password"
+														autoComplete="current-password"
+														margin="normal"
 													/>
 													<div className={classes.textCenter}>
 														<Button round="round" color="primary">
