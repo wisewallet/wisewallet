@@ -186,8 +186,13 @@ class Components extends React.Component {
 															placeholder: "Password..."
 														}}
 													/>
-                          <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+													<label for="exampleInputPassword1">Password</label>
+													<input
+														type="password"
+														class="form-control"
+														id="exampleInputPassword1"
+														placeholder="Password"
+													/>
 													<div className={classes.textCenter}>
 														<Button round="round" color="primary">
 															Get started
