@@ -88,23 +88,23 @@ class Components extends React.Component {
 											<GridItem xs={12} sm={5} md={5}>
 												<InfoArea
 													className={classes.infoArea}
-                          title="Personal Impact Score"
-                          description="Get personal scores based on your impact on people, the planet, and policy through your transactions."
-                          icon={InsertChart}
+													title="Personal Impact Score"
+													description="Get personal scores based on your impact on people, the planet, and policy through your transactions."
+													icon={InsertChart}
 													iconColor="primary"
 												/>
 												<InfoArea
 													className={classes.infoArea}
-                          title="Suggested Alternatives"
-                          description="WiseWallet curates recommendations to guide you towards more sustainable and ethical purchases within your budget."
-                          icon={List}
+													title="Suggested Alternatives"
+													description="WiseWallet curates recommendations to guide you towards more sustainable and ethical purchases within your budget."
+													icon={List}
 													iconColor="primary"
 												/>
 												<InfoArea
 													className={classes.infoArea}
-                          title="Rewards"
-                          description="Benefit from discounts and giveaways through our responsible business partners for exemplary performance. It’s a win-win!"
-                          icon={Loyalty}
+													title="Rewards"
+													description="Benefit from discounts and giveaways through our responsible business partners for exemplary performance. It’s a win-win!"
+													icon={Loyalty}
 													iconColor="info"
 												/>
 											</GridItem>
@@ -129,7 +129,7 @@ class Components extends React.Component {
 															placeholder: "First Name..."
 														}}
 													/>
-                          <CustomInput
+													<CustomInput
 														formControlProps={{
 															fullWidth: true,
 															className: classes.customFormControlClasses
@@ -165,6 +165,7 @@ class Components extends React.Component {
 																</InputAdornment>
 															),
 															placeholder: "Email..."
+														}}
 													/>
 													<CustomInput
 														formControlProps={{
