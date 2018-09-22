@@ -59,25 +59,9 @@ class Components extends React.Component {
 	};
 	onSignUp() {
 		const {email, password, firstName, lastName} = this.state;
-		fetch(
-			"https://jsonplaceholder.typicode.com/todos/1",
-			{
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json"
-				},
-				body: JSON.stringify({
-					email: "hey",
-					password: "hey",
-					firstName: "hey",
-					lastName: "hey"
-				})
-			}
-		)
-			.then(res => res.json())
-			.then(json => {
-				console.log("json", json);
-			});
+		fetch("https://jsonplaceholder.typicode.com/todos/1")
+			.then(response => response.json())
+			.then(json => console.log(json));
 	}
 	render() {
 		const {classes, ...rest} = this.props;
