@@ -59,9 +59,6 @@ class Components extends React.Component {
 	};
 	onSignUp() {
 		const {email, password, firstName, lastName} = this.state;
-		this.setState({
-			isLoading: true
-		});
 		fetch(
 			"https://tldpv6umn7.execute-api.us-east-1.amazonaws.com/default/signUp",
 			{
@@ -70,10 +67,10 @@ class Components extends React.Component {
 					"Content-Type": "application/json"
 				},
 				body: JSON.stringify({
-					email: email,
-					password: password,
-					firstName: firstName,
-					lastName: lastName
+					email: "hey",
+					password: "hey",
+					firstName: "hey",
+					lastName: "hey"
 				})
 			}
 		)
