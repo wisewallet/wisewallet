@@ -65,10 +65,10 @@ class Components extends React.Component {
 				"Content-Type": "application/json"
 			},
 			body: JSON.stringify({
-				email: "hugh.daniel@gmail.com",
-				lastName: "Hugh Daniel",
-				password: "1234",
-        firstName: "hey"
+				email: email,
+				lastName: lastName,
+				password: password,
+        firstName: firstName
 			})
 		})
 			.then(response => response.json())
