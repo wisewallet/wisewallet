@@ -47,7 +47,7 @@ class SectionProduct extends React.Component {
                 title="Rewards"
                 description="Benefit from discounts and giveaways through our responsible business partners for exemplary performance. It’s a win-win!"
                 icon={Loyalty}
-                iconColor="secondary"
+                iconColor="secondaryColor"
                 vertical
               />
             </GridItem>
