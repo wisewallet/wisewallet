@@ -101,7 +101,7 @@ const footerStyle = {
         color: "#3c4858"
       },
       "&:hover, &:focus": {
-        color: "#89229b"
+        color: "#6bafe0"
       }
     }
   },
