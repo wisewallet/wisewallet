@@ -29,7 +29,7 @@ class SectionProduct extends React.Component {
                 title="Personal Impact Score"
                 description="Get personal scores based on your impact on people, the planet, and policy through your transactions."
                 icon={InsertChart}
-                iconColor="info"
+                iconColor="secondary"
                 vertical
               />
             </GridItem>
@@ -38,7 +38,7 @@ class SectionProduct extends React.Component {
                 title="Suggested Alternatives"
                 description="WiseWallet curates recommendations to guide you towards more sustainable and ethical purchases within your budget."
                 icon={List}
-                iconColor="info"
+                iconColor="secondary"
                 vertical
               />
             </GridItem>
@@ -47,7 +47,7 @@ class SectionProduct extends React.Component {
                 title="Rewards"
                 description="Benefit from discounts and giveaways through our responsible business partners for exemplary performance. It’s a win-win!"
                 icon={Loyalty}
-                iconColor="info"
+                iconColor="secondary"
                 vertical
               />
             </GridItem>
@@ -61,7 +61,7 @@ class SectionProduct extends React.Component {
 We have partnered with Plaid, the easiest and most secure way for you to link your bank account. Plaid is trusted by dozens of financial applications and institutions, and tens of millions of people in North America."
 
                 icon={VerifiedUser}
-                iconColor="info"
+                iconColor="secondary"
                 vertical
               />
               <img src={plaid} style={{width: "200px", height: "auto"}} />
