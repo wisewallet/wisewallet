@@ -89,7 +89,7 @@ function HeaderLinks({ ...props }) {
       <ListItem className={classes.listItem}>
         <Button
           href="http://mywisewallet.com/login"
-          color={window.innerWidth < 960 ? "info" : "white"}
+          color={window.innerWidth < 960 ? "primary" : "white"}
           target=""
           className={classes.navButton}
           round
