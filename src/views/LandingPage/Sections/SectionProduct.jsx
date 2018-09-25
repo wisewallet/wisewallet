@@ -29,7 +29,7 @@ class SectionProduct extends React.Component {
                 title="Personal Impact Score"
                 description="Get personal scores based on your impact on people, the planet, and policy through your transactions."
                 icon={InsertChart}
-                iconColor="secondary"
+                iconColor="info"
                 vertical
               />
             </GridItem>
@@ -38,7 +38,7 @@ class SectionProduct extends React.Component {
                 title="Suggested Alternatives"
                 description="WiseWallet curates recommendations to guide you towards more sustainable and ethical purchases within your budget."
                 icon={List}
-                iconColor="secondary"
+                iconColor="info"
                 vertical
               />
             </GridItem>
@@ -47,7 +47,7 @@ class SectionProduct extends React.Component {
                 title="Rewards"
                 description="Benefit from discounts and giveaways through our responsible business partners for exemplary performance. It’s a win-win!"
                 icon={Loyalty}
-                iconColor="secondaryColor"
+                iconColor="info"
                 vertical
               />
             </GridItem>
@@ -59,7 +59,7 @@ class SectionProduct extends React.Component {
                 description="At WiseWallet, we take security very seriously. We only collect the necessary transactional data to provide you with relevant scores and ratings. Your information is secured using AES-256 bank-level encryption."
 
                 icon={VerifiedUser}
-                iconColor="secondary"
+                iconColor="info"
                 vertical
               />
               </GridItem>
