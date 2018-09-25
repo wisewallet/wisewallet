@@ -183,20 +183,6 @@ class LandingPage extends React.Component {
                   Join our newsletter and get news in your inbox every week! We
                   hate spam too, so no worries about this.
                 </p>
-                <form>
-                  <CustomInput
-                    id="footeremail"
-                    formControlProps={{
-                      fullWidth: false
-                    }}
-                    inputProps={{
-                      placeholder: "Your Email..."
-                    }}
-                  />
-                  <Button color="primary" justIcon>
-                    <Mail />
-                  </Button>
-                </form>
               </GridItem>
             </GridContainer>
           </div>
