@@ -158,8 +158,8 @@ const footerStyle = {
     display: "inline-block",
     float: "none"
   },
-  clearFix: {
+  /*clearFix: {
     clear: "both"
-  }
+  }*/
 };
 export default footerStyle;
