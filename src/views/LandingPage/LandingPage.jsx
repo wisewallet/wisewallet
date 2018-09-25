@@ -40,11 +40,11 @@ class LandingPage extends React.Component {
           color="transparent"
           routes={dashboardRoutes}
           brand="WiseWallet"
-          links={<HeaderLinks dropdownHoverColor="info" />}
+          links={<HeaderLinks dropdownHoverColor="primary" />}
           fixed
           changeColorOnScroll={{
             height: 300,
-            color: "info"
+            color: "primary"
           }}
           {...rest}
         />
