@@ -56,15 +56,12 @@ class SectionProduct extends React.Component {
               <GridItem xs={12} sm={8} md={8}>
               <InfoArea
                 title="Safe. Secure."
-                description="At WiseWallet, we take security very seriously. We only collect the necessary transactional data to provide you with relevant scores and ratings. Your information is secured using AES-256 bank-level encryption in our database.
-
-We have partnered with Plaid, the easiest and most secure way for you to link your bank account. Plaid is trusted by dozens of financial applications and institutions, and tens of millions of people in North America."
+                description="At WiseWallet, we take security very seriously. We only collect the necessary transactional data to provide you with relevant scores and ratings. Your information is secured using AES-256 bank-level encryption."
 
                 icon={VerifiedUser}
                 iconColor="secondary"
                 vertical
               />
-              <img src={plaid} style={{width: "200px", height: "auto"}} />
               </GridItem>
             </GridContainer>
         </div>
