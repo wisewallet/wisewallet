@@ -109,6 +109,7 @@ HeaderLinks.propTypes = {
   dropdownHoverColor: PropTypes.oneOf([
     "dark",
     "primary",
+    "secondary",
     "info",
     "success",
     "warning",

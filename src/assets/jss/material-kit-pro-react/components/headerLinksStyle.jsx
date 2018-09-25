@@ -103,6 +103,7 @@ const headerLinksStyle = theme => ({
     }
   },
   navButton: {
+    color: "#092856",
     position: "relative",
     fontWeight: "400",
     fontSize: "12px",

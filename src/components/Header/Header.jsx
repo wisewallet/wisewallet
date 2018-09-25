@@ -121,6 +121,7 @@ Header.propTypes = {
   classes: PropTypes.object.isRequired,
   color: PropTypes.oneOf([
     "primary",
+    "secondary",
     "info",
     "success",
     "warning",
@@ -144,6 +145,7 @@ Header.propTypes = {
     height: PropTypes.number.isRequired,
     color: PropTypes.oneOf([
       "primary",
+      "secondary",
       "info",
       "success",
       "warning",
