@@ -58,7 +58,7 @@ class LandingPage extends React.Component {
                 </h4>
                 <br />
                 <Button
-                  color="info"
+                  color="primary"
                   size="lg"
                   href="#waitlisted"
                   target=""
