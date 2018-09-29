@@ -105,10 +105,10 @@ class Components extends React.Component {
 											<GridItem xs={12} sm={5} md={5}>
 												<form className={classes.form}>
 													<PlaidLink
-														clientName="Your app name"
+														clientName="WiseWallet"
 														env="sandbox"
 														product={["auth", "transactions"]}
-														publicKey="PLAID_PUBLIC_KEY"
+														publicKey="06812b585d6f3b0ebde352a7759bb1"
 														onExit={this.handleOnExit}
 														onSuccess={this.handleOnSuccess}
 													>
