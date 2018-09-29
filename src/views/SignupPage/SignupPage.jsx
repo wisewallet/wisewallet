@@ -1,22 +1,10 @@
 import React from "react";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import Checkbox from "@material-ui/core/Checkbox";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import Icon from "@material-ui/core/Icon";
-import Input from "@material-ui/core/Input";
 import TextField from "@material-ui/core/TextField";
 // @material-ui/icons
-import Timeline from "@material-ui/icons/Timeline";
-import Code from "@material-ui/icons/Code";
-import Group from "@material-ui/icons/Group";
-import Face from "@material-ui/icons/Face";
-import Email from "@material-ui/icons/Email";
-import Check from "@material-ui/icons/Check";
-import Favorite from "@material-ui/icons/Favorite";
 import InsertChart from "@material-ui/icons/InsertChart";
 import ListIcon from "@material-ui/icons/List";
 import Loyalty from "@material-ui/icons/Loyalty";
@@ -30,7 +18,6 @@ import Button from "components/CustomButtons/Button.jsx";
 import Card from "components/Card/Card.jsx";
 import CardBody from "components/Card/CardBody.jsx";
 import InfoArea from "components/InfoArea/InfoArea.jsx";
-import CustomInput from "components/CustomInput/CustomInput.jsx";
 
 import signupPageStyle from "assets/jss/material-kit-pro-react/views/signupPageStyle.jsx";
 
@@ -46,7 +33,6 @@ class Components extends React.Component {
 			lastName: ""
 		};
 		this.onSignUp = this.onSignUp.bind(this);
-		this;
 	}
 	componentDidMount() {
 		window.scrollTo(0, 0);
@@ -72,7 +58,7 @@ class Components extends React.Component {
 			})
 		})
 			.then(response => response.json())
-			.then(json => console.log(json));
+			.then(this.props.history.push('/login'));
 	}
 	render() {
 		const {classes, ...rest} = this.props;

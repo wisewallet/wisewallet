@@ -3,9 +3,7 @@ import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 
 // @material-ui/icons
-import Chat from "@material-ui/icons/Chat";
 import VerifiedUser from "@material-ui/icons/VerifiedUser";
-import Fingerprint from "@material-ui/icons/Fingerprint";
 import InsertChart from "@material-ui/icons/InsertChart";
 import List from "@material-ui/icons/List";
 import Loyalty from "@material-ui/icons/Loyalty";
@@ -15,7 +13,7 @@ import GridItem from "components/Grid/GridItem.jsx";
 import InfoArea from "components/InfoArea/InfoArea.jsx";
 
 import productStyle from "assets/jss/material-kit-pro-react/views/landingPageSections/productStyle.jsx";
-import plaid from "assets/img/plaid-logo-horizontal-RGB.png";
+//import plaid from "assets/img/plaid-logo-horizontal-RGB.png";
 
 class SectionProduct extends React.Component {
   render() {

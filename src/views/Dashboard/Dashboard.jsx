@@ -4,7 +4,6 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 // @material-ui/icons
-import InsertChart from "@material-ui/icons/InsertChart";
 // core components
 import Header from "components/Header/Header.jsx";
 import HeaderLinks from "components/Header/HeaderLinks.jsx";
@@ -13,9 +12,7 @@ import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import Card from "components/Card/Card.jsx";
 import CardBody from "components/Card/CardBody.jsx";
-import InfoArea from "components/InfoArea/InfoArea.jsx";
 import plaidLinkStyle from "assets/jss/material-kit-pro-react/views/plaidLinkStyle.jsx";
-import PlaidLink from "react-plaid-link";
 
 import image from "assets/img/bg7.jpg";
 
@@ -88,31 +85,9 @@ class Components extends React.Component {
 						<GridContainer justify="center">
 							<GridItem xs={12} sm={10} md={10}>
 								<Card className={classes.cardSignup}>
-									<h2 className={classes.cardTitle}>Link Your Bank Account</h2>
+									<h2 className={classes.cardTitle}>Dashboard</h2>
 									<CardBody>
-										<GridContainer justify="center">
-											<GridItem xs={12} sm={5} md={5}>
-												<InfoArea
-													className={classes.infoArea}
-													title="Personal Impact Score"
-													description="Get personal scores based on your impact on people, the planet, and policy through your transactions."
-													icon={InsertChart}
-													iconColor="info"
-												/>
-											</GridItem>
-											<GridItem xs={12} sm={5} md={5}>
-												<PlaidLink
-													clientName="WiseWallet"
-													env="sandbox"
-													product={["auth", "transactions"]}
-													publicKey="06812b585d6f3b0ebde352a7759bb1"
-													onExit={this.handleOnExit}
-													onSuccess={this.handleOnSuccess}
-												>
-													Open Link and connect your bank!
-												</PlaidLink>
-											</GridItem>
-										</GridContainer>
+
 									</CardBody>
 								</Card>
 							</GridItem>

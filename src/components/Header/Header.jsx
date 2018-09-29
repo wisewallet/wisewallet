@@ -71,7 +71,7 @@ class Header extends React.Component {
       <AppBar className={appBarClasses}>
         <Toolbar className={classes.container}>
           <Button className={classes.title}>
-          <img src={logo} style={{height: "auto", width: "50px"}}/>
+          <img src={logo} style={{height: "auto", width: "50px"}} alt={"WiseWallet"}/>
             <Link to="/">{brand}</Link>
           </Button>
           <Hidden smDown implementation="css" className={classes.hidden}>

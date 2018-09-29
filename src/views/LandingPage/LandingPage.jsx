@@ -3,10 +3,7 @@ import React from "react";
 import classNames from "classnames";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
 // @material-ui/icons
-import Favorite from "@material-ui/icons/Favorite";
 // core components
 import Header from "components/Header/Header.jsx";
 import Footer from "components/Footer/Footer.jsx";
@@ -20,8 +17,6 @@ import landingPageStyle from "assets/jss/material-kit-pro-react/views/landingPag
 
 // Sections for this page
 import SectionProduct from "./Sections/SectionProduct.jsx";
-import SectionTeam from "./Sections/SectionTeam.jsx";
-import SectionWork from "./Sections/SectionWork.jsx";
 
 const dashboardRoutes = [];
 
