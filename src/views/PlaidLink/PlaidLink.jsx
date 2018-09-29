@@ -103,18 +103,16 @@ class Components extends React.Component {
 												/>
 											</GridItem>
 											<GridItem xs={12} sm={5} md={5}>
-												<form className={classes.form}>
-													<PlaidLink
-														clientName="WiseWallet"
-														env="sandbox"
-														product={["auth", "transactions"]}
-														publicKey="06812b585d6f3b0ebde352a7759bb1"
-														onExit={this.handleOnExit}
-														onSuccess={this.handleOnSuccess}
-													>
-														Open Link and connect your bank!
-													</PlaidLink>
-												</form>
+												<PlaidLink
+													clientName="WiseWallet"
+													env="sandbox"
+													product={["auth", "transactions"]}
+													publicKey="06812b585d6f3b0ebde352a7759bb1"
+													onExit={this.handleOnExit}
+													onSuccess={this.handleOnSuccess}
+												>
+													Open Link and connect your bank!
+												</PlaidLink>
 											</GridItem>
 										</GridContainer>
 									</CardBody>
