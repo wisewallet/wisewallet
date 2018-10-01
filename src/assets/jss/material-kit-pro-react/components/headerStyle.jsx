@@ -74,8 +74,7 @@ const headerStyle = theme => ({
   },
   info: {
     backgroundColor: infoColor,
-    color: "#FFFFFF",
-    boxShadow:
+    color: "#FFFFFF"
   },
   success: {
     backgroundColor: successColor,
