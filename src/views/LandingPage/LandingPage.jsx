@@ -60,26 +60,19 @@ class LandingPage extends React.Component {
           <SectionProduct/>
         </div>
       </div>
-      <Footer theme="white" content={<div > <ul className={classes.socialButtons}>
-          <li>
-            <Button justIcon="justIcon" simple="simple" href="https://twitter.com/mywisewallet" color="twitter">
-              <i className="fab fa-twitter"/>
-            </Button>
-          </li>
-          <li>
-            <Button justIcon="justIcon" simple="simple" href="https://www.facebook.com/mywisewallet" color="facebook">
-              <i className="fab fa-facebook-square"/>
-            </Button>
-          </li>
-          <li>
-            <Button justIcon="justIcon" simple="simple" href="https://www.instagram.com/mywisewallet/" color="instagram">
-              <i className="fab fa-instagram"/>
-            </Button>
-          </li>
-        </ul>
+      <Footer theme="white" content={<div > <Button justIcon="justIcon" simple="simple" href="https://twitter.com/mywisewallet" color="twitter">
+          <i className="fab fa-twitter"/>
+        </Button>
+        <Button justIcon="justIcon" simple="simple" href="https://www.facebook.com/mywisewallet" color="facebook">
+          <i className="fab fa-facebook-square"/>
+        </Button>
+        <Button justIcon="justIcon" simple="simple" href="https://www.instagram.com/mywisewallet/" color="instagram">
+          <i className="fab fa-instagram"/>
+        </Button>
         <div className={classNames(classes.pullCenter, classes.copyRight)}>
           Copyright &copy; {1900 + new Date().getYear()}{" "}
-          <a href="http://www.mywisewallet.com">WiseWallet Inc. </a>
+          <a href="http://www.mywisewallet.com">WiseWallet Inc.
+          </a>
           All Rights Reserved.
         </div>
       </div>}></Footer>
