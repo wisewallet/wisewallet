@@ -87,12 +87,12 @@ function HeaderLinks({
   const {classes, dropdownHoverColor} = props;
   return (<List className={classes.list + " " + classes.mlAuto}>
     <ListItem className={classes.listItem} style={{
-        margin: 30
+        marginRight: 30
       }}>
       <Button href="https://medium.com/@wisewallet" color={window.innerWidth < 960
           ? "primary"
           : "white"} target="" className={classes.navButton} round="round" style={{
-          margin: 30
+          marginRight: 30
         }}>
         Blog
       </Button>
