@@ -21,7 +21,7 @@ import InfoArea from "components/InfoArea/InfoArea.jsx";
 
 import signupPageStyle from "assets/jss/material-kit-pro-react/views/signupPageStyle.jsx";
 
-import image from "assets/img/bg7.jpg";
+import image from "assets/img/bg8.jpg";
 
 class Components extends React.Component {
 	constructor(props) {
