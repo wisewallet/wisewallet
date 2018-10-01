@@ -97,6 +97,17 @@ function HeaderLinks({ ...props }) {
           Log In
         </Button>
       </ListItem>
+      <ListItem className={classes.listItem}>
+        <Button
+          href="https://medium.com/@wisewallet"
+          color={window.innerWidth < 960 ? "primary" : "white"}
+          target=""
+          className={classes.navButton}
+          round
+        >
+          Blog
+        </Button>
+      </ListItem>
     </List>
   );
 }
