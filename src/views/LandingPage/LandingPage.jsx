@@ -26,6 +26,8 @@ class LandingPage extends React.Component {
     document.body.scrollTop = 0;
     ReactGA.initialize('UA-125368215-1');
     ReactGA.pageview(window.location.pathname + window.location.search);
+    sessionStorage.setItem('myData', 100);
+    console.log(sessionStorage.getItem('myData'));
   }
   render() {
     const {
@@ -80,8 +82,7 @@ class LandingPage extends React.Component {
           <a href="http://www.mywisewallet.com">WiseWallet</a>
           All Rights Reserved.
         </div>
-      </div>}>
-      </Footer>
+      </div>}></Footer>
     </div>);
   }
 }

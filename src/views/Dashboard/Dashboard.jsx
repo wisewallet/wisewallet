@@ -64,13 +64,16 @@ class Components extends React.Component {
 	}
 	render() {
 		const {classes, ...rest} = this.props;
+		var test = sessionStorage.getItem("myData");
+		if (test == null) {
+			test = "yes";
+		}
 		return (
 			<div>
 				<Header
 					absolute="absolute"
 					color="transparent"
 					brand="WiseWallet"
-					links={<HeaderLinks dropdownHoverColor="rose" />}
 					{...rest}
 				/>
 				<div
@@ -85,10 +88,8 @@ class Components extends React.Component {
 						<GridContainer justify="center">
 							<GridItem xs={12} sm={10} md={10}>
 								<Card className={classes.cardSignup}>
-									<h2 className={classes.cardTitle}>Dashboard</h2>
-									<CardBody>
-
-									</CardBody>
+									<h2 className={classes.cardTitle}>{test}</h2>
+									<CardBody />
 								</Card>
 							</GridItem>
 						</GridContainer>
