@@ -3,7 +3,7 @@ import React from "react";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
 // react components for routing our app without refresh
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
@@ -43,19 +43,20 @@ import Button from "components/CustomButtons/Button.jsx";
 
 import headerLinksStyle from "assets/jss/material-kit-pro-react/components/headerLinksStyle.jsx";
 
-function HeaderLinks({ ...props }) {
+function HeaderLinks({
+  ...props
+}) {
   const easeInOutQuad = (t, b, c, d) => {
     t /= d / 2;
-    if (t < 1) return c / 2 * t * t + b;
+    if (t < 1)
+      return c / 2 * t * t + b;
     t--;
     return -c / 2 * (t * (t - 2) - 1) + b;
   };
 
   const smoothScroll = (e, target) => {
     if (window.location.pathname === "/sections") {
-      var isMobile = navigator.userAgent.match(
-        /(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i
-      );
+      var isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
       if (isMobile) {
         // if we are on mobile device the scroll into view will be managed by the browser
       } else {
@@ -83,34 +84,27 @@ function HeaderLinks({ ...props }) {
   };
   var onClickSections = {};
 
-  const { classes, dropdownHoverColor } = props;
-  return (
-    <List className={classes.list + " " + classes.mlAuto}>
-      <ListItem className={classes.listItem}>
-        <Button
-          href="https://medium.com/@wisewallet"
-          color={window.innerWidth < 960 ? "primary" : "white"}
-          target=""
-          className={classes.navButton}
-          round
-          style={{marginRight: '30px;'}}
-        >
-          Blog
-        </Button>
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        <Button
-          href="http://mywisewallet.com/login"
-          color={window.innerWidth < 960 ? "primary" : "white"}
-          target=""
-          className={classes.navButton}
-          round
-        >
-          Log In
-        </Button>
-      </ListItem>
-    </List>
-  );
+  const {classes, dropdownHoverColor} = props;
+  return (<List className={classes.list + " " + classes.mlAuto}>
+    <ListItem className={classes.listItem} style={{
+        margin: 30
+      }}>
+      <Button href="https://medium.com/@wisewallet" color={window.innerWidth < 960
+          ? "primary"
+          : "white"} target="" className={classes.navButton} round="round" style={{
+          margin: 30
+        }}>
+        Blog
+      </Button>
+    </ListItem>
+    <ListItem className={classes.listItem}>
+      <Button href="http://mywisewallet.com/login" color={window.innerWidth < 960
+          ? "primary"
+          : "white"} target="" className={classes.navButton} round="round">
+        Log In
+      </Button>
+    </ListItem>
+  </List>);
 }
 
 HeaderLinks.defaultProps = {
