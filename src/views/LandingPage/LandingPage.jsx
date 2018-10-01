@@ -71,9 +71,8 @@ class LandingPage extends React.Component {
         </Button>
         <div className={classNames(classes.pullCenter, classes.copyRight)}>
           Copyright &copy; {1900 + new Date().getYear()}{" "}
-          <a href="http://www.mywisewallet.com">WiseWallet Inc. 
-          </a>
-          All Rights Reserved.
+          <a href="http://www.mywisewallet.com">WiseWallet Inc. </a>
+           All Rights Reserved.
         </div>
       </div>}></Footer>
     </div>);
