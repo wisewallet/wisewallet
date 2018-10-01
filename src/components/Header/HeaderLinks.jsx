@@ -88,6 +88,18 @@ function HeaderLinks({ ...props }) {
     <List className={classes.list + " " + classes.mlAuto}>
       <ListItem className={classes.listItem}>
         <Button
+          href="https://medium.com/@wisewallet"
+          color={window.innerWidth < 960 ? "primary" : "white"}
+          target=""
+          className={classes.navButton}
+          round
+          style={margin-right: '30px;'}
+        >
+          Blog
+        </Button>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <Button
           href="http://mywisewallet.com/login"
           color={window.innerWidth < 960 ? "primary" : "white"}
           target=""
@@ -95,17 +107,6 @@ function HeaderLinks({ ...props }) {
           round
         >
           Log In
-        </Button>
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        <Button
-          href="https://medium.com/@wisewallet"
-          color={window.innerWidth < 960 ? "primary" : "white"}
-          target=""
-          className={classes.navButton}
-          round
-        >
-          Blog
         </Button>
       </ListItem>
     </List>
