@@ -93,7 +93,7 @@ function HeaderLinks({ ...props }) {
           target=""
           className={classes.navButton}
           round
-          style={marginRight: '30px;'}
+          style={{marginRight: '30px;'}
         >
           Blog
         </Button>
