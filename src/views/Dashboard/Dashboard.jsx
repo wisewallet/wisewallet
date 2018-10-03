@@ -21,11 +21,11 @@ class Components extends React.Component {
 		super(props);
 		this.state = {
 			email: "",
+			userID: "",
 			password: "",
 			firstName: "",
 			lastName: ""
 		};
-		this.onSignUp = this.onSignUp.bind(this);
 	}
 	componentDidMount() {
 		window.scrollTo(0, 0);
@@ -36,26 +36,6 @@ class Components extends React.Component {
 			[name]: event.target.value
 		});
 	};
-	onSignUp() {
-		const {email, password, firstName, lastName} = this.state;
-		fetch(
-			"https://tldpv6umn7.execute-api.us-east-1.amazonaws.com/default/signUp",
-			{
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json"
-				},
-				body: JSON.stringify({
-					email: email,
-					lastName: lastName,
-					password: password,
-					firstName: firstName
-				})
-			}
-		)
-			.then(response => response.json())
-			.then(json => console.log(json));
-	}
 	handleOnSuccess(token, metadata) {
 		// send token to client server
 	}
@@ -64,9 +44,9 @@ class Components extends React.Component {
 	}
 	render() {
 		const {classes, ...rest} = this.props;
-		var test = sessionStorage.getItem("myData");
-		if (test == null) {
-			test = "yes";
+		var userID = sessionStorage.getItem("userID");
+		if (userID == null) {
+			userID = "yes";
 		}
 		return (
 			<div>
@@ -88,7 +68,7 @@ class Components extends React.Component {
 						<GridContainer justify="center">
 							<GridItem xs={12} sm={10} md={10}>
 								<Card className={classes.cardSignup}>
-									<h2 className={classes.cardTitle}>{test}</h2>
+									<h2 className={classes.cardTitle}>{userID}</h2>
 									<CardBody />
 								</Card>
 							</GridItem>

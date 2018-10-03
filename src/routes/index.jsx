@@ -7,7 +7,7 @@ import Dashboard from "views/Dashboard/Dashboard.jsx";
 var indexRoutes = [
 	{path: "/login", name: "Login", component: LoginPage},
 	{path: "/signup", name: "WiseWallet", component: SignupPage},
-	{path: "/plaidlink", name: "WiseWallet", component: PlaidLink},
+	{path: "/link", name: "WiseWallet", component: PlaidLink},
 	{path: "/dashboard", name: "WiseWallet", component: Dashboard},
 	{path: "/", name: "WiseWallet", component: LandingPage}
 ];

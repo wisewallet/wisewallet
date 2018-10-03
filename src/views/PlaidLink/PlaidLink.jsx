@@ -4,16 +4,13 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 // @material-ui/icons
-import InsertChart from "@material-ui/icons/InsertChart";
 // core components
 import Header from "components/Header/Header.jsx";
-import HeaderLinks from "components/Header/HeaderLinks.jsx";
 import Footer from "components/Footer/Footer.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import Card from "components/Card/Card.jsx";
 import CardBody from "components/Card/CardBody.jsx";
-import InfoArea from "components/InfoArea/InfoArea.jsx";
 import plaidLinkStyle from "assets/jss/material-kit-pro-react/views/plaidLinkStyle.jsx";
 import PlaidLink from "react-plaid-link";
 
@@ -26,13 +23,18 @@ class Components extends React.Component {
 			email: "",
 			password: "",
 			firstName: "",
-			lastName: ""
+			lastName: "",
+			userID: ""
 		};
 		this.onSignUp = this.onSignUp.bind(this);
 	}
 	componentDidMount() {
 		window.scrollTo(0, 0);
 		document.body.scrollTop = 0;
+		var userID = sessionStorage.getItem("userID");
+		this.setState({
+			userID: userID
+		});
 	}
 	handleChange = name => event => {
 		this.setState({
@@ -60,7 +62,7 @@ class Components extends React.Component {
 			.then(json => console.log(json));
 	}
 	handleOnSuccess(token, metadata) {
-		// send token to client server
+		console.log("Plaid Token: " + token);
 	}
 	handleOnExit() {
 		// handle the case when your user exits Link
@@ -73,7 +75,6 @@ class Components extends React.Component {
 					absolute="absolute"
 					color="transparent"
 					brand="WiseWallet"
-					links={<HeaderLinks dropdownHoverColor="rose" />}
 					{...rest}
 				/>
 				<div
@@ -86,20 +87,11 @@ class Components extends React.Component {
 				>
 					<div className={classes.container}>
 						<GridContainer justify="center">
-							<GridItem xs={12} sm={10} md={10}>
+							<GridItem xs={12} sm={6} md={6}>
 								<Card className={classes.cardSignup}>
 									<h2 className={classes.cardTitle}>Link Your Bank Account</h2>
 									<CardBody>
 										<GridContainer justify="center">
-											<GridItem xs={12} sm={5} md={5}>
-												<InfoArea
-													className={classes.infoArea}
-													title="Personal Impact Score"
-													description="Get personal scores based on your impact on people, the planet, and policy through your transactions."
-													icon={InsertChart}
-													iconColor="info"
-												/>
-											</GridItem>
 											<GridItem xs={12} sm={5} md={5}>
 												<PlaidLink
 													clientName="WiseWallet"
