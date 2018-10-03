@@ -65,6 +65,7 @@ class LoginPage extends React.Component {
           <GridContainer justify="center">
             <GridItem xs={12} sm={12} md={4}>
               <Card>
+                <center>
                 <form className={classes.form}>
                   <CardHeader color="info" className={classes.cardHeader}>
                     <h4 className={classes.cardTitle}>Login</h4>
@@ -79,6 +80,7 @@ class LoginPage extends React.Component {
                     </Button>
                   </div>
                 </form>
+                </center>
               </Card>
             </GridItem>
           </GridContainer>
