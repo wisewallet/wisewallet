@@ -46,7 +46,7 @@ class Components extends React.Component {
 		const {classes, ...rest} = this.props;
 		var userID = sessionStorage.getItem("userID");
 		if (userID == null) {
-			userID = "yes";
+			return <Redirect to='/login'  />
 		}
 		return (
 			<div>
