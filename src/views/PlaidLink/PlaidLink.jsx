@@ -13,6 +13,7 @@ import Card from "components/Card/Card.jsx";
 import CardBody from "components/Card/CardBody.jsx";
 import plaidLinkStyle from "assets/jss/material-kit-pro-react/views/plaidLinkStyle.jsx";
 import PlaidLink from "react-plaid-link";
+import { Redirect } from 'react-router';
 
 import image from "assets/img/bg7.jpg";
 
@@ -63,7 +64,7 @@ class Components extends React.Component {
 	}
 	handleOnSuccess(token, metadata) {
 		console.log("Plaid Token: " + token);
-		this.props.history.push('/dashboard');
+		return <Redirect to='/dashboard'  />
 	}
 	handleOnExit() {
 		// handle the case when your user exits Link
