@@ -63,8 +63,7 @@ class Components extends React.Component {
 			.then(json => console.log(json));
 	}
 	handleOnSuccess(token, metadata) {
-		console.log("Plaid Token: " + token);
-		return (<Redirect to='/dashboard'  />);
+		console.log("Plaid Token: " + token).then(this.props.history.push('/'));
 	}
 	handleOnExit() {
 		// handle the case when your user exits Link
