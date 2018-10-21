@@ -1,105 +1,205 @@
 import React from "react";
+// nodejs library that concatenates classes
+import classNames from "classnames";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
+import LinearProgress from '@material-ui/core/LinearProgress';
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-// @material-ui/icons
 // core components
 import Header from "components/Header/Header.jsx";
 import HeaderLinks from "components/Header/HeaderLinks.jsx";
+import Parallax from "components/Parallax/Parallax.jsx";
 import Footer from "components/Footer/Footer.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
-import Card from "components/Card/Card.jsx";
-import CardBody from "components/Card/CardBody.jsx";
-import plaidLinkStyle from "assets/jss/material-kit-pro-react/views/plaidLinkStyle.jsx";
-import { Redirect } from 'react-router';
-import image from "assets/img/bg7.jpg";
+import Button from "components/CustomButtons/Button.jsx";
+// sections for this page
+import SectionDescription from "views/PresentationPage/Sections/SectionDescription.jsx";
+import SectionComponents from "views/PresentationPage/Sections/SectionComponents.jsx";
+import SectionCards from "views/PresentationPage/Sections/SectionCards.jsx";
+import SectionContent from "views/PresentationPage/Sections/SectionContent.jsx";
+import SectionSections from "views/PresentationPage/Sections/SectionSections.jsx";
+import SectionExamples from "views/PresentationPage/Sections/SectionExamples.jsx";
+import SectionFreeDemo from "views/PresentationPage/Sections/SectionFreeDemo.jsx";
+import SectionOverview from "views/PresentationPage/Sections/SectionOverview.jsx";
+import SectionPricing from "views/PresentationPage/Sections/SectionPricing.jsx";
+import profile from "assets/img/profile_placeholder.png";
+import CustomLinearProgress from "components/CustomLinearProgress/CustomLinearProgress.jsx";
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
 
-class Components extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			email: "",
-			userID: "",
-			password: "",
-			firstName: "",
-			lastName: ""
-		};
-	}
-	componentDidMount() {
-		window.scrollTo(0, 0);
-		document.body.scrollTop = 0;
-	}
-	handleChange = name => event => {
-		this.setState({
-			[name]: event.target.value
-		});
-	};
-	handleOnSuccess(token, metadata) {
-		// send token to client server
-	}
-	handleOnExit() {
-		// handle the case when your user exits Link
-	}
-	render() {
-		const {classes, ...rest} = this.props;
-		var userID = sessionStorage.getItem("userID");
-		if (userID == null) {
-			return <Redirect to='/login'  />
-		}
-		return (
-			<div>
-				<Header
-					absolute="absolute"
-					color="transparent"
-					brand="WiseWallet"
-					{...rest}
-				/>
-				<div
-					className={classes.pageHeader}
-					style={{
-						backgroundImage: "url(" + image + ")",
-						backgroundSize: "cover",
-						backgroundPosition: "top center"
-					}}
-				>
-					<div className={classes.container}>
-						<GridContainer justify="center">
-							<GridItem xs={12} sm={10} md={10}>
-								<Card className={classes.cardSignup}>
-									<h2 className={classes.cardTitle}>{userID}</h2>
-									<CardBody />
-								</Card>
-							</GridItem>
-						</GridContainer>
-					</div>
-					<Footer
-						content={
-							<div>
-								{" "}
-								<div className={classes.left}>
-									<List className={classes.list}>
-										<ListItem className={classes.inlineBlock}>
-											<a
-												href="https://medium.com/@wisewallet"
-												className={classes.block}
-											>
-												Blog
-											</a>
-										</ListItem>
-									</List>
-								</div>
-								<div className={classes.right}>
-									WiseWallet, Inc. &copy; 2018 All Rights Reserved.
-								</div>
-							</div>
-						}
-					/>
-				</div>
-			</div>
-		);
-	}
+import plaidLinkStyle from "assets/jss/material-kit-pro-react/views/plaidLinkStyle.jsx";
+import {Redirect} from 'react-router';
+import Card from "components/Card/Card.jsx";
+import CardHeader from "components/Card/CardHeader.jsx";
+import CardBody from "components/Card/CardBody.jsx";
+import CardFooter from "components/Card/CardFooter.jsx";
+class Dashboard extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: "",
+      userID: "",
+      password: "",
+      firstName: "",
+      lastName: ""
+    };
+  }
+  componentDidMount() {
+    window.scrollTo(0, 0);
+    document.body.scrollTop = 0;
+  }
+  render() {
+    const {classes} = this.props;
+    var userID = sessionStorage.getItem("userID");
+    if (userID == null) {
+      return <Redirect to='/login'/>
+    }
+    return (<div style={{
+        width: "100%",
+        height: "100%",
+        position: "absolute"
+      }}>
+      <div style={{
+          background: "blue",
+          color: "blue",
+          width: "25%",
+          height: "100%",
+          position: "relative",
+          float: "left"
+        }}>
+        <img src={profile} style={{
+            width: "auto",
+            height: "30%",
+            marginTop: "50px",
+            marginLeft: "17%"
+          }}/>
+      </div>
+      <h2 style={{
+          paddingLeft: "30%",
+          position: "relative"
+        }}>People</h2>
+      <LinearProgress variant="determinate" color="primary" value={80} style={{
+          width: "65%",
+          height: "10px",
+          float: "left",
+          marginLeft: "5%"
+        }}/>
+      <h2 style={{
+          paddingLeft: "30%",
+          position: "relative",
+          marginTop: "35px"
+        }}>Planet</h2>
+      <LinearProgress variant="determinate" color="primary" value={70} style={{
+          width: "65%",
+          height: "10px",
+          float: "left",
+          marginLeft: "5%"
+        }}/>
+      <h2 style={{
+          paddingLeft: "30%",
+          position: "relative",
+          marginTop: "35px"
+        }}>Policy</h2>
+      <LinearProgress variant="determinate" color="primary" value={75} style={{
+          width: "65%",
+          height: "10px",
+          float: "left",
+          marginLeft: "5%"
+        }}/>
+      <Card color="info" style={{
+          width: "65%",
+          marginLeft: "5%",
+          float: "left"
+        }}>
+        <CardBody color="color">
+          <Table className={classes.table} style={{
+              width: "90%"
+            }}>
+            <TableHead>
+              <TableRow>
+                <TableCell>Company</TableCell>
+                <TableCell numeric="numeric">Date</TableCell>
+                <TableCell numeric="numeric">People</TableCell>
+                <TableCell numeric="numeric">Planet</TableCell>
+                <TableCell numeric="numeric">Policy</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              <TableRow key={1}>
+                <TableCell component="th" scope="row">
+                  {"Transaction 1"}
+                </TableCell>
+                <TableCell string="string">{"October 15, 2018"}</TableCell>
+                <TableCell numeric="numeric">{80}</TableCell>
+                <TableCell numeric="numeric">{75}</TableCell>
+                <TableCell numeric="numeric">{70}</TableCell>
+              </TableRow>
+              <TableRow key={1}>
+                <TableCell component="th" scope="row">
+                  {"Transaction 1"}
+                </TableCell>
+                <TableCell string="string">{"October 15, 2018"}</TableCell>
+                <TableCell numeric="numeric">{80}</TableCell>
+                <TableCell numeric="numeric">{75}</TableCell>
+                <TableCell numeric="numeric">{70}</TableCell>
+              </TableRow>
+              <TableRow key={1}>
+                <TableCell component="th" scope="row">
+                  {"Transaction 1"}
+                </TableCell>
+                <TableCell string="string">{"October 15, 2018"}</TableCell>
+                <TableCell numeric="numeric">{80}</TableCell>
+                <TableCell numeric="numeric">{75}</TableCell>
+                <TableCell numeric="numeric">{70}</TableCell>
+              </TableRow>
+              <TableRow key={1}>
+                <TableCell component="th" scope="row">
+                  {"Transaction 1"}
+                </TableCell>
+                <TableCell string="string">{"October 15, 2018"}</TableCell>
+                <TableCell numeric="numeric">{80}</TableCell>
+                <TableCell numeric="numeric">{75}</TableCell>
+                <TableCell numeric="numeric">{70}</TableCell>
+              </TableRow>
+              <TableRow key={1}>
+                <TableCell component="th" scope="row">
+                  {"Transaction 1"}
+                </TableCell>
+                <TableCell string="string">{"October 15, 2018"}</TableCell>
+                <TableCell numeric="numeric">{80}</TableCell>
+                <TableCell numeric="numeric">{75}</TableCell>
+                <TableCell numeric="numeric">{70}</TableCell>
+              </TableRow>
+              <TableRow key={1}>
+                <TableCell component="th" scope="row">
+                  {"Transaction 1"}
+                </TableCell>
+                <TableCell string="string">{"October 15, 2018"}</TableCell>
+                <TableCell numeric="numeric">{80}</TableCell>
+                <TableCell numeric="numeric">{75}</TableCell>
+                <TableCell numeric="numeric">{70}</TableCell>
+              </TableRow>
+              <TableRow key={1}>
+                <TableCell component="th" scope="row">
+                  {"Transaction 1"}
+                </TableCell>
+                <TableCell string="string">{"October 15, 2018"}</TableCell>
+                <TableCell numeric="numeric">{80}</TableCell>
+                <TableCell numeric="numeric">{75}</TableCell>
+                <TableCell numeric="numeric">{70}</TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
+        </CardBody>
+      </Card>
+
+    </div>);
+  }
 }
 
 export default withStyles(plaidLinkStyle)(Components);
