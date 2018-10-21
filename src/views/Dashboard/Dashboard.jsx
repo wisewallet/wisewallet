@@ -17,15 +17,6 @@ import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import Button from "components/CustomButtons/Button.jsx";
 // sections for this page
-import SectionDescription from "views/PresentationPage/Sections/SectionDescription.jsx";
-import SectionComponents from "views/PresentationPage/Sections/SectionComponents.jsx";
-import SectionCards from "views/PresentationPage/Sections/SectionCards.jsx";
-import SectionContent from "views/PresentationPage/Sections/SectionContent.jsx";
-import SectionSections from "views/PresentationPage/Sections/SectionSections.jsx";
-import SectionExamples from "views/PresentationPage/Sections/SectionExamples.jsx";
-import SectionFreeDemo from "views/PresentationPage/Sections/SectionFreeDemo.jsx";
-import SectionOverview from "views/PresentationPage/Sections/SectionOverview.jsx";
-import SectionPricing from "views/PresentationPage/Sections/SectionPricing.jsx";
 import profile from "assets/img/profile_placeholder.png";
 import CustomLinearProgress from "components/CustomLinearProgress/CustomLinearProgress.jsx";
 import Table from '@material-ui/core/Table';
