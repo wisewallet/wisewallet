@@ -64,7 +64,7 @@ class Components extends React.Component {
 	}
 	handleOnSuccess(token, metadata) {
 		console.log("Plaid Token: " + token);
-		this.props.history.push('/');
+		return (<Redirect to='/login'  />);
 	}
 	handleOnExit() {
 		// handle the case when your user exits Link
@@ -101,7 +101,7 @@ class Components extends React.Component {
 													product={["auth", "transactions"]}
 													publicKey="06812b585d6f3b0ebde352a7759bb1"
 													onExit={this.handleOnExit}
-													onSuccess={this.props.history.push('/dashboard')}
+													onSuccess={this.handleOnSuccess}
 												>
 													Open Link and connect your bank!
 												</PlaidLink>
