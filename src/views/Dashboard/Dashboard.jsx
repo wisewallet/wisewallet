@@ -13,7 +13,7 @@ import GridItem from "components/Grid/GridItem.jsx";
 import Card from "components/Card/Card.jsx";
 import CardBody from "components/Card/CardBody.jsx";
 import plaidLinkStyle from "assets/jss/material-kit-pro-react/views/plaidLinkStyle.jsx";
-
+import { Redirect } from 'react-router';
 import image from "assets/img/bg7.jpg";
 
 class Components extends React.Component {
