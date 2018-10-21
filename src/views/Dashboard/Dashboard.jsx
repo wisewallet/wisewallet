@@ -31,7 +31,6 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-
 import plaidLinkStyle from "assets/jss/material-kit-pro-react/views/plaidLinkStyle.jsx";
 import {Redirect} from 'react-router';
 import Card from "components/Card/Card.jsx";
@@ -202,4 +201,4 @@ class Dashboard extends React.Component {
   }
 }
 
-export default withStyles(plaidLinkStyle)(Components);
+export default withStyles(plaidLinkStyle)(Dashboard);
