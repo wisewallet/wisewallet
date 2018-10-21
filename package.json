@@ -17,6 +17,8 @@
     "prop-types": "15.6.2",
     "react": "16.4.2",
     "react-animate-on-scroll": "2.1.5",
+
+    "react-chartist": "0.13.1",
     "react-datetime": "2.15.0",
     "react-dom": "16.4.2",
     "react-ga": "2.5.3",

@@ -1,11 +1,13 @@
 import React from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
+import ChartistGraph from "react-chartist";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import LinearProgress from '@material-ui/core/LinearProgress';
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
+import Tooltip from "@material-ui/core/Tooltip";
 // core components
 import Header from "components/Header/Header.jsx";
 import HeaderLinks from "components/Header/HeaderLinks.jsx";
@@ -31,7 +33,7 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import plaidLinkStyle from "assets/jss/material-kit-pro-react/views/plaidLinkStyle.jsx";
+import dashboardStyle from "assets/jss/material-kit-pro-react/views/dashboardStyle.jsx";
 import {Redirect} from 'react-router';
 import Card from "components/Card/Card.jsx";
 import CardHeader from "components/Card/CardHeader.jsx";
@@ -77,6 +79,47 @@ class Dashboard extends React.Component {
             marginTop: "50px",
             marginLeft: "17%"
           }}/>
+        <GridContainer>
+          <GridItem xs={12} sm={12} md={4}>
+            <Card chart="chart" className={classes.cardHover}>
+              <CardHeader color="info" className={classes.cardHeaderHover}>
+                <ChartistGraph className="ct-chart-white-colors" data={dailySalesChart.data} type="Line" options={dailySalesChart.options} listener={dailySalesChart.animation}/>
+              </CardHeader>
+              <CardBody>
+                <div className={classes.cardHoverUnder}>
+                  <Tooltip id="tooltip-top" title="Refresh" placement="bottom" classes={{
+                      tooltip: classes.tooltip
+                    }}>
+                    <Button simple="simple" color="info" justIcon="justIcon">
+                      <Refresh className={classes.underChartIcons}/>
+                    </Button>
+                  </Tooltip>
+                  <Tooltip id="tooltip-top" title="Change Date" placement="bottom" classes={{
+                      tooltip: classes.tooltip
+                    }}>
+                    <Button color="transparent" simple="simple" justIcon="justIcon">
+                      <Edit className={classes.underChartIcons}/>
+                    </Button>
+                  </Tooltip>
+                </div>
+                <h4 className={classes.cardTitle}>Daily Sales</h4>
+                <p className={classes.cardCategory}>
+                  <span className={classes.successText}>
+                    <ArrowUpward className={classes.upArrowCardCategory}/>
+                    55%
+                  </span>{" "}
+                  increase in today sales.
+                </p>
+              </CardBody>
+              <CardFooter chart="chart">
+                <div className={classes.stats}>
+                  <AccessTime/>
+                  updated 4 minutes ago
+                </div>
+              </CardFooter>
+            </Card>
+          </GridItem>
+        </GridContainer>
       </div>
       <h2 style={{
           paddingLeft: "30%",
@@ -201,4 +244,4 @@ class Dashboard extends React.Component {
   }
 }
 
-export default withStyles(plaidLinkStyle)(Dashboard);
+export default withStyles(dashboardStyle)(Dashboard);
