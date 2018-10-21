@@ -63,6 +63,7 @@ class Components extends React.Component {
 	}
 	handleOnSuccess(token, metadata) {
 		console.log("Plaid Token: " + token);
+		this.props.history.push('/login');
 	}
 	handleOnExit() {
 		// handle the case when your user exits Link
