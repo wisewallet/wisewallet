@@ -28,6 +28,7 @@ class Components extends React.Component {
 			userID: ""
 		};
 		this.onSignUp = this.onSignUp.bind(this);
+		this.handleOnSuccess = this.handleOnSuccess.bind(this);
 	}
 	componentDidMount() {
 		window.scrollTo(0, 0);
@@ -64,7 +65,7 @@ class Components extends React.Component {
 	}
 	handleOnSuccess(token, metadata) {
 		console.log("Plaid Token: " + token);
-		return (<Redirect to='/login'  />);
+		this.props.history.push('/dashboard');
 	}
 	handleOnExit() {
 		// handle the case when your user exits Link
