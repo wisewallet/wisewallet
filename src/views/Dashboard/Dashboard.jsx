@@ -136,7 +136,7 @@ class Dashboard extends React.Component {
             marginLeft: "17%"
           }}/>
         <GridContainer>
-          <GridItem xs={12} sm={12} md={4}>
+          <GridItem xs={12} sm={12} md={12}>
             <Card chart="chart" className={classes.cardHover}>
               <CardHeader color="info" className={classes.cardHeaderHover}>
                 <ChartistGraph className="ct-chart-white-colors" data={dailySalesChart.data} type="Line" options={dailySalesChart.options} listener={dailySalesChart.animation}/>
