@@ -77,36 +77,9 @@ class Dashboard extends React.Component {
                 <ChartistGraph className="ct-chart-white-colors" data={dailySalesChart.data} type="Line" options={dailySalesChart.options} listener={dailySalesChart.animation}/>
               </CardHeader>
               <CardBody>
-                <div className={classes.cardHoverUnder}>
-                  <Tooltip id="tooltip-top" title="Refresh" placement="bottom" classes={{
-                      tooltip: classes.tooltip
-                    }}>
-                    <Button simple="simple" color="info" justIcon="justIcon">
-                      <Refresh className={classes.underChartIcons}/>
-                    </Button>
-                  </Tooltip>
-                  <Tooltip id="tooltip-top" title="Change Date" placement="bottom" classes={{
-                      tooltip: classes.tooltip
-                    }}>
-                    <Button color="transparent" simple="simple" justIcon="justIcon">
-                      <Edit className={classes.underChartIcons}/>
-                    </Button>
-                  </Tooltip>
-                </div>
-                <h4 className={classes.cardTitle}>Daily Sales</h4>
-                <p className={classes.cardCategory}>
-                  <span className={classes.successText}>
-                    <ArrowUpward className={classes.upArrowCardCategory}/>
-                    55%
-                  </span>{" "}
-                  increase in today sales.
-                </p>
+                <h4 className={classes.cardTitle}>Your Score History</h4>
               </CardBody>
               <CardFooter chart="chart">
-                <div className={classes.stats}>
-                  <AccessTime/>
-                  updated 4 minutes ago
-                </div>
               </CardFooter>
             </Card>
           </GridItem>
