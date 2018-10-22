@@ -128,10 +128,7 @@ const cardStyle = {
     color: "#FFFFFF"
   },
   info: {
-    background: "linear-gradient(60deg,#26c6da,#0097a7)",
-    "& h1 small": {
-      color: "rgba(255, 255, 255, 0.8)"
-    },
+    background: "#6bafe0",
     color: "#FFFFFF"
   },
   success: {
