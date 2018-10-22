@@ -30,6 +30,68 @@ import Card from "components/Card/Card.jsx";
 import CardHeader from "components/Card/CardHeader.jsx";
 import CardBody from "components/Card/CardBody.jsx";
 import CardFooter from "components/Card/CardFooter.jsx";
+
+const dailySalesChart = {
+  data: {
+    labels: [
+      "M",
+      "T",
+      "W",
+      "T",
+      "F",
+      "S",
+      "S"
+    ],
+    series: [
+      [
+        12,
+        17,
+        7,
+        17,
+        23,
+        18,
+        38
+      ]
+    ]
+  },
+  options: {
+    lineSmooth: Chartist.Interpolation.cardinal({tension: 0}),
+    low: 0,
+    high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
+    chartPadding: {
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0
+    }
+  },
+  // for animation
+  animation: {
+    draw: function(data) {
+      if (data.type === "line" || data.type === "area") {
+        data.element.animate({
+          d: {
+            begin: 600,
+            dur: 700,
+            from: data.path.clone().scale(1, 0).translate(0, data.chartRect.height()).stringify(),
+            to: data.path.clone().stringify(),
+            easing: Chartist.Svg.Easing.easeOutQuint
+          }
+        });
+      } else if (data.type === "point") {
+        data.element.animate({
+          opacity: {
+            begin: (data.index + 1) * delays,
+            dur: durations,
+            from: 0,
+            to: 1,
+            easing: "ease"
+          }
+        });
+      }
+    }
+  }
+};
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
@@ -79,8 +141,7 @@ class Dashboard extends React.Component {
               <CardBody>
                 <h4 className={classes.cardTitle}>Your Score History</h4>
               </CardBody>
-              <CardFooter chart="chart">
-              </CardFooter>
+              <CardFooter chart="chart"></CardFooter>
             </Card>
           </GridItem>
         </GridContainer>
