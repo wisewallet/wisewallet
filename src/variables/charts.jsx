@@ -198,9 +198,9 @@ const roundedLineChart = {
     series: [[12, 17, 7, 17, 23, 18, 38]]
   },
   options: {
-    lineSmooth: Chartist.Interpolation.cardinal({
+    /*lineSmooth: Chartist.Interpolation.cardinal({
       tension: 10
-    }),
+    }),*/
     axisX: {
       showGrid: false
     },
