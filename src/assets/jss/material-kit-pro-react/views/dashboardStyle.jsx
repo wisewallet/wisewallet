@@ -1,79 +1,154 @@
-import { container, cardTitle } from "assets/jss/material-kit-pro-react.jsx";
+import {
+  container,
+  mlAuto,
+  section,
+  main,
+  mainRaised,
+  title,
+  cardTitle,
+  roseColor
+} from "assets/jss/material-kit-pro-react.jsx";
 
-import customCheckboxRadioSwitchStyle from "assets/jss/material-kit-pro-react/customCheckboxRadioSwitchStyle.jsx";
+import tooltipsStyle from "assets/jss/material-kit-pro-react/tooltipsStyle.jsx";
+import imagesStyles from "assets/jss/material-kit-pro-react/imagesStyles.jsx";
+import customSelectStyle from "assets/jss/material-kit-pro-react/customSelectStyle.jsx";
 
-const plaidLinkStyle = {
+const dashboardStyle = {
+  mlAuto,
+  main,
+  ...imagesStyles,
+  ...customSelectStyle,
+  ...tooltipsStyle,
   container: {
     ...container,
-    zIndex: "2",
-    position: "relative",
-    paddingTop: "20vh",
-    color: "#FFFFFF"
+    zIndex: 2
   },
-  pageHeader: {
-    minHeight: "100vh",
-    maxHeight: "1600px",
-    height: "auto",
-    display: "inherit",
-    position: "relative",
-    margin: "0",
-    padding: "0",
-    border: "0",
-    alignItems: "center",
-    "&:before": {
-      background: "rgba(0, 0, 0, 0.5)"
+  mainRaised: {
+    ...mainRaised
+  },
+  section: {
+    ...section,
+    padding: "70px 0px"
+  },
+  title: {
+    ...title,
+    marginBottom: 0
+  },
+  sectionGray: {
+    background: "#e5e5e5"
+  },
+  mainPrice: {
+    margin: "10px 0px 25px"
+  },
+  textCenter: {
+    textAlign: "center!important"
+  },
+  features: {
+    paddingTop: "30px"
+  },
+  productPage: {
+    backgroundColor: "#eee",
+    "& $mainRaised": {
+      margin: "-40vh 0 0",
+      padding: "40px"
     },
-    "&:before,&:after": {
-      position: "absolute",
-      zIndex: "1",
+    "& .image-gallery-slide img": {
+      borderRadius: "3px",
+      maxWidth: "300px",
+      height: "auto"
+    },
+    "& .image-gallery-swipe": {
+      margin: "30px 0px",
+      overflow: "hidden",
       width: "100%",
-      height: "100%",
-      display: "block",
-      left: "0",
-      top: "0",
-      content: '""'
+      height: "auto",
+      textAlign: "center"
+    },
+    "& .image-gallery-thumbnails > .image-gallery-thumbnails-container a": {
+      "&.active > div": {
+        opacity: "1",
+        borderColor: "#DDDDDD"
+      },
+      "& > div": {
+        width: "80%",
+        maxWidth: "85px",
+        margin: "0 auto",
+        padding: "8px",
+        display: "block",
+        border: "1px solid transparent",
+        background: "transparent",
+        borderRadius: "3px",
+        opacity: ".8"
+      },
+      "& > div img": {
+        borderRadius: "3px",
+        width: "100%",
+        height: "auto",
+        textAlign: "center"
+      }
     }
   },
-  cardSignup: {
-    borderRadius: "6px",
-    boxShadow:
-      "0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);",
-    marginBottom: "100px",
-    padding: "40px 0px"
+  titleRow: {
+    marginTop: "-8vh"
+  },
+  floatRight: {
+    float: "right!important"
+  },
+  pageHeader: {
+    minHeight: "60vh",
+    maxHeight: "600px",
+    height: "auto",
+    backgroundPosition: "top center"
+  },
+  relatedProducts: {
+    marginTop: "50px",
+    "& $title": {
+      marginBottom: "80px"
+    }
+  },
+  pickSize: {
+    marginTop: "50px"
+  },
+  pullRight: {
+    float: "right"
+  },
+  cardCategory: {
+    textAlign: "center",
+    marginTop: "10px"
   },
   cardTitle: {
     ...cardTitle,
-    textDecoration: "none",
-    textAlign: "center !important",
-    marginBottom: "0.75rem"
-  },
-  ...customCheckboxRadioSwitchStyle,
-  socials: {
-    marginTop: "0",
-    position: "absolute",
-    width: "100%",
-    transform: "none",
-    left: "0",
-    top: "0",
-    height: "100%",
-    lineHeight: "41px",
-    fontSize: "20px"
-  },
-  textCenter: {
     textAlign: "center"
   },
-  inputAdornment: {
-    marginRight: "18px",
-    position: "relative"
+  cardDescription: {
+    textAlign: "center",
+    color: "#999"
   },
-  inputAdornmentIcon: {
-    color: "#495057"
+  textRose: {
+    color: roseColor
   },
-  form: {
-    margin: "0"
+  justifyContentBetween: {
+    justifyContent: "space-between!important"
   },
-  infoArea: {
-    padding: "0px 0px 20px !important"
+  socialFeed: {
+    "& p": {
+      display: "table-cell",
+      verticalAlign: "top",
+      overflow: "hidden",
+      paddingBottom: "10px",
+      maxWidth: 300
+    },
+    "& i": {
+      fontSize: "20px",
+      display: "table-cell",
+      paddingRight: "10px"
+    }
+  },
+  img: {
+    width: "20%",
+    marginRight: "5%",
+    marginBottom: "5%",
+    float: "left"
   },
   block: {
     color: "inherit",
@@ -98,25 +173,19 @@ const plaidLinkStyle = {
   },
   left: {
     float: "left!important",
-    display: "block",
-    "&,& *,& *:hover,& *:focus": {
-      color: "#FFFFFF !important"
-    }
+    display: "block"
   },
   right: {
     padding: "15px 0",
     margin: "0",
-    float: "right",
-    "&,& *,& *:hover,& *:focus": {
-      color: "#FFFFFF !important"
-    }
+    float: "right"
   },
   icon: {
+    top: "3px",
     width: "18px",
     height: "18px",
-    top: "3px",
     position: "relative"
   }
 };
 
-export default plaidLinkStyle;
+export default dashboardStyle;
