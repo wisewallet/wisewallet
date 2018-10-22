@@ -93,7 +93,6 @@ class Dashboard extends React.Component {
                   data={roundedLineChart.data}
                   type="Line"
                   options={roundedLineChart.options}
-                  listener={roundedLineChart.animation}
                 />
               </CardHeader>
               <CardBody>
