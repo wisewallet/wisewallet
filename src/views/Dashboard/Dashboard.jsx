@@ -25,7 +25,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 //import dashboardStyle from "assets/jss/material-kit-pro-react/views/dashboardStyle.jsx";
-import dashboardStyle from "assets/jss/material-dashboard-pro-react/views/dashboardStyle";
+//import dashboardStyle from "assets/jss/material-dashboard-pro-react/views/dashboardStyle";
 import {Redirect} from 'react-router';
 import Card from "components/Card/Card.jsx";
 import CardHeader from "components/Card/CardHeader.jsx";
