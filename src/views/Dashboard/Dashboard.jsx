@@ -42,7 +42,7 @@ import {
   pieChart
 } from "variables/charts.jsx";
 
-import chartsStyle from "assets/jss/material-dashboard-pro-react/views/chartsStyle.jsx";
+//import chartsStyle from "assets/jss/material-dashboard-pro-react/views/chartsStyle.jsx";
 
 class Dashboard extends React.Component {
   constructor(props) {
