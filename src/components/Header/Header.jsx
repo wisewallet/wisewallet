@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // nodejs library to set properties for components
@@ -28,7 +28,9 @@ class Header extends React.Component {
     this.headerColorChange = this.headerColorChange.bind(this);
   }
   handleDrawerToggle() {
-    this.setState({ mobileOpen: !this.state.mobileOpen });
+    this.setState({
+      mobileOpen: !this.state.mobileOpen
+    });
   }
   componentDidMount() {
     if (this.props.changeColorOnScroll) {
@@ -36,22 +38,14 @@ class Header extends React.Component {
     }
   }
   headerColorChange() {
-    const { classes, color, changeColorOnScroll } = this.props;
+    const {classes, color, changeColorOnScroll} = this.props;
     const windowsScrollTop = window.pageYOffset;
     if (windowsScrollTop > changeColorOnScroll.height) {
-      document.body
-        .getElementsByTagName("header")[0]
-        .classList.remove(classes[color]);
-      document.body
-        .getElementsByTagName("header")[0]
-        .classList.add(classes[changeColorOnScroll.color]);
+      document.body.getElementsByTagName("header")[0].classList.remove(classes[color]);
+      document.body.getElementsByTagName("header")[0].classList.add(classes[changeColorOnScroll.color]);
     } else {
-      document.body
-        .getElementsByTagName("header")[0]
-        .classList.add(classes[color]);
-      document.body
-        .getElementsByTagName("header")[0]
-        .classList.remove(classes[changeColorOnScroll.color]);
+      document.body.getElementsByTagName("header")[0].classList.add(classes[color]);
+      document.body.getElementsByTagName("header")[0].classList.remove(classes[changeColorOnScroll.color]);
     }
   }
   componentWillUnmount() {
@@ -60,56 +54,49 @@ class Header extends React.Component {
     }
   }
   render() {
-    const { classes, color, links, brand, fixed, absolute } = this.props;
+    const {
+      classes,
+      color,
+      links,
+      brand,
+      fixed,
+      absolute
+    } = this.props;
     const appBarClasses = classNames({
       [classes.appBar]: true,
       [classes[color]]: color,
       [classes.absolute]: absolute,
       [classes.fixed]: fixed
     });
-    return (
-      <AppBar className={appBarClasses}>
-        <Toolbar className={classes.container}>
-          <Button className={classes.title}>
-          <img src={logo} style={{height: "auto", width: "50px"}} alt={"WiseWallet"}/>
-            <Link to="/">{brand}</Link>
-          </Button>
-          <Hidden smDown implementation="css" className={classes.hidden}>
-            <div className={classes.collapse}>{links}</div>
-          </Hidden>
-          <Hidden mdUp>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              onClick={this.handleDrawerToggle}
-            >
-              <Menu />
-            </IconButton>
-          </Hidden>
-        </Toolbar>
-        <Hidden mdUp implementation="css">
-          <Drawer
-            variant="temporary"
-            anchor={"right"}
-            open={this.state.mobileOpen}
-            classes={{
-              paper: classes.drawerPaper
-            }}
-            onClose={this.handleDrawerToggle}
-          >
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              onClick={this.handleDrawerToggle}
-              className={classes.closeButtonDrawer}
-            >
-              <Close />
-            </IconButton>
-            <div className={classes.appResponsive}>{links}</div>
-          </Drawer>
+    return (<AppBar className={appBarClasses}>
+      <Toolbar className={classes.container}>
+        <Button className={classes.title}>
+          <img src={logo} style={{
+              height: "auto",
+              width: "50px"
+            }} alt={"WiseWallet"}/>
+          <Link to="/">{brand}</Link>
+        </Button>
+        <Hidden smDown="smDown" implementation="css" className={classes.hidden}>
+          <div className={classes.collapse}>{links}</div>
         </Hidden>
-      </AppBar>
-    );
+        <Hidden mdUp="mdUp">
+          <IconButton color="inherit" aria-label="open drawer" onClick={this.handleDrawerToggle}>
+            <Menu/>
+          </IconButton>
+        </Hidden>
+      </Toolbar>
+      <Hidden mdUp="mdUp" implementation="css">
+        <Drawer variant="temporary" anchor={"right"} open={this.state.mobileOpen} classes={{
+            paper: classes.drawerPaper
+          }} onClose={this.handleDrawerToggle}>
+          <IconButton color="inherit" aria-label="open drawer" onClick={this.handleDrawerToggle} className={classes.closeButtonDrawer}>
+            <Close/>
+          </IconButton>
+          <div className={classes.appResponsive}>{links}</div>
+        </Drawer>
+      </Hidden>
+    </AppBar>);
   }
 }
 

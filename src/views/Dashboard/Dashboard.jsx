@@ -1,60 +1,58 @@
 import React from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
-import ChartistGraph from "react-chartist";
+// react component used to create nice image meadia player
+import ImageGallery from "react-image-gallery";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
-import LinearProgress from '@material-ui/core/LinearProgress';
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import Tooltip from "@material-ui/core/Tooltip";
+// @material-ui/icons
+import ShoppingCart from "@material-ui/icons/ShoppingCart";
+import LocalShipping from "@material-ui/icons/LocalShipping";
+import VerifiedUser from "@material-ui/icons/VerifiedUser";
+import Favorite from "@material-ui/icons/Favorite";
 // core components
 import Header from "components/Header/Header.jsx";
 import HeaderLinks from "components/Header/HeaderLinks.jsx";
 import Parallax from "components/Parallax/Parallax.jsx";
-import Footer from "components/Footer/Footer.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
+import Footer from "components/Footer/Footer.jsx";
 import Button from "components/CustomButtons/Button.jsx";
-// sections for this page
-import profile from "assets/img/profile_placeholder.png";
-import CustomLinearProgress from "components/CustomLinearProgress/CustomLinearProgress.jsx";
+import Accordion from "components/Accordion/Accordion.jsx";
+import InfoArea from "components/InfoArea/InfoArea.jsx";
+import Card from "components/Card/Card.jsx";
+import CardHeader from "components/Card/CardHeader.jsx";
+import CardBody from "components/Card/CardBody.jsx";
+import CardFooter from "components/Card/CardFooter.jsx";
+import Tooltip from "@material-ui/core/Tooltip";
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-//import dashboardStyle from "assets/jss/material-kit-pro-react/views/dashboardStyle.jsx";
-import dashboardStyle from "assets/jss/material-dashboard-pro-react/views/dashboardStyle";
-import {Redirect} from 'react-router';
-import Card from "components/Card/Card.jsx";
-import CardHeader from "components/Card/CardHeader.jsx";
-import CardBody from "components/Card/CardBody.jsx";
-import CardFooter from "components/Card/CardFooter.jsx";
 
-import {
-  roundedLineChart,
-  straightLinesChart,
-  simpleBarChart,
-  colouredLineChart,
-  multipleBarsChart,
-  colouredLinesChart,
-  pieChart
-} from "variables/charts.jsx";
-
-import chartsStyle from "assets/jss/material-dashboard-pro-react/views/chartsStyle.jsx";
+import CircularProgress from '@material-ui/core/CircularProgress';
+import LinearProgress from '@material-ui/core/LinearProgress';
+import dashboardStyle from "assets/jss/material-kit-pro-react/views/dashboardStyle.jsx";
 
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
-      userID: "",
-      password: "",
-      firstName: "",
-      lastName: ""
+      colorSelect: "0",
+      sizeSelect: "0"
     };
   }
+  handleSelect = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  };
   componentDidMount() {
     window.scrollTo(0, 0);
     document.body.scrollTop = 0;
@@ -65,164 +63,130 @@ class Dashboard extends React.Component {
     if (userID == null) {
       return <Redirect to='/login'/>
     }
-    return (<div style={{
-        width: "100%",
-        height: "100%",
-        position: "absolute"
-      }}>
-      <div style={{
-          background: "blue",
-          color: "blue",
-          width: "25%",
-          height: "100%",
-          position: "relative",
-          float: "left"
+    return (<div className={classes.dashboard}>
+      <Header brand="WiseWallet" links={<HeaderLinks/>} fixed="fixed" color="primary"/>
+      <GridContainer style={{
+          paddingLeft: "10%",
+          paddingRight: "10%",
+          paddingTop: "90px"
         }}>
-        <img src={profile} style={{
-            width: "auto",
-            height: "25%",
-            marginTop: "40px",
-            marginLeft: "17%"
-          }}/>
-        <GridContainer>
-					<GridItem xs={12} sm={12} md={10}>
-            <Card chart>
-              <CardHeader color="rose">
-                <ChartistGraph
-                  className="ct-chart-white-colors"
-                  data={roundedLineChart.data}
-                  type="Line"
-                  options={roundedLineChart.options}
-                  listener={roundedLineChart.animation}
-                />
-              </CardHeader>
-              <CardBody>
-                <h4 className={classes.cardTitle}>Rounded Line Chart</h4>
-                <p className={classes.cardCategory}>Line Chart</p>
-              </CardBody>
-            </Card>
-          </GridItem>
-        </GridContainer>
-      </div>
-      <h2 style={{
-          paddingLeft: "30%",
-          position: "relative"
-        }}>People</h2>
-      <LinearProgress variant="determinate" color="primary" value={80} style={{
-          width: "65%",
-          height: "10px",
-          float: "left",
-          marginLeft: "5%"
-        }}/>
-      <h2 style={{
-          paddingLeft: "30%",
-          position: "relative",
-          marginTop: "35px"
-        }}>Planet</h2>
-      <LinearProgress variant="determinate" color="primary" value={70} style={{
-          width: "65%",
-          height: "10px",
-          float: "left",
-          marginLeft: "5%"
-        }}/>
-      <h2 style={{
-          paddingLeft: "30%",
-          position: "relative",
-          marginTop: "35px"
-        }}>Policy</h2>
-      <LinearProgress variant="determinate" color="primary" value={75} style={{
-          width: "65%",
-          height: "10px",
-          float: "left",
-          marginLeft: "5%"
-        }}/>
-      <Card color="info" style={{
-          width: "65%",
-          marginLeft: "5%",
-          float: "left"
-        }}>
-        <CardBody color="color">
-          <Table className={classes.table} style={{
-              width: "90%"
-            }}>
-            <TableHead>
-              <TableRow>
-                <TableCell>Company</TableCell>
-                <TableCell numeric="numeric">Date</TableCell>
-                <TableCell numeric="numeric">People</TableCell>
-                <TableCell numeric="numeric">Planet</TableCell>
-                <TableCell numeric="numeric">Policy</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              <TableRow key={1}>
-                <TableCell component="th" scope="row">
-                  {"Transaction 1"}
-                </TableCell>
-                <TableCell string="string">{"October 15, 2018"}</TableCell>
-                <TableCell numeric="numeric">{80}</TableCell>
-                <TableCell numeric="numeric">{75}</TableCell>
-                <TableCell numeric="numeric">{70}</TableCell>
-              </TableRow>
-              <TableRow key={1}>
-                <TableCell component="th" scope="row">
-                  {"Transaction 1"}
-                </TableCell>
-                <TableCell string="string">{"October 15, 2018"}</TableCell>
-                <TableCell numeric="numeric">{80}</TableCell>
-                <TableCell numeric="numeric">{75}</TableCell>
-                <TableCell numeric="numeric">{70}</TableCell>
-              </TableRow>
-              <TableRow key={1}>
-                <TableCell component="th" scope="row">
-                  {"Transaction 1"}
-                </TableCell>
-                <TableCell string="string">{"October 15, 2018"}</TableCell>
-                <TableCell numeric="numeric">{80}</TableCell>
-                <TableCell numeric="numeric">{75}</TableCell>
-                <TableCell numeric="numeric">{70}</TableCell>
-              </TableRow>
-              <TableRow key={1}>
-                <TableCell component="th" scope="row">
-                  {"Transaction 1"}
-                </TableCell>
-                <TableCell string="string">{"October 15, 2018"}</TableCell>
-                <TableCell numeric="numeric">{80}</TableCell>
-                <TableCell numeric="numeric">{75}</TableCell>
-                <TableCell numeric="numeric">{70}</TableCell>
-              </TableRow>
-              <TableRow key={1}>
-                <TableCell component="th" scope="row">
-                  {"Transaction 1"}
-                </TableCell>
-                <TableCell string="string">{"October 15, 2018"}</TableCell>
-                <TableCell numeric="numeric">{80}</TableCell>
-                <TableCell numeric="numeric">{75}</TableCell>
-                <TableCell numeric="numeric">{70}</TableCell>
-              </TableRow>
-              <TableRow key={1}>
-                <TableCell component="th" scope="row">
-                  {"Transaction 1"}
-                </TableCell>
-                <TableCell string="string">{"October 15, 2018"}</TableCell>
-                <TableCell numeric="numeric">{80}</TableCell>
-                <TableCell numeric="numeric">{75}</TableCell>
-                <TableCell numeric="numeric">{70}</TableCell>
-              </TableRow>
-              <TableRow key={1}>
-                <TableCell component="th" scope="row">
-                  {"Transaction 1"}
-                </TableCell>
-                <TableCell string="string">{"October 15, 2018"}</TableCell>
-                <TableCell numeric="numeric">{80}</TableCell>
-                <TableCell numeric="numeric">{75}</TableCell>
-                <TableCell numeric="numeric">{70}</TableCell>
-              </TableRow>
-            </TableBody>
-          </Table>
-        </CardBody>
-      </Card>
+        <GridItem xs={12} sm={3} md={3}>
+          <Card style={{height: "90%"}}>
+              <CircularProgress variant="static" value={88} style={{
+                  margin: "auto",
+                  width: "150px",
+                  position: "relative",
+                  left: "-3.4rem"
+                }}/>
+              <h1 style={{position:"absolute", paddingLeft:"5.8rem", paddingTop:"3rem"}}>88</h1>
+          </Card>
+        </GridItem>
+        <GridItem xs={12} sm={9} md={9} style={{
+            paddingTop: "10px"
+          }}>
+          <h3>People</h3>
+          <LinearProgress variant="determinate" color="primary" value={75} style={{
+              margin: "auto"
+            }}/>
+          <h3>Planet</h3>
+          <LinearProgress variant="determinate" color="primary" value={98} style={{
+              margin: "auto"
+            }}/>
+          <h3>Policy</h3>
+          <LinearProgress variant="determinate" color="primary" value={63} style={{
+              margin: "auto"
+            }}/>
+        </GridItem>
 
+      </GridContainer>
+      <GridContainer style={{
+          paddingLeft: "10%",
+          paddingRight: "10%"
+        }}>
+        <GridItem xs={12} sm={8} md={8}>
+          <Card style={{}}>
+            <CardBody>
+              <Table className={classes.table} style={{}}>
+                <TableHead>
+                  <TableRow>
+                    <TableCell>Company</TableCell>
+                    <TableCell numeric="numeric">Date</TableCell>
+                    <TableCell numeric="numeric" style={{
+                        width: "10px"
+                      }}>People</TableCell>
+                    <TableCell numeric="numeric">Planet</TableCell>
+                    <TableCell numeric="numeric">Policy</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  <TableRow key={1}>
+                    <TableCell component="th" scope="row">
+                      {"Transaction"}
+                    </TableCell>
+                    <TableCell string="string">{"10/22/2018"}</TableCell>
+                    <TableCell numeric="numeric" style={{
+                        width: "10px"
+                      }}>{80}</TableCell>
+                    <TableCell numeric="numeric">{75}</TableCell>
+                    <TableCell numeric="numeric">{70}</TableCell>
+                  </TableRow>
+                  <TableRow key={1}>
+                    <TableCell component="th" scope="row">
+                      {"Transaction"}
+                    </TableCell>
+                    <TableCell string="string">{"10/22/2018"}</TableCell>
+                    <TableCell numeric="numeric" style={{
+                        width: "10px"
+                      }}>{80}</TableCell>
+                    <TableCell numeric="numeric">{75}</TableCell>
+                    <TableCell numeric="numeric">{70}</TableCell>
+                  </TableRow>
+                  <TableRow key={1}>
+                    <TableCell component="th" scope="row">
+                      {"Transaction"}
+                    </TableCell>
+                    <TableCell string="string">{"10/22/2018"}</TableCell>
+                    <TableCell numeric="numeric" style={{
+                        width: "10px"
+                      }}>{80}</TableCell>
+                    <TableCell numeric="numeric">{75}</TableCell>
+                    <TableCell numeric="numeric">{70}</TableCell>
+                  </TableRow>
+                  <TableRow key={1}>
+                    <TableCell component="th" scope="row">
+                      {"Transaction"}
+                    </TableCell>
+                    <TableCell string="string">{"10/22/2018"}</TableCell>
+                    <TableCell numeric="numeric" style={{
+                        width: "10px"
+                      }}>{80}</TableCell>
+                    <TableCell numeric="numeric">{75}</TableCell>
+                    <TableCell numeric="numeric">{70}</TableCell>
+                  </TableRow>
+                  <TableRow key={1}>
+                    <TableCell component="th" scope="row">
+                      {"Transaction"}
+                    </TableCell>
+                    <TableCell string="string">{"10/22/2018"}</TableCell>
+                    <TableCell numeric="numeric" style={{
+                        width: "10px"
+                      }}>{80}</TableCell>
+                    <TableCell numeric="numeric">{75}</TableCell>
+                    <TableCell numeric="numeric">{70}</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </CardBody>
+          </Card>
+        </GridItem>
+        <GridItem xs={12} sm={4} md={4}>
+          <Card color="info" style={{}}>
+            <CardBody color="info">
+              <h2>Suggested Alternatives Coming Soon</h2>
+            </CardBody>
+          </Card>
+        </GridItem>
+      </GridContainer>
     </div>);
   }
 }
