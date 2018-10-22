@@ -3,7 +3,7 @@ import LoginPage from "views/LoginPage/LoginPage.jsx";
 import SignupPage from "views/SignupPage/SignupPage.jsx";
 import PlaidLink from "views/PlaidLink/PlaidLink.jsx";
 import Dashboard from "views/Dashboard/Dashboard.jsx";
-import Charts from "view/Charts/Charts.jsx";
+import Charts from "views/Charts/Charts.jsx";
 var indexRoutes = [
 	{path: "/login", name: "Login", component: LoginPage},
 	{path: "/signup", name: "WiseWallet", component: SignupPage},
