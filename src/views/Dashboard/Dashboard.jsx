@@ -85,7 +85,7 @@ class Dashboard extends React.Component {
             marginLeft: "17%"
           }}/>
         <GridContainer>
-					<GridItem xs={12} sm={12} md={4}>
+					<GridItem xs={12} sm={12} md={10}>
             <Card chart>
               <CardHeader color="rose">
                 <ChartistGraph
