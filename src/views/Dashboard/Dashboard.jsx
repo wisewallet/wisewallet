@@ -65,7 +65,7 @@ class Dashboard extends React.Component {
       return <Redirect to='/login'/>
     }
     return (<div className={classes.dashboard}>
-      <Header brand="WiseWallet" links={<HeaderLinks/>} fixed="fixed" color="primary"/>
+      <AppHeader brand="WiseWallet" links={<AppHeaderLinks/>} fixed="fixed" color="primary"/>
       <GridContainer style={{
           paddingLeft: "10%",
           paddingRight: "10%",
