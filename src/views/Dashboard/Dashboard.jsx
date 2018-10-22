@@ -1,4 +1,5 @@
 import React from "react";
+import { Redirect } from 'react-router'
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // react component used to create nice image meadia player
@@ -16,8 +17,8 @@ import LocalShipping from "@material-ui/icons/LocalShipping";
 import VerifiedUser from "@material-ui/icons/VerifiedUser";
 import Favorite from "@material-ui/icons/Favorite";
 // core components
-import Header from "components/Header/Header.jsx";
-import HeaderLinks from "components/Header/HeaderLinks.jsx";
+import AppHeader from "components/AppHeader/AppHeader.jsx";
+import AppHeaderLinks from "components/AppHeader/AppHeaderLinks.jsx";
 import Parallax from "components/Parallax/Parallax.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
