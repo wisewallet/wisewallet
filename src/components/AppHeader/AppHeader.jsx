@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import {Redirect} from 'react-router'
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // nodejs library to set properties for components
@@ -26,6 +27,7 @@ class AppHeader extends React.Component {
     };
     this.handleDrawerToggle = this.handleDrawerToggle.bind(this);
     this.headerColorChange = this.headerColorChange.bind(this);
+    this.onLogOut = this.onLogOut.bind(this);
   }
   handleDrawerToggle() {
     this.setState({
@@ -53,6 +55,10 @@ class AppHeader extends React.Component {
       window.removeEventListener("scroll", this.headerColorChange);
     }
   }
+  onLogOut() {
+    sessionStorage.removeItem('userID');
+    return <Redirect to='/'/>
+  }
   render() {
     const {
       classes,
@@ -77,31 +83,7 @@ class AppHeader extends React.Component {
             }} alt={"WiseWallet"}/>
           <Link to="/">{brand}</Link>
         </Button>
-        <Hidden smDown="smDown" implementation="css" className={classes.hidden}>
-          <div className={classes.collapse}>
-            <Button href="https://www.creative-tim.com/product/material-kit-pro-react" color={window.innerWidth < 960
-                ? "info"
-                : "white"} target="_blank" className={classes.navButton} round="round">
-              Log Out
-            </Button>
-          </div>
-        </Hidden>
-        <Hidden mdUp="mdUp">
-          <IconButton color="inherit" aria-label="open drawer" onClick={this.handleDrawerToggle}>
-            <Menu/>
-          </IconButton>
-        </Hidden>
       </Toolbar>
-      <Hidden mdUp="mdUp" implementation="css">
-        <Drawer variant="temporary" anchor={"right"} open={this.state.mobileOpen} classes={{
-            paper: classes.drawerPaper
-          }} onClose={this.handleDrawerToggle}>
-          <IconButton color="inherit" aria-label="open drawer" onClick={this.handleDrawerToggle} className={classes.closeButtonDrawer}>
-            <Close/>
-          </IconButton>
-          <div className={classes.appResponsive}>{links}</div>
-        </Drawer>
-      </Hidden>
     </AppBar>);
   }
 }

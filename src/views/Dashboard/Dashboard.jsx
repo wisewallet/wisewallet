@@ -71,7 +71,18 @@ class Dashboard extends React.Component {
       return <Redirect to='/login'/>
     }
     return (<div className={classes.dashboard}>
+      <Button onClick={this.onLogOut} variant="contained" color="#FFFFFF" round="round" style={{
+          position: "absolute",
+          right: "10%",
+          top: '20px',
+          zIndex: "10000",
+          color: "#092856",
+          backgroundColor: "#FFFFFF"
+        }}>
+        Log Out
+      </Button>
       <AppHeader brand="WiseWallet" links={<AppHeaderLinks/>} fixed="fixed" color="primary"/>
+
       <GridContainer style={{
           paddingLeft: "10%",
           paddingRight: "10%",
