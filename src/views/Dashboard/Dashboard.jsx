@@ -137,7 +137,7 @@ class Dashboard extends React.Component {
         <GridItem xs={12} sm={3} md={3}>
           <Card color="info" style={{}}>
             <CardBody color="info">
-              <h2>Suggested Alternatives Coming Soon</h2>
+              <h3>Suggested Alternatives Coming Soon</h3>
             </CardBody>
           </Card>
         </GridItem>
