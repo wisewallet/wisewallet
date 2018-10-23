@@ -80,7 +80,7 @@ class Dashboard extends React.Component {
           top: '15px',
           zIndex: "10000",
           color: "#092856",
-          backgroundColor: "#FFFFFF",
+          backgroundColor: "#FFFFFF"
         }}>
         Log Out
       </Button>
@@ -144,80 +144,53 @@ class Dashboard extends React.Component {
         <GridItem xs={12} sm={9} md={9}>
           <Card style={{}}>
             <CardBody>
-              <div style={{
-                  width: "200px"
-                }}>
-                <Table>
-                  <TableHead>
-                    <TableRow>
-                      <TableCell>Company</TableCell>
-                      <TableCell>Date</TableCell>
-                      <TableCell>Category</TableCell>
-                      <TableCell>Amount</TableCell>
-                      <TableCell>People</TableCell>
-                      <TableCell>Planet</TableCell>
-                      <TableCell>Policy</TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    <TableRow>
-                      <TableCell>
-                        {"Transaction"}
-                      </TableCell>
-                      <TableCell string="string">{"10/22/2018"}</TableCell>
-                      <TableCell string="string">{"Food"}</TableCell>
-                      <TableCell>{11.84}</TableCell>
-                      <TableCell>{80}</TableCell>
-                      <TableCell>{75}</TableCell>
-                      <TableCell>{70}</TableCell>
-                    </TableRow>
-                    <TableRow key={1}>
-                      <TableCell>
-                        {"Transaction"}
-                      </TableCell>
-                      <TableCell string="string">{"10/22/2018"}</TableCell>
-                      <TableCell string="string">{"Food"}</TableCell>
-                      <TableCell>{11.84}</TableCell>
-                      <TableCell>{80}</TableCell>
-                      <TableCell>{75}</TableCell>
-                      <TableCell>{70}</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>
-                        {"Transaction"}
-                      </TableCell>
-                      <TableCell string="string">{"10/22/2018"}</TableCell>
-                      <TableCell string="string">{"Food"}</TableCell>
-                      <TableCell>{11.84}</TableCell>
-                      <TableCell>{80}</TableCell>
-                      <TableCell>{75}</TableCell>
-                      <TableCell>{70}</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>
-                        {"Transaction"}
-                      </TableCell>
-                      <TableCell string="string">{"10/22/2018"}</TableCell>
-                      <TableCell string="string">{"Food"}</TableCell>
-                      <TableCell>{11.84}</TableCell>
-                      <TableCell>{80}</TableCell>
-                      <TableCell>{75}</TableCell>
-                      <TableCell>{70}</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell>
-                        {"Transaction"}
-                      </TableCell>
-                      <TableCell string="string">{"10/22/2018"}</TableCell>
-                      <TableCell string="string">{"Food"}</TableCell>
-                      <TableCell>{11.84}</TableCell>
-                      <TableCell>{80}</TableCell>
-                      <TableCell>{75}</TableCell>
-                      <TableCell>{70}</TableCell>
-                    </TableRow>
-                  </TableBody>
-                </Table>
-              </div>
+                <table style={{width: "100%"}}>
+                  <tr>
+                    <th>Company</th>
+                    <th>Date</th>
+                    <th>Category</th>
+                    <th>Amount</th>
+                    <th>People</th>
+                    <th>Planet</th>
+                    <th>Policy</th>
+                  </tr>
+                  <tr>
+                    <td>Transaction</td>
+                    <td>10/18/2018</td>
+                    <td>$50.00</td>
+                    <td>50</td>
+                    <td>50</td>
+                    <td>50</td>
+                    <td>50</td>
+                  </tr>
+                  <tr>
+                    <td>Transaction</td>
+                    <td>10/18/2018</td>
+                    <td>$50.00</td>
+                    <td>50</td>
+                    <td>50</td>
+                    <td>50</td>
+                    <td>50</td>
+                  </tr>
+                  <tr>
+                    <td>Transaction</td>
+                    <td>10/18/2018</td>
+                    <td>$50.00</td>
+                    <td>50</td>
+                    <td>50</td>
+                    <td>50</td>
+                    <td>50</td>
+                  </tr>
+                  <tr>
+                    <td>Transaction</td>
+                    <td>10/18/2018</td>
+                    <td>$50.00</td>
+                    <td>50</td>
+                    <td>50</td>
+                    <td>50</td>
+                    <td>50</td>
+                  </tr>
+                </table>
             </CardBody>
           </Card>
         </GridItem>
