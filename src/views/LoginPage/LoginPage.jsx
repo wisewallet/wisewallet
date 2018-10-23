@@ -49,6 +49,7 @@ class LoginPage extends React.Component {
       if(json.success){
         console.log("success");
         sessionStorage.setItem('userID', json.userID);
+        this.props.history.push('/dashboard');
       }
     });
   }
