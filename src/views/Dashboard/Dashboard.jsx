@@ -37,6 +37,8 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 
+import {Link} from "react-router-dom";
+import logo from "assets/img/logo.png";
 import CircularProgress from '@material-ui/core/CircularProgress';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import dashboardStyle from "assets/jss/material-kit-pro-react/views/dashboardStyle.jsx";
@@ -68,21 +70,21 @@ class Dashboard extends React.Component {
     const {classes} = this.props;
     var userID = sessionStorage.getItem("userID");
     if (userID == null) {
-      return <Redirect to='/login'/>
+      //return <Redirect to='/login'/>
     }
     return (<div className={classes.dashboard}>
       <Button onClick={this.onLogOut} variant="contained" color="#FFFFFF" round="round" style={{
           position: "absolute",
+          float: "right",
           right: "10%",
-          top: '20px',
+          top: '15px',
           zIndex: "10000",
           color: "#092856",
-          backgroundColor: "#FFFFFF"
+          backgroundColor: "#FFFFFF",
         }}>
         Log Out
       </Button>
       <AppHeader brand="WiseWallet" links={<AppHeaderLinks/>} fixed="fixed" color="primary"/>
-
       <GridContainer style={{
           paddingLeft: "10%",
           paddingRight: "10%",
@@ -112,15 +114,15 @@ class Dashboard extends React.Component {
         <GridItem xs={12} sm={9} md={9} style={{
             paddingTop: "10px"
           }}>
-          <h3>People</h3>
+          <h3>People - 75</h3>
           <LinearProgress variant="determinate" color="primary" value={75} style={{
               margin: "auto"
             }}/>
-          <h3>Planet</h3>
+          <h3>Planet - 98</h3>
           <LinearProgress variant="determinate" color="primary" value={98} style={{
               margin: "auto"
             }}/>
-          <h3>Policy</h3>
+          <h3>Policy - 63</h3>
           <LinearProgress variant="determinate" color="primary" value={63} style={{
               margin: "auto"
             }}/>
@@ -131,86 +133,91 @@ class Dashboard extends React.Component {
           paddingLeft: "10%",
           paddingRight: "10%"
         }}>
-        <GridItem xs={12} sm={8} md={8}>
-          <Card style={{}}>
-            <CardBody>
-              <Table className={classes.table} style={{}}>
-                <TableHead>
-                  <TableRow>
-                    <TableCell>Company</TableCell>
-                    <TableCell numeric="numeric">Date</TableCell>
-                    <TableCell numeric="numeric" style={{
-                        width: "10px"
-                      }}>People</TableCell>
-                    <TableCell numeric="numeric">Planet</TableCell>
-                    <TableCell numeric="numeric">Policy</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  <TableRow key={1}>
-                    <TableCell component="th" scope="row">
-                      {"Transaction"}
-                    </TableCell>
-                    <TableCell string="string">{"10/22/2018"}</TableCell>
-                    <TableCell numeric="numeric" style={{
-                        width: "10px"
-                      }}>{80}</TableCell>
-                    <TableCell numeric="numeric">{75}</TableCell>
-                    <TableCell numeric="numeric">{70}</TableCell>
-                  </TableRow>
-                  <TableRow key={1}>
-                    <TableCell component="th" scope="row">
-                      {"Transaction"}
-                    </TableCell>
-                    <TableCell string="string">{"10/22/2018"}</TableCell>
-                    <TableCell numeric="numeric" style={{
-                        width: "10px"
-                      }}>{80}</TableCell>
-                    <TableCell numeric="numeric">{75}</TableCell>
-                    <TableCell numeric="numeric">{70}</TableCell>
-                  </TableRow>
-                  <TableRow key={1}>
-                    <TableCell component="th" scope="row">
-                      {"Transaction"}
-                    </TableCell>
-                    <TableCell string="string">{"10/22/2018"}</TableCell>
-                    <TableCell numeric="numeric" style={{
-                        width: "10px"
-                      }}>{80}</TableCell>
-                    <TableCell numeric="numeric">{75}</TableCell>
-                    <TableCell numeric="numeric">{70}</TableCell>
-                  </TableRow>
-                  <TableRow key={1}>
-                    <TableCell component="th" scope="row">
-                      {"Transaction"}
-                    </TableCell>
-                    <TableCell string="string">{"10/22/2018"}</TableCell>
-                    <TableCell numeric="numeric" style={{
-                        width: "10px"
-                      }}>{80}</TableCell>
-                    <TableCell numeric="numeric">{75}</TableCell>
-                    <TableCell numeric="numeric">{70}</TableCell>
-                  </TableRow>
-                  <TableRow key={1}>
-                    <TableCell component="th" scope="row">
-                      {"Transaction"}
-                    </TableCell>
-                    <TableCell string="string">{"10/22/2018"}</TableCell>
-                    <TableCell numeric="numeric" style={{
-                        width: "10px"
-                      }}>{80}</TableCell>
-                    <TableCell numeric="numeric">{75}</TableCell>
-                    <TableCell numeric="numeric">{70}</TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
-            </CardBody>
-          </Card>
-        </GridItem>
-        <GridItem xs={12} sm={4} md={4}>
+
+        <GridItem xs={12} sm={3} md={3}>
           <Card color="info" style={{}}>
             <CardBody color="info">
               <h2>Suggested Alternatives Coming Soon</h2>
+            </CardBody>
+          </Card>
+        </GridItem>
+        <GridItem xs={12} sm={9} md={9}>
+          <Card style={{}}>
+            <CardBody>
+              <div style={{
+                  width: "200px"
+                }}>
+                <Table>
+                  <TableHead>
+                    <TableRow>
+                      <TableCell>Company</TableCell>
+                      <TableCell>Date</TableCell>
+                      <TableCell>Category</TableCell>
+                      <TableCell>Amount</TableCell>
+                      <TableCell>People</TableCell>
+                      <TableCell>Planet</TableCell>
+                      <TableCell>Policy</TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    <TableRow>
+                      <TableCell>
+                        {"Transaction"}
+                      </TableCell>
+                      <TableCell string="string">{"10/22/2018"}</TableCell>
+                      <TableCell string="string">{"Food"}</TableCell>
+                      <TableCell>{11.84}</TableCell>
+                      <TableCell>{80}</TableCell>
+                      <TableCell>{75}</TableCell>
+                      <TableCell>{70}</TableCell>
+                    </TableRow>
+                    <TableRow key={1}>
+                      <TableCell>
+                        {"Transaction"}
+                      </TableCell>
+                      <TableCell string="string">{"10/22/2018"}</TableCell>
+                      <TableCell string="string">{"Food"}</TableCell>
+                      <TableCell>{11.84}</TableCell>
+                      <TableCell>{80}</TableCell>
+                      <TableCell>{75}</TableCell>
+                      <TableCell>{70}</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>
+                        {"Transaction"}
+                      </TableCell>
+                      <TableCell string="string">{"10/22/2018"}</TableCell>
+                      <TableCell string="string">{"Food"}</TableCell>
+                      <TableCell>{11.84}</TableCell>
+                      <TableCell>{80}</TableCell>
+                      <TableCell>{75}</TableCell>
+                      <TableCell>{70}</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>
+                        {"Transaction"}
+                      </TableCell>
+                      <TableCell string="string">{"10/22/2018"}</TableCell>
+                      <TableCell string="string">{"Food"}</TableCell>
+                      <TableCell>{11.84}</TableCell>
+                      <TableCell>{80}</TableCell>
+                      <TableCell>{75}</TableCell>
+                      <TableCell>{70}</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>
+                        {"Transaction"}
+                      </TableCell>
+                      <TableCell string="string">{"10/22/2018"}</TableCell>
+                      <TableCell string="string">{"Food"}</TableCell>
+                      <TableCell>{11.84}</TableCell>
+                      <TableCell>{80}</TableCell>
+                      <TableCell>{75}</TableCell>
+                      <TableCell>{70}</TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </div>
             </CardBody>
           </Card>
         </GridItem>

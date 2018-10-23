@@ -76,12 +76,18 @@ class AppHeader extends React.Component {
     });
     return (<AppBar className={appBarClasses}>
       <Toolbar className={classes.container}>
+
         <Button className={classes.title}>
           <img src={logo} style={{
               height: "auto",
               width: "50px"
             }} alt={"WiseWallet"}/>
-          <Link to="/">{brand}</Link>
+          <Link to="/">WiseWallet<p style={{
+        position: "absolute",
+        left: "130px",
+        top: "35px"
+      }}>BETA</p>
+          </Link>
         </Button>
       </Toolbar>
     </AppBar>);
