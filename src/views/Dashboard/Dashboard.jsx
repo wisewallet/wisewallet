@@ -1,5 +1,5 @@
 import React from "react";
-import { Redirect } from 'react-router'
+import {Redirect} from 'react-router'
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // react component used to create nice image meadia player
@@ -48,6 +48,7 @@ class Dashboard extends React.Component {
       colorSelect: "0",
       sizeSelect: "0"
     };
+    this.onLogOut = this.onLogOut.bind(this);
   }
   handleSelect = event => {
     this.setState({
@@ -57,6 +58,11 @@ class Dashboard extends React.Component {
   componentDidMount() {
     window.scrollTo(0, 0);
     document.body.scrollTop = 0;
+  }
+
+  onLogOut() {
+    sessionStorage.removeItem('userID');
+    this.props.history.push('/');
   }
   render() {
     const {classes} = this.props;
@@ -72,16 +78,24 @@ class Dashboard extends React.Component {
           paddingTop: "90px"
         }}>
         <GridItem xs={12} sm={3} md={3}>
-          <Card style={{height: "90%"}}>
-              <h3 style={{paddingLeft:"20px"}}>Total Impact Score</h3>
-              <CircularProgress variant="static" value={88} style={{
-                  margin: "auto",
-                  width: "120px",
-                  left: "-2.4rem",
-                  top: "-10px",
-                  position: "relative"
-                }}/>
-              <h1 style={{position:"absolute", paddingLeft:"6rem", paddingTop:"4.3rem"}}>88</h1>
+          <Card style={{
+              height: "90%"
+            }}>
+            <h3 style={{
+                paddingLeft: "20px"
+              }}>Total Impact Score</h3>
+            <CircularProgress variant="static" value={88} style={{
+                margin: "auto",
+                width: "120px",
+                left: "-2.4rem",
+                top: "-10px",
+                position: "relative"
+              }}/>
+            <h1 style={{
+                position: "absolute",
+                paddingLeft: "6rem",
+                paddingTop: "4.3rem"
+              }}>88</h1>
           </Card>
         </GridItem>
         <GridItem xs={12} sm={9} md={9} style={{
