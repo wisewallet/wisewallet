@@ -107,11 +107,11 @@ class Dashboard extends React.Component {
           <Card style={{
               height: "90%"
             }}>
-            <img className="userPortrait" src={testPortrait} width="50%" />
             <h3 className="impactScoreHeader">Total Impact Score</h3>
               <div className="impactScore">
                 <h2 className="impactScoreNumber" >88</h2>
                 <CircularProgress className="impactScoreProgress" variant="static" value={88} size={100}/>
+                <img className="userPortrait" src={testPortrait} width="100px" />
               </div>
           </Card>
         </GridItem>

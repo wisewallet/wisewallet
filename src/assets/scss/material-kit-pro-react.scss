@@ -25,3 +25,27 @@
 @import "plugins/plugin-react-image-gallery";
 @import "plugins/plugin-react-slick";
 @import "plugins/plugin-react-tagsinput";
+
+
+.impactScore{
+  position: relative;
+  text-align: center;
+  margin-bottom: 100px;
+  padding-left: 40px;
+  padding-right: 40px;
+  .impactScoreProgress{
+    position: absolute;
+    z-index: 2;
+    margin-left: -50px;
+  }
+  .userPortrait{
+    position: absolute;
+    border-radius: 50px;
+    z-index: 1;
+    margin-left: -50px;
+  }
+}
+
+.impactScoreHeader{
+  text-align: center;
+}
