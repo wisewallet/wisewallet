@@ -1669,13 +1669,21 @@ button.slick-arrow.slick-next {
   .react-tagsinput .react-tagsinput-tag.default {
     background-color: #999; }
 
-.impactScore{
-  text-align: center; 
-}
-
-.impactScoreHeader{
+.impactScore {
+  position: relative;
   text-align: center;
-}
-.userPortrait{
-  border-radius: 50%;
-}
+  margin-bottom: 100px;
+  padding-left: 40px;
+  padding-right: 40px; }
+  .impactScore .impactScoreProgress {
+    position: absolute;
+    z-index: 2;
+    margin-left: -50px; }
+  .impactScore .userPortrait {
+    position: absolute;
+    border-radius: 50px;
+    z-index: 1;
+    margin-left: -50px; }
+
+.impactScoreHeader {
+  text-align: center; }
