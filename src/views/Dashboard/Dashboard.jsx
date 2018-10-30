@@ -42,6 +42,7 @@ import logo from "assets/img/logo.png";
 import CircularProgress from '@material-ui/core/CircularProgress';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import dashboardStyle from "assets/jss/material-kit-pro-react/views/dashboardStyle.jsx";
+import testPortrait from "assets/img/testUserIcon.png";
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -106,21 +107,12 @@ class Dashboard extends React.Component {
           <Card style={{
               height: "90%"
             }}>
-            <h3 style={{
-                paddingLeft: "20px"
-              }}>Total Impact Score</h3>
-            <CircularProgress variant="static" value={0.4*eScore + 0.4*sScore + 0.2*gScore} style={{
-                margin: "auto",
-                width: "120px",
-                left: "-2.4rem",
-                top: "-10px",
-                position: "relative"
-              }}/>
-            <h1 style={{
-                position: "absolute",
-                paddingLeft: "6rem",
-                paddingTop: "4.3rem"
-              }}>{parseInt(0.4*eScore + 0.4*sScore + 0.2*gScore)}</h1>
+            <img className="userPortrait" src={testPortrait} width="50%" />
+            <h3 className="impactScoreHeader">Total Impact Score</h3>
+              <div className="impactScore">
+                <h2 className="impactScoreNumber" >88</h2>
+                <CircularProgress className="impactScoreProgress" variant="static" value={88} size={100}/>
+              </div>
           </Card>
         </GridItem>
         <GridItem xs={12} sm={9} md={9} style={{
