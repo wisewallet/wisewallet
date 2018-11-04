@@ -49,9 +49,9 @@ class Dashboard extends React.Component {
     this.state = {
       colorSelect: "0",
       sizeSelect: "0",
-      sScore: 50,
-      gScore: 50,
-      eScore: 50
+      sScore: 0,
+      gScore: 0,
+      eScore: 0
     };
     this.onLogOut = this.onLogOut.bind(this);
   }
