@@ -64,7 +64,7 @@ class Dashboard extends React.Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({userID: sessionStorage.getItem("userID")})
-    }).then(response => console.log(response));
+    }).then(response => console.log(response.json()));
   }
   componentDidMount() {
     window.scrollTo(0, 0);
