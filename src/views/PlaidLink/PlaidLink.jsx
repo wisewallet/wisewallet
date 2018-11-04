@@ -27,7 +27,6 @@ class Components extends React.Component {
       lastName: "",
       userID: ""
     };
-    this.onSignUp = this.onSignUp.bind(this);
     this.handleOnSuccess = this.handleOnSuccess.bind(this);
   }
   componentDidMount() {
