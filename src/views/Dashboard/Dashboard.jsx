@@ -64,7 +64,7 @@ class Dashboard extends React.Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({userID: sessionStorage.getItem("userID")})
-    }).then(response => response.json()).then(json => console.log(json.environmental));
+    }).then(response => console.log(response));
   }
   componentDidMount() {
     window.scrollTo(0, 0);
@@ -78,7 +78,7 @@ class Dashboard extends React.Component {
     const {classes} = this.props;
     var userID = sessionStorage.getItem("userID");
     if (userID == null) {
-      //return <Redirect to='/login'/>
+      return <Redirect to='/login'/>
     }
     return (<div className={classes.dashboard}>
       <Button onClick={this.onLogOut} variant="contained" color="#FFFFFF" round="round" style={{
