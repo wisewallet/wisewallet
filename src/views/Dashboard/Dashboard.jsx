@@ -109,7 +109,7 @@ class Dashboard extends React.Component {
             <h3 style={{
                 paddingLeft: "20px"
               }}>Total Impact Score</h3>
-            <CircularProgress variant="static" value={88} style={{
+            <CircularProgress variant="static" value={0.4*eScore + 0.4*sScore + 0.2*gScore} style={{
                 margin: "auto",
                 width: "120px",
                 left: "-2.4rem",
@@ -120,7 +120,7 @@ class Dashboard extends React.Component {
                 position: "absolute",
                 paddingLeft: "6rem",
                 paddingTop: "4.3rem"
-              }}>88</h1>
+              }}>{0.4*eScore + 0.4*sScore + 0.2*gScore}</h1>
           </Card>
         </GridItem>
         <GridItem xs={12} sm={9} md={9} style={{
