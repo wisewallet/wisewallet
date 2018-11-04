@@ -57,6 +57,15 @@ class Dashboard extends React.Component {
       [event.target.name]: event.target.value
     });
   };
+  componentWillMount() {
+    fetch("https://b87812vlr2.execute-api.us-east-1.amazonaws.com/default/scorecalc", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({userID: sessionStorage.getItem("userID")})
+    }).then(response => response.json()).then(json => console.log(json));
+  }
   componentDidMount() {
     window.scrollTo(0, 0);
     document.body.scrollTop = 0;

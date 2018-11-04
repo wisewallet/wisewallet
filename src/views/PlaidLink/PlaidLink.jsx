@@ -47,8 +47,7 @@ class Components extends React.Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({userID: sessionStorage.getItem("userID"), public_token: token})
-    }).then(response => response.json()).then(json => console.log(json));
-    //.then(this.props.history.push('/dashboard'))
+    }).then(response => response.json()).then(json => console.log(json)).then(this.props.history.push('/dashboard'));
   }
   handleOnExit() {
     // handle the case when your user exits Link
