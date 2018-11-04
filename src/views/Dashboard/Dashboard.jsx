@@ -67,7 +67,7 @@ class Dashboard extends React.Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({userID: sessionStorage.getItem("userID")})
-    }).then(response => response.json()).then(json => console.log(json.eScore));
+    }).then(response => response.json()).then(json => this.setState({eScore: json.eScore, sScore: json.sScore, gScore: json.gScore}));
   }
   componentDidMount() {
     window.scrollTo(0, 0);
@@ -126,15 +126,15 @@ class Dashboard extends React.Component {
         <GridItem xs={12} sm={9} md={9} style={{
             paddingTop: "10px"
           }}>
-          <h3>People - 75</h3>
+          <h3>People - {sScore}</h3>
           <LinearProgress variant="determinate" color="primary" value={sScore} style={{
               margin: "auto"
             }}/>
-          <h3>Planet - 98</h3>
+          <h3>Planet - {eScore}</h3>
           <LinearProgress variant="determinate" color="primary" value={eScore} style={{
               margin: "auto"
             }}/>
-          <h3>Policy - 63</h3>
+          <h3>Policy - {gScore}</h3>
           <LinearProgress variant="determinate" color="primary" value={gScore} style={{
               margin: "auto"
             }}/>
