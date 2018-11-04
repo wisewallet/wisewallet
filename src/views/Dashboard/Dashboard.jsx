@@ -48,7 +48,10 @@ class Dashboard extends React.Component {
     super(props);
     this.state = {
       colorSelect: "0",
-      sizeSelect: "0"
+      sizeSelect: "0",
+      sScore: 50,
+      gScore: 50,
+      eScore: 50
     };
     this.onLogOut = this.onLogOut.bind(this);
   }
@@ -76,6 +79,7 @@ class Dashboard extends React.Component {
   }
   render() {
     const {classes} = this.props;
+    var {eScore, gScore, sScore} = this.state;
     var userID = sessionStorage.getItem("userID");
     if (userID == null) {
       return <Redirect to='/login'/>
@@ -123,15 +127,15 @@ class Dashboard extends React.Component {
             paddingTop: "10px"
           }}>
           <h3>People - 75</h3>
-          <LinearProgress variant="determinate" color="primary" value={75} style={{
+          <LinearProgress variant="determinate" color="primary" value={sScore} style={{
               margin: "auto"
             }}/>
           <h3>Planet - 98</h3>
-          <LinearProgress variant="determinate" color="primary" value={98} style={{
+          <LinearProgress variant="determinate" color="primary" value={eScore} style={{
               margin: "auto"
             }}/>
           <h3>Policy - 63</h3>
-          <LinearProgress variant="determinate" color="primary" value={63} style={{
+          <LinearProgress variant="determinate" color="primary" value={gScore} style={{
               margin: "auto"
             }}/>
         </GridItem>
