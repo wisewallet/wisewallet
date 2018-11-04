@@ -40,7 +40,7 @@ class Components extends React.Component {
     this.setState({[name]: event.target.value});
   };
   handleOnSuccess(token, metadata) {
-    console.log("Plaid Token: " + token);
+    console.log("Plaid Public Token: " + token);
     const {userID} = this.state;
     fetch("https://tldpv6umn7.execute-api.us-east-1.amazonaws.com/default/plaidLink", {
       method: "POST",
