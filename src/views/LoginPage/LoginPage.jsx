@@ -38,6 +38,7 @@ class LoginPage extends React.Component {
   };
   onSignIn() {
     const {email, password} = this.state;
+    console.log("Trying...");
     fetch("https://tldpv6umn7.execute-api.us-east-1.amazonaws.com/default/signIn", {
       method: "POST",
       headers: {
