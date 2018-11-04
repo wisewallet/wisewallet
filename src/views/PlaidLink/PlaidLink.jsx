@@ -58,13 +58,13 @@ class Components extends React.Component {
           },
           body: JSON.stringify({
             userID: userID,
-						public_token: token
+            public_token: token
           })
         }
       )
       .then(response => response.json())
-      .then(json => console.log(json));
-    this.props.history.push('/dashboard');
+      .then(json => console.log(json)).then(
+        this.props.history.push('/dashboard'));
   }
   handleOnExit() {
     // handle the case when your user exits Link
@@ -144,14 +144,14 @@ class Components extends React.Component {
       } >
       Open Link and connect your bank!
       <
-      /PlaidLink> <
-      /GridItem> <
-      /GridContainer> <
-      /CardBody> <
-      /Card> <
-      /GridItem> <
-      /GridContainer> <
-      /div> <
+      /PlaidLink> < /
+      GridItem > <
+      /GridContainer> < /
+      CardBody > <
+      /Card> < /
+      GridItem > <
+      /GridContainer> < /
+      div > <
       Footer content = { <
         div > {
           " "
@@ -174,20 +174,20 @@ class Components extends React.Component {
           classes.block
         } >
         Blog <
-        /a> <
-        /ListItem> <
-        /List> <
-        /div> <
+        /a> < /
+        ListItem > <
+        /List> < /
+        div > <
         div className = {
           classes.right
         } >
         WiseWallet,
         Inc. & copy;2018 All Rights Reserved. <
-        /div> <
-        /div>
+        /div> < /
+        div >
       }
-      /> <
-      /div> <
+      /> < /
+      div > <
       /div>
     );
   }
