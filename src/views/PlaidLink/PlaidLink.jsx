@@ -40,14 +40,13 @@ class Components extends React.Component {
   };
   handleOnSuccess(token, metadata) {
     console.log("Plaid Public Token: " + token);
-    const {userID} = this.state;
-    console.log("userID: " + userID);
+    console.log("userID: " + sessionStorage.getItem("userID"));
     fetch("https://tldpv6umn7.execute-api.us-east-1.amazonaws.com/default/exchangetoken", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({userID: userID, public_token: token})
+      body: JSON.stringify({userID: sessionStorage.getItem("userID"), public_token: token})
     }).then(response => response.json()).then(json => console.log(json));
     //.then(this.props.history.push('/dashboard'))
   }
