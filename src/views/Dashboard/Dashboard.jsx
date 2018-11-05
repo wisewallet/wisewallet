@@ -36,6 +36,8 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import Snackbar from '@material-ui/core/Snackbar';
+import SnackbarContent from '@material-ui/core/SnackbarContent';
 
 import {Link} from "react-router-dom";
 import logo from "assets/img/logo.png";
@@ -85,6 +87,9 @@ class Dashboard extends React.Component {
     if (userID == null) {
       return <Redirect to='/login'/>
     }
+    const style = {
+      background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+};
     return (<div className={classes.dashboard}>
       <Button onClick={this.onLogOut} variant="contained" color="#FFFFFF" round="round" style={{
           position: "absolute",
@@ -103,7 +108,7 @@ class Dashboard extends React.Component {
           paddingRight: "10%",
           paddingTop: "90px"
         }}>
-        <GridItem xs={12} sm={3} md={3}>
+        <GridItem xs={12} sm={12} md={3}>
           <Card style={{
               height: "90%"
             }}>
@@ -113,23 +118,16 @@ class Dashboard extends React.Component {
                 <CircularProgress className="impactScoreProgress" variant="static" value={88} size={100}/>
                 <img className="userPortrait" src={testPortrait} width="100px" />
               </div>
+            {  /*<SnackbarContent classes={{ root: 'dashboard_snackbar', disabled: 'disabled', }} message="Total Sales"/>
+               <SnackbarContent message="Products" />
+               <SnackbarContent message="Orders" />*/}
+               <SnackbarContent message="People - 75" classes={{ root: 'dashboard_snackbar'}}/>
+               <LinearProgress variant="determinate" color="primary" value={75} classes={{ root: 'linear_progress'}}/>
+               <SnackbarContent message="Planet - 98" classes={{ root: 'dashboard_snackbar'}}/>
+               <LinearProgress variant="determinate" color="primary" value={98} classes={{ root: 'linear_progress'}} />
+               <SnackbarContent message="Policy - 63" classes={{ root: 'dashboard_snackbar'}}/>
+               <LinearProgress variant="determinate" color="primary" value={63} classes={{ root: 'linear_progress'}} />
           </Card>
-        </GridItem>
-        <GridItem xs={12} sm={9} md={9} style={{
-            paddingTop: "10px"
-          }}>
-          <h3>People - {sScore}</h3>
-          <LinearProgress variant="determinate" color="primary" value={sScore} style={{
-              margin: "auto"
-            }}/>
-          <h3>Planet - {eScore}</h3>
-          <LinearProgress variant="determinate" color="primary" value={eScore} style={{
-              margin: "auto"
-            }}/>
-          <h3>Policy - {gScore}</h3>
-          <LinearProgress variant="determinate" color="primary" value={gScore} style={{
-              margin: "auto"
-            }}/>
         </GridItem>
 
       </GridContainer>
@@ -138,14 +136,14 @@ class Dashboard extends React.Component {
           paddingRight: "10%"
         }}>
 
-        <GridItem xs={12} sm={3} md={3}>
+        <GridItem xs={12} sm={12} md={3}>
           <Card color="info" style={{}}>
             <CardBody color="info">
               <h3>Suggested Alternatives Coming Soon</h3>
             </CardBody>
           </Card>
         </GridItem>
-        <GridItem xs={12} sm={9} md={9}>
+        <GridItem xs={12} sm={12} md={9}>
           <Card style={{}}>
             <CardBody>
                 <table style={{width: "100%"}}>
