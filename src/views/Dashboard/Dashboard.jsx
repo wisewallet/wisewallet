@@ -38,6 +38,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Snackbar from '@material-ui/core/Snackbar';
 import SnackbarContent from '@material-ui/core/SnackbarContent';
+import Paper from '@material-ui/core/Paper';
 
 import {Link} from "react-router-dom";
 import logo from "assets/img/logo.png";
@@ -54,7 +55,8 @@ class Dashboard extends React.Component {
       sizeSelect: "0",
       sScore: 0,
       gScore: 0,
-      eScore: 0
+      eScore: 0,
+      transactionList: [],
     };
     this.onLogOut = this.onLogOut.bind(this);
   }
@@ -69,8 +71,17 @@ class Dashboard extends React.Component {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({userID: sessionStorage.getItem("userID")})
-    }).then(response => response.json()).then(json => this.setState({eScore: json.eScore, sScore: json.sScore, gScore: json.gScore}));
+      // body: JSON.stringify({userID: sessionStorage.getItem("userID")})
+      body: JSON.stringify({userID: "5f61cc8a-1cc7-48b1-b4bb-e8f3ab318bc3"})
+
+    }).then((response) => {
+      response.json().then((json) => {
+        console.log(json.transactionList);
+        this.setState({
+          eScore: json.eScore, sScore: json.sScore, gScore: json.gScore, transactionList: json.transactionList,
+        });
+      })
+    });
   }
   componentDidMount() {
     window.scrollTo(0, 0);
@@ -89,7 +100,11 @@ class Dashboard extends React.Component {
     }
     const style = {
       background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-};
+    };
+    // get data Here
+    Object.keys(this.state.transactionList).forEach((elem) => {
+      console.log(elem);
+    });
     return (<div className={classes.dashboard}>
       <Button onClick={this.onLogOut} variant="contained" color="#FFFFFF" round="round" style={{
           position: "absolute",
@@ -121,13 +136,41 @@ class Dashboard extends React.Component {
             {  /*<SnackbarContent classes={{ root: 'dashboard_snackbar', disabled: 'disabled', }} message="Total Sales"/>
                <SnackbarContent message="Products" />
                <SnackbarContent message="Orders" />*/}
-               <SnackbarContent message="People - 75" classes={{ root: 'dashboard_snackbar'}}/>
-               <LinearProgress variant="determinate" color="primary" value={75} classes={{ root: 'linear_progress'}}/>
-               <SnackbarContent message="Planet - 98" classes={{ root: 'dashboard_snackbar'}}/>
-               <LinearProgress variant="determinate" color="primary" value={98} classes={{ root: 'linear_progress'}} />
-               <SnackbarContent message="Policy - 63" classes={{ root: 'dashboard_snackbar'}}/>
-               <LinearProgress variant="determinate" color="primary" value={63} classes={{ root: 'linear_progress'}} />
+               <SnackbarContent message={"People - " + this.state.sScore} classes={{ root: 'dashboard_snackbar'}}/>
+               <LinearProgress variant="determinate" color="primary" value={this.state.sScore} classes={{ root: 'linear_progress'}}/>
+               <SnackbarContent message={"Planet -" + this.state.eScore} classes={{ root: 'dashboard_snackbar'}}/>
+               <LinearProgress variant="determinate" color="primary" value={this.state.eScore} classes={{ root: 'linear_progress'}} />
+               <SnackbarContent message={"Policy -" + this.state.gScore} classes={{ root: 'dashboard_snackbar'}}/>
+               <LinearProgress variant="determinate" color="primary" value={this.state.gScore} classes={{ root: 'linear_progress'}} />
           </Card>
+        </GridItem>
+        <GridItem xs={12} sm={12} md={9}>
+        <div style={{overflowX: 'auto', marginTop: "30px", borderRadius: "4px",}}>
+            <Table style={{background: 'white',}}>
+            <TableHead>
+              <TableRow>
+                <TableCell padding="default" classes ={{ root: "table_cell"}}>Company</TableCell>
+                <TableCell padding="dense">Date</TableCell>
+                <TableCell padding="dense">Category</TableCell>
+                <TableCell padding="dense">Amount</TableCell>
+                <TableCell padding="dense">People</TableCell>
+                <TableCell padding="dense">Planet</TableCell>
+                <TableCell padding="dense">Policy</TableCell>
+              </TableRow>
+            </TableHead>
+            {Object.keys(this.state.transactionList).map((t) =>
+              <TableRow>
+                <TableCell padding="default" classes ={{ root: "table_cell"}}>{this.state.transactionList[t].name}</TableCell>
+                <TableCell padding="dense">{this.state.transactionList[t].date}</TableCell>
+                <TableCell padding="dense">{this.state.transactionList[t].category}</TableCell>
+                <TableCell padding="dense">{this.state.transactionList[t].amount}</TableCell>
+                <TableCell padding="dense">{this.state.transactionList[t].sScore}</TableCell>
+                <TableCell padding="dense">{this.state.transactionList[t].eScore}</TableCell>
+                <TableCell padding="dense">{this.state.transactionList[t].gScore}</TableCell>
+              </TableRow>
+            )}
+            </Table>
+            </div>
         </GridItem>
 
       </GridContainer>
@@ -140,59 +183,6 @@ class Dashboard extends React.Component {
           <Card color="info" style={{}}>
             <CardBody color="info">
               <h3>Suggested Alternatives Coming Soon</h3>
-            </CardBody>
-          </Card>
-        </GridItem>
-        <GridItem xs={12} sm={12} md={9}>
-          <Card style={{}}>
-            <CardBody>
-                <table style={{width: "100%"}}>
-                  <tr>
-                    <th>Company</th>
-                    <th>Date</th>
-                    <th>Category</th>
-                    <th>Amount</th>
-                    <th>People</th>
-                    <th>Planet</th>
-                    <th>Policy</th>
-                  </tr>
-                  <tr>
-                    <td>Transaction</td>
-                    <td>10/18/2018</td>
-                    <td>$50.00</td>
-                    <td>50</td>
-                    <td>50</td>
-                    <td>50</td>
-                    <td>50</td>
-                  </tr>
-                  <tr>
-                    <td>Transaction</td>
-                    <td>10/18/2018</td>
-                    <td>$50.00</td>
-                    <td>50</td>
-                    <td>50</td>
-                    <td>50</td>
-                    <td>50</td>
-                  </tr>
-                  <tr>
-                    <td>Transaction</td>
-                    <td>10/18/2018</td>
-                    <td>$50.00</td>
-                    <td>50</td>
-                    <td>50</td>
-                    <td>50</td>
-                    <td>50</td>
-                  </tr>
-                  <tr>
-                    <td>Transaction</td>
-                    <td>10/18/2018</td>
-                    <td>$50.00</td>
-                    <td>50</td>
-                    <td>50</td>
-                    <td>50</td>
-                    <td>50</td>
-                  </tr>
-                </table>
             </CardBody>
           </Card>
         </GridItem>
