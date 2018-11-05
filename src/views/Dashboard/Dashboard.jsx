@@ -72,8 +72,8 @@ class Dashboard extends React.Component {
       headers: {
         "Content-Type": "application/json"
       },
-      // body: JSON.stringify({userID: sessionStorage.getItem("userID")})
-      body: JSON.stringify({userID: "5f61cc8a-1cc7-48b1-b4bb-e8f3ab318bc3"})
+      body: JSON.stringify({userID: sessionStorage.getItem("userID")})
+      // body: JSON.stringify({userID: "5f61cc8a-1cc7-48b1-b4bb-e8f3ab318bc3"})
 
     }).then((response) => {
       response.json().then((json) => {
@@ -131,7 +131,7 @@ class Dashboard extends React.Component {
           <Card classes = {{ root: 'card_style'}}>
             <h3 className="impactScoreHeader">Total Impact Score</h3>
               <div className="impactScore">
-                <h2 className="impactScoreNumber" >88</h2>
+                <h2 className="impactScoreNumber" >{this.state.tScore}</h2>
                 <CircularProgress className="impactScoreProgress" variant="static" value={this.state.tScore} size={100}/>
                 <img className="userPortrait" src={testPortrait} width="100px" />
               </div>
