@@ -26,7 +26,9 @@
 @import "plugins/plugin-react-slick";
 @import "plugins/plugin-react-tagsinput";
 
+.impactScoreHeader{
 
+}
 .impactScore{
   position: relative;
   text-align: center;
@@ -37,6 +39,7 @@
     position: absolute;
     z-index: 2;
     margin-left: -50px;
+    opacity: 1;
   }
   .userPortrait{
     position: absolute;
@@ -44,8 +47,14 @@
     z-index: 1;
     margin-left: -50px;
   }
+  .impactScoreNumber{
+    white-space:nowrap;
+  }
 }
 
 .impactScoreHeader{
   text-align: center;
+}
+.dashboard_snackbar{
+  background: linear-gradient(45deg, #092856 40%, #092856 80%),
 }
