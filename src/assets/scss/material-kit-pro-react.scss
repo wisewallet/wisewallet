@@ -56,5 +56,13 @@
   text-align: center;
 }
 .dashboard_snackbar{
-  background: linear-gradient(45deg, #092856 40%, #092856 80%),
+  height: 15px;
+  margin-top: 10px !important;
+  border-radius: 0px !important;
+  min-width: 0px !important;
+  padding-left: 15px !important;
+  background-color: #89999e !important;
+}
+.linear_progress{
+  padding: 20px;
 }
