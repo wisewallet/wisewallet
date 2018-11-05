@@ -56,7 +56,8 @@ class Dashboard extends React.Component {
       sScore: 0,
       gScore: 0,
       eScore: 0,
-      transactionList: [],
+      tScore:0,
+      transactionList: null,
     };
     this.onLogOut = this.onLogOut.bind(this);
   }
@@ -76,9 +77,9 @@ class Dashboard extends React.Component {
 
     }).then((response) => {
       response.json().then((json) => {
-        console.log(json.transactionList);
+        console.log(json);
         this.setState({
-          eScore: json.eScore, sScore: json.sScore, gScore: json.gScore, transactionList: json.transactionList,
+          eScore: json.eScore, sScore: json.sScore, gScore: json.gScore, transactionList: json.transactionList, tScore: json.tScore,
         });
       })
     });
@@ -102,8 +103,11 @@ class Dashboard extends React.Component {
       background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
     };
     // get data Here
-    Object.keys(this.state.transactionList).forEach((elem) => {
-      console.log(elem);
+
+    const formatter = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 2
     });
     return (<div className={classes.dashboard}>
       <Button onClick={this.onLogOut} variant="contained" color="#FFFFFF" round="round" style={{
@@ -124,28 +128,25 @@ class Dashboard extends React.Component {
           paddingTop: "90px"
         }}>
         <GridItem xs={12} sm={12} md={3}>
-          <Card style={{
-              height: "90%"
-            }}>
+          <Card classes = {{ root: 'card_style'}}>
             <h3 className="impactScoreHeader">Total Impact Score</h3>
               <div className="impactScore">
                 <h2 className="impactScoreNumber" >88</h2>
-                <CircularProgress className="impactScoreProgress" variant="static" value={88} size={100}/>
+                <CircularProgress className="impactScoreProgress" variant="static" value={this.state.tScore} size={100}/>
                 <img className="userPortrait" src={testPortrait} width="100px" />
               </div>
-            {  /*<SnackbarContent classes={{ root: 'dashboard_snackbar', disabled: 'disabled', }} message="Total Sales"/>
-               <SnackbarContent message="Products" />
-               <SnackbarContent message="Orders" />*/}
-               <SnackbarContent message={"People - " + this.state.sScore} classes={{ root: 'dashboard_snackbar'}}/>
-               <LinearProgress variant="determinate" color="primary" value={this.state.sScore} classes={{ root: 'linear_progress'}}/>
-               <SnackbarContent message={"Planet -" + this.state.eScore} classes={{ root: 'dashboard_snackbar'}}/>
-               <LinearProgress variant="determinate" color="primary" value={this.state.eScore} classes={{ root: 'linear_progress'}} />
-               <SnackbarContent message={"Policy -" + this.state.gScore} classes={{ root: 'dashboard_snackbar'}}/>
-               <LinearProgress variant="determinate" color="primary" value={this.state.gScore} classes={{ root: 'linear_progress'}} />
+
+               <SnackbarContent message={"People: " + this.state.sScore} classes={{ root: 'dashboard_snackbar'}}/>
+               <LinearProgress variant="determinate" color="primary" value={this.state.sScore} classes={{ root: 'linear_progress', barColorPrimary: 'bar_color1'}}/>
+               <SnackbarContent message={"Planet: " + this.state.eScore} classes={{ root: 'dashboard_snackbar'}}/>
+               <LinearProgress variant="determinate" color="primary" value={this.state.eScore} classes={{ root: 'linear_progress', barColorPrimary: 'bar_color2'}} />
+               <SnackbarContent message={"Policy: " + this.state.gScore} classes={{ root: 'dashboard_snackbar'}}/>
+               <LinearProgress variant="determinate" color="primary" value={this.state.gScore} classes={{ root: 'linear_progress last_linear_progress', barColorPrimary: 'bar_color3'}} />
           </Card>
         </GridItem>
         <GridItem xs={12} sm={12} md={9}>
         <div style={{overflowX: 'auto', marginTop: "30px", borderRadius: "4px",}}>
+        {this.state.transactionList === null ?  <div className = "loading"><CircularProgress size={50} classes={{colorSecondary: "table_loading"}} color="secondary" className={classes.progress} /></div> :
             <Table style={{background: 'white',}}>
             <TableHead>
               <TableRow>
@@ -158,34 +159,27 @@ class Dashboard extends React.Component {
                 <TableCell padding="dense">Policy</TableCell>
               </TableRow>
             </TableHead>
-            {Object.keys(this.state.transactionList).map((t) =>
-              <TableRow>
-                <TableCell padding="default" classes ={{ root: "table_cell"}}>{this.state.transactionList[t].name}</TableCell>
-                <TableCell padding="dense">{this.state.transactionList[t].date}</TableCell>
-                <TableCell padding="dense">{this.state.transactionList[t].category}</TableCell>
-                <TableCell padding="dense">{this.state.transactionList[t].amount}</TableCell>
-                <TableCell padding="dense">{this.state.transactionList[t].sScore}</TableCell>
-                <TableCell padding="dense">{this.state.transactionList[t].eScore}</TableCell>
-                <TableCell padding="dense">{this.state.transactionList[t].gScore}</TableCell>
-              </TableRow>
-            )}
+                  {Object.keys(this.state.transactionList).map((t) =>
+                  <TableRow>
+                    <TableCell padding="default" classes ={{ root: "table_cell"}}>{this.state.transactionList[t].name}</TableCell>
+                    <TableCell padding="dense">{this.state.transactionList[t].date}</TableCell>
+                    <TableCell padding="dense">{this.state.transactionList[t].category}</TableCell>
+                    <TableCell padding="dense">{formatter.format(this.state.transactionList[t].amount)}</TableCell>
+                    <TableCell padding="dense">{this.state.transactionList[t].sScore}</TableCell>
+                    <TableCell padding="dense">{this.state.transactionList[t].eScore}</TableCell>
+                    <TableCell padding="dense">{this.state.transactionList[t].gScore}</TableCell>
+                  </TableRow>
+                )}
             </Table>
+          }
             </div>
+            <Card color="info" style={{}}>
+              <CardBody color="info">
+                <h3>Suggested Alternatives Coming Soon</h3>
+              </CardBody>
+            </Card>
         </GridItem>
 
-      </GridContainer>
-      <GridContainer style={{
-          paddingLeft: "10%",
-          paddingRight: "10%"
-        }}>
-
-        <GridItem xs={12} sm={12} md={3}>
-          <Card color="info" style={{}}>
-            <CardBody color="info">
-              <h3>Suggested Alternatives Coming Soon</h3>
-            </CardBody>
-          </Card>
-        </GridItem>
       </GridContainer>
     </div>);
   }

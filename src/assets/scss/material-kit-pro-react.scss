@@ -27,7 +27,8 @@
 @import "plugins/plugin-react-tagsinput";
 
 .impactScoreHeader{
-
+  text-align: center;
+  font-size: 20pt;
 }
 .impactScore{
   position: relative;
@@ -51,21 +52,38 @@
     white-space:nowrap;
   }
 }
-
-.impactScoreHeader{
-  text-align: center;
-}
 .dashboard_snackbar{
-  height: 15px;
+  height: 25px;
   margin-top: 10px !important;
   border-radius: 0px !important;
   min-width: 0px !important;
   padding-left: 15px !important;
   background-color: #89999e !important;
+  font-size: 13pt !important;
 }
 .linear_progress{
   padding: 20px;
 }
-.table_cell{
-  // padding-left: 10px !important;
+.last_linear_progress{
+  margin-bottom: 5px;
 }
+.card_style{
+
+}
+.table_loading{
+  color: #89999e !important;
+}
+.loading{
+  margin: auto;
+  width: 10%;
+}
+
+// .bar_color1{
+//   background-color: #9f7e69 !important;
+// }
+// .bar_color2{
+//   background-color: #f2efc7 !important;
+// }
+// .bar_color3{
+//   background-color: #d2bba0 !important;
+// }
