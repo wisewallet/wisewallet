@@ -26,6 +26,7 @@
 @import "plugins/plugin-react-slick";
 @import "plugins/plugin-react-tagsinput";
 
+
 .impactScoreHeader{
   text-align: center;
   font-size: 20pt;
@@ -41,6 +42,9 @@
     z-index: 2;
     margin-left: -50px;
     opacity: 1;
+  }
+  .circleProgress{
+    stroke: url(#gradient);
   }
   .userPortrait{
     position: absolute;
@@ -78,12 +82,12 @@
   width: 10%;
 }
 
-// .bar_color1{
-//   background-color: #9f7e69 !important;
-// }
-// .bar_color2{
-//   background-color: #f2efc7 !important;
-// }
-// .bar_color3{
-//   background-color: #d2bba0 !important;
-// }
+.bar_color1{
+  background-color: #EF8888 !important;
+}
+.bar_color2{
+  background-color: #8CD1A5 !important;
+}
+.bar_color3{
+  background-color: #B2B6FF !important;
+}
