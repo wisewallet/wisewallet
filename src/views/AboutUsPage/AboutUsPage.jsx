@@ -31,7 +31,7 @@ class AboutUsPage extends React.Component {
             height: 300,
             color: "primary"
           }}/>
-        <Parallax image={require("assets/img/bg9.jpg")} filter="dark" small>
+        <Parallax image={require("assets/img/bg99.jpg")} filter="dark" small>
           <div className={classes.container}>
             <GridContainer justify="center">
               <GridItem

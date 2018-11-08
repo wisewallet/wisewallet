@@ -59,7 +59,7 @@ class LoginPage extends React.Component {
     return (<div>
       <Header absolute="absolute" color="transparent" brand="WiseWallet"/>
       <div className={classes.pageHeader} style={{
-          backgroundImage: "url(" + image + ")",
+          backgroundColor: "#FFFFFF",
           backgroundSize: "cover",
           backgroundPosition: "top center"
         }}>

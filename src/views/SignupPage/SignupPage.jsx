@@ -65,7 +65,7 @@ class Components extends React.Component {
     return (<div>
       <Header absolute="absolute" color="transparent" brand="WiseWallet" links={<HeaderLinks dropdownHoverColor = "rose" />} {...rest}/>
       <div className={classes.pageHeader} style={{
-          backgroundImage: "url(" + image + ")",
+          backgroundColor: "#FFFFFF",
           backgroundSize: "cover",
           backgroundPosition: "top center"
         }}>
