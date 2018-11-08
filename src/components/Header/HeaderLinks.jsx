@@ -97,6 +97,17 @@ function HeaderLinks({
         Blog
       </Button>
     </ListItem>
+    <ListItem className={classes.listItem} style={{
+        marginRight: 20
+      }}>
+      <Button href="https://mywisewallet.com/about" color={window.innerWidth < 960
+          ? "primary"
+          : "white"} target="" className={classes.navButton} round="round" style={{
+          marginRight: 20
+        }}>
+        About
+      </Button>
+    </ListItem>
     <ListItem className={classes.listItem}>
       <Button href="http://mywisewallet.com/login" color={window.innerWidth < 960
           ? "primary"
