@@ -10,7 +10,7 @@ import ListIcon from "@material-ui/icons/List";
 import Loyalty from "@material-ui/icons/Loyalty";
 // core components
 import Header from "components/Header/Header.jsx";
-import HeaderLinks from "components/Header/HeaderLinks.jsx";
+import SignUpLinks from "components/Header/SignUpLinks.jsx";
 import Footer from "components/Footer/Footer.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
@@ -63,7 +63,7 @@ class Components extends React.Component {
       ...rest
     } = this.props;
     return (<div>
-      <Header absolute="absolute" color="transparent" brand="WiseWallet" links={<HeaderLinks dropdownHoverColor = "rose" />} {...rest}/>
+      <Header absolute="absolute" color="transparent" brand="WiseWallet" links={<SignUpLinks dropdownHoverColor = "rose" />} {...rest}/>
       <div className={classes.pageHeader} style={{
           backgroundColor: "#FFFFFF",
           backgroundSize: "cover",
@@ -71,28 +71,21 @@ class Components extends React.Component {
         }}>
         <div className={classes.container}>
           <GridContainer justify="center">
-            <GridItem xs={12} sm={10} md={10}>
+            <GridItem xs={12} sm={10} md={4}>
               <Card className={classes.cardSignup}>
                 <h2 className={classes.cardTitle}>Register</h2>
                 <CardBody>
-                  <GridContainer justify="center">
-                    <GridItem xs={12} sm={5} md={5}>
-                      <InfoArea className={classes.infoArea} title="Personal Impact Score" description="Get personal scores based on your impact on people, the planet, and policy through your transactions." icon={InsertChart} iconColor="primary"/>
-                      <InfoArea className={classes.infoArea} title="Suggested Alternatives" description="WiseWallet curates recommendations to guide you towards more sustainable and ethical purchases within your budget." icon={ListIcon} iconColor="primary"/>
-                      <InfoArea className={classes.infoArea} title="Rewards" description="Benefit from discounts and giveaways through our responsible business partners for exemplary performance. It’s a win-win!" icon={Loyalty} iconColor="info"/>
-                    </GridItem>
-                    <GridItem xs={12} sm={5} md={5}>
-                      <form className={classes.form}>
-                        <TextField id="firstName" label="First Name" className={classes.textField} value={this.state.firstName} onChange={this.handleChange("firstName")} margin="normal"/>
-                        <TextField id="lastName" label="Last Name" className={classes.textField} value={this.state.lastName} onChange={this.handleChange("lastName")} margin="normal"/>
-                        <TextField id="email" label="Email" className={classes.textField} value={this.state.email} onChange={this.handleChange("email")} margin="normal"/>
-                        <TextField id="password" label="Password" className={classes.textField} type="password" value={this.state.password} onChange={this.handleChange("password")} autoComplete="current-password" margin="normal"/>
-                        <Button color="primary" onClick={this.onSignUp}>
-                          Get started
-                        </Button>
-                      </form>
-                    </GridItem>
-                  </GridContainer>
+                  <center>
+                  <form className={classes.form}>
+                    <TextField id="firstName" label="First Name" className={classes.textField} value={this.state.firstName} onChange={this.handleChange("firstName")} margin="normal"/>
+                    <TextField id="lastName" label="Last Name" className={classes.textField} value={this.state.lastName} onChange={this.handleChange("lastName")} margin="normal"/>
+                    <TextField id="email" label="Email" className={classes.textField} value={this.state.email} onChange={this.handleChange("email")} margin="normal"/>
+                    <TextField id="password" label="Password" className={classes.textField} type="password" value={this.state.password} onChange={this.handleChange("password")} autoComplete="current-password" margin="normal"/>
+                    <Button color="primary" onClick={this.onSignUp}>
+                      Get started
+                    </Button>
+                  </form>
+                  </center>
                 </CardBody>
               </Card>
             </GridItem>
@@ -101,15 +94,6 @@ class Components extends React.Component {
         <Footer content={<div > {
             " "
           }
-          <div className={classes.left}>
-            <List className={classes.list}>
-              <ListItem className={classes.inlineBlock}>
-                <a href="https://medium.com/@wisewallet" className={classes.block}>
-                  Blog
-                </a>
-              </ListItem>
-            </List>
-          </div>
           <div className={classes.right}>
             WiseWallet, Inc. &copy; 2018 All Rights Reserved.
           </div>
