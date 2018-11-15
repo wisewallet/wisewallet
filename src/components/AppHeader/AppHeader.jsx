@@ -98,11 +98,34 @@ class AppHeader extends React.Component {
         </Button>
       </Toolbar>
       </GridContainer>
+      <Hidden mdUp="mdUp">
+        <IconButton color="inherit" aria-label="open drawer" onClick={this.handleDrawerToggle} style={{
+          position: "absolute",
+          top: "20px",
+          right: "0px",
+          marginRight: "30px",
+        }}>
+          <Menu/>
+        </IconButton>
+      </Hidden>
+      <Hidden smDown="smDown" implementation="css" className={classes.hidden}>
       <div style={{
         position: "absolute",
+        top: "20px",
         right: "0px",
         marginRight: "100px",
       }}>{links}</div>
+      </Hidden>
+      <Hidden mdUp="mdUp" implementation="css">
+        <Drawer variant="temporary" anchor={"right"} open={this.state.mobileOpen} classes={{
+            paper: classes.drawerPaper
+          }} onClose={this.handleDrawerToggle} >
+          <IconButton color="inherit" aria-label="open drawer" onClick={this.handleDrawerToggle} className={classes.closeButtonDrawer}>
+            <Close/>
+          </IconButton>
+          <div className={classes.appResponsive}>{links}</div>
+        </Drawer>
+      </Hidden>
     </AppBar>);
   }
 }
