@@ -16,6 +16,8 @@ import Drawer from "@material-ui/core/Drawer";
 // @material-ui/icons
 import Menu from "@material-ui/icons/Menu";
 import Close from "@material-ui/icons/Close";
+import GridContainer from "components/Grid/GridContainer.jsx";
+import GridItem from "components/Grid/GridItem.jsx";
 // core components
 import headerStyle from "assets/jss/material-kit-pro-react/components/headerStyle.jsx";
 import logo from "assets/img/logo.png";
@@ -75,12 +77,17 @@ class AppHeader extends React.Component {
       [classes.fixed]: fixed
     });
     return (<AppBar className={appBarClasses}>
+      <GridContainer
+        style={{
+          paddingLeft: "10%",
+          paddingRight: "10%",
+        }}
+      >
       <Toolbar className={classes.container}>
-
-        <Button className={classes.title}>
+        <Button className={classes.title} >
           <img src={logo} style={{
               height: "auto",
-              width: "50px"
+              width: "50px",
             }} alt={"WiseWallet"}/>
           <Link to="/">WiseWallet<p style={{
         position: "absolute",
@@ -90,6 +97,12 @@ class AppHeader extends React.Component {
           </Link>
         </Button>
       </Toolbar>
+      </GridContainer>
+      <div style={{
+        position: "absolute",
+        right: "0px",
+        marginRight: "100px",
+      }}>{links}</div>
     </AppBar>);
   }
 }

@@ -7,6 +7,7 @@ import { Redirect } from "react-router";
 import withStyles from "@material-ui/core/styles/withStyles";
 // core components
 import AppHeader from "components/AppHeader/AppHeader.jsx";
+import Header from "components/Header/Header.jsx";
 import AppHeaderLinks from "components/AppHeader/AppHeaderLinks.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
@@ -92,26 +93,23 @@ class Dashboard extends React.Component {
     console.log(sessionStorage);
     return (
       <div className={classes.dashboard}>
-        <Button
-          onClick={this.onLogOut}
-          variant="contained"
-          color="#FFFFFF"
-          round="round"
-          style={{
-            position: "absolute",
-            float: "right",
-            right: "10%",
-            top: "15px",
-            zIndex: "10000",
-            color: "#092856",
-            backgroundColor: "#FFFFFF"
-          }}
-        >
-          Log Out
-        </Button>
+
         <AppHeader
           brand="WiseWallet"
-          links={<AppHeaderLinks />}
+          links={ <Button
+              onClick={this.onLogOut}
+              variant="contained"
+              color="#FFFFFF"
+              round="round"
+              style={{
+                position: "relative",
+                float: "right",
+                color: "#092856",
+                backgroundColor: "#FFFFFF"
+              }}
+            >
+              Log Out
+            </Button>}
           fixed="fixed"
           color="primary"
         />
