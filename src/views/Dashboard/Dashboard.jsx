@@ -24,7 +24,6 @@ import SnackbarContent from "@material-ui/core/SnackbarContent";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import dashboardStyle from "assets/jss/material-kit-pro-react/views/dashboardStyle.jsx";
-import testPortrait from "assets/img/testUserIcon.png";
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -35,6 +34,7 @@ class Dashboard extends React.Component {
       sScore: 0,
       gScore: 0,
       eScore: 0,
+      pScore: 0,
       tScore: 0,
       transactionList: null
     };
@@ -63,6 +63,7 @@ class Dashboard extends React.Component {
           eScore: json.eScore,
           sScore: json.sScore,
           gScore: json.gScore,
+          pScore: json.pScore,
           transactionList: json.transactionList,
           tScore: json.tScore
         });
@@ -124,7 +125,7 @@ class Dashboard extends React.Component {
             <Card classes={{ root: "card_style" }}>
               <h3 className="impactScoreHeader">Total Impact Score</h3>
               <div className="impactScore">
-                <h2 className="impactScoreNumber">{this.state.tScore}</h2>
+                <h2 className="impactScoreNumber">{this.state.tScore}/100</h2>
                 <CircularProgress
                   classes={{ colorPrimary: "impactScoreProgress", circle: "impactScoreProgress" }}
                   color="primary"
@@ -132,11 +133,6 @@ class Dashboard extends React.Component {
                   variant="static"
                   value={this.state.tScore}
                   size={100}
-                />
-                <img
-                  className="userPortrait"
-                  src={testPortrait}
-                  width="100px"
                 />
               </div>
 
@@ -175,8 +171,21 @@ class Dashboard extends React.Component {
                 color="primary"
                 value={this.state.gScore}
                 classes={{
-                  root: "linear_progress last_linear_progress",
+                  root: "linear_progress",
                   barColorPrimary: "bar_color3"
+                }}
+              />
+              <SnackbarContent
+                message={"Politics: " + this.state.pScore}
+                classes={{ root: "dashboard_snackbar" }}
+              />
+              <LinearProgress
+                variant="determinate"
+                color="primary"
+                value={this.state.pScore}
+                classes={{
+                  root: "linear_progress last_linear_progress politicsLinearProgress",
+                  barColorPrimary: "bar_color4"
                 }}
               />
             </Card>
@@ -213,6 +222,7 @@ class Dashboard extends React.Component {
                       <TableCell padding="dense">People</TableCell>
                       <TableCell padding="dense">Planet</TableCell>
                       <TableCell padding="dense">Policy</TableCell>
+                      <TableCell padding="dense">Politics</TableCell>
                     </TableRow>
                   </TableHead>
                   {Object.keys(this.state.transactionList).map(t => (
@@ -237,6 +247,9 @@ class Dashboard extends React.Component {
                       </TableCell>
                       <TableCell padding="dense">
                         {this.state.transactionList[t].gScore}
+                      </TableCell>
+                      <TableCell padding="dense">
+                        {this.state.transactionList[t].pScore}
                       </TableCell>
                     </TableRow>
                   ))}
