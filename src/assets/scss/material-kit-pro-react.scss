@@ -25,3 +25,76 @@
 @import "plugins/plugin-react-image-gallery";
 @import "plugins/plugin-react-slick";
 @import "plugins/plugin-react-tagsinput";
+
+
+.impactScoreHeader{
+  text-align: center;
+  font-size: 20pt;
+}
+.impactScore{
+  position: relative;
+  text-align: center;
+  margin-bottom: 100px;
+  padding-left: 40px;
+  padding-right: 40px;
+  .impactScoreProgress{
+    position: absolute;
+    z-index: 2;
+    margin-left: -50px;
+    opacity: 1;
+  }
+  .circleProgress{
+    stroke: url(#gradient);
+  }
+  .userPortrait{
+    position: absolute;
+    border-radius: 50px;
+    z-index: 1;
+    margin-left: -50px;
+  }
+  .impactScoreNumber{
+    white-space:nowrap;
+  }
+}
+.dashboard_snackbar{
+  height: 25px;
+  margin-top: 10px !important;
+  border-radius: 0px !important;
+  min-width: 0px !important;
+  padding-left: 15px !important;
+  background-color: #89999e !important;
+  font-size: 13pt !important;
+}
+.linear_progress{
+  padding: 20px;
+}
+.last_linear_progress{
+  margin-bottom: 5px;
+}
+
+.politicsLinearProgress{
+  background-color: #910E0E !important;
+}
+.card_style{
+
+}
+.table_loading{
+  color: #89999e !important;
+}
+.loading{
+  margin: auto;
+  width: 10%;
+}
+
+.bar_color1{
+  background-color: #EF8888 !important;
+}
+.bar_color2{
+  background-color: #8CD1A5 !important;
+}
+.bar_color3{
+  background-color: #B2B6FF !important;
+}
+.bar_color4{
+  background-color: #0C3A7F !important;
+}
