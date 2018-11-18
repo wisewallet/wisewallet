@@ -70,7 +70,7 @@ class Header extends React.Component {
     });
     return (<AppBar className={appBarClasses}>
       <Toolbar className={classes.container}>
-        <Button className={classes.title}>
+        <Button className={classes.title} href="/">
           <img src={logo} style={{
               height: "auto",
               width: "50px"
