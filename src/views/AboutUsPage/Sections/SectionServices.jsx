@@ -47,7 +47,7 @@ function SectionServices(props) {
         </h4>
       </GridItem>
       <GridItem md={8} sm={8} className={classNames(classes.mlAuto, classes.mrAuto, classes.textCenter)}>
-        <h2 className={classes.title}>What is my Politics Score?</h2>
+        <h2 className={classes.title}>What is my Politics score?</h2>
         <h4 className={classes.description}>
           WiseWallet leverages the nonpartisan non-profit Center for Responsive Politics to track the effects of money and lobbying on elections and public policy. Any organization whose PACs, individual members, employees, owners, and those individuals’ immediate families who combined donated in excess of 60% of the organizations’ total donations to Republican or Democratic candidates in 2018 is deemed “Conservative” or “Liberal”, respectively.</h4>
       </GridItem>
