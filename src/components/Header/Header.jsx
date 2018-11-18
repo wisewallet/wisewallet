@@ -74,7 +74,7 @@ class Header extends React.Component {
           <img src={logo} style={{
               height: "auto",
               width: "50px"
-            }} alt={"WiseWallet"}/>
+            }} alt={"WiseWallet"} href="/"/>
           <Link to="/">{brand}</Link>
         </Button>
         <Hidden smDown="smDown" implementation="css" className={classes.hidden}>
