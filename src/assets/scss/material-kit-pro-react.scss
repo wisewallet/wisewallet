@@ -38,6 +38,7 @@
   padding-left: 40px;
   padding-right: 40px;
   .impactScoreProgress{
+    color: #F7C922;
     position: absolute;
     z-index: 2;
     margin-left: -50px;
@@ -93,8 +94,19 @@
   background-color: #8CD1A5 !important;
 }
 .bar_color3{
-  background-color: #B2B6FF !important;
+  background-color: #6BC8FF !important;
+}
+.bar_color4{
+  background-color: #2D33ED !important;
+  // red color ED2D2D
+}
+.alternatives{
+  text-align: center !important;
+  padding-top: 10px;
 }
 .bar_color4{
   background-color: #0C3A7F !important;
+}
+.politicsLinearProgressBG{
+  background-color: #ED2D2D !important;
 }

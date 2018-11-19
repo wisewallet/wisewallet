@@ -88,86 +88,145 @@ class Dashboard extends React.Component {
       currency: "USD",
       minimumFractionDigits: 2
     });
-    console.log(sessionStorage);
     return (<div className={classes.dashboard}>
 
-      <AppHeader brand="WiseWallet" links={<Button
-        onClick = {
-          this.onLogOut
+      <AppHeader brand="WiseWallet" links={(size) => {
+        if(size === "small"){
+          return <Button
+            onClick = {
+              this.onLogOut
+            }
+            variant = "contained"
+            color = "#FFFFFF"
+            round = "round"
+            style = {{
+                    position: "relative",
+                    float: "right",
+                    color: "#092856",
+                    backgroundColor: "#FFFFFF"
+                  }}
+                >
+                  Log Out
+                </Button>;
+        } else{
+          return <Button
+            onClick = {
+              this.onLogOut
+            }
+            variant = "contained"
+            color = "#FFFFFF"
+            round = "round"
+            style = {{
+                    position: "relative",
+                    float: "left",
+                    marginTop: "15px",
+                    marginLeft: "15px",
+                    color: "white",
+                    backgroundColor: "#6bafe0",
+                  }}
+                >
+                  Log Out
+                </Button>;
         }
-        variant = "contained"
-        color = "#FFFFFF"
-        round = "round"
-        style = {{
-                position: "relative",
-                float: "right",
-                color: "#092856",
-                backgroundColor: "#FFFFFF"
-              }} > Log Out < /Button>} fixed="fixed" color="primary"/>
-      <GridContainer style={{
-          paddingLeft: "10%",
-          paddingRight: "10%",
-          paddingTop: "90px"
-        }}>
-        <GridItem xs={12} sm={12} md={3}>
-          <Card classes={{
-              root: "card_style"
-            }}>
-            <h3 className="impactScoreHeader">Total Impact Score</h3>
-            <div className="impactScore">
-              <h2 className="impactScoreNumber">{this.state.tScore}/100</h2>
-              <CircularProgress classes={{
-                  colorPrimary: "impactScoreProgress",
-                  circle: "impactScoreProgress"
-                }} color="primary" className="impactScoreProgress" variant="static" value={this.state.tScore} size={100}/>
-            </div>
+      }}
+          fixed="fixed"
+          color="primary"
+        />
+        <GridContainer
+          style={{
+            paddingLeft: "10%",
+            paddingRight: "10%",
+            paddingTop: "90px"
+          }}
+        >
+          <GridItem xs={12} sm={12} md={3}>
+            <Card classes={{ root: "card_style" }}>
+              <h3 className="impactScoreHeader">Total Impact Score</h3>
+              <div className="impactScore">
+                <h2 className="impactScoreNumber">{this.state.tScore}/100</h2>
+                <CircularProgress
+                  classes={{ colorPrimary: "impactScoreProgress", circle: "impactScoreProgress" }}
+                  color="primary"
+                  className="impactScoreProgress"
+                  variant="static"
+                  value={this.state.tScore}
+                  size={100}
+                />
+              </div>
 
-            <div data-tip="People: Whatever you want this to say"><SnackbarContent message={"People: " + this.state.sScore} classes={{
-                root: "dashboard_snackbar"
-              }}/>
-            <LinearProgress variant="determinate" color="primary" value={this.state.sScore} classes={{
-                root: "linear_progress",
-                barColorPrimary: "bar_color1"
-              }}/><ReactTooltip /></div>
-            <div data-tip="Planet: Whatever you want this to say"><SnackbarContent message={"Planet: " + this.state.eScore} classes={{
-                root: "dashboard_snackbar"
-              }}/>
-            <LinearProgress variant="determinate" color="primary" value={this.state.eScore} classes={{
-                root: "linear_progress",
-                barColorPrimary: "bar_color2"
-              }}/></div>
-            <div data-tip="Policy: Whatever you want this to say"><SnackbarContent message={"Policy: " + this.state.gScore} classes={{
-                root: "dashboard_snackbar"
-              }}/>
-            <LinearProgress variant="determinate" color="primary" value={this.state.gScore} classes={{
-                root: "linear_progress",
-                barColorPrimary: "bar_color3"
-              }}/></div>
-            <div data-tip="Politics: Whatever you want this to say"><SnackbarContent message={"Politics: " + this.state.pScore} classes={{
-                root: "dashboard_snackbar"
-              }}/>
-            <LinearProgress variant="determinate" color="primary" value={this.state.pScore} classes={{
-                root: "linear_progress last_linear_progress politicsLinearProgress",
-                barColorPrimary: "bar_color4"
-              }}/></div>
-          </Card>
-        </GridItem>
-        <GridItem xs={12} sm={12} md={9}>
-          <div style={{
-              overflowX: "auto",
-              marginTop: "30px",
-              borderRadius: "4px"
-            }}>
-            {
-              this.state.transactionList === null
-                ? (<div className="loading">
-                  <CircularProgress size={50} classes={{
-                      colorSecondary: "table_loading"
-                    }} color="secondary" className={classes.progress}/>
-                </div>)
-                : (<Table style={{
-                    background: "white"
-                  }}>
+              <SnackbarContent
+                message={"People: " + this.state.sScore}
+                classes={{ root: "dashboard_snackbar" }}
+              />
+              <LinearProgress
+                variant="determinate"
+                color="primary"
+                value={this.state.sScore}
+                classes={{
+                  root: "linear_progress",
+                  barColorPrimary: "bar_color1"
+                }}
+              />
+              <SnackbarContent
+                message={"Planet: " + this.state.eScore}
+                classes={{ root: "dashboard_snackbar" }}
+              />
+              <LinearProgress
+                variant="determinate"
+                color="primary"
+                value={this.state.eScore}
+                classes={{
+                  root: "linear_progress",
+                  barColorPrimary: "bar_color2"
+                }}
+              />
+              <SnackbarContent
+                message={"Policy: " + this.state.gScore}
+                classes={{ root: "dashboard_snackbar" }}
+              />
+              <LinearProgress
+                variant="determinate"
+                color="primary"
+                value={this.state.gScore}
+                classes={{
+                  root: "linear_progress",
+                  barColorPrimary: "bar_color3"
+                }}
+              />
+              <SnackbarContent
+                message={"Politics: " + this.state.pScore}
+                classes={{ root: "dashboard_snackbar" }}
+              />
+              <LinearProgress
+                variant="determinate"
+                color="primary"
+                value={this.state.pScore}
+                classes={{
+                  root: this.state.transactionList === null ? "linear_progress last_linear_progress": "linear_progress last_linear_progress politicsLinearProgressBG",
+                  barColorPrimary: "bar_color4"
+                }}
+              />
+            </Card>
+          </GridItem>
+          <GridItem xs={12} sm={12} md={9}>
+            <div
+              style={{
+                overflowX: "auto",
+                marginTop: "30px",
+                borderRadius: "4px"
+              }}
+            >
+              {this.state.transactionList === null ? (
+                <div className="loading">
+                  <CircularProgress
+                    size={50}
+                    classes={{ colorSecondary: "table_loading" }}
+                    color="secondary"
+                    className={classes.progress}
+                  />
+                </div>
+              ) : (
+                <Table style={{ background: "white" }}>
                   <TableHead>
                     <TableRow>
                       <TableCell padding="default" classes={{
