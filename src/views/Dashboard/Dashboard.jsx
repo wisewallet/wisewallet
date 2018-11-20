@@ -39,6 +39,7 @@ class Dashboard extends React.Component {
       transactionList: null
     };
     this.onLogOut = this.onLogOut.bind(this);
+    this.impactScoreColor = this.impactScoreColor.bind(this);
   }
   handleSelect = event => {
     this.setState({
@@ -74,6 +75,18 @@ class Dashboard extends React.Component {
   onLogOut() {
     sessionStorage.removeItem("userID");
     this.props.history.push("/");
+  }
+  impactScoreColor(score) {
+    if(score <= 65){
+      return "lowScore";
+    } else if(score > 65 && score <=70 ){
+      return "lowMedScore";
+    }
+    else if(score > 70 && score <=80 ){
+      return "highMedScore";
+    } else if(score > 80){
+      return "highScore";
+    }
   }
   render() {
     const classes = this.props;
@@ -147,7 +160,7 @@ class Dashboard extends React.Component {
                 <CircularProgress
                   classes={{ colorPrimary: "impactScoreProgress", circle: "impactScoreProgress" }}
                   color="primary"
-                  className="impactScoreProgress"
+                  className={"impactScoreProgress " + this.impactScoreColor(this.state.tScore)}
                   variant="static"
                   value={this.state.tScore}
                   size={100}
@@ -276,7 +289,7 @@ class Dashboard extends React.Component {
             <p style={{
                 fontSize: '20pt',
                 fontWeight: '600',
-                marginTop: '40px'
+                marginTop: '30px'
               }}>Suggested Alternatives Coming Soon</p>
           </center>
         </GridItem>

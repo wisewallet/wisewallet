@@ -38,11 +38,23 @@
   padding-left: 40px;
   padding-right: 40px;
   .impactScoreProgress{
-    color: #F7C922;
+    // color: #F7C922;
     position: absolute;
     z-index: 2;
     margin-left: -50px;
     opacity: 1;
+  }
+  .lowScore{
+    color: #ED2D2D !important;
+  }
+  .lowMedScore{
+    color: #F48938 !important;
+  }
+  .highMedScore{
+    color: #F7C922 !important;
+  }
+  .highScore{
+    color: #40B247 !important;
   }
   .circleProgress{
     stroke: url(#gradient);
