@@ -154,7 +154,7 @@ class Dashboard extends React.Component {
         >
           <GridItem xs={12} sm={12} md={3}>
             <Card classes={{ root: "card_style" }}>
-              <h3 className="impactScoreHeader">Total Impact Score</h3>
+              <h3 className="impactScoreHeader"  data-tip="Total Impact Score creates a personal impact standard for your everyday spending based on people, planet, and corporate policy.">Total Impact Score</h3>
               <div className="impactScore" data-tip="Total Impact Score creates a personal impact standard for your everyday spending based on people, planet, and corporate policy.">
                 <h2 className="impactScoreNumber">{this.state.tScore}/100</h2>
                 <CircularProgress
