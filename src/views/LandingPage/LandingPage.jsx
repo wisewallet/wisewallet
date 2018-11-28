@@ -73,8 +73,8 @@ class LandingPage extends React.Component {
           Copyright &copy; {1900 + new Date().getYear()}{" "}
           <a href="http://www.mywisewallet.com">WiseWallet Inc. </a>
            All Rights Reserved.
-           <a href="/privacy" style={{float: 'right'}}>Privacy Policy</a>
         </div>
+        <a href="/privacy" style={{float: 'right'}}>Privacy Policy</a>
       </div>}></Footer>
     </div>);
   }
