@@ -170,10 +170,12 @@ class Dashboard extends React.Component {
               <SnackbarContent
                 message={"People: " + this.state.sScore}
                 classes={{ root: "dashboard_snackbar" }}
-                data-tip="People Score measures company corporate responsibility reports. Companies with employee-positive policies on equal pay, access to healthcare, and a commitment to workforce diversity and giving back to the community earn higher scores compared to peers."
+                data-multiline={true}
+                data-tip="People Score measures company corporate responsibility reports. Companies with employee-positive policies on equal pay,<br /> access to healthcare, and a commitment to workforce diversity and giving back to the community earn higher scores compared to peers."
               />
               <LinearProgress
-                data-tip="People Score measures company corporate responsibility reports. Companies with employee-positive policies on equal pay, access to healthcare, and a commitment to workforce diversity and giving back to the community earn higher scores compared to peers."
+                data-tip="People Score measures company corporate responsibility reports. Companies with employee-positive policies on equal pay,<br /> access to healthcare, and a commitment to workforce diversity and giving back to the community earn higher scores compared to peers."
+                data-multiline={true}
                 variant="determinate"
                 color="primary"
                 value={this.state.sScore}
