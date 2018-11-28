@@ -70,14 +70,14 @@ class LandingPage extends React.Component {
           <i className="fab fa-instagram"/>
         </Button>
         <GridContainer>
-          <GridItem xs={4} sm={4} md={4}>
+          <GridItem sm={3}>
           </GridItem>
-          <GridItem xs={4} sm={4} md={4}>
+          <GridItem sm={6}>
         <div className={classNames(classes.pullCenter, classes.copyRight)} style={{width: 'auto'}}>
           Copyright &copy; {1900 + new Date().getYear()}{" "}
           <a href="http://www.mywisewallet.com">WiseWallet Inc. </a>
            All Rights Reserved.
-        </div></GridItem><GridItem xs={4} sm={4} md={4}>
+        </div></GridItem><GridItem sm={3}>
         <a href="/privacy" style={{float:'right'}}>Privacy Policy</a></GridItem>
       </GridContainer>
       </div>}></Footer>
