@@ -155,7 +155,7 @@ class Dashboard extends React.Component {
           <GridItem xs={12} sm={12} md={3}>
             <Card classes={{ root: "card_style" }}>
               <h3 className="impactScoreHeader">Total Impact Score</h3>
-              <div className="impactScore" data-tip="hello world">
+              <div className="impactScore" data-tip="Total Impact Score creates a personal impact standard for your everyday spending based on people, planet, and corporate policy.">
                 <h2 className="impactScoreNumber">{this.state.tScore}/100</h2>
                 <CircularProgress
                   classes={{ colorPrimary: "impactScoreProgress", circle: "impactScoreProgress" }}
@@ -170,10 +170,10 @@ class Dashboard extends React.Component {
               <SnackbarContent
                 message={"People: " + this.state.sScore}
                 classes={{ root: "dashboard_snackbar" }}
-                data-tip="hello world"
+                data-tip="People Score measures company corporate responsibility reports. Companies with employee-positive policies on equal pay, access to healthcare, and a commitment to workforce diversity and giving back to the community earn higher scores compared to peers."
               />
               <LinearProgress
-                data-tip="hello world"
+                data-tip="People Score measures company corporate responsibility reports. Companies with employee-positive policies on equal pay, access to healthcare, and a commitment to workforce diversity and giving back to the community earn higher scores compared to peers."
                 variant="determinate"
                 color="primary"
                 value={this.state.sScore}
@@ -185,12 +185,12 @@ class Dashboard extends React.Component {
               <SnackbarContent
                 message={"Planet: " + this.state.eScore}
                 classes={{ root: "dashboard_snackbar" }}
-                data-tip="hello world"
+                data-tip="Planet Score measures company greenhouse gas emissions, energy efficiency use, waste management, and investment in renewable energy."
               />
               <LinearProgress
                 variant="determinate"
                 color="primary"
-                data-tip="hello world"
+                data-tip="Planet Score measures company greenhouse gas emissions, energy efficiency use, waste management, and investment in renewable energy."
                 value={this.state.eScore}
                 classes={{
                   root: "linear_progress",
@@ -198,12 +198,12 @@ class Dashboard extends React.Component {
                 }}
               />
               <SnackbarContent
-                data-tip="hello world"
+                data-tip="Corporate Governance establishes company management standards to show if a company has board diversity, ESG investing strategy, and has displayed ethical track record."
                 message={"Policy: " + this.state.gScore}
                 classes={{ root: "dashboard_snackbar" }}
               />
               <LinearProgress
-                data-tip="hello world"
+                data-tip="Corporate Governance establishes company management standards to show if a company has board diversity, ESG investing strategy, and has displayed ethical track record."
                 variant="determinate"
                 color="primary"
                 value={this.state.gScore}
@@ -213,12 +213,12 @@ class Dashboard extends React.Component {
                 }}
               />
               <SnackbarContent
-                data-tip="hello world"
+                data-tip="Politics measures recent political contributions made to PACs and candidate campaigns from company senior executives, Board of Directors, and individual employees"
                 message={"Politics: " + this.state.pScore}
                 classes={{ root: "dashboard_snackbar" }}
               />
               <LinearProgress
-                data-tip="hello world"
+                data-tip="Politics measures recent political contributions made to PACs and candidate campaigns from company senior executives, Board of Directors, and individual employees"
                 variant="determinate"
                 color="primary"
                 value={this.state.pScore}
