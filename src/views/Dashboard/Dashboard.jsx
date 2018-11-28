@@ -155,7 +155,7 @@ class Dashboard extends React.Component {
           <GridItem xs={12} sm={12} md={3}>
             <Card classes={{ root: "card_style" }}>
               <h3 className="impactScoreHeader">Total Impact Score</h3>
-              <div className="impactScore">
+              <div className="impactScore" data-tip="hello world">
                 <h2 className="impactScoreNumber">{this.state.tScore}/100</h2>
                 <CircularProgress
                   classes={{ colorPrimary: "impactScoreProgress", circle: "impactScoreProgress" }}
@@ -170,8 +170,10 @@ class Dashboard extends React.Component {
               <SnackbarContent
                 message={"People: " + this.state.sScore}
                 classes={{ root: "dashboard_snackbar" }}
+                data-tip="hello world"
               />
               <LinearProgress
+                data-tip="hello world"
                 variant="determinate"
                 color="primary"
                 value={this.state.sScore}
@@ -183,10 +185,12 @@ class Dashboard extends React.Component {
               <SnackbarContent
                 message={"Planet: " + this.state.eScore}
                 classes={{ root: "dashboard_snackbar" }}
+                data-tip="hello world"
               />
               <LinearProgress
                 variant="determinate"
                 color="primary"
+                data-tip="hello world"
                 value={this.state.eScore}
                 classes={{
                   root: "linear_progress",
@@ -194,10 +198,12 @@ class Dashboard extends React.Component {
                 }}
               />
               <SnackbarContent
+                data-tip="hello world"
                 message={"Policy: " + this.state.gScore}
                 classes={{ root: "dashboard_snackbar" }}
               />
               <LinearProgress
+                data-tip="hello world"
                 variant="determinate"
                 color="primary"
                 value={this.state.gScore}
@@ -207,10 +213,12 @@ class Dashboard extends React.Component {
                 }}
               />
               <SnackbarContent
+                data-tip="hello world"
                 message={"Politics: " + this.state.pScore}
                 classes={{ root: "dashboard_snackbar" }}
               />
               <LinearProgress
+                data-tip="hello world"
                 variant="determinate"
                 color="primary"
                 value={this.state.pScore}
