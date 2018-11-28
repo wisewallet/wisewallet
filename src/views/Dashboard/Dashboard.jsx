@@ -302,6 +302,7 @@ class Dashboard extends React.Component {
           </center>
         </GridItem>
       </GridContainer>
+      <ReactTooltip />
     </div>);
   }
 }
