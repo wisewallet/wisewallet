@@ -78,7 +78,7 @@ class LandingPage extends React.Component {
           <a href="http://www.mywisewallet.com">WiseWallet Inc. </a>
            All Rights Reserved.
         </div></GridItem><GridItem xs={12} sm={6} md={6}>
-        <a href="/privacy" style=={{float:'right'}}>Privacy Policy</a></GridItem>
+        <a href="/privacy" style={{float:'right'}}>Privacy Policy</a></GridItem>
       </GridContainer>
       </div>}></Footer>
     </div>);
