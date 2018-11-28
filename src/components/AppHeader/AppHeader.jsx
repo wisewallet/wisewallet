@@ -114,7 +114,7 @@ class AppHeader extends React.Component {
         top: "20px",
         right: "0px",
         marginRight: "100px",
-      }}>{links}</div>
+      }}>{links("small")}</div>
       </Hidden>
       <Hidden mdUp="mdUp" implementation="css">
         <Drawer variant="temporary" anchor={"right"} open={this.state.mobileOpen} classes={{
@@ -123,7 +123,7 @@ class AppHeader extends React.Component {
           <IconButton color="inherit" aria-label="open drawer" onClick={this.handleDrawerToggle} className={classes.closeButtonDrawer}>
             <Close/>
           </IconButton>
-          <div className={classes.appResponsive}>{links}</div>
+          <div className={classes.appResponsive}>{links("notsmall")}</div>
         </Drawer>
       </Hidden>
     </AppBar>);
