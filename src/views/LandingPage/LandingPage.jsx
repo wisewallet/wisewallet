@@ -69,7 +69,7 @@ class LandingPage extends React.Component {
         <Button justIcon="justIcon" simple="simple" href="https://www.instagram.com/mywisewallet/" color="instagram">
           <i className="fab fa-instagram"/>
         </Button>
-        <div className={classNames(classes.pullCenter, classes.copyRight)}>
+        <div className={classNames(classes.pullCenter, classes.copyRight)} style={{width: 'auto'}}>
           Copyright &copy; {1900 + new Date().getYear()}{" "}
           <a href="http://www.mywisewallet.com">WiseWallet Inc. </a>
            All Rights Reserved.
