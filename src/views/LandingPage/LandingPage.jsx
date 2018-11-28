@@ -72,12 +72,12 @@ class LandingPage extends React.Component {
         <GridContainer>
           <GridItem xs={4} sm={4} md={4}>
           </GridItem>
-          <GridItem xs={12} sm={6} md={6}>
+          <GridItem xs={4} sm={4} md={4}>
         <div className={classNames(classes.pullCenter, classes.copyRight)} style={{width: 'auto'}}>
           Copyright &copy; {1900 + new Date().getYear()}{" "}
           <a href="http://www.mywisewallet.com">WiseWallet Inc. </a>
            All Rights Reserved.
-        </div></GridItem><GridItem xs={12} sm={6} md={6}>
+        </div></GridItem><GridItem xs={4} sm={4} md={4}>
         <a href="/privacy" style={{float:'right'}}>Privacy Policy</a></GridItem>
       </GridContainer>
       </div>}></Footer>
