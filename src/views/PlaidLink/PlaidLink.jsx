@@ -71,7 +71,7 @@ class Components extends React.Component {
                     <CardBody>
                       <GridContainer justify="center">
                         <GridItem xs={12} sm={5} md={5}>
-                          <PlaidLink clientName="WiseWallet" env="development" product={["transactions"]}
+                          <PlaidLink clientName="WiseWallet" env="production" product={["transactions"]}
                             publicKey="06812b585d6f3b0ebde352a7759bb1" onExit={this.handleOnExit}
                             onSuccess={this.handleOnSuccess}>
                             Open Link and connect your bank!
