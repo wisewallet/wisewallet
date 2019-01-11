@@ -33,16 +33,19 @@
 }
 .impactScore{
   position: relative;
-  text-align: center;
-  margin-bottom: 100px;
-  padding-left: 40px;
-  padding-right: 40px;
+  align-self: center;
+  padding: 80px;
   .impactScoreProgress{
-    // color: #F7C922;
     position: absolute;
-    z-index: 2;
-    margin-left: -50px;
+    top: 0px;
+    left: 5px;
     opacity: 1;
+  }
+  .impactScoreNumber{
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    white-space:nowrap;
   }
   .lowScore{
     color: #ED2D2D !important;
@@ -64,9 +67,6 @@
     border-radius: 50px;
     z-index: 1;
     margin-left: -50px;
-  }
-  .impactScoreNumber{
-    white-space:nowrap;
   }
 }
 .dashboard_snackbar{

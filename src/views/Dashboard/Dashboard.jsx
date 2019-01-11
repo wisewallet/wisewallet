@@ -163,7 +163,7 @@ class Dashboard extends React.Component {
                   className={"impactScoreProgress " + this.impactScoreColor(this.state.tScore)}
                   variant="static"
                   value={this.state.tScore}
-                  size={100}
+                  size={150}
                 />
               </div>
 
