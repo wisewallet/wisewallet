@@ -49,7 +49,7 @@ class LandingPage extends React.Component {
               </h4>
               <br/>
               <Button color="primary" size="lg" href="#waitlisted" target="">
-                Get Early Access
+                Sign Up For Our Personalized Newsletter!
               </Button>
             </GridItem>
           </GridContainer>
