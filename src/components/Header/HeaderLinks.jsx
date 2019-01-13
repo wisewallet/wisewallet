@@ -108,13 +108,6 @@ function HeaderLinks({
         About
       </Button>
     </ListItem>
-    <ListItem className={classes.listItem}>
-      <Button href="http://mywisewallet.com/login" color={window.innerWidth < 960
-          ? "primary"
-          : "white"} target="" className={classes.navButton} round="round">
-        Log In
-      </Button>
-    </ListItem>
   </List>);
 }
 

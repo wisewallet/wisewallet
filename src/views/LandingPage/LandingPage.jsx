@@ -48,7 +48,7 @@ class LandingPage extends React.Component {
                 WiseWallet allows you to make a difference with your dollars.
               </h4>
               <br/>
-              <Button color="primary" size="lg" href="#waitlisted" target="">
+              <Button color="primary" size="lg" href="http://mywisewallet.com/signup" target="">
                 Sign Up For Our Personalized Newsletter!
               </Button>
             </GridItem>
