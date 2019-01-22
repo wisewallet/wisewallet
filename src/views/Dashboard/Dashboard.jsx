@@ -101,6 +101,16 @@ class Dashboard extends React.Component {
       currency: "USD",
       minimumFractionDigits: 2
     });
+    const scoreStyle = {
+      left:25,
+      display: 'block',
+    };
+    if(this.state.tScore < 10){
+      scoreStyle.left = 33;
+    }
+    if(this.state.transactionList === null){
+      scoreStyle.display = 'none';
+    }
     return (<div className={classes.dashboard}>
 
       <AppHeader brand="WiseWallet" links={(size) => {
@@ -156,13 +166,23 @@ class Dashboard extends React.Component {
             <Card classes={{ root: "card_style" }}>
               <h3 className="impactScoreHeader"  data-tip="Total Impact Score creates a personal impact standard for your everyday spending based on people, planet, and corporate policy.">Total Impact Score</h3>
               <div className="impactScore" data-tip="Total Impact Score creates a personal impact standard for your everyday spending based on people, planet, and corporate policy.">
-                <h2 className="impactScoreNumber">{this.state.tScore}/100</h2>
+                <h2 className="impactScoreNumber" style={scoreStyle}>
+                {this.state.tScore}/100
+                </h2>
                 <CircularProgress
                   classes={{ colorPrimary: "impactScoreProgress", circle: "impactScoreProgress" }}
                   color="primary"
                   className={"impactScoreProgress " + this.impactScoreColor(this.state.tScore)}
                   variant="static"
                   value={this.state.tScore}
+                  size={150}
+                />
+                <CircularProgress
+                  classes={{ colorPrimary: "impactScoreProgressBG", circle: "impactScoreProgress" }}
+                  color="primary"
+                  className={"impactScoreProgressBG"}
+                  variant="static"
+                  value={100}
                   size={150}
                 />
               </div>
