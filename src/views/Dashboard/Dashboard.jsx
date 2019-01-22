@@ -104,9 +104,14 @@ class Dashboard extends React.Component {
     const scoreStyle = {
       left:25,
       display: 'block',
+      'font-size': 35,
     };
     if(this.state.tScore < 10){
       scoreStyle.left = 33;
+    }
+    if(this.state.tScore >= 100){
+      scoreStyle.left = 18;
+      scoreStyle['font-size'] = 33;
     }
     if(this.state.transactionList === null){
       scoreStyle.display = 'none';
