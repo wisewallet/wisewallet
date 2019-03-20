@@ -49,7 +49,7 @@ class LandingPage extends React.Component {
               </h4>
               <br/>
               <Button color="primary" size="lg" href="http://mywisewallet.com/signup" target="">
-                Sign up for our beta!
+                Get early access!
               </Button>
             </GridItem>
           </GridContainer>
