@@ -16,12 +16,14 @@ const signupPageStyle = {
     height: "auto",
     display: "inherit",
     position: "relative",
+    fontFamily: "Helvetica",
     margin: "0",
     padding: "0",
     border: "0",
     alignItems: "center",
     "&:before": {
-      background: "rgba(0, 0, 0, 0.5)"
+      //background: "rgba(0, 0, 0, 0.5)"
+      backgroundColor: "#FFFFFF"
     },
     "&:before,&:after": {
       position: "absolute",
@@ -35,16 +37,21 @@ const signupPageStyle = {
     }
   },
   cardSignup: {
-    borderRadius: "6px",
-    boxShadow:
-      "0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);",
+    borderStyle: "dotted",
+    borderColor: "#99cc99",
+    borderWidth: "medium",
+    //borderRadius: "6px",
+    //boxShadow:
+      //"0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);",
     marginBottom: "100px",
     padding: "40px 0px"
   },
   cardTitle: {
-    ...cardTitle,
+    //...cardTitle,
     textDecoration: "none",
-    textAlign: "center !important",
+    textAlign: "center",
+    fontFamily: "Gill Sans",
+    color: "#000000",
     marginBottom: "0.75rem"
   },
   ...customCheckboxRadioSwitchStyle,
@@ -76,15 +83,20 @@ const signupPageStyle = {
     padding: "0px 0px 20px !important"
   },
   block: {
-    color: "inherit",
-    padding: "0.9375rem",
+    backgroundColor: "#FFFFFF",
+    //padding: "0.9375rem",
     fontWeight: "500",
     fontSize: "12px",
+    fontFamily: "Helvetica",
     textTransform: "uppercase",
-    borderRadius: "3px",
-    textDecoration: "none",
+    color: "#99cc99",
+    borderStyle: "solid",
+    borderWidth: "thick",
+    borderColor: "#99cc99",
+    //borderRadius: "3px",
+    //textDecoration: "none",
     position: "relative",
-    display: "block"
+    //display: "block"
   },
   inlineBlock: {
     display: "inline-block",

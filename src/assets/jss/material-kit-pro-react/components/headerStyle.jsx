@@ -36,6 +36,9 @@ const headerStyle = theme => ({
   },
   absolute: {
     position: "absolute",
+    fontFamily: "Helvetica",
+    fontSize: "18px",
+    color: "#99cc99",
     top: "auto"
   },
   fixed: {
@@ -51,15 +54,16 @@ const headerStyle = theme => ({
   },
   title: {
     "&,& a": {
-      ...defaultFont,
+      //...defaultFont,
       lineHeight: "30px",
       fontSize: "18px",
+      fontFamily: "Helvetica",
       borderRadius: "3px",
       textTransform: "none",
       whiteSpace: "nowrap",
-      color: "inherit",
+      color: "#99cc99",
       "&:hover,&:focus": {
-        color: "inherit",
+        color: "#99cc99",
         background: "transparent"
       }
     }

@@ -35,31 +35,26 @@ class LandingPage extends React.Component {
       ...rest
     } = this.props;
     return (<div>
-      <Header color="transparent" routes={dashboardRoutes} brand="WiseWallet" links={<HeaderLinks dropdownHoverColor = "primary" />} fixed="fixed" changeColorOnScroll={{
+      <Header color="transparent" routes={dashboardRoutes} brand="WiseWallet" fixed="fixed" changeColorOnScroll={{
           height: 300,
-          color: "primary"
+          color: "#99cc99"
         }} {...rest}/>
-      <Parallax image={require("assets/img/bg6.png")} filter="dark">
+      <Parallax image={require("assets/img/wisewallet6.jpg")} filter="light">
         <div className={classes.container}>
           <GridContainer>
             <GridItem xs={12} sm={6} md={6}>
-              <h1 className={classes.title}>Say Hello to Impact Spending</h1>
-              <h4>
-                WiseWallet allows you to make a difference with your dollars.
+              <h1 className={classes.title}> Put your money where your mind is. </h1>
+              <h4 className = {classes.subtitle}>
+                Coming soon. Sign up and stay tuned.
               </h4>
               <br/>
-              <Button color="primary" size="lg" href="http://mywisewallet.com/signup" target="">
-                Get early access!
+              <Button color="#99cc99" size="lg" href="http://mywisewallet.com/signup" target="" className = {classes.landButton}>
+                Get Early Access!
               </Button>
             </GridItem>
           </GridContainer>
         </div>
       </Parallax>
-      <div className={classNames(classes.main, classes.mainRaised)}>
-        <div className={classes.container}>
-          <SectionProduct/>
-        </div>
-      </div>
       <Footer theme="white" content={<div > <Button justIcon="justIcon" simple="simple" href="https://twitter.com/mywisewallet" color="twitter">
           <i className="fab fa-twitter"/>
         </Button>
@@ -75,10 +70,8 @@ class LandingPage extends React.Component {
           <GridItem sm={6}>
         <div className={classNames(classes.pullCenter, classes.copyRight)} style={{width: 'auto'}}>
           Copyright &copy; {1900 + new Date().getYear()}{" "}
-          <a href="http://www.mywisewallet.com">WiseWallet Inc. </a>
-           All Rights Reserved.
-        </div></GridItem><GridItem sm={3}>
-        <a href="/privacy" style={{float:'right'}}>Privacy Policy</a></GridItem>
+          <a href="http://www.mywisewallet.com">WiseWallet Inc. </a> 
+           All Rights Reserved. </div></GridItem>
       </GridContainer>
       </div>}></Footer>
     </div>);

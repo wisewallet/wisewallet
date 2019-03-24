@@ -81,7 +81,7 @@ class Components extends React.Component {
                     <TextField id="lastName" label="Last Name" className={classes.textField} value={this.state.lastName} onChange={this.handleChange("lastName")} margin="normal"/>
                     <TextField id="email" label="Email" className={classes.textField} value={this.state.email} onChange={this.handleChange("email")} margin="normal"/>
                     <TextField id="password" label="Password" className={classes.textField} type="password" value={this.state.password} onChange={this.handleChange("password")} autoComplete="current-password" margin="normal"/>
-                    <Button color="primary" onClick={this.onSignUp}>
+                    <Button color="primary" size = "medium" onClick={this.onSignUp}>
                       Get started
                     </Button>
                   </form>

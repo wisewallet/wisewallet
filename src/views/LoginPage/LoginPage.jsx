@@ -77,7 +77,7 @@ class LoginPage extends React.Component {
                     <TextField id="password" label="Password" className={classes.textField} type="password" value={this.state.password} onChange={this.handleChange("password")} autoComplete="current-password" margin="normal"/>
                   </CardBody>
                   <div className={classes.textCenter}>
-                    <Button simple="simple" color="info" size="lg" onClick={this.onSignIn}>
+                    <Button color="primary" size="lg" onClick={this.onSignIn}>
                       Log In
                     </Button>
                   </div>

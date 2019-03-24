@@ -17,17 +17,21 @@ const buttonStyle = {
   button: {
     minHeight: "auto",
     minWidth: "auto",
-    backgroundColor: grayColor,
-    color: "#FFFFFF",
-    boxShadow:
-      "0 2px 2px 0 rgba(153, 153, 153, 0.14), 0 3px 1px -2px rgba(153, 153, 153, 0.2), 0 1px 5px 0 rgba(153, 153, 153, 0.12)",
-    border: "none",
+    backgroundColor: "#FFFFFF",
+    color: "#99cc99",
+    //boxShadow:
+      //"0 2px 2px 0 rgba(153, 153, 153, 0.14), 0 3px 1px -2px rgba(153, 153, 153, 0.2), 0 1px 5px 0 rgba(153, 153, 153, 0.12)",
+    //borderStyle: "solid",
+    //borderColor: "#99cc99",
+    //borderWidth: "medium",
     borderRadius: "3px",
     position: "relative",
     padding: "12px 30px",
+    //marginLeft: "45px",
     margin: ".3125rem 1px",
-    fontSize: "12px",
-    fontWeight: "400",
+    fontSize: "large",
+    fontWeight: "700",
+    fontFamily: "Helvetica",
     textTransform: "uppercase",
     letterSpacing: "0",
     willChange: "box-shadow, transform",
@@ -40,10 +44,10 @@ const buttonStyle = {
     touchAction: "manipulation",
     cursor: "pointer",
     "&:hover,&:focus": {
-      color: "#FFFFFF",
-      backgroundColor: grayColor,
-      boxShadow:
-        "0 14px 26px -12px rgba(153, 153, 153, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(153, 153, 153, 0.2)"
+      color: "#99cc99",
+      backgroundColor: "#FFFFFF"
+      //boxShadow:
+        //"0 14px 26px -12px rgba(153, 153, 153, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(153, 153, 153, 0.2)"
     },
     "& .fab,& .fas,& .far,& .fal,& .material-icons": {
       position: "relative",
@@ -83,11 +87,18 @@ const buttonStyle = {
     width: "100%"
   },
   primary: {
-    backgroundColor: primaryColor,
+    backgroundColor: "#FFFFFF",
+    color: "#99cc99", 
+    borderStyle: "solid",
+    borderWidth: "medium",
+    borderColor:"#99cc99",
+    fontFamily: "Helvetica", 
+    fontSize: "12px",
     "&:hover,&:focus": {
-      backgroundColor: primaryColor,
-      boxShadow:
-        "0 14px 26px -12px rgba(251, 251, 251, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(251, 251, 251, 0.2)"
+      backgroundColor: "#FFFFFF",
+      color: "#99cc99",
+      //boxShadow:
+        //"0 14px 26px -12px rgba(251, 251, 251, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(251, 251, 251, 0.2)"
     }
   },
   secondary: {

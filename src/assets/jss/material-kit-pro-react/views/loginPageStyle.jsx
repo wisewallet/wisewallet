@@ -7,11 +7,14 @@ import {
 const signupPageStyle = {
   description,
   cardTitle: {
-    ...cardTitle,
-    color: "#FFFFFF !important"
+    //...cardTitle,
+    color: "#000000",
+    backgroundColor: "#FFFFFF",
+    fontFamily: "Gill Sans",
+    fontSize: "large"
   },
   container: {
-    ...container,
+    //...container,
     zIndex: "2",
     position: "relative",
     paddingTop: "20vh",
@@ -28,7 +31,8 @@ const signupPageStyle = {
     border: "0",
     alignItems: "center",
     "&:before": {
-      background: "rgba(0, 0, 0, 0.5)"
+      //background: "rgba(0, 0, 0, 0.5)"
+      backgroundColor: "#FFFFFF"
     },
     "&:before,&:after": {
       position: "absolute",
@@ -42,11 +46,17 @@ const signupPageStyle = {
     }
   },
   form: {
-    margin: "0"
+    margin: "0",
+    borderStyle: "dotted",
+    borderColor: "#99cc99",
+    borderWidth: "thick"
   },
   cardHeader: {
     width: "auto",
-    textAlign: "center"
+    textAlign: "center",
+    fontFamily: "Gill Sans",
+    backgroundColor: "#FFFFFF",
+    color: "#FFFFFF"
   },
   socialLine: {
     marginTop: "1rem",
