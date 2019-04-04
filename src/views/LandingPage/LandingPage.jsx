@@ -39,7 +39,7 @@ class LandingPage extends React.Component {
           height: 300,
           color: "#99cc99"
         }} {...rest}/>
-      <Parallax image={require("assets/img/wisewallet6.jpg")} filter="light">
+      <Parallax image={require("assets/img/wisewalletA2.jpg")} filter="light">
         <div className={classes.container}>
           <GridContainer>
             <GridItem xs={12} sm={6} md={6}>
@@ -48,7 +48,7 @@ class LandingPage extends React.Component {
                 Coming soon. Sign up and stay tuned.
               </h4>
               <br/>
-              <Button color="#99cc99" size="lg" href="http://mywisewallet.com/signup" target="" className = {classes.landButton}>
+              <Button color="#99cc99" size="lg" href='/signup' target="" className = {classes.landButton}>
                 Get Early Access!
               </Button>
             </GridItem>

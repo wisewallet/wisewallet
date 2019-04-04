@@ -2,6 +2,7 @@ import { container, cardTitle } from "assets/jss/material-kit-pro-react.jsx";
 
 import customCheckboxRadioSwitchStyle from "assets/jss/material-kit-pro-react/customCheckboxRadioSwitchStyle.jsx";
 
+import image from "assets/img/thankyou.jpg"
 const plaidLinkStyle = {
   container: {
     ...container,
@@ -16,12 +17,13 @@ const plaidLinkStyle = {
     height: "auto",
     display: "inherit",
     position: "relative",
+    fontFamily:"Helvetica",
     margin: "0",
     padding: "0",
     border: "0",
     alignItems: "center",
     "&:before": {
-      background: "rgba(0, 0, 0, 0.5)"
+      background: "assets/img/thankyou.jpg"
     },
     "&:before,&:after": {
       position: "absolute",
@@ -35,17 +37,23 @@ const plaidLinkStyle = {
     }
   },
   cardSignup: {
-    borderRadius: "6px",
-    boxShadow:
-      "0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);",
+   // borderRadius: "6px",
+    borderStyle: "dotted",
+    borderColor: "#99cc99",
+    borderWidth: "medium",
+    //boxShadow:
+     // "0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);",
     marginBottom: "100px",
     padding: "40px 0px"
+
   },
   cardTitle: {
-    ...cardTitle,
+    //...cardTitle,
+    fontFamily: "Helvetica",
     textDecoration: "none",
-    textAlign: "center !important",
-    marginBottom: "0.75rem"
+    textAlign: "center",
+    marginBottom: "0.75rem",
+    fontSize: "large"
   },
   ...customCheckboxRadioSwitchStyle,
   socials: {

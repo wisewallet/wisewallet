@@ -1,4 +1,5 @@
 import React from "react";
+import classNames from "classnames";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import List from "@material-ui/core/List";
@@ -18,10 +19,11 @@ import Button from "components/CustomButtons/Button.jsx";
 import Card from "components/Card/Card.jsx";
 import CardBody from "components/Card/CardBody.jsx";
 import InfoArea from "components/InfoArea/InfoArea.jsx";
+import Popup from "reactjs-popup";
 
 import signupPageStyle from "assets/jss/material-kit-pro-react/views/signupPageStyle.jsx";
 
-import image from "assets/img/bg8.jpg";
+import image from "assets/img/register.jpg";
 
 class Components extends React.Component {
   constructor(props) {
@@ -33,6 +35,7 @@ class Components extends React.Component {
       lastName: ""
     };
     this.onSignUp = this.onSignUp.bind(this);
+
   }
   componentDidMount() {
     window.scrollTo(0, 0);
@@ -43,6 +46,9 @@ class Components extends React.Component {
   };
   onSignUp() {
     const {email, password, firstName, lastName} = this.state;
+    
+    
+    
     fetch("https://tldpv6umn7.execute-api.us-east-1.amazonaws.com/default/signUp", {
       method: "POST",
       headers: {
@@ -56,6 +62,7 @@ class Components extends React.Component {
         sessionStorage.setItem('userID', json.userID);
       }
     }).then(this.props.history.push('/link'));
+    
   }
   render() {
     const {
@@ -63,9 +70,9 @@ class Components extends React.Component {
       ...rest
     } = this.props;
     return (<div>
-      <Header absolute="absolute" color="transparent" brand="WiseWallet" links={<SignUpLinks dropdownHoverColor = "rose" />} {...rest}/>
+      <Header absolute="absolute" color="transparent" brand="WiseWallet" />
       <div className={classes.pageHeader} style={{
-          backgroundColor: "#FFFFFF",
+          backgroundImage: "url("+image+")",
           backgroundSize: "cover",
           backgroundPosition: "top center"
         }}>
@@ -82,8 +89,9 @@ class Components extends React.Component {
                     <TextField id="email" label="Email" className={classes.textField} value={this.state.email} onChange={this.handleChange("email")} margin="normal"/>
                     <TextField id="password" label="Password" className={classes.textField} type="password" value={this.state.password} onChange={this.handleChange("password")} autoComplete="current-password" margin="normal"/>
                     <Button color="primary" size = "medium" onClick={this.onSignUp}>
-                      Get started
+                      Sign up
                     </Button>
+
                   </form>
                   </center>
                 </CardBody>
@@ -91,17 +99,22 @@ class Components extends React.Component {
             </GridItem>
           </GridContainer>
         </div>
-        <Footer content={<div > {
-            " "
-          }
-          <div className={classes.right}>
-            WiseWallet, Inc. &copy; 2018 All Rights Reserved.
-          </div>
-        </div>
-}/>
+        <Footer theme ="white" content={<div>
+          <GridContainer>
+            <GridItem sm={3}>
+            </GridItem>
+            <GridItem sm={6}>
+          <div className={classNames(classes.pullCenter, classes.copyRight)} style={{width: 'auto'}}>
+            Copyright &copy; {1900 + new Date().getYear()}{" "}
+            <a href="http://www.mywisewallet.com">WiseWallet Inc. </a> 
+            All Rights Reserved. </div></GridItem>
+        </GridContainer>
+        </div>}></Footer>
       </div>
     </div>);
   }
 }
 
 export default withStyles(signupPageStyle)(Components);
+
+

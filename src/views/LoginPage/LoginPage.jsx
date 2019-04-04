@@ -17,7 +17,7 @@ import CardHeader from "components/Card/CardHeader.jsx";
 import TextField from "@material-ui/core/TextField";
 import loginPageStyle from "assets/jss/material-kit-pro-react/views/loginPageStyle.jsx";
 
-import image from "assets/img/bg8.jpg";
+import image from "assets/img/wisewalletA1.jpg";
 
 class LoginPage extends React.Component {
   constructor(props) {
@@ -77,9 +77,6 @@ class LoginPage extends React.Component {
                     <TextField id="password" label="Password" className={classes.textField} type="password" value={this.state.password} onChange={this.handleChange("password")} autoComplete="current-password" margin="normal"/>
                   </CardBody>
                   <div className={classes.textCenter}>
-                    <Button color="primary" size="lg" onClick={this.onSignIn}>
-                      Log In
-                    </Button>
                   </div>
                 </form>
                 </center>

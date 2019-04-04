@@ -2,6 +2,7 @@ import { container, cardTitle } from "assets/jss/material-kit-pro-react.jsx";
 
 import customCheckboxRadioSwitchStyle from "assets/jss/material-kit-pro-react/customCheckboxRadioSwitchStyle.jsx";
 
+import image from "assets/img/register.jpg"
 const signupPageStyle = {
   container: {
     ...container,
@@ -22,8 +23,8 @@ const signupPageStyle = {
     border: "0",
     alignItems: "center",
     "&:before": {
-      //background: "rgba(0, 0, 0, 0.5)"
-      backgroundColor: "#FFFFFF"
+      backgroundImage: "assets/img/register.jpg"
+     
     },
     "&:before,&:after": {
       position: "absolute",
@@ -40,6 +41,7 @@ const signupPageStyle = {
     borderStyle: "dotted",
     borderColor: "#99cc99",
     borderWidth: "medium",
+    
     //borderRadius: "6px",
     //boxShadow:
       //"0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);",

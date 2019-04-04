@@ -1,11 +1,12 @@
 {
   "main.css": "static/css/main.dae7d1b9.css",
   "main.css.map": "static/css/main.dae7d1b9.css.map",
-  "main.js": "static/js/main.5fc0300b.js",
-  "main.js.map": "static/js/main.5fc0300b.js.map",
-  "static/media/bg7.jpg": "static/media/bg7.013b0488.jpg",
-  "static/media/bg8.jpg": "static/media/bg8.81e87e09.jpg",
+  "main.js": "static/js/main.db9bb567.js",
+  "main.js.map": "static/js/main.db9bb567.js.map",
   "static/media/bg99.jpg": "static/media/bg99.232c057b.jpg",
   "static/media/logo.png": "static/media/logo.cc91766d.png",
-  "static/media/wisewallet6.jpg": "static/media/wisewallet6.8ebef3f9.jpg"
+  "static/media/register.jpg": "static/media/register.ec1cdb72.jpg",
+  "static/media/thankyou.jpg": "static/media/thankyou.544f9ae7.jpg",
+  "static/media/wisewalletA1.jpg": "static/media/wisewalletA1.aafc50e8.jpg",
+  "static/media/wisewalletA2.jpg": "static/media/wisewalletA2.b50028e5.jpg"
 }

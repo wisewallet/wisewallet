@@ -1,6 +1,7 @@
 import React from "react";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
+import classNames from "classnames";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 // @material-ui/icons
@@ -15,7 +16,7 @@ import plaidLinkStyle from "assets/jss/material-kit-pro-react/views/plaidLinkSty
 import PlaidLink from "react-plaid-link";
 import {Redirect} from 'react-router';
 
-import image from "assets/img/bg7.jpg";
+import image from "assets/img/thankyou.jpg";
 
 class Components extends React.Component {
   constructor(props) {
@@ -33,6 +34,8 @@ class Components extends React.Component {
     window.scrollTo(0, 0);
     document.body.scrollTop = 0;
     var userID = sessionStorage.getItem("userID");
+    var firstName = sessionStorage.getItem("firstName");
+    this.setState({firstName: firstName});
     this.setState({userID: userID});
   }
   handleChange = name => event => {
@@ -55,8 +58,12 @@ class Components extends React.Component {
   render() {
     const {
       classes,
+      firstName,
       ...rest
+
+
     } = this.props;
+    var welcome = "Thank you for signing up. We will get back to you shortly."
     return (
       <div>
         <Header absolute="absolute" color="transparent" brand="WiseWallet" { ...rest }/>
@@ -67,22 +74,34 @@ class Components extends React.Component {
             <GridContainer justify="center">
               <GridItem xs={12} sm={6} md={6}>
                 <Card className={classes.cardSignup}>
-                  <h2 className={classes.cardTitle}>Link Your Bank Account </h2>
+                  <h2 className={classes.cardTitle}> {welcome} </h2>
                     <CardBody>
-                      <GridContainer justify="center">
-                        <GridItem xs={12} sm={5} md={5}>
-                          <PlaidLink clientName="WiseWallet" env="production" product={["transactions"]}
-                            publicKey="06812b585d6f3b0ebde352a7759bb1" onExit={this.handleOnExit}
-                            onSuccess={this.handleOnSuccess}>
-                            Open Link and connect your bank!
-                          </PlaidLink>
-                        </GridItem>
-                      </GridContainer>
+                      <center>
+
+                       <form>
+
+
+
+                         
+
+
+
+
+                       </form>
+
+
+
+
+
+                      </center>
+
                     </CardBody>
                   </Card>
                 </GridItem>
               </GridContainer>
             </div>
+            
+      
         </div>
       </div>
     );
