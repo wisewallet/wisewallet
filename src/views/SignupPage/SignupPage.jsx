@@ -25,7 +25,9 @@ import signupPageStyle from "assets/jss/material-kit-pro-react/views/signupPageS
 
 import image from "assets/img/register.jpg";
 
+const Mailchimp = require('mailchimp-api-js');
 class Components extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -35,20 +37,21 @@ class Components extends React.Component {
       lastName: ""
     };
     this.onSignUp = this.onSignUp.bind(this);
-
   }
+    
   componentDidMount() {
     window.scrollTo(0, 0);
     document.body.scrollTop = 0;
+
   }
+
   handleChange = name => event => {
     this.setState({[name]: event.target.value});
   };
   onSignUp() {
     const {email, password, firstName, lastName} = this.state;
     
-    
-    
+      /*
     fetch("https://tldpv6umn7.execute-api.us-east-1.amazonaws.com/default/signUp", {
       method: "POST",
       headers: {
@@ -61,8 +64,21 @@ class Components extends React.Component {
         console.log("success " + json.userID);
         sessionStorage.setItem('userID', json.userID);
       }
-    }).then(this.props.history.push('/link'));
-    
+    });
+    */
+
+    let body = {
+        email_address : email,
+        status: 'subscribed',
+        merge_fields : { FNAME: firstName, LNAME: lastName, ADDRESS: '', PHONE: ''}
+    }
+      var mailchimp = new Mailchimp("WiseWallet","12282ab4749c9cf79956abf705903cfa-us17");
+    mailchimp.members.add('fce1ac23fe', body).then(function (err, result) {
+        console.log(result)
+        console.log(err)
+    })
+      this.props.history.push('/link')
+
   }
   render() {
     const {

@@ -1,13 +1,18 @@
 import LandingPage from "views/LandingPage/LandingPage.jsx";
-import LoginPage from "views/LoginPage/LoginPage.jsx";
+import InfoLogin from "views/InfoLogin/InfoLogin.jsx";
 import SignupPage from "views/SignupPage/SignupPage.jsx";
 import PlaidLink from "views/PlaidLink/PlaidLink.jsx";
 import Dashboard from "views/Dashboard/Dashboard.jsx";
 import AboutUsPage from "views/AboutUsPage/AboutUsPage.jsx";
 import PrivacyPage from "views/Privacy/PrivacyPage.jsx";
 import Charts from "views/Charts/Charts.jsx";
+import CompanyInformation from "views/CompanyInformation/CompanyInformation.jsx";
+import EditCompany from "views/EditCompany/EditCompany.jsx";
+
 var indexRoutes = [
-	{path: "/login", name: "Login", component: LoginPage},
+	{path: "/login", name: "Login", component: InfoLogin},
+  {path: "/test", name: "test", component: CompanyInformation},
+  {path: "/edit", name: "Edit", component: EditCompany},
 	{path: "/signup", name: "WiseWallet", component: SignupPage},
 	{path: "/link", name: "WiseWallet", component: PlaidLink},
 	{path: "/dashboard", name: "WiseWallet", component: Dashboard},
