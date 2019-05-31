@@ -30,46 +30,33 @@ import dashboardStyle from "assets/jss/material-kit-pro-react/views/dashboardSty
 class CompanyInformation extends Component {
   constructor(props){
     super(props);
-    this.state = { company_data:[
-      {
-        "company_category": "Coffee Shop",
-        "company_cause": [
-          "Pro-LGBTQIA+",
-          "Public Company"
-        ],
-        "company_id": 9,
-        "company_link": "www.google.com",
-        "causes": [
-          "LGBTQIA+ Owned",
-          "Pro-LGBTQIA+",
-          "Made in America"
-        ],
-        "categories": [
-          "Coffee Shop",
-          "Hotel"
-        ],
-        "company_name": "Starbucks",
-      }
-    ]};
+    this.state = {};
+    this.state.company_data = this.getCompanyData();
   }
 
   componentDidMount(){
     window.scrollTo(0,0);
     document.body.scrollTop = 0;
 
-    //Update the state to contain TableCelle company info 
+    //Update the state to contain the company info 
     /*fetch("http://test.mywisewallet.com/admin/company", {
-      meTableCellod: "GET",
+      method: "GET",
       headers: {
         "Content-Type": "application/json"
       }
     })
-      .TableCellen(response => response.json())
-      .TableCellen(json => {
+      .then(response => response.json())
+      .then(json => {
         if(json.data.code == 200)
-          TableCellis.setState({company_data: json.data.company_data});
+          this.setState({company_data: json.data.company_data});
       })
       */
+  }
+
+  getCompanyData = () => {
+    var json = require('../../data/Company.json');
+    var companyData = json.data.company_data;
+    return companyData;
   }
 
   render(){
@@ -101,8 +88,6 @@ class CompanyInformation extends Component {
             category={info.company_category}
             cause={info.company_cause}
             link={info.company_link}
-            causes={info.causes}
-            categories={info.categories}
           />
         )}
       </TableBody>

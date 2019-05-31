@@ -29,51 +29,52 @@ import dashboardStyle from "assets/jss/material-kit-pro-react/views/dashboardSty
 class EditCompany extends Component {
   constructor(props){
     super(props);
-    //this.id = this.props.location.state.id;
+    this.id = this.props.location.state.id;
     //delete the line below when fetch api works
-    this.state = this.props.location.state;
-    this.id = 9;
+    // this.id = 9;
+
+    this.state = this.searchCompanyId(this.id);
+    console.log(this.state);
   }
 
-  getCompanyInfo = () => {
-    const id = this.id;
-    fetch("http://test.mywisewallet.com/admin/company/edit/" + id, {
-      method: "GET",
-      mode: "no-cors",
-      headers: {
-        "Content-Type": "application/json",
-      }
-    })
-      .then(response => response.json())
-      .then(json => {
-        console.log("json", json);
-        if(json.data.code == 200){
-          console.log("success");
-          this.state = json.data;
-        }
-      })
-      .catch(error => console.log("Error found", error));
+  searchCompanyId = (id) => {
+    const genCompanyData = require('../../data/Company.json');
+    const allProperties = require('../../data/Properties.json');
+    var properties = allProperties.data.property_data;
+    var data = genCompanyData.data.company_data;
+    var company_data = data.filter(info => info.company_id == id)
+    var categories = data.map(info => info.company_category);
+
+    //filters out categories to remove duplicates
+    var seen = {};
+    categories = categories.filter(item => seen.hasOwnProperty(item) ? false : (seen[item] = true));
+
+    //gets the json
+    company_data = company_data[0]
+    company_data.property_data = properties;
+    company_data.categories = categories;
+    return company_data;
   }
+
   componentDidMount() {
     window.scrollTo(0,0);
     document.body.scrollTop = 0;
   }
 
   render(){
-    this.getCompanyInfo()
     return(
       <div style={{
         marginLeft:"10px"
         }}>
       <h3>Edit Company Info </h3> 
       <Company
-        id={this.state.id}
-        name={this.state.name}
-        link={this.state.link}
-        category={this.state.category}
+        id={this.state.company_id}
+        name={this.state.company_name}
+        link={this.state.company_link}
+        category={this.state.company_category}
         categories={this.state.categories}
-        cause={this.state.cause}
-        causelist={this.state.causes}
+        cause={this.state.company_cause}
+        causelist={this.state.property_data}
       />
     </div>
     )

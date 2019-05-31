@@ -13,7 +13,9 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 class Company extends Component{
   constructor(props){
     super(props);
+
     this.state = this.props;
+    this.id = 9;
     this.submit = this.handleSubmit.bind(this)
     this.ITEM_HEIGHT = 48;
     this.ITEM_PADDING_TOP = 8;
@@ -25,7 +27,50 @@ class Company extends Component{
         },
       },
     };
+  }
 
+  componentDidMount() {
+    //Uncomment once the api requests are correct
+    //this.getCompanyInfo();
+    //this.getProperties();
+  }
+
+  getProperties = () => {
+    fetch("http://test.mywisewallet.com/admin/property", {
+      method: "GET",
+      mode: 'no-cors',
+      headers: {
+        "Content-Type": "application/json",
+      }
+    })
+      .then(response => response.json())
+      .then(json => {
+        if(json.data.code == 200){
+          console.log("success");
+          this.properties = json.data.map(prop => prop.property_name);
+        }
+      })
+      .catch(error => console.log("Error caught", error))
+  };
+  
+  getCompanyInfo = () => {
+    const id = this.id;
+    fetch("http://test.mywisewallet.com/admin/company/edit/" + id, {
+      method: "GET",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json",
+      }
+    })
+      .then(response => console.log(response))//response.json())
+      .then(json => {
+        console.log("json", json);
+        if(json.data.code == 200){
+          console.log("success");
+          this.state = json.data;
+        }
+      })
+      .catch(error => console.log("Error found", error));
   }
 
   handleSubmit = () => {
@@ -115,8 +160,8 @@ class Company extends Component{
             MenuProps={this.MenuProps}
           >
             {this.state.causelist.map(cause => (
-              <MenuItem key={cause} value={cause} >
-                {cause}
+              <MenuItem key={cause.property_id} value={cause.property_name} >
+                {cause.property_name}
               </MenuItem>
             ))}
           </Select>

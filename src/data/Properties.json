@@ -1,0 +1,59 @@
+{
+    "data": {
+        "code": 200,
+        "property_data": [
+            {
+                "property_id": 1,
+                "property_name": "WomenOwned"
+            },
+            {
+                "property_id": 2,
+                "property_name": "Minority Owned"
+            },
+            {
+                "property_id": 4,
+                "property_name": "Pro-LGBTQIA+"
+            },
+            {
+                "property_id": 5,
+                "property_name": "Local Business"
+            },
+            {
+                "property_id": 6,
+                "property_name": "Public Company"
+            },
+            {
+                "property_id": 7,
+                "property_name": "Pro-Refugee"
+            },
+            {
+                "property_id": 8,
+                "property_name": "Made in America"
+            },
+            {
+                "property_id": 9,
+                "property_name": "LGBTQIA+ Owned"
+            },
+            {
+                "property_id": 10,
+                "property_name": "Support Zero Waste"
+            },
+            {
+                "property_id": 11,
+                "property_name": "Support Green Tech"
+            },
+            {
+                "property_id": 12,
+                "property_name": "Support Renewable Energy"
+            },
+            {
+                "property_id": 13,
+                "property_name": "Veteran Owned"
+            },
+            {
+                "property_id": 14,
+                "property_name": "Test"
+            }
+        ]
+    }
+}

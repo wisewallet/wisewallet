@@ -44,14 +44,15 @@ class InfoLogin extends Component {
     console.log("Trying...");
     fetch("http://test.mywisewallet.com/login", {
       method: "POST",
-      mode: "no-cors",
+      //mode: "no-cors",
       headers: {
+        //"Access-Control-Allow-Origin": '*',
         "Content-Type": "application/json",
       },
       credentials: "include",
       body: JSON.stringify({email: email, password: password})
     })
-      .then(response => response.json())
+      .then(response => {setTimeout(() => null, 0); console.log(response)})//response.json())
       .then(json => {
       console.log('json');
       if(json.data.code == 200){

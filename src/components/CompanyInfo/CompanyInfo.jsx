@@ -11,7 +11,29 @@ class CompanyInfo extends Component{
   constructor(props){
     super(props);
     this.handleClick = this.handleClick.bind(this);
+    this.deleteValue = this.deleteValue.bind(this);
   }
+
+  deleteValue = () => {
+    const id = this.id;
+    console.log("ok")
+    fetch("http://test.mywisewallet.com/admin/company/delete" + id, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then(response => response.json())
+      .then(json => {
+        console.log("json", json);
+        if(json.data.code == 200){
+          console.log("success");
+          window.location.reload();
+        }
+      })
+      .catch(error => console.log("Error caught", error));
+  };
 
   handleClick = () => {
     this.props.history.push({
@@ -39,14 +61,14 @@ class CompanyInfo extends Component{
       <TableCell> <a href={this.props.link}> {this.props.link}</a> </TableCell>
       {this.props.isAdmin 
           ? <TableCell>
-          <Button variant="contained" onClick={this.handleClick}>
+              <Button variant="contained" onClick={this.handleClick}>
                 Edit
               </Button>
             </TableCell>
           : null}
       {this.props.isAdmin
           ? <TableCell> 
-              <Button variant="contained" color="secondary">
+              <Button variant="contained" onClick={this.deleteValue} color="secondary" >
                 Delete 
               </Button>
             </TableCell>
