@@ -124,10 +124,10 @@ class Filter extends Component{
                   <Link to="/about">About Us</Link>
                 </div>
               <div class="col-md-3 text-center">
-                <a href="causes.html">Causes</a>
+                <Link to="/causes">Causes</Link>
               </div>
               <div class="col-md-3 text-center">
-                <a href="FAQ.html">FAQ</a>
+                <Link to="/FAQ">FAQ</Link>
               </div>
               <div class="col-md-3 text-center">
                 <Link to="/search"> Search </Link> 
@@ -158,6 +158,7 @@ class Filter extends Component{
           spacing={3}>
           {this.returnCompanies()}
         </Grid>
+      <footer> Copyright © 2019 WiseWallet Inc. All Rights Reserved.</footer>
       </div>
     );
   }

@@ -63,6 +63,7 @@ class EditCompany extends Component {
 
   render(){
     return(
+      <div>
       <div style={{
         marginLeft:"10px"
         }}>
@@ -77,6 +78,8 @@ class EditCompany extends Component {
         causelist={this.state.property_data}
       />
     </div>
+    <footer> Copyright © 2019 WiseWallet Inc. All Rights Reserved.</footer>
+  </div>
     )
   }
 }

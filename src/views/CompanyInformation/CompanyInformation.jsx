@@ -92,6 +92,7 @@ class CompanyInformation extends Component {
         )}
       </TableBody>
       </Table>
+      <footer> Copyright © 2019 WiseWallet Inc. All Rights Reserved.</footer>
     </div>
     )
   }

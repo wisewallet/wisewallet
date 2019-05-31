@@ -110,32 +110,32 @@ class Search extends Component{
     return(
     <div>
       <header>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12 text-center">
-              <a href="search">
-                <h2>WiseWallet</h2>
-              </a>
-                <div class="simpborder"></div>
-                <p>Put your money where your mind is.</p>
-            </div>
-          </div>
-          <div class="row">
-              <div class="col-md-3 text-center">
-                <Link to="/about">About Us</Link>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <Link to="/filter">
+                  <h2><b>WiseWallet</b></h2>
+                </Link>
+                  <div class="simpborder"></div>
+                  <p>Put your money where your mind is.</p>
               </div>
-            <div class="col-md-3 text-center">
-              <a href="causes.html">Causes</a>
             </div>
-            <div class="col-md-3 text-center">
-              <a href="FAQ.html">FAQ</a>
-            </div>
-            <div class="col-md-3 text-center">
-              <Link to="/filter"> Filter </Link> 
+            <div class="row">
+                <div class="col-md-3 text-center">
+                  <Link to="/about">About Us</Link>
+                </div>
+              <div class="col-md-3 text-center">
+                <Link to="/causes">Causes</Link>
+              </div>
+              <div class="col-md-3 text-center">
+                <Link to="/FAQ">FAQ</Link>
+              </div>
+              <div class="col-md-3 text-center">
+                <Link to="/filter"> Filter </Link> 
+              </div>
             </div>
           </div>
-        </div>
-      </header>
+        </header>
       <Grid 
           style={{padding: 10}}
           container
@@ -196,6 +196,8 @@ class Search extends Component{
           </Grid>
           {this.returnCompanies()}
       </Grid>
+
+      <footer> Copyright © 2019 WiseWallet Inc. All Rights Reserved.</footer>
     </div>
     )
   }
