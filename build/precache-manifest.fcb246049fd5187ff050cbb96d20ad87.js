@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/static/media/citigroup.0d8d1ed4.png"
   },
   {
-    "revision": "07c2092f73a4e707ff19",
+    "revision": "53410acf1f278d1131b7",
     "url": "/static/css/main.8cc89112.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = [
     "url": "/static/js/runtime~main.a8a9905a.js"
   },
   {
-    "revision": "5e46e6b2e285f6ddbeca",
-    "url": "/static/js/2.865c433d.chunk.js"
+    "revision": "f590cad9ca463e4dcf24",
+    "url": "/static/js/2.5fa2aac8.chunk.js"
   },
   {
     "revision": "cc91766da2d5a790ba5a160be7f62f6a",
@@ -80,8 +80,8 @@ self.__precacheManifest = [
     "url": "/static/media/chipotle.9f36f423.png"
   },
   {
-    "revision": "07c2092f73a4e707ff19",
-    "url": "/static/js/main.982655e4.chunk.js"
+    "revision": "53410acf1f278d1131b7",
+    "url": "/static/js/main.1d6d9142.chunk.js"
   },
   {
     "revision": "6c9b294b5b0b6e641b774ab5dc940ddd",
@@ -156,7 +156,7 @@ self.__precacheManifest = [
     "url": "/static/media/womenowned.a435f953.png"
   },
   {
-    "revision": "089d2d2c8a683522df0997a2fa4db2b6",
+    "revision": "caee0ae09ac8f9c32573b38c5a3a20ce",
     "url": "/index.html"
   }
 ];

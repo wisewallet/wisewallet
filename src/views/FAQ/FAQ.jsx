@@ -44,23 +44,24 @@ class FAQ extends Component{
               
               <div class="col-md-12">
                 <h4 style={{paddingTop: "20px", textAlign: 'center'}}>
-                  "Are you a Certified B Corporation?"
-                </h4>
-                <div class="simpborder"></div>
-                <p style={{paddingTop: "20px", textAlign: 'center'}}>
-                "Not yet, but we plan to apply as soon as it's feasible. We are building WiseWallet with both purpose and profit in mind."
-                </p>
-              </div>
-
-              <div class="col-md-12">
-                <h4 style={{paddingTop: "20px", textAlign: 'center'}}>
-                  "Where do you get your data?"
+                  Where do you get your data?
                 </h4>
                 <div class="simpborder"></div>
                 <p style={{paddingTop: "20px", textAlign: 'center'}}>
                   You won’t find “fake news” here. WiseWallet collects verifiable factual data from Non-Governmental Organizations (NGO’s), trustworthy databases, and directly from company benefits packages. We are fully transparent regarding the methodology and the data sources behind each of the causes we allow users to filter by. #factsonly
                 </p>
               </div>
+
+              <div class="col-md-12">
+                <h4 style={{paddingTop: "20px", textAlign: 'center'}}>
+                  Are you a Certified B Corporation?
+                </h4>
+                <div class="simpborder"></div>
+                <p style={{paddingTop: "20px", textAlign: 'center'}}>
+                Not yet, but we plan to apply as soon as it's feasible. We are building WiseWallet with both purpose and profit in mind.
+                </p>
+              </div>
+
             </div>
           </section>
         </body>
