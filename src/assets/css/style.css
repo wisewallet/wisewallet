@@ -39,12 +39,20 @@ header p{
 	    margin-bottom: 60px;
 }
 
-ul{
+ul {
+    list-style-type:none;
+}
+
+li {
+    text-align:center;
+}
+
+ul .categories{
     list-style: none;
     padding: 0px;
 }
 
-ul li:before{
+ul li:before .categories{
     content: '\2714';
     margin: 0 1em;
 }
@@ -71,6 +79,14 @@ ul li:before{
     text-align: center;
     margin: 0 auto;
 
+}
+.nocolor{
+    text-decoration: none;
+    color: inherit;
+}
+
+.caption{
+    font-size: 10pt
 }
 
 #sone p{

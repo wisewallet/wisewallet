@@ -28,7 +28,7 @@ class CompanyCard extends Component{
           <Typography variant="body2" color="textSecondary" component="p">
             {this.props.category}
           </Typography>
-          <ul>
+          <ul style="categories">
             {this.props.cause.map(cause => <li>{cause}</li>)}
           </ul>
         </CardContent>

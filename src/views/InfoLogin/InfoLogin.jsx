@@ -42,9 +42,8 @@ class InfoLogin extends Component {
     const {email, password} = this.state;
     console.log(this.state);
     console.log("Trying...");
-    fetch("http://test.mywisewallet.com/login", {
+    fetch("/login", {
       method: "POST",
-      //mode: "no-cors",
       headers: {
         //"Access-Control-Allow-Origin": '*',
         "Content-Type": "application/json",
@@ -52,12 +51,12 @@ class InfoLogin extends Component {
       credentials: "include",
       body: JSON.stringify({email: email, password: password})
     })
-      .then(response => {setTimeout(() => null, 0); console.log(response)})//response.json())
+      .then(response => response.json())
       .then(json => {
-      console.log('json');
+      console.log('json', json);
       if(json.data.code == 200){
         console.log("success");
-        this.props.history.push('/test');
+        this.props.history.push('/companyInfo');
       }
       })
       .catch(error => console.log("request failed", error));

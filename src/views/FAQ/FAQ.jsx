@@ -48,7 +48,7 @@ class FAQ extends Component{
                 </h4>
                 <div class="simpborder"></div>
                 <p style={{paddingTop: "20px", textAlign: 'center'}}>
-                  You won’t find “fake news” here. WiseWallet collects verifiable factual data from Non-Governmental Organizations (NGO’s), trustworthy databases, and directly from company benefits packages. We are fully transparent regarding the methodology and the data sources behind each of the causes we allow users to filter by. #factsonly
+                  You won’t find “fake news” here. WiseWallet collects verifiable factual data from Non-Governmental Organizations (NGO’s), trustworthy databases, company benefits packages, financial statements, and other reliable data sources. We are fully transparent regarding the methodology and the data sources behind each of the causes we allow users to filter by. #factsonly
                 </p>
               </div>
 
