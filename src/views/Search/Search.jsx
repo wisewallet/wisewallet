@@ -21,10 +21,10 @@ class Search extends Component{
     this.state = {
       causes: [],
       category: "",
+      companies: [],
+      causelist: [],
+      categories: []
     }
-    this.state.companies = this.getCompanyData();
-    this.state.categories = this.getCategories();
-    this.state.causelist = this.getCauselist();
     this.initialState = this.state;
     this.handleChange = this.handleChange.bind(this);
     this.reset = this.reset.bind(this);
@@ -38,38 +38,75 @@ class Search extends Component{
         },
       },
     };
+  }
+
+  /*
+   * Make sure to change the query so that admin's are not the only ones who
+   * can access this information
+   */
+  componentDidMount(){
+    //Retrieve list of companies & categories
+    fetch("/admin/company", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(response => response.json())
+      .then(json => {
+        if(json.data.code == 200){
+          this.setState({companies: json.data.company_data});
+          this.getCategories(json.data);
+          console.log(this.state);
+        }
+ 
+      })
+      .catch(error => console.log("Caught Error", error));
+
+    //Retrieve list of causes
+    fetch("/admin/property", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(response => response.json())
+      .then(json => {
+        if(json.data.code == 200)
+          this.setState({causelist: json.data.property_data});
+      })
+      .catch(error => console.log("Caught Error", error));
 
   }
 
-  getCompanyData = () => {
-    var json = require('../../data/Company.json');
-    var companyData = json.data.company_data;
-    return companyData;
-  }
+  /*
+   * Functions for handling parsing the data retrieved from API calls
+   */
 
-  getCauselist = () => {
-    var json = require('../../data/Properties.json');
-    var causelist = json.data.property_data;
-    return causelist;
-  }
-
-  reset = () => {
-    this.setState(this.initialState);
-  }
-  getCategories = () => {
-    var json = require("../../data/Company.json");
-    var categories = json.data.company_data.map(info => info.company_category);
+  getCategories = (data) => { 
+    var categories = data.company_data.map(info => info.company_category);
 
     //filters out categories to remove duplicates
     var seen = {};
     categories = categories.filter(item => seen.hasOwnProperty(item) ? false : (seen[item] = true));
-    return categories;
+    this.setState({categories: categories});
   }
+
+
+  /*
+   * Functions for handling state changes
+   */
 
   handleChange = name => event => {
     this.setState({[name]: event.target.value });
   };
 
+  //Resets the search queries that the user selected.
+  reset = () => {
+    this.setState(this.initialState);
+  }
+
+  //Filters out companies based off of the current search query 
   returnCompanies = () => {
     var companies = [];
     if(this.state.category && this.state.causes.length != 0){
@@ -106,6 +143,8 @@ class Search extends Component{
     else
       return null;
   }
+  
+
   render(){
     return(
     <div>
@@ -162,7 +201,7 @@ class Search extends Component{
                   </MenuItem>
                 ))}
               </TextField>
-            that 
+            that are 
               <FormControl>
                 <InputLabel htmlFor="select-multiple-chip">Company Causes</InputLabel>
               <Select

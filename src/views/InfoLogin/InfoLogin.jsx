@@ -40,23 +40,26 @@ class InfoLogin extends Component {
 
   handleClick() {
     const {email, password} = this.state;
-    console.log(this.state);
     console.log("Trying...");
     fetch("/login", {
       method: "POST",
       headers: {
-        //"Access-Control-Allow-Origin": '*',
         "Content-Type": "application/json",
       },
-      credentials: "include",
       body: JSON.stringify({email: email, password: password})
     })
       .then(response => response.json())
       .then(json => {
       console.log('json', json);
-      if(json.data.code == 200){
+      if(json.data.code === 200){
         console.log("success");
-        this.props.history.push('/companyInfo');
+        sessionStorage.setItem('userID', json.data.userdata.user_id);
+        sessionStorage.setItem('isAdmin', json.data.userdata.isAdmin);
+        if(sessionStorage.isAdmin){
+          this.props.history.push('/companyInfo');
+        }
+        else
+          this.props.history.push('/search');
       }
       })
       .catch(error => console.log("request failed", error));

@@ -43,18 +43,8 @@ ul {
     list-style-type:none;
 }
 
-li {
+li .center{
     text-align:center;
-}
-
-ul .categories{
-    list-style: none;
-    padding: 0px;
-}
-
-ul li:before .categories{
-    content: '\2714';
-    margin: 0 1em;
 }
 
 /* eader end*/

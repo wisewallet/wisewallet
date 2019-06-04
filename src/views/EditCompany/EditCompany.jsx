@@ -30,30 +30,6 @@ class EditCompany extends Component {
   constructor(props){
     super(props);
     this.id = this.props.location.state.id;
-    //delete the line below when fetch api works
-    // this.id = 9;
-
-    this.state = this.searchCompanyId(this.id);
-    console.log(this.state);
-  }
-
-  searchCompanyId = (id) => {
-    const genCompanyData = require('../../data/Company.json');
-    const allProperties = require('../../data/Properties.json');
-    var properties = allProperties.data.property_data;
-    var data = genCompanyData.data.company_data;
-    var company_data = data.filter(info => info.company_id == id)
-    var categories = data.map(info => info.company_category);
-
-    //filters out categories to remove duplicates
-    var seen = {};
-    categories = categories.filter(item => seen.hasOwnProperty(item) ? false : (seen[item] = true));
-
-    //gets the json
-    company_data = company_data[0]
-    company_data.property_data = properties;
-    company_data.categories = categories;
-    return company_data;
   }
 
   componentDidMount() {
@@ -62,25 +38,20 @@ class EditCompany extends Component {
   }
 
   render(){
-    return(
-      <div>
-      <div style={{
-        marginLeft:"10px"
-        }}>
-      <h3>Edit Company Info </h3> 
-      <Company
-        id={this.state.company_id}
-        name={this.state.company_name}
-        link={this.state.company_link}
-        category={this.state.company_category}
-        categories={this.state.categories}
-        cause={this.state.company_cause}
-        causelist={this.state.property_data}
-      />
-    </div>
-    <footer> Copyright © 2019 WiseWallet Inc. All Rights Reserved.</footer>
-  </div>
-    )
+    if(!this.id)
+      return (<Redirect to="/companyInfo"/>);
+    else
+      return(
+        <div>
+          <div style={{
+            marginLeft:"10px"
+            }}>
+          <h3>Edit Company Info </h3> 
+          <Company id={this.id}/>
+          </div>
+          <footer> Copyright © 2019 WiseWallet Inc. All Rights Reserved.</footer>
+        </div>
+      )
   }
 }
 

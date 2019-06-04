@@ -5,9 +5,11 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import "assets/css/style.css";
 
 class CompanyCard extends Component{
+  constructor(props){
+    super(props);
+  }
 
   render(){
     return(
@@ -28,8 +30,8 @@ class CompanyCard extends Component{
           <Typography variant="body2" color="textSecondary" component="p">
             {this.props.category}
           </Typography>
-          <ul style="categories">
-            {this.props.cause.map(cause => <li>{cause}</li>)}
+          <ul>
+            {this.props.cause.map(cause => <li>{'\u2714' + " " + cause}</li>)}
           </ul>
         </CardContent>
         <CardActions
@@ -43,3 +45,4 @@ class CompanyCard extends Component{
 }
 
 export default CompanyCard;
+

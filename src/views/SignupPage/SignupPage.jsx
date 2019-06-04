@@ -25,16 +25,16 @@ import signupPageStyle from "assets/jss/material-kit-pro-react/views/signupPageS
 
 import image from "assets/img/register.jpg";
 
-const Mailchimp = require('mailchimp-api-js');
 class Components extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
       email: "",
+      username: "",
       password: "",
-      firstName: "",
-      lastName: ""
+      first_name: "",
+      last_name: ""
     };
     this.onSignUp = this.onSignUp.bind(this);
   }
@@ -49,37 +49,25 @@ class Components extends React.Component {
     this.setState({[name]: event.target.value});
   };
   onSignUp() {
-    const {email, password, firstName, lastName} = this.state;
-    
-      /*
-    fetch("https://tldpv6umn7.execute-api.us-east-1.amazonaws.com/default/signUp", {
+    console.log(this.state);
+    fetch("/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({email: email, lastName: lastName, password: password, firstName: firstName})
-    }).then(response => response.json()).then(json => {
-      console.log('json', json);
-      if (json.success) {
-        console.log("success " + json.userID);
-        sessionStorage.setItem('userID', json.userID);
-      }
-    });
-    */
-
-    let body = {
-        email_address : email,
-        status: 'subscribed',
-        merge_fields : { FNAME: firstName, LNAME: lastName, ADDRESS: '', PHONE: ''}
-    }
-      var mailchimp = new Mailchimp("WiseWallet","12282ab4749c9cf79956abf705903cfa-us17");
-    mailchimp.members.add('fce1ac23fe', body).then(function (err, result) {
-        console.log(result)
-        console.log(err)
+      credentials: "include",
+      body: JSON.stringify(this.state)
     })
-      this.props.history.push('/link')
-
+      .then(response => response.json())
+      .then(json => {
+        console.log('json', json.data.code);
+        if(json.data.code == 200){
+          this.props.history.push('/login');
+        }
+      })
+      .catch(error => {alert("Email or user name already exists");console.log("error thrown", error)});
   }
+
   render() {
     const {
       classes,
@@ -100,9 +88,10 @@ class Components extends React.Component {
                 <CardBody>
                   <center>
                   <form className={classes.form}>
-                    <TextField id="firstName" label="First Name" className={classes.textField} value={this.state.firstName} onChange={this.handleChange("firstName")} margin="normal"/>
-                    <TextField id="lastName" label="Last Name" className={classes.textField} value={this.state.lastName} onChange={this.handleChange("lastName")} margin="normal"/>
+                    <TextField id="firstName" label="First Name" className={classes.textField} value={this.state.firstName} onChange={this.handleChange("first_name")} margin="normal"/>
+                    <TextField id="lastName" label="Last Name" className={classes.textField} value={this.state.lastName} onChange={this.handleChange("last_name")} margin="normal"/>
                     <TextField id="email" label="Email" className={classes.textField} value={this.state.email} onChange={this.handleChange("email")} margin="normal"/>
+                    <TextField id="username" label="Username" className={classes.textField} value={this.state.username} onChange={this.handleChange("username")} margin="normal"/>
                     <TextField id="password" label="Password" className={classes.textField} type="password" value={this.state.password} onChange={this.handleChange("password")} autoComplete="current-password" margin="normal"/>
                     <Button color="primary" size = "medium" onClick={this.onSignUp}>
                       Sign up

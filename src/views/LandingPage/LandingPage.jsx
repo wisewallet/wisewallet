@@ -26,7 +26,6 @@ class LandingPage extends React.Component {
     document.body.scrollTop = 0;
     ReactGA.initialize('UA-125368215-1');
     ReactGA.pageview(window.location.pathname + window.location.search);
-    sessionStorage.setItem('myData', 100);
   }
   render() {
     const {

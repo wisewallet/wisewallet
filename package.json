@@ -54,7 +54,7 @@
     "lint:check": "eslint . --ext=js,jsx;  exit 0",
     "lint:fix": "eslint . --ext=js,jsx --fix;  exit 0",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
-    "deploy":"aws s3 sync build/ s3://www.mywisewallet.com"
+    "deploy": "aws s3 sync build/ s3://www.mywisewallet.com"
   },
   "optionalDependencies": {
     "eslint": "5.12.0",
@@ -69,5 +69,5 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "proxy":"http://test.mywisewallet.com"
+  "proxy": "http://test.mywisewallet.com"
 }

@@ -13,6 +13,7 @@ import Filter from "views/Filter/Filter.jsx";
 import About from "views/About/About.jsx";
 import FAQ from "views/FAQ/FAQ.jsx";
 import Causes from "views/Causes/Causes.jsx";
+import Properties from "views/Properties/Properties.jsx";
 
 var indexRoutes = [
 	{path: "/login", name: "Login", component: InfoLogin},
@@ -20,6 +21,7 @@ var indexRoutes = [
   {path: "/edit", name: "Edit", component: EditCompany},
   {path: "/search", name: "Search", component: Search},
   {path: "/filter", name: "Filter", component: Filter},
+  {path: "/properties", name: "Properties", component: Properties},
 	{path: "/signup", name: "WiseWallet", component: SignupPage},
 	{path: "/link", name: "WiseWallet", component: PlaidLink},
 	{path: "/dashboard", name: "WiseWallet", component: Dashboard},

@@ -10,7 +10,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 
-class Company extends Component{
+class AddCompany extends Component{
   constructor(props){
     super(props);
     this.state = {
@@ -21,7 +21,6 @@ class Company extends Component{
       link: "",
       cause: [],
     }
-    this.id = this.props.id;
     this.submit = this.handleSubmit.bind(this)
     this.ITEM_HEIGHT = 48;
     this.ITEM_PADDING_TOP = 8;
@@ -65,27 +64,7 @@ class Company extends Component{
           this.setState({causelist: json.data.property_data});
       })
       .catch(error => console.log("Caught Error", error));
-
-    //Retrieve company properties
-    fetch("/admin/company/edit/" + this.id, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-      .then(response => response.json())
-      .then(json => {
-        if(json.data.code === 200)
-          this.setState({
-            name: json.data.name,
-            link: json.data.link,
-            category: json.data.category,
-            cause: json.data.property_name
-          }) 
-        console.log(this.state);
-      })
-      .catch(error => console.log("error caught", error));
-    }
+  }
 
   /*
    * Functions for handling parsing the data retrieved from API calls
@@ -101,7 +80,7 @@ class Company extends Component{
   }
 
   handleSubmit = () => {
-    fetch("/admin/company/edit/" + this.id, {
+    fetch("/admin/company/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -185,4 +164,4 @@ class Company extends Component{
   }
 }
 
-export default Company;
+export default AddCompany;
