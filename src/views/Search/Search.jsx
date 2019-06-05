@@ -46,7 +46,7 @@ class Search extends Component{
    */
   componentDidMount(){
     //Retrieve list of companies & categories
-    fetch("/company", {
+    fetch("/dashboard", {
       method: "GET",
       headers: {
         "Content-Type": "application/json"

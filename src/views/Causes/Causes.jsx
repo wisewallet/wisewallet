@@ -19,17 +19,33 @@ class Causes extends Component{
   render(){
     return(
     <div>
-    <header>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 text-center">
-              <h2>Causes</h2>
-              <div class="simpborder"></div>
-             
+      <header>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <Link to="/search">
+                  <h2><b>WiseWallet</b></h2>
+                </Link>
+                  <div class="simpborder"></div>
+                  <p>Put your money where your mind is.</p>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 text-center">
+                  <Link to="/about">About us</Link>
+                </div>
+              <div class="col-md-3 text-center">
+                <Link to="/causes">Causes</Link>
+              </div>
+              <div class="col-md-3 text-center">
+                <Link to="/faq">FAQ</Link>
+              </div>
+              <div class="col-md-3 text-center">
+                <Link to="/filter"> Filter </Link> 
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </header>
+        </header>
     <section id="sone">
       <div class="container">
         <div class="col-md-12">
@@ -63,12 +79,81 @@ This cause focuses on women-led businesses. We’ve screened for businesses that
               Sources:
             </b>
           </h3>
-          <ul>
-            <li><a class="nocolor" href="https://www.catalyst.org" target="_blank"> Catalyst </a></li>
-            <li>Company Financial Statements         </li>
-            <li>Company Web Pages                    </li>
-            <li>Women Owned Business Directories     </li>
+          <ul style={{textAlign: "center"}}>
+            <li className="center"><a class="nocolor" href="https://www.catalyst.org" target="_blank"> Catalyst </a></li>
+            <li className="center">Company Financial Statements         </li>
+            <li className="center">Company Web Pages                    </li>
+            <li className="center">Women Owned Business Directories     </li>
           </ul>
+          
+          <div class="simpborder"></div>
+
+          <figure style={{textAlign:'center'}}>
+            <img src={require("../../assets/img/causes/lgbtq.png")} 
+              alt="Women" width="100" height="100"></img>
+            <figcaption class="caption">
+              Taken from <b><a class="nocolor" href="https://thenounproject.com/" target="_blank">The Noun Project</a></b>
+            </figcaption>
+          </figure>
+          <h3 style={{textAlign: 'center'}}>
+            <b>
+            Category: Pro-LGBTQIA+ 
+            </b>
+          </h3>
+            <p>
+            Without a federal law protecting LGBTQIA+ Americans in the workplace, non-discrimination laws vary from state to state. How to approach workplace inclusion and protection of LGBTQIA+ individuals is still largely in the hands of corporations.
+            </p>
+          <h3 style={{textAlign: 'center'}}>
+            <b>
+              Methodology:
+            </b>
+          </h3>
+          <p>
+            This cause focuses on the highest standards of LGBTQIA+ inclusivity. We’ve screened for companies that show organizational competency in LGBTQIA+ inclusion: they offer equal benefits, display a public commitment to inclusivity, abide by U.S. contractor and vendor standards, and have implemented and operate according to global non-discrimination policies and codes of conduct (HRC: CEI scores of 100). For small businesses, we’ve screened for those that are 51% owned, operated, managed, and controlled by an LGBTQIA+ person or persons.
+          </p>
+          <h3 style={{textAlign: 'center'}}>
+            <b>
+              Sources:
+            </b>
+          </h3>
+          <ul style={{textAlign: "center"}}>
+            <li>Human Rights Campaign: Corporate Equality Index</li>
+            <li>National LGBT Chamber of Commerce</li>
+          </ul>
+
+          <div class="simpborder"></div>
+
+          <figure style={{textAlign:'center'}}>
+            <img src={require("../../assets/img/causes/veterans.png")} 
+              alt="Women" width="100" height="100"></img>
+            <figcaption class="caption">
+              Taken from <b><a class="nocolor" href="https://thenounproject.com/" target="_blank">The Noun Project</a></b>
+            </figcaption>
+          </figure>
+          <h3 style={{textAlign: 'center'}}>
+            <b>
+            Category: Pro-Veterans 
+            </b>
+          </h3>
+            <p>
+              Coming Soon
+            </p>
+          <h3 style={{textAlign: 'center'}}>
+            <b>
+              Methodology:
+            </b>
+          </h3>
+          <p>
+            Coming Soon
+          </p>
+          <h3 style={{textAlign: 'center'}}>
+            <b>
+              Sources:
+            </b>
+          </h3>
+          <p>
+            Coming Soon
+          </p>
 
           <h2 style={{textAlign: 'center'}}> More Causes Coming Soon </h2>
         </div>

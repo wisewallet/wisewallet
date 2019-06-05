@@ -20,15 +20,32 @@ class About extends Component{
     return(
       <div>
       <header>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12 text-center">
-              <h2>About Us</h2>
-              <div class="simpborder"></div>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <Link to="/search">
+                  <h2><b>WiseWallet</b></h2>
+                </Link>
+                  <div class="simpborder"></div>
+                  <p>Put your money where your mind is.</p>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 text-center">
+                  <Link to="/about">About us</Link>
+                </div>
+              <div class="col-md-3 text-center">
+                <Link to="/causes">Causes</Link>
+              </div>
+              <div class="col-md-3 text-center">
+                <Link to="/faq">FAQ</Link>
+              </div>
+              <div class="col-md-3 text-center">
+                <Link to="/filter"> Filter </Link> 
+              </div>
             </div>
           </div>
-        </div>
-      </header>
+        </header>
         <section id="sone">
           <div class="container">
             <div class="col-md-12">

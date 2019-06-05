@@ -55,7 +55,7 @@ class InfoLogin extends Component {
         console.log("success");
         sessionStorage.setItem('userID', json.data.userdata.user_id);
         sessionStorage.setItem('isAdmin', json.data.userdata.isAdmin);
-        if(sessionStorage.isAdmin){
+        if(json.data.userdata.isAdmin){
           this.props.history.push('/companyInfo');
         }
         else
