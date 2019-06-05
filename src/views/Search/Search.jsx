@@ -46,7 +46,7 @@ class Search extends Component{
    */
   componentDidMount(){
     //Retrieve list of companies & categories
-    fetch("/admin/company", {
+    fetch("/company", {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
@@ -64,7 +64,7 @@ class Search extends Component{
       .catch(error => console.log("Caught Error", error));
 
     //Retrieve list of causes
-    fetch("/admin/property", {
+    fetch("/property", {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
