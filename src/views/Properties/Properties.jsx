@@ -31,6 +31,8 @@ import Grid from '@material-ui/core/Grid';
 import { Link } from "react-router-dom";
 import "assets/css/style.css";
 import "assets/css/bootstrap.min.css";
+import Footer from "components/Footer/Footer.jsx";
+import CustomButton from "components/CustomButtons/Button.jsx";
 
 class Properties extends Component {
   constructor(props){
@@ -125,7 +127,26 @@ class Properties extends Component {
           </Button>
         </div>
         {this.state.addMode ? this.addProperty() : this.propertyInfo()}
-      <footer> Copyright © 2019 WiseWallet Inc. All Rights Reserved.</footer>
+        <Footer content={<div>
+          <CustomButton justIcon="justIcon" simple="simple" href="https://twitter.com/mywisewallet" color="twitter">
+          <i className="fab fa-twitter"/>
+        </CustomButton>
+        <CustomButton justIcon="justIcon" simple="simple" href="https://www.facebook.com/mywisewallet" color="facebook">
+          <i className="fab fa-facebook-square"/>
+        </CustomButton>
+        <CustomButton justIcon="justIcon" simple="simple" href="https://www.instagram.com/mywisewallet/" color="instagram">
+          <i className="fab fa-instagram"/>
+        </CustomButton>
+        <GridContainer>
+          <GridItem sm={3}>
+          </GridItem>
+          <GridItem sm={6}>
+          <div style={{width: 'auto'}}>
+            Copyright &copy; {1900 + new Date().getYear()}{" "}
+            <a href="http://www.mywisewallet.com">WiseWallet Inc. </a> 
+            All Rights Reserved. </div></GridItem>
+        </GridContainer>
+        </div>}></Footer>
     </div>
     )
   }

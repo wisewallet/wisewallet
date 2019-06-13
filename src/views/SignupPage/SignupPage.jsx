@@ -15,11 +15,13 @@ import SignUpLinks from "components/Header/SignUpLinks.jsx";
 import Footer from "components/Footer/Footer.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
-import Button from "components/CustomButtons/Button.jsx";
+import Button from "@material-ui/core/Button";
 import Card from "components/Card/Card.jsx";
 import CardBody from "components/Card/CardBody.jsx";
 import InfoArea from "components/InfoArea/InfoArea.jsx";
 import Popup from "reactjs-popup";
+import { Link } from "react-router-dom";
+import CustomButton from "components/CustomButtons/Button.jsx";
 
 import signupPageStyle from "assets/jss/material-kit-pro-react/views/signupPageStyle.jsx";
 
@@ -74,49 +76,58 @@ class Components extends React.Component {
       ...rest
     } = this.props;
     return (<div>
-      <Header absolute="absolute" color="transparent" brand="WiseWallet" />
-      <div className={classes.pageHeader} style={{
-          backgroundImage: "url("+image+")",
-          backgroundSize: "cover",
-          backgroundPosition: "top center"
-        }}>
-        <div className={classes.container}>
-          <GridContainer justify="center">
-            <GridItem xs={12} sm={10} md={4}>
-              <Card className={classes.cardSignup}>
-                <h2 className={classes.cardTitle}>Register</h2>
-                <CardBody>
-                  <center>
-                  <form className={classes.form}>
-                    <TextField id="firstName" label="First Name" className={classes.textField} value={this.state.firstName} onChange={this.handleChange("first_name")} margin="normal"/>
-                    <TextField id="lastName" label="Last Name" className={classes.textField} value={this.state.lastName} onChange={this.handleChange("last_name")} margin="normal"/>
-                    <TextField id="email" label="Email" className={classes.textField} value={this.state.email} onChange={this.handleChange("email")} margin="normal"/>
-                    <TextField id="username" label="Username" className={classes.textField} value={this.state.username} onChange={this.handleChange("username")} margin="normal"/>
-                    <TextField id="password" label="Password" className={classes.textField} type="password" value={this.state.password} onChange={this.handleChange("password")} autoComplete="current-password" margin="normal"/>
-                    <Button color="primary" size = "medium" onClick={this.onSignUp}>
-                      Sign up
-                    </Button>
+      <header>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <Link to="/">
+                  <h2><b>WiseWallet</b></h2>
+                </Link>
+                  <div class="simpborder"></div>
+                  <p>Put your money where your mind is.</p>
+              </div>
+            </div>
+          </div>
+      </header>
+        <center>
+          <h2><b>Sign Up!</b></h2>
+          <div class="simpborder"></div>
+          <TextField id="firstName" label="First Name" className={classes.textField} value={this.state.firstName} onChange={this.handleChange("first_name")} margin="normal"/>
+          <br></br>
+          <TextField id="lastName" label="Last Name" className={classes.textField} value={this.state.lastName} onChange={this.handleChange("last_name")} margin="normal"/>
+          <br></br>
+          <TextField id="email" label="Email" className={classes.textField} value={this.state.email} onChange={this.handleChange("email")} margin="normal"/>
+          <br></br>
+          <TextField id="username" label="Username" className={classes.textField} value={this.state.username} onChange={this.handleChange("username")} margin="normal"/>
+          <br></br>
+          <TextField id="password" label="Password" className={classes.textField} type="password" value={this.state.password} onChange={this.handleChange("password")} autoComplete="current-password" margin="normal"/>
+          <br></br>
+          <Button color="primary" size = "medium" onClick={this.onSignUp}>
+            Sign up
+          </Button>
+        </center>
 
-                  </form>
-                  </center>
-                </CardBody>
-              </Card>
-            </GridItem>
-          </GridContainer>
-        </div>
-        <Footer theme ="white" content={<div>
-          <GridContainer>
-            <GridItem sm={3}>
-            </GridItem>
-            <GridItem sm={6}>
-          <div className={classNames(classes.pullCenter, classes.copyRight)} style={{width: 'auto'}}>
+        <Footer content={<div>
+          <CustomButton justIcon="justIcon" simple="simple" href="https://twitter.com/mywisewallet" color="twitter">
+          <i className="fab fa-twitter"/>
+        </CustomButton>
+        <CustomButton justIcon="justIcon" simple="simple" href="https://www.facebook.com/mywisewallet" color="facebook">
+          <i className="fab fa-facebook-square"/>
+        </CustomButton>
+        <CustomButton justIcon="justIcon" simple="simple" href="https://www.instagram.com/mywisewallet/" color="instagram">
+          <i className="fab fa-instagram"/>
+        </CustomButton>
+        <GridContainer>
+          <GridItem sm={3}>
+          </GridItem>
+          <GridItem sm={6}>
+          <div style={{width: 'auto'}}>
             Copyright &copy; {1900 + new Date().getYear()}{" "}
             <a href="http://www.mywisewallet.com">WiseWallet Inc. </a> 
             All Rights Reserved. </div></GridItem>
         </GridContainer>
         </div>}></Footer>
-      </div>
-    </div>);
+      </div>);
   }
 }
 

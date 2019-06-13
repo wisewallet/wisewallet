@@ -14,6 +14,10 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import { Link } from "react-router-dom";
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+import Footer from "components/Footer/Footer.jsx";
+import CustomButton from "components/CustomButtons/Button.jsx";
+import GridContainer from "components/Grid/GridContainer.jsx";
+import GridItem from "components/Grid/GridItem.jsx";
 
 class Search extends Component{
   constructor(props){
@@ -22,7 +26,9 @@ class Search extends Component{
       causes: [],
       category: "",
       companies: [],
-      causelist: [],
+      //only temporary
+      causelist: [
+      {property_name:"Women Led"},{property_name: "Pro-LGBTQIA+"}, {property_name:"Pro-Veterans"}],
       categories: []
     }
     this.initialState = this.state;
@@ -73,7 +79,9 @@ class Search extends Component{
       .then(response => response.json())
       .then(json => {
         if(json.data.code == 200)
-          this.setState({causelist: json.data.property_data});
+          //Comment out temporarily
+          //this.setState({causelist: json.data.property_data});
+          console.log("did mount")
       })
       .catch(error => console.log("Caught Error", error));
 
@@ -236,7 +244,26 @@ class Search extends Component{
           {this.returnCompanies()}
       </Grid>
 
-      <footer> Copyright © 2019 WiseWallet Inc. All Rights Reserved.</footer>
+        <Footer content={<div>
+          <CustomButton justIcon="justIcon" simple="simple" href="https://twitter.com/mywisewallet" color="twitter">
+          <i className="fab fa-twitter"/>
+        </CustomButton>
+        <CustomButton justIcon="justIcon" simple="simple" href="https://www.facebook.com/mywisewallet" color="facebook">
+          <i className="fab fa-facebook-square"/>
+        </CustomButton>
+        <CustomButton justIcon="justIcon" simple="simple" href="https://www.instagram.com/mywisewallet/" color="instagram">
+          <i className="fab fa-instagram"/>
+        </CustomButton>
+        <GridContainer>
+          <GridItem sm={3}>
+          </GridItem>
+          <GridItem sm={6}>
+          <div style={{width: 'auto'}}>
+            Copyright &copy; {1900 + new Date().getYear()}{" "}
+            <a href="http://www.mywisewallet.com">WiseWallet Inc. </a> 
+            All Rights Reserved. </div></GridItem>
+        </GridContainer>
+        </div>}></Footer>
     </div>
     )
   }

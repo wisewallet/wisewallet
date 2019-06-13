@@ -7,12 +7,15 @@ import Icon from "@material-ui/core/Icon";
 import Email from "@material-ui/icons/Email";
 // core components
 import Header from "components/Header/Header.jsx";
-import GridContainer from "components/Grid/GridContainer.jsx";
-import GridItem from "components/Grid/GridItem.jsx";
-import Button from "components/CustomButtons/Button.jsx";
-import Card from "components/Card/Card.jsx";
+import Button from "@material-ui/core/Button";
+import Card from "@material-ui/core/Card";
 import CardBody from "components/Card/CardBody.jsx";
 import CardHeader from "components/Card/CardHeader.jsx";
+import { Link } from "react-router-dom";
+import Footer from "components/Footer/Footer.jsx";
+import CustomButton from "components/CustomButtons/Button.jsx";
+import GridContainer from "components/Grid/GridContainer.jsx";
+import GridItem from "components/Grid/GridItem.jsx";
 
 import TextField from "@material-ui/core/TextField";
 import loginPageStyle from "assets/jss/material-kit-pro-react/views/loginPageStyle.jsx";
@@ -68,35 +71,50 @@ class InfoLogin extends Component {
   render() {
     const {classes} = this.props;
     return (<div>
-      <Header absolute="absolute" color="transparent" brand="WiseWallet"/>
-      <div className={classes.pageHeader} style={{
-          backgroundColor: "#FFFFFF",
-          backgroundSize: "cover",
-          backgroundPosition: "top center"
-        }}>
-        <div className={classes.container}>
-          <GridContainer justify="center">
-            <GridItem xs={12} sm={12} md={4}>
-              <Card>
-                <center>
-                <form className={classes.form}>
-                  <CardHeader color="info" className={classes.cardHeader}>
-                    <h4 className={classes.cardTitle}>Login</h4>
-                  </CardHeader>
-                  <CardBody>
-                    <TextField id="email" label="Email" className={classes.textField} value={this.state.email} onChange={this.handleChange("email")} margin="normal"/>
-                    <TextField id="password" label="Password" className={classes.textField} type="password" value={this.state.password} onChange={this.handleChange("password")} autoComplete="current-password" margin="normal"/>
-                    <Button onClick={this.handleClick}>Signin</Button>
-                  </CardBody>
-                  <div className={classes.textCenter}>
-                  </div>
-                </form>
-                </center>
-              </Card>
-            </GridItem>
-          </GridContainer>
-        </div>
+      <header>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <Link to="/">
+                  <h2><b>WiseWallet</b></h2>
+                </Link>
+                  <div class="simpborder"></div>
+                  <p>Put your money where your mind is.</p>
+              </div>
+            </div>
+          </div>
+      </header>
+      <div>
+        <center>
+        <h2><b>Login</b></h2>
+          <div class="simpborder"></div>
+          <TextField id="email" label="Email" className={classes.textField} value={this.state.email} onChange={this.handleChange("email")} margin="normal"/>
+          <br></br>
+          <TextField id="password" label="Password" className={classes.textField} type="password" value={this.state.password} onChange={this.handleChange("password")} autoComplete="current-password" margin="normal"/>
+          <br></br>
+          <Button onClick={this.handleClick}>Login</Button>
+        </center>
       </div>
+        <Footer content={<div>
+          <CustomButton justIcon="justIcon" simple="simple" href="https://twitter.com/mywisewallet" color="twitter">
+          <i className="fab fa-twitter"/>
+        </CustomButton>
+        <CustomButton justIcon="justIcon" simple="simple" href="https://www.facebook.com/mywisewallet" color="facebook">
+          <i className="fab fa-facebook-square"/>
+        </CustomButton>
+        <CustomButton justIcon="justIcon" simple="simple" href="https://www.instagram.com/mywisewallet/" color="instagram">
+          <i className="fab fa-instagram"/>
+        </CustomButton>
+        <GridContainer>
+          <GridItem sm={3}>
+          </GridItem>
+          <GridItem sm={6}>
+          <div style={{width: 'auto'}}>
+            Copyright &copy; {1900 + new Date().getYear()}{" "}
+            <a href="http://www.mywisewallet.com">WiseWallet Inc. </a> 
+            All Rights Reserved. </div></GridItem>
+        </GridContainer>
+        </div>}></Footer>
     </div>);
   }
 }
