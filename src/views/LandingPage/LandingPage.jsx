@@ -55,7 +55,7 @@ class LandingPage extends React.Component {
         <Link to="/login" style={{color:"#012E3C"}}>Login</Link>
       </Button>
         <Button variant="outlined" color="#012E3C">
-          <Link to="/signup" style={{color:"#012E3C"}}>Signup</Link>
+          <Link to="/signup" style={{color:"#012E3C"}}>Beta Signup</Link>
         </Button>
       </div>
       <Footer content={<div > <CustomButton justIcon="justIcon" simple="simple" href="https://twitter.com/mywisewallet" color="twitter">

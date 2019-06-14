@@ -90,7 +90,7 @@ class Components extends React.Component {
           </div>
       </header>
         <center>
-          <h2><b>Sign Up!</b></h2>
+          <h2><b> Beta Sign Up</b></h2>
           <div class="simpborder"></div>
           <TextField id="firstName" label="First Name" className={classes.textField} value={this.state.firstName} onChange={this.handleChange("first_name")} margin="normal"/>
           <br></br>
