@@ -51,7 +51,6 @@ class Components extends React.Component {
     this.setState({[name]: event.target.value});
   };
   onSignUp() {
-    console.log(this.state);
     fetch("/register", {
       method: "POST",
       headers: {
@@ -92,19 +91,63 @@ class Components extends React.Component {
         <center>
           <h2><b> Beta Sign Up</b></h2>
           <div class="simpborder"></div>
-          <TextField id="firstName" label="First Name" className={classes.textField} value={this.state.firstName} onChange={this.handleChange("first_name")} margin="normal"/>
+          <form 
+            onSubmit={this.onSignUp.bind(this)}
+            autoComplete="off">
+            <TextField
+              id="firstName"
+              label="First Name"
+              required
+              className={classes.textField}
+              value={this.state.firstName}
+              onChange={this.handleChange("first_name")}
+              margin="normal"/>
           <br></br>
-          <TextField id="lastName" label="Last Name" className={classes.textField} value={this.state.lastName} onChange={this.handleChange("last_name")} margin="normal"/>
+          <TextField
+            id="lastName"
+            label="Last Name"
+            required
+            className={classes.textField}
+            value={this.state.lastName}
+            onChange={this.handleChange("last_name")}
+            margin="normal"/>
           <br></br>
-          <TextField id="email" label="Email" className={classes.textField} value={this.state.email} onChange={this.handleChange("email")} margin="normal"/>
+          <TextField
+            id="email"
+            label="Email"
+            required
+            className={classes.textField}
+            value={this.state.email}
+            onChange={this.handleChange("email")}
+            margin="normal"/>
           <br></br>
-          <TextField id="username" label="Username" className={classes.textField} value={this.state.username} onChange={this.handleChange("username")} margin="normal"/>
+          <TextField
+            id="username"
+            label="Username"
+            required
+            className={classes.textField}
+            value={this.state.username}
+            onChange={this.handleChange("username")}
+            margin="normal"/>
           <br></br>
-          <TextField id="password" label="Password" className={classes.textField} type="password" value={this.state.password} onChange={this.handleChange("password")} autoComplete="current-password" margin="normal"/>
+          <TextField
+            id="password"
+            label="Password"
+            required
+            className={classes.textField}
+            type="password"
+            value={this.state.password}
+            onChange={this.handleChange("password")}
+            autoComplete="current-password"
+            margin="normal"/>
           <br></br>
-          <Button color="primary" size = "medium" onClick={this.onSignUp}>
+          <Button
+            type="submit"
+            color="primary"
+            size="medium">
             Sign up
           </Button>
+        </form>
         </center>
 
         <Footer content={<div>

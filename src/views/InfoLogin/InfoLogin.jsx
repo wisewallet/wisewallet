@@ -65,7 +65,7 @@ class InfoLogin extends Component {
           this.props.history.push('/search');
       }
       })
-      .catch(error => console.log("request failed", error));
+      .catch(error => alert("Username or Password is invalid"));
   }
 
   render() {
@@ -87,12 +87,36 @@ class InfoLogin extends Component {
       <div>
         <center>
         <h2><b>Login</b></h2>
+        <form
+          onSubmit={this.handleClick.bind(this)}
+          autoComplete="off">
           <div class="simpborder"></div>
-          <TextField id="email" label="Email" className={classes.textField} value={this.state.email} onChange={this.handleChange("email")} margin="normal"/>
+          <TextField
+            id="email"
+            label="Email"
+            required
+            className={classes.textField}
+            value={this.state.email}
+            onChange={this.handleChange("email")}
+            margin="normal"/>
           <br></br>
-          <TextField id="password" label="Password" className={classes.textField} type="password" value={this.state.password} onChange={this.handleChange("password")} autoComplete="current-password" margin="normal"/>
+          <TextField
+            id="password"
+            label="Password"
+            required
+            className={classes.textField}
+            type="password"
+            value={this.state.password}
+            onChange={this.handleChange("password")}
+            autoComplete="current-password"
+            margin="normal"/>
           <br></br>
-          <Button onClick={this.handleClick}>Login</Button>
+          <Button
+            type="submit"
+            onClick={this.handleClick}>
+            Login
+          </Button>
+        </form>
         </center>
       </div>
         <Footer content={<div>

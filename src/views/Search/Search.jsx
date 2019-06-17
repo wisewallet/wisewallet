@@ -23,17 +23,18 @@ class Search extends Component{
   constructor(props){
     super(props);
     this.state = {
+      name: "",
       causes: [],
       category: "",
       companies: [],
+      categories: [],
       //only temporary
       causelist: [
-      {property_name:"Women Led"},{property_name: "Pro-LGBTQIA+"}, {property_name:"Pro-Veterans"}],
-      categories: []
+        {property_name:"Women Led"},{property_name: "Pro-LGBTQIA+"}, {property_name:"Pro-Veterans"}
+      ],
     }
+    this.searchByCategory = true;
     this.initialState = this.state;
-    this.handleChange = this.handleChange.bind(this);
-    this.reset = this.reset.bind(this);
     this.ITEM_HEIGHT = 48;
     this.ITEM_PADDING_TOP = 8;
     this.MenuProps = {
@@ -44,6 +45,12 @@ class Search extends Component{
         },
       },
     };
+
+    //Function binding 
+    this.changeToName = this.changeToName.bind(this);
+    this.changeToCategory = this.changeToCategory.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.reset = this.reset.bind(this);
   }
 
   /*
@@ -63,7 +70,6 @@ class Search extends Component{
         if(json.data.code == 200){
           this.setState({companies: json.data.company_data});
           this.getCategories(json.data);
-          console.log(this.state);
         }
  
       })
@@ -85,6 +91,26 @@ class Search extends Component{
       })
       .catch(error => console.log("Caught Error", error));
 
+
+    //Retrieve list of companies that correspond to the criteria
+    fetch("/search", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify({
+        search_company_name: this.state.name,
+        search_company_category: new Array().push(this.state.category),
+        search_company_causes: this.state.causes
+      })
+    })
+      .then(response => response.json())
+      .then(json => {
+        if(json.data.code == 200)
+          console.log(json);
+      })
+      .catch(error => console.log("caught error", error));
+
   }
 
   /*
@@ -92,7 +118,7 @@ class Search extends Component{
    */
 
   getCategories = (data) => { 
-    var categories = data.company_data.map(info => info.company_category);
+    var categories = data.company_data.map(info => info.company_category[0]);
 
     //filters out categories to remove duplicates
     var seen = {};
@@ -114,6 +140,24 @@ class Search extends Component{
     this.setState(this.initialState);
   }
 
+  returnCompanies = () => {
+    var companies = [];
+
+    if(companies.length != 0){
+      return companies.map(company =>
+        <Grid style={{padding: 10}} item xs={3}>
+          <CompanyCard
+            name={company.company_name}
+            cause={company.company_cause}
+            category={company.company_category}
+            link={company.company_link}
+          />
+        </Grid>);
+    }
+    else
+      return null;
+  }
+    /*
   //Filters out companies based off of the current search query 
   returnCompanies = () => {
     var companies = [];
@@ -137,21 +181,117 @@ class Search extends Component{
       });
     }
 
-    if(companies.length != 0){
-      return companies.map(company =>
-        <Grid style={{padding: 10}} item xs={3}>
-          <CompanyCard
-            name={company.company_name}
-            cause={company.company_cause}
-            category={company.company_category}
-            link={company.company_link}
-          />
-        </Grid>);
-    }
-    else
-      return null;
+  }
+  */
+
+  /*
+   * Functions to handle state change for searching
+   */
+  changeToName = () => {
+    this.searchByName = true;
+    this.searchByCategory = false;
+    this.reset();
   }
   
+  changeToCategory = () => {
+    this.searchByName = false;
+    this.searchByCategory = true;
+    this.reset();
+  }
+  
+  //Returns search bar depending on the state
+  searchBar = () => {
+    if(this.searchByCategory){
+      return(
+        <Grid 
+            style={{padding: 10}}
+            container
+            justify="flex-start"
+            spacing={3}>
+            <Grid style={{textAlign: 'center'}} item xs={12}>
+              <h2> Find  
+                <TextField
+                  id="standard-select-category"
+                  select
+                  style={{minWidth:200}}
+                  label="Company Category"
+                  value={this.state.category}
+                  onChange={this.handleChange("category")}
+                  SelectProps={{
+                    MenuProps: {
+                      width: 200
+                    },
+                  }}
+                  margin="normal">
+                  {this.state.categories.map(option => (
+                    <MenuItem key={option} value={option}>
+                      {option}
+                    </MenuItem>
+                  ))}
+                </TextField>
+              that are 
+                <FormControl>
+                  <InputLabel htmlFor="select-multiple-chip">Company Causes</InputLabel>
+                <Select
+                  style={{minWidth: 150, maxWidth: 500}}
+                  multiple
+                  value={this.state.causes}
+                  onChange={this.handleChange("causes")}
+                  input={<Input id="select-multiple-chip" />}
+                  renderValue={selected => (
+                    <div style={{display:"flex", flexWrap:"wrap"}}>
+                      {selected.map(value => (
+                        <Chip key={value} label={value} style={{margin:2}} />
+                      ))}
+                    </div>
+                  )}
+                  MenuProps={this.MenuProps}
+                >
+                  {this.state.causelist.map(cause => (
+                    <MenuItem key={cause.property_id} value={cause.property_name}>
+                      {cause.property_name}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+              </h2>
+            </Grid>
+            <Grid style={{textAlign: 'center'}} item xs={12}>
+              <Button onClick={this.reset}>
+                  Reset Search
+              </Button>
+            </Grid>
+            {this.returnCompanies()}
+        </Grid>
+      )
+    }
+    else if(this.searchByName){
+      return(
+        <Grid 
+            style={{padding: 10}}
+            container
+            justify="center"
+            spacing={3}>
+            <Grid style={{textAlign: 'center'}} item xs={12}>
+              <TextField
+                id="name"
+                autoComplete="off"
+                label="Search By Name"
+                value={this.state.name}
+                onChange={this.handleChange("name")}
+                style={{width: 500}}
+                margin="normal"/>
+            </Grid>
+            <Grid style={{textAlign: 'center'}} item xs={3}>
+              <Button onClick={this.reset}>
+                Reset Search
+              </Button>
+            </Grid>
+            {this.returnCompanies()}
+        </Grid>
+      )
+    }
+  }
 
   render(){
     return(
@@ -183,67 +323,23 @@ class Search extends Component{
             </div>
           </div>
         </header>
-      <Grid 
-          style={{padding: 10}}
+        <Grid 
+          style={{padding:10}}
           container
-          justify="flex-start"
+          justify="center"
           spacing={3}>
-          <Grid style={{textAlign: 'center'}} item xs={12}>
-            <h2> Find  
-              <TextField
-                id="standard-select-category"
-                select
-                style={{minWidth:200}}
-                label="Company Category"
-                value={this.state.category}
-                onChange={this.handleChange("category")}
-                SelectProps={{
-                  MenuProps: {
-                    width: 200
-                  },
-                }}
-                margin="normal">
-                {this.state.categories.map(option => (
-                  <MenuItem key={option} value={option}>
-                    {option}
-                  </MenuItem>
-                ))}
-              </TextField>
-            that are 
-              <FormControl>
-                <InputLabel htmlFor="select-multiple-chip">Company Causes</InputLabel>
-              <Select
-                style={{minWidth: 150, maxWidth: 500}}
-                multiple
-                value={this.state.causes}
-                onChange={this.handleChange("causes")}
-                input={<Input id="select-multiple-chip" />}
-                renderValue={selected => (
-                  <div style={{display:"flex", flexWrap:"wrap"}}>
-                    {selected.map(value => (
-                      <Chip key={value} label={value} style={{margin:2}} />
-                    ))}
-                  </div>
-                )}
-                MenuProps={this.MenuProps}
-              >
-                {this.state.causelist.map(cause => (
-                  <MenuItem key={cause.property_id} value={cause.property_name}>
-                    {cause.property_name}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-            </h2>
-          </Grid>
-          <Grid style={{textAlign: 'center'}} item xs={12}>
-            <Button onClick={this.reset}>
-                Reset Search
+          <Grid style={{textAlign: 'center'}} item xs={3}>
+            <Button variant="outlined" onClick={this.changeToName}>
+              Search by Name
             </Button>
           </Grid>
-          {this.returnCompanies()}
-      </Grid>
-
+          <Grid style={{textAlign: 'center'}} item xs={3}>
+            <Button variant="outlined" onClick={this.changeToCategory}>
+              Search by Category
+            </Button>
+          </Grid>
+        </Grid>
+        {this.searchBar()}
         <Footer content={<div>
           <CustomButton justIcon="justIcon" simple="simple" href="https://twitter.com/mywisewallet" color="twitter">
           <i className="fab fa-twitter"/>
