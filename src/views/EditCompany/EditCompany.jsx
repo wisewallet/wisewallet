@@ -25,6 +25,7 @@ import Company from "components/company/Company.jsx";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import dashboardStyle from "assets/jss/material-kit-pro-react/views/dashboardStyle.jsx";
+import NavBar from "components/NavBar/NavBar.jsx";
 
 class EditCompany extends Component {
   constructor(props){
@@ -43,6 +44,7 @@ class EditCompany extends Component {
     else
       return(
         <div>
+        <NavBar/>
           <div style={{
             marginLeft:"10px"
             }}>

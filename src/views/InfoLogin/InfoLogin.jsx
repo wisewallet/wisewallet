@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {Redirect} from "react-router";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -12,13 +13,13 @@ import Card from "@material-ui/core/Card";
 import CardBody from "components/Card/CardBody.jsx";
 import CardHeader from "components/Card/CardHeader.jsx";
 import { Link } from "react-router-dom";
-import Footer from "components/Footer/Footer.jsx";
 import CustomButton from "components/CustomButtons/Button.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 
 import TextField from "@material-ui/core/TextField";
 import loginPageStyle from "assets/jss/material-kit-pro-react/views/loginPageStyle.jsx";
+import WebFooter from "components/WebFooter/WebFooter.jsx";
 
 import image from "assets/img/wisewalletA1.jpg";
 
@@ -73,6 +74,9 @@ class InfoLogin extends Component {
 
   render() {
     const {classes} = this.props;
+    if(sessionStorage.getItem("userID")){
+      return(<Redirect to="/search"/>)
+    }
     return (<div>
       <header>
           <div className="container">
@@ -119,26 +123,7 @@ class InfoLogin extends Component {
         </form>
         </center>
       </div>
-        <Footer content={<div>
-          <CustomButton justIcon="justIcon" simple="simple" href="https://twitter.com/mywisewallet" color="twitter">
-          <i className="fab fa-twitter"/>
-        </CustomButton>
-        <CustomButton justIcon="justIcon" simple="simple" href="https://www.facebook.com/mywisewallet" color="facebook">
-          <i className="fab fa-facebook-square"/>
-        </CustomButton>
-        <CustomButton justIcon="justIcon" simple="simple" href="https://www.instagram.com/mywisewallet/" color="instagram">
-          <i className="fab fa-instagram"/>
-        </CustomButton>
-        <GridContainer>
-          <GridItem sm={3}>
-          </GridItem>
-          <GridItem sm={6}>
-          <div style={{width: 'auto'}}>
-            Copyright &copy; {1900 + new Date().getYear()}{" "}
-            <a href="http://www.mywisewallet.com">WiseWallet Inc. </a> 
-            All Rights Reserved. </div></GridItem>
-        </GridContainer>
-        </div>}></Footer>
+      <WebFooter/>
     </div>);
   }
 }

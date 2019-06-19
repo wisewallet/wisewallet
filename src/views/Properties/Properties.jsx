@@ -33,6 +33,7 @@ import "assets/css/style.css";
 import "assets/css/bootstrap.min.css";
 import Footer from "components/Footer/Footer.jsx";
 import CustomButton from "components/CustomButtons/Button.jsx";
+import NavBar from "components/NavBar/NavBar.jsx";
 
 class Properties extends Component {
   constructor(props){
@@ -97,13 +98,14 @@ class Properties extends Component {
     var isAdmin = sessionStorage.getItem("isAdmin");
 
     //Redirects the user to the correct page if they are not an admin
-    if (userID === null)
+    if (userID == '')
       return (<Redirect to="/login"/>);
     else if(!isAdmin)
       return (<Redirect to="/search"/>);
     
     return(
       <div>
+        <NavBar/>
         <Grid
           style={{padding:10}}
           container

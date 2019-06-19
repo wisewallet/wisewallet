@@ -28,6 +28,7 @@ import dashboardStyle from "assets/jss/material-kit-pro-react/views/dashboardSty
 import AddCompany from "components/AddCompany/AddCompany.jsx";
 import Grid from '@material-ui/core/Grid';
 import { Link } from "react-router-dom";
+import NavBar from "components/NavBar/NavBar.jsx";
 import "assets/css/style.css";
 import "assets/css/bootstrap.min.css";
 
@@ -98,14 +99,13 @@ class CompanyInformation extends Component {
   render(){
     var userID = sessionStorage.getItem("userID");
     var isAdmin = sessionStorage.getItem("isAdmin");
-    console.log(isAdmin === false);
-
     //Redirects the user to the correct page if they are not an admin
-    if (userID === null)
+    if (userID== '')
       return (<Redirect to="/login"/>);
     else if(isAdmin){
       return(
         <div>
+          <NavBar/>
           <Grid
             style={{padding:10}}
             container

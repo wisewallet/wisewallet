@@ -18,6 +18,7 @@ import Parallax from "components/Parallax/Parallax.jsx";
 import { Link } from "react-router-dom";
 import ReactGA from 'react-ga';
 import landingPageStyle from "assets/jss/material-kit-pro-react/views/landingPageStyle.jsx";
+import WebFooter from "components/WebFooter/WebFooter.jsx";
 
 // Sections for this page
 import SectionProduct from "./Sections/SectionProduct.jsx";
@@ -45,9 +46,24 @@ class LandingPage extends React.Component {
         </h1>
         <p style={{marginLeft:"25%",
           marginRight:"25%",
-          fontSize:"15px"}}>
-          a way for shoppers to prioritize purchasing decisions based on how 
-          corporate factors align with their values and preferences
+          fontSize:"25px"}}>
+          A sustainability-focused business directory
+        </p>
+        <p style={{marginLeft:"25%",
+          marginRight:"25%",
+          fontSize:"16px"}}>
+          Put your money where your mind is.
+        </p>
+
+        <p style={{marginLeft:"25%",
+          marginRight:"25%",
+          fontSize:"16px"}}>
+          A data-driven business directory for today’s consumer.
+        </p>
+        <p style={{marginLeft:"25%",
+          marginRight:"25%",
+          fontSize:"16px"}}>
+          Easily locate brands that align with your values and preferences.
         </p>
         <Button style={{marginRight: "10px"}}
         variant="outlined"
@@ -58,25 +74,7 @@ class LandingPage extends React.Component {
           <Link to="/signup" style={{color:"#012E3C"}}>Beta Signup</Link>
         </Button>
       </div>
-      <Footer content={<div > <CustomButton justIcon="justIcon" simple="simple" href="https://twitter.com/mywisewallet" color="twitter">
-          <i className="fab fa-twitter"/>
-        </CustomButton>
-        <CustomButton justIcon="justIcon" simple="simple" href="https://www.facebook.com/mywisewallet" color="facebook">
-          <i className="fab fa-facebook-square"/>
-        </CustomButton>
-        <CustomButton justIcon="justIcon" simple="simple" href="https://www.instagram.com/mywisewallet/" color="instagram">
-          <i className="fab fa-instagram"/>
-        </CustomButton>
-        <GridContainer>
-          <GridItem sm={3}>
-          </GridItem>
-          <GridItem sm={6}>
-        <div className={classNames(classes.pullCenter, classes.copyRight)} style={{width: 'auto'}}>
-          Copyright &copy; {1900 + new Date().getYear()}{" "}
-          <a href="http://www.mywisewallet.com">WiseWallet Inc. </a> 
-           All Rights Reserved. </div></GridItem>
-      </GridContainer>
-      </div>}></Footer>
+      <WebFooter/>
       </div>
     );
   }

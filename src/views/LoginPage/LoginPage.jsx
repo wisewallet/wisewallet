@@ -56,6 +56,8 @@ class LoginPage extends React.Component {
   }
   render() {
     const {classes} = this.props;
+    console.log(sessionStorage.getItem("userID"));
+
     return (<div>
       <Header absolute="absolute" color="transparent" brand="WiseWallet"/>
       <div className={classes.pageHeader} style={{

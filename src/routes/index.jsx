@@ -20,7 +20,7 @@ var indexRoutes = [
   {path: "/companyInfo", name: "WiseWallet", component: CompanyInformation},
   {path: "/edit", name: "Edit", component: EditCompany},
   {path: "/search", name: "Search", component: Search},
-  {path: "/filter", name: "Filter", component: Filter},
+  //{path: "/filter", name: "Filter", component: Filter},
   {path: "/properties", name: "Properties", component: Properties},
 	{path: "/signup", name: "WiseWallet", component: SignupPage},
 	{path: "/link", name: "WiseWallet", component: PlaidLink},

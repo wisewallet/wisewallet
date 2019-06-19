@@ -45,6 +45,7 @@ class AddProperty extends Component{
   render(){
     return(
       <form style={{
+        marginLeft: "10px",
         display:"flex", 
         width: "50%",
           flexDirection: "column"}} 

@@ -1,13 +1,9 @@
 import React, { Component } from "react";
-import {Redirect} from "react-router";
-import { Link } from "react-router-dom";
 
-// styling
 import "assets/css/style.css";
 import "assets/css/bootstrap.min.css";
-
-// material-ui components
 import Grid from '@material-ui/core/Grid';
+import CompanyCard from "components/CompanyCard/CompanyCard.jsx";
 import TextField from '@material-ui/core/TextField';
 import Chip from '@material-ui/core/Chip';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -15,18 +11,13 @@ import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
 import MenuItem from '@material-ui/core/MenuItem';
-import Menu from "@material-ui/core/Menu";
 import FormControl from '@material-ui/core/FormControl';
-import AppBar from "@material-ui/core/AppBar";
+import { Link } from "react-router-dom";
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-
-// react-components
-import Footer from "components/WebFooter/WebFooter.jsx";
+import Footer from "components/Footer/Footer.jsx";
 import CustomButton from "components/CustomButtons/Button.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
-import CompanyCard from "components/CompanyCard/CompanyCard.jsx";
-import NavBar from "components/NavBar/NavBar.jsx";
 
 class Search extends Component{
   constructor(props){
@@ -37,6 +28,7 @@ class Search extends Component{
       category: [],
       companies: [],
       categories: [],
+      //only temporary
       causelist: [],
     }
     this.searchByCategory = true;
@@ -75,7 +67,7 @@ class Search extends Component{
       .then(response => response.json())
       .then(json => {
         if(json.data.code == 200){
-          //this.setState({companies: json.data.company_data});
+          this.setState({companies: json.data.company_data});
           this.getCategories(json.data);
         }
  
@@ -95,6 +87,8 @@ class Search extends Component{
           this.setState({causelist: json.data.property_data});
       })
       .catch(error => console.log("Caught Error", error));
+
+
   }
 
   /*
@@ -109,6 +103,7 @@ class Search extends Component{
     categories = categories.filter(item => seen.hasOwnProperty(item) ? false : (seen[item] = true));
     this.setState({categories: categories});
   }
+
 
 
   /*
@@ -132,7 +127,7 @@ class Search extends Component{
   search = () => {
     const body = {
         search_company_name: this.state.name,
-        search_company_category: this.state.category == "" ? [] : [this.state.category],
+        search_company_category: this.state.category ? this.state.category : [],
         search_company_causes: this.state.causes
     }
 
@@ -153,8 +148,10 @@ class Search extends Component{
       .catch(error => console.log("caught error", error));
   }
 
+
   returnCompanies = () => {
     var companies = this.state.companies;
+    console.log(companies);
 
     if(companies.length != 0){
       return companies.map(company =>
@@ -198,7 +195,7 @@ class Search extends Component{
             justify="center"
             spacing={3}>
             <Grid style={{textAlign: 'center'}} item xs={12}>
-              <h2> Find&nbsp;
+              <h2> Find  
                 <TextField
                   id="standard-select-category"
                   select
@@ -218,7 +215,7 @@ class Search extends Component{
                     </MenuItem>
                   ))}
                 </TextField>
-              &nbsp;that are&nbsp;
+              that are 
                 <FormControl>
                   <InputLabel htmlFor="select-multiple-chip">Company Causes</InputLabel>
                 <Select
@@ -230,10 +227,7 @@ class Search extends Component{
                   renderValue={selected => (
                     <div style={{display:"flex", flexWrap:"wrap"}}>
                       {selected.map(value => (
-                        <Chip
-                          key={value}
-                          label={value}
-                          style={{margin:2}}/>
+                        <Chip key={value} label={value} style={{margin:2}} />
                       ))}
                     </div>
                   )}
@@ -270,7 +264,6 @@ class Search extends Component{
     }
     else if(this.searchByName){
       return(
-        <div>
         <Grid 
             style={{padding: 10}}
             container
@@ -287,48 +280,46 @@ class Search extends Component{
                 margin="normal"/>
             </Grid>
             <Grid style={{textAlign: 'center'}} item xs={3}>
-              <Button onClick={this.search}>
-                Search
-              </Button>
-            </Grid>
-            <Grid style={{textAlign: 'center'}} item xs={3}>
               <Button onClick={this.reset}>
                 Reset Search
               </Button>
             </Grid>
-          </Grid>
-        <Grid 
-            style={{padding: 10}}
-            container
-            justify="centered"
-            spacing={3}>
             {this.returnCompanies()}
-            </Grid>
-          </div>
+        </Grid>
       )
     }
   }
 
-    /*
-  handleMenu = (event) => {
-    this.setState({setAnchorEl: event.currentTarget});
-  }
-
-  handleClose = () => {
-    this.setState({setAnchorEl: null});
-  }
-  */
-
   render(){
-    var userId = sessionStorage.getItem("userID");
-
-    if(userId === null){
-      return(<Redirect to="/login"/>);
-    }
-    else{
     return(
     <div>
-      <NavBar/>
+      <header>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <Link to="/filter">
+                  <h2><b>WiseWallet</b></h2>
+                </Link>
+                  <div class="simpborder"></div>
+                  <p>Put your money where your mind is.</p>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 text-center">
+                  <Link to="/about">About Us</Link>
+                </div>
+              <div class="col-md-3 text-center">
+                <Link to="/causes">Causes</Link>
+              </div>
+              <div class="col-md-3 text-center">
+                <Link to="/FAQ">FAQ</Link>
+              </div>
+              <div class="col-md-3 text-center">
+                <Link to="/filter"> Filter </Link> 
+              </div>
+            </div>
+          </div>
+        </header>
         <Grid 
           style={{padding:10}}
           container
@@ -346,11 +337,29 @@ class Search extends Component{
           </Grid>
         </Grid>
         {this.searchBar()}
-        <Footer/>
+        <Footer content={<div>
+          <CustomButton justIcon="justIcon" simple="simple" href="https://twitter.com/mywisewallet" color="twitter">
+          <i className="fab fa-twitter"/>
+        </CustomButton>
+        <CustomButton justIcon="justIcon" simple="simple" href="https://www.facebook.com/mywisewallet" color="facebook">
+          <i className="fab fa-facebook-square"/>
+        </CustomButton>
+        <CustomButton justIcon="justIcon" simple="simple" href="https://www.instagram.com/mywisewallet/" color="instagram">
+          <i className="fab fa-instagram"/>
+        </CustomButton>
+        <GridContainer>
+          <GridItem sm={3}>
+          </GridItem>
+          <GridItem sm={6}>
+          <div style={{width: 'auto'}}>
+            Copyright &copy; {1900 + new Date().getYear()}{" "}
+            <a href="http://www.mywisewallet.com">WiseWallet Inc. </a> 
+            All Rights Reserved. </div></GridItem>
+        </GridContainer>
+        </div>}></Footer>
     </div>
     )
   }
-    }
 }
 
 export default Search;

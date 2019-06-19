@@ -109,26 +109,30 @@ class AddCompany extends Component{
   render(){
     return(
       <form style={{
+        marginLeft: "10px",
         display:"flex", 
         width: "50%",
           flexDirection: "column"}} 
+          action="https://text.mywisewallet.com/admin/company/add"
+          method="post"
           noValidate 
           autoComplete="off"
         >
+      
         <TextField 
-          id="standard-name"
+          id="name"
           label="Company Name"
           value={this.state.name}
           onChange={this.handleChange("name")}
           margin="normal"/>
         <TextField
-          id="standard-name"
+          id="link"
           label="Company Link"
           value={this.state.link}
           onChange={this.handleChange("link")}
           margin="normal"/>
         <TextField
-          id="standard-name"
+          id="category"
           label="Company Category"
           value={this.state.category}
           onChange={this.handleChange("category")}

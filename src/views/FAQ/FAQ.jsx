@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {Redirect} from "react-router";
 
 import "assets/css/style.css";
 import "assets/css/bootstrap.min.css";
@@ -18,40 +19,19 @@ import Footer from "components/Footer/Footer.jsx";
 import CustomButton from "components/CustomButtons/Button.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
+import NavBar from "components/NavBar/NavBar.jsx";
 
 class FAQ extends Component{
 
   render(){
+    var userID = sessionStorage.getItem("userID");
+
+    if(userID === null)
+      return(<Redirect to="/login"/>)
     return(
         <div>
+          <NavBar/>
           <body>
-      <header>
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12 text-center">
-                <Link to="/search">
-                  <h2><b>WiseWallet</b></h2>
-                </Link>
-                  <div class="simpborder"></div>
-                  <p>Put your money where your mind is.</p>
-              </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3 text-center">
-                  <Link to="/about">About us</Link>
-                </div>
-              <div class="col-md-3 text-center">
-                <Link to="/causes">Causes</Link>
-              </div>
-              <div class="col-md-3 text-center">
-                <Link to="/faq">FAQ</Link>
-              </div>
-              <div class="col-md-3 text-center">
-                <Link to="/filter"> Filter </Link> 
-              </div>
-            </div>
-          </div>
-        </header>
           <section id="sone">
             <div class="container">
               <div class="col-md-12">
