@@ -53,32 +53,35 @@ class InfoLogin extends Component {
     })
       .then(response => response.json())
       .then(json => {
-      console.log('json', json);
-      if(json.data.code === 200){
-        console.log("success");
-        sessionStorage.setItem('userID', json.data.userdata.user_id);
-        sessionStorage.setItem('isAdmin', json.data.userdata.isAdmin);
-        if(json.data.userdata.isAdmin){
-          this.props.history.push('/companyInfo');
+        console.log('json', json);
+        if(json.data.code === 200){
+          console.log("success");
+          sessionStorage.setItem('userID', json.data.userdata.user_id);
+          sessionStorage.setItem('isAdmin', json.data.userdata.isAdmin);
+          if(json.data.userdata.isAdmin){
+            this.props.history.push('/companyInfo');
+          }
+          else
+            this.props.history.push('/search');
         }
-        else
-          this.props.history.push('/search');
-      }
+        else{
+          alert("Username or Password is invalid")
+        }
       })
-      .catch(error => alert("Username or Password is invalid"));
+      .catch(error => console.log(error));
   }
 
   render() {
     const {classes} = this.props;
     return (<div>
       <header>
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12 text-center">
+          <div className="container">
+            <div className="row">
+              <div className="col-md-12 text-center">
                 <Link to="/">
                   <h2><b>WiseWallet</b></h2>
                 </Link>
-                  <div class="simpborder"></div>
+                  <div className="simpborder"></div>
                   <p>Put your money where your mind is.</p>
               </div>
             </div>
@@ -88,13 +91,11 @@ class InfoLogin extends Component {
         <center>
         <h2><b>Login</b></h2>
         <form
-          onSubmit={this.handleClick.bind(this)}
           autoComplete="off">
-          <div class="simpborder"></div>
+          <div className="simpborder"></div>
           <TextField
             id="email"
             label="Email"
-            required
             className={classes.textField}
             value={this.state.email}
             onChange={this.handleChange("email")}
@@ -112,7 +113,6 @@ class InfoLogin extends Component {
             margin="normal"/>
           <br></br>
           <Button
-            type="submit"
             onClick={this.handleClick}>
             Login
           </Button>
