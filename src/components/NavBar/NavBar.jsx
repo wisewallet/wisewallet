@@ -41,6 +41,7 @@ class NavBar extends Component{
       { name: "Property List", url: "properties"},
       { name: "Company Information", url: 'companyInfo'},
     ]
+    console.log(sessionStorage.getItem("isAdmin") == true)
   }
 
   sideBar = () => {
@@ -66,14 +67,13 @@ class NavBar extends Component{
             <Link to={"/" + item.url}><ListItemText primary={item.name} /></Link>
           </ListItem>
         ))}
-        {sessionStorage.getItem("isAdmin") 
+        {sessionStorage.getItem("isAdmin") == true 
           ? this.adminList.map(item => (
               <ListItem>
                 <Link to={"/" + item.url}><ListItemText primary={item.name} /></Link>
               </ListItem>
             ))
             : null 
-        }
         }
       </List>
       </div>)

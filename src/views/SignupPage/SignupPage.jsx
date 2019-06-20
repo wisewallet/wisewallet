@@ -80,11 +80,11 @@ class Components extends React.Component {
     });
 
     var info = {
-          email: this.state.email,
-          username: this.state.username,
-          first_name: this.state.first_name,
-          last_name: this.state.last_name,
-          password: this.state.password
+          "email": this.state.email,
+          "username": this.state.username,
+          "first_name": this.state.first_name,
+          "last_name": this.state.last_name,
+          "password": this.state.password
     }
 
     if(results.success){
@@ -92,7 +92,6 @@ class Components extends React.Component {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "cache-control": "no-cache"
         },
         credentials: "include",
         body: JSON.stringify(info)
