@@ -37,7 +37,11 @@ class CompanyCard extends Component{
         <CardActions
           style={{justifyContent:'center'}}
         >
-          <Button variant="contained"><a style={{color: "#000"}} href={this.props.link != null ? this.props.link : "#"}>Website</a></Button>
+          <Button variant="contained">
+            <a style={{color: "#000"}}
+            href={this.props.link != null ? this.props.link : "#"}
+            target="_blank"
+          >Website</a></Button>
         </CardActions>
       </Card>
     )
