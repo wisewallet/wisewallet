@@ -83,7 +83,7 @@ class Company extends Component{
         if(json.data.code === 200)
           this.setState({
             name: json.data.name,
-            link: json.data.link,
+            link: json.data.link ? json.data.link : "",
             category: json.data.category,
             cause: json.data.property_name,
             logo: json.data.logo
@@ -156,9 +156,7 @@ class Company extends Component{
     formData.append("name", this.state.name);
     formData.append("link", this.state.link);
     this.state.cause.map(cause => formData.append("property_list", cause));
-    if(this.state.logo instanceof File){
-      formData.append('logo', this.state.logo);
-    }
+    formData.append('logo', this.state.logo);
     return formData;
   }
 
