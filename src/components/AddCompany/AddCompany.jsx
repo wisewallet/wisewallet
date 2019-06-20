@@ -20,6 +20,7 @@ class AddCompany extends Component{
       name: "",
       link: "",
       cause: [],
+      logo: "",
     }
     this.submit = this.handleSubmit.bind(this)
     this.ITEM_HEIGHT = 48;
@@ -79,18 +80,23 @@ class AddCompany extends Component{
     this.setState({categories: categories});
   }
 
+  createFormData = () => {
+    var formData = new FormData();
+
+    formData.append("category", this.state.category);
+    formData.append("name", this.state.name);
+    formData.append("link", this.state.link);
+    this.state.cause.map(cause => formData.append("property_list", cause));
+    formData.append('logo', this.state.logo);
+    return formData;
+  }
+
   handleSubmit = () => {
+    var formData = this.createFormData();
+
     fetch("/admin/company/add", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: this.state.name,
-        category: this.state.category,
-        link: this.state.link,
-        property_list: this.state.cause
-      })
+      body: formData
     })
       .then(response => response.json())
       .then(json => {
@@ -106,19 +112,21 @@ class AddCompany extends Component{
     this.setState({[name]: event.target.value });
   };
 
+  handleUploadFile = (event) => {
+    this.setState({logo: event.target.files[0]});
+  }
+
   render(){
     return(
       <form style={{
-        marginLeft: "10px",
+        marginLeft: "auto",
+        marginRight: "auto",
         display:"flex", 
         width: "50%",
           flexDirection: "column"}} 
-          action="https://text.mywisewallet.com/admin/company/add"
-          method="post"
           noValidate 
           autoComplete="off"
         >
-      
         <TextField 
           id="name"
           label="Company Name"
@@ -160,6 +168,12 @@ class AddCompany extends Component{
             ))}
           </Select>
         </FormControl>
+        <input
+          style={{marginRight: "auto", marginLeft: "auto"}}
+          accept="image/*"
+          id="outlined-button-file"
+          type="file"
+          onChange={this.handleUploadFile}/>
         <Button onClick={this.submit}>
           Submit
         </Button>

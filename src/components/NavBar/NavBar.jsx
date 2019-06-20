@@ -67,7 +67,7 @@ class NavBar extends Component{
             <Link to={"/" + item.url}><ListItemText primary={item.name} /></Link>
           </ListItem>
         ))}
-        {sessionStorage.getItem("isAdmin") == true 
+        {sessionStorage.getItem("isAdmin") == "true" 
           ? this.adminList.map(item => (
               <ListItem>
                 <Link to={"/" + item.url}><ListItemText primary={item.name} /></Link>

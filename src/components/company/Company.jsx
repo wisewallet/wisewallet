@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {Redirect} from "react-router";
+import {withRouter} from 'react-router-dom';
 
 import TextField from '@material-ui/core/TextField';
 import Chip from '@material-ui/core/Chip';
@@ -8,6 +10,7 @@ import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
+import Grid from "@material-ui/core/Grid";
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 
 class Company extends Component{
@@ -20,9 +23,11 @@ class Company extends Component{
       name: "",
       link: "",
       cause: [],
+      logo: "",
     }
     this.id = this.props.id;
     this.submit = this.handleSubmit.bind(this)
+    this.delete = this.handleDelete.bind(this);
     this.ITEM_HEIGHT = 48;
     this.ITEM_PADDING_TOP = 8;
     this.MenuProps = {
@@ -80,7 +85,8 @@ class Company extends Component{
             name: json.data.name,
             link: json.data.link,
             category: json.data.category,
-            cause: json.data.property_name
+            cause: json.data.property_name,
+            logo: json.data.logo
           }) 
         console.log(this.state);
       })
@@ -101,17 +107,12 @@ class Company extends Component{
   }
 
   handleSubmit = () => {
+    console.log(this.state);
+    const formData = this.createFormData();
+
     fetch("/admin/company/edit/" + this.id, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: this.state.name,
-        category: this.state.category,
-        link: this.state.link,
-        property_list: this.state.cause
-      })
+      body: formData
     })
       .then(response => response.json())
       .then(json => {
@@ -123,19 +124,66 @@ class Company extends Component{
       .catch(error => console.log("Error found", error));
   };
 
+  handleDelete = () => {
+    const id = this.id;
+    fetch("/admin/company/delete/" + id, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then(response => response.json())
+      .then(json => {
+        if(json.data.code == 200){
+          this.props.history.push("/companyInfo")
+        }
+      })
+      .catch(error => console.log("Error caught", error));
+  }
+
   handleChange = name => event => {
     this.setState({[name]: event.target.value });
   };
 
+  handleUploadFile = (event) => {
+    this.setState({logo: event.target.files[0]});
+  }
+
+  createFormData = () => {
+    var formData = new FormData();
+
+    formData.append("category", this.state.category);
+    formData.append("name", this.state.name);
+    formData.append("link", this.state.link);
+    this.state.cause.map(cause => formData.append("property_list", cause));
+    if(this.state.logo instanceof File){
+      formData.append('logo', this.state.logo);
+    }
+    return formData;
+  }
+
   render(){
     return(
+      <Grid
+        style={{padding: 10}}
+        container
+        justify="center"
+        spacing={3}>
+        <Grid style={{textAlign: 'center'}} item xs={12}>
       <form style={{
         display:"flex", 
         width: "50%",
+        marginRight: 'auto',
+        marginLeft: 'auto',
           flexDirection: "column"}} 
           noValidate 
           autoComplete="off"
         >
+          <img src={"data:image/png;base64, " + this.state.logo}
+          style={{marginRight: 'auto', marginLeft: 'auto', objectFit: "fill"}}
+          alt={this.state.name} 
+          height="300px" 
+          width="300px"/>
         <TextField 
           id="standard-name"
           label="Company Name"
@@ -177,12 +225,36 @@ class Company extends Component{
             ))}
           </Select>
         </FormControl>
-        <Button onClick={this.submit}>
-          Submit
-        </Button>
+        <input
+          style={{marginRight: "auto", marginLeft: "auto"}}
+          accept="image/*"
+          id="outlined-button-file"
+          type="file"
+          onChange={this.handleUploadFile}/>
+        <Grid
+            style={{padding: 10}}
+            container
+            justify="center"
+            spacing={3}>
+            <Grid style={{textAlign: 'center'}} item xs={3}>
+              <Button variant="outlined"
+                onClick={this.submit}>
+                Edit
+              </Button>
+            </Grid>
+            <Grid style={{textAlign: 'center'}} item xs={3}>
+              <Button variant="outlined"
+                color="secondary"
+                onClick={this.delete}>
+                Delete
+              </Button>
+            </Grid>
+        </Grid>
       </form>
+    </Grid>
+    </Grid>
     )
   }
 }
 
-export default Company;
+export default withRouter(Company);

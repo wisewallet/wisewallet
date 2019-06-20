@@ -11,16 +11,6 @@ class CompanyCard extends Component{
     super(props);
   }
 
-  getImage = () => {
-    try{
-      return require("../../assets/img/company_logos/"
-        + this.props.name.toLowerCase().replace(/\s/g, '') + ".png")
-    }
-    catch(err){
-      return null
-    }
-  }
-
   render(){
     return(
       <Card style={{maxWidth: 345}}>
@@ -30,7 +20,7 @@ class CompanyCard extends Component{
           alt={this.props.name}
           height="100%"
           width="100%"
-          image={this.getImage()}
+          src={"data:image/png;base64, " + this.props.logo}
           title={this.props.name}
         />
         <CardContent>

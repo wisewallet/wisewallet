@@ -71,6 +71,7 @@ class CompanyInformation extends Component {
         <TableHead>
           <TableRow>
             <TableCell> Company Id </TableCell>
+            <TableCell> Company Logo </TableCell>
             <TableCell> Company Name </TableCell>
             <TableCell> Categories </TableCell>
             <TableCell> Causes </TableCell>
@@ -80,6 +81,7 @@ class CompanyInformation extends Component {
         <TableBody>
         {this.state.company_data.map(info => 
           <CompanyInfo 
+            logo={info.company_logo}
             id={info.company_id}
             name={info.company_name}
             category={info.company_category}

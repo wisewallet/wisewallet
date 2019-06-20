@@ -53,6 +53,13 @@ class CompanyInfo extends Component{
     return(
     <TableRow>
       <TableCell>{this.props.id}</TableCell>
+      <TableCell>
+        <img src={"data:image/png;base64, " + this.props.logo}
+          style={{objectFit: "fill"}}
+          alt={this.props.name}
+          height="50px"
+          width="50px"/>
+      </TableCell>
       <TableCell>{this.props.name}</TableCell>
       <TableCell> {this.props.category} </TableCell>
       <TableCell> {this.props.cause.toString()} </TableCell>
