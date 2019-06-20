@@ -49,22 +49,6 @@ class LandingPage extends React.Component {
           fontSize:"25px"}}>
           A sustainability-focused business directory
         </p>
-        <p style={{marginLeft:"25%",
-          marginRight:"25%",
-          fontSize:"16px"}}>
-          Put your money where your mind is.
-        </p>
-
-        <p style={{marginLeft:"25%",
-          marginRight:"25%",
-          fontSize:"16px"}}>
-          A data-driven business directory for today’s consumer.
-        </p>
-        <p style={{marginLeft:"25%",
-          marginRight:"25%",
-          fontSize:"16px"}}>
-          Easily locate brands that align with your values and preferences.
-        </p>
         <Button style={{marginRight: "10px"}}
         variant="outlined"
         color="#012E3C">
