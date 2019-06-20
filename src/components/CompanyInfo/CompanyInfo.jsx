@@ -63,7 +63,7 @@ class CompanyInfo extends Component{
       <TableCell>{this.props.name}</TableCell>
       <TableCell> {this.props.category} </TableCell>
       <TableCell> {this.props.cause.toString()} </TableCell>
-      <TableCell> <a href={this.props.link} target="_blank"> {this.props.link}</a> </TableCell>
+      <TableCell> <a style={{color: "blue"}} href={this.props.link} target="_blank"> {this.props.link}</a> </TableCell>
       <TableCell>
         <Button variant="contained" onClick={this.handleClick}>
           Edit

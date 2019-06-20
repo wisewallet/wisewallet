@@ -100,7 +100,7 @@ class Components extends React.Component {
         .then(json => {
           console.log('json', json.data.code);
           if(json.data.code == 200){
-            this.props.history.push('/login');
+            this.props.history.push('/');
           }
         })
         .catch(error => console.log("error thrown", error));
