@@ -71,7 +71,7 @@ class Components extends React.Component {
     this.setState({error: false});
   }
 
-  onSignUp() {
+  onSignUp = () => {
     const results = validateSignup(this.state)
     this.setState({
       error: results.error,
@@ -101,6 +101,9 @@ class Components extends React.Component {
           console.log('json', json.data.code);
           if(json.data.code == 200){
             this.props.history.push('/');
+          }
+          if(json.data.code == 400){
+            alert("This username or email already exists");
           }
         })
         .catch(error => console.log("error thrown", error));
@@ -178,14 +181,13 @@ class Components extends React.Component {
             autoComplete="current-password"
             margin="normal"/>
           <br></br>
-          <Button
-            type="submit"
-            color="primary"
-            onClick={this.onSignUp.bind(this)}
-            size="medium">
-            Sign up
-          </Button>
         </form>
+        <Button
+          color="primary"
+          onClick={this.onSignUp}
+          size="medium">
+          Sign up
+        </Button>
         </center>
 
         <Snackbar anchorOrigin={{
