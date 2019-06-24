@@ -57,17 +57,17 @@ class TempLanding extends React.Component{
         <Grid style={{paddingTop: "60px"}} 
           item xs={7}>
           <p style={{fontSize: 30, lineHeight: 1.3, fontFamily:"gotham-bold"}}>
-          Easily locate brands that align with your values and preferences
+          Easily locate brands that align with your values and preferences,
         </p>
         <p style={{fontSize: 30, lineHeight: 1.3}}>
         WiseWallet is currently in private beta. Join the waitlist to unlock WiseWallet before it reaches the public.
       </p>
       <center>
-      <Button color="error">
-        <a style={{color: "#e8b89b"}}
+      <Button>
+        <a style={{color: "#80a391"}}
         href="https://mywisewallet.us17.list-manage.com/subscribe?u=0815905065d9f52c9957a3506&id=fce1ac23fe"
         target="_blank">
-      <p style={{textAlign: "center", color: "#e8b89b", fontFamily: "gotham-bold", fontSize:20}}>
+      <p style={{textAlign: "center", lineHeight: 1.3, fontFamily: "gotham-bold", fontSize:20}}>
       Sign Up
     </p></a>
       </Button>
