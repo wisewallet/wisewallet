@@ -57,7 +57,7 @@ class TempLanding extends React.Component{
         <Grid style={{paddingTop: "60px"}} 
           item xs={7}>
           <p style={{fontSize: 30, lineHeight: 1.3, fontFamily:"gotham-bold"}}>
-          Easily locate brands that align with your values and preferences,
+          Easily locate brands that align with your values and preferences.
         </p>
         <p style={{fontSize: 30, lineHeight: 1.3}}>
         WiseWallet is currently in private beta. Join the waitlist to unlock WiseWallet before it reaches the public.
