@@ -40,7 +40,7 @@ class LandingPage extends React.Component {
     return (
       <div>
         <div style={{textAlign: "center", marginTop:"150px"}}>
-        <img src={require("assets/img/logo.png")} height="100" width="100"></img>
+          <img src={require("assets/img/logos/logo.png")} height="100" width="100"></img>
         <h1 style={{marginTop: "0px"}}>
           WiseWallet
         </h1>

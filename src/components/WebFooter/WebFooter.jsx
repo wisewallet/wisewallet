@@ -8,13 +8,13 @@ class WebFooter extends Component{
   render(){
     return(
         <Footer content={<div>
-          <CustomButton justIcon="justIcon" simple="simple" href="https://twitter.com/mywisewallet" color="twitter">
+          <CustomButton justIcon="justIcon" simple="simple" href="https://twitter.com/mywisewallet" target="_blank" color="twitter">
           <i className="fab fa-twitter"/>
         </CustomButton>
-        <CustomButton justIcon="justIcon" simple="simple" href="https://www.facebook.com/mywisewallet" color="facebook">
+        <CustomButton justIcon="justIcon" simple="simple" href="https://www.facebook.com/mywisewallet" target="_blank" color="facebook">
           <i className="fab fa-facebook-square"/>
         </CustomButton>
-        <CustomButton justIcon="justIcon" simple="simple" href="https://www.instagram.com/mywisewallet/" color="instagram">
+        <CustomButton justIcon="justIcon" simple="simple" href="https://www.instagram.com/mywisewallet/" target="_blank" color="instagram">
           <i className="fab fa-instagram"/>
         </CustomButton>
         <GridContainer>

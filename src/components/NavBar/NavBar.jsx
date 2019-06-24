@@ -121,9 +121,9 @@ class NavBar extends Component{
                 marginLeft: "auto",
                 marginRight: "auto", 
                 color:"#FFFFFF"}}> 
-              <img src={require("assets/img/logo_white.png")}
-              height="100"
-              width="100"></img>
+                <img src={require("assets/img/logos/white-logo.png")}
+              height="80"
+              width="80"></img>
             WiseWallet
             </Link>
             <IconButton 

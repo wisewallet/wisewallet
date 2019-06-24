@@ -108,7 +108,21 @@ This cause focuses on women-led businesses. We’ve screened for businesses that
 
           <div class="simpborder"></div>
 
-          <figure style={{textAlign:'center'}}>
+
+        </div>
+      </div>
+    </section>
+    <WebFooter/>
+  </div>
+  )}
+}
+
+export default Causes;
+
+/*
+ *
+ *
+ *          <figure style={{textAlign:'center'}}>
             <img src={require("../../assets/img/causes/veterans.png")} 
               alt="Women" width="100" height="100"></img>
             <figcaption class="caption">
@@ -141,12 +155,4 @@ This cause focuses on women-led businesses. We’ve screened for businesses that
           </p>
 
           <h2 style={{textAlign: 'center'}}> More Causes Coming Soon </h2>
-        </div>
-      </div>
-    </section>
-    <WebFooter/>
-  </div>
-  )}
-}
-
-export default Causes;
+*/
