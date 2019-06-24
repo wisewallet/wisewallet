@@ -115,16 +115,22 @@ class CompanyInformation extends Component {
             spacing={3}>
             <Grid style={{textAlign: 'center'}} item xs={6}>
               <Button>
+              <font style={{fontFamily:"gotham-regular"}}>
                 <Link style={{color: '#000'}} to="/CompanyInfo"> Company Information </Link>
+              </font>
               </Button>
             </Grid>
             <Grid style={{textAlign: 'center'}} item xs={6}>
               <Button>
+              <font style={{fontFamily:"gotham-regular"}}>
                 <Link style={{color: '#000'}} to="/properties"> Properties </Link>
+              </font>
               </Button>
             </Grid>
           </Grid>
-          <h1 style={{textAlign: 'center'}}> Company Information </h1>
+          <font style={{fontFamily:"gotham-regular"}}>
+            <h1 style={{textAlign: 'center'}}> Company Information </h1>
+          </font>
           <div style={{textAlign: 'center'}}> 
             <Button variant="outlined" onClick={this.changeMode}>
               {this.state.addMode ? "Show Companies" : "Add Company Info" }

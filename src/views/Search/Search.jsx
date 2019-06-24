@@ -198,7 +198,7 @@ class Search extends Component{
             justify="center"
             spacing={3}>
             <Grid style={{textAlign: 'center'}} item xs={12}>
-              <h2> Find&nbsp;
+              <h2 style={{fontFamily: "gotham-regular"}}> Find&nbsp;
                 <TextField
                   id="standard-select-category"
                   select

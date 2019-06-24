@@ -22,6 +22,7 @@ import loginPageStyle from "assets/jss/material-kit-pro-react/views/loginPageSty
 import WebFooter from "components/WebFooter/WebFooter.jsx";
 
 import image from "assets/img/wisewalletA1.jpg";
+import "assets/css/style.css";
 
 
 class InfoLogin extends Component {
@@ -83,7 +84,7 @@ class InfoLogin extends Component {
             <div className="row">
               <div className="col-md-12 text-center">
                 <Link to="/">
-                  <h2><b>WiseWallet</b></h2>
+                  <h2>WiseWallet</h2>
                 </Link>
                   <div className="simpborder"></div>
                   <p>Put your money where your mind is.</p>
@@ -93,7 +94,7 @@ class InfoLogin extends Component {
       </header>
       <div>
         <center>
-        <h2><b>Login</b></h2>
+        <h2 style={{fontFamily:"gotham-bold"}}>Login</h2>
         <form
           autoComplete="off">
           <div className="simpborder"></div>

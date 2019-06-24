@@ -37,7 +37,7 @@ class About extends Component{
               <h2 style={{paddingTop: "20px"}}>Our Mission</h2>
               <div class="simpborder"></div>
               <h4 style={{textAlign:'center'}}>
-                WiseWallet’s mission is to provide transparency to consumers through data that empowers them to shop according to their personal values and to drive the positive social and/or environmental changes that they seek.
+WiseWallet’s mission is to provide transparency to consumers through data that empowers them to shop according to their personal values and in turn drive the positive social and/or environmental changes that they seek.
               </h4>
             </div>
 

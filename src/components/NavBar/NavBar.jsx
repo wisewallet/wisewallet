@@ -124,7 +124,9 @@ class NavBar extends Component{
                 <img src={require("assets/img/logos/white-logo.png")}
               height="80"
               width="80"></img>
+            <font style={{fontFamily: "gotham-bold"}}>
             WiseWallet
+          </font>
             </Link>
             <IconButton 
               style={{marginRight: "20px", outline: "none"}}
