@@ -41,22 +41,23 @@ class LandingPage extends React.Component {
       <div>
         <div style={{textAlign: "center", marginTop:"150px"}}>
           <img src={require("assets/img/logos/logo.png")} height="100" width="100"></img>
-        <h1 style={{marginTop: "0px", fontFamily: "gotham-bold"}}>
+        <h1 style={{marginTop: "0px", fontFamily: "gotham-bold", color: "#031d44"}}>
           WiseWallet
         </h1>
         <p style={{marginLeft:"25%",
           marginRight:"25%",
           fontSize:"25px",
-          fontFamily: "gotham-regular"}}>
+          fontFamily: "gotham-regular",
+          color: "#012E3C"}}>
           
           A sustainability-focused business directory
         </p>
         <Button style={{marginRight: "10px"}}
         variant="outlined"
         color="#012E3C">
-        <Link to="/login" style={{color:"#012E3C"}}>Login</Link>
+        <Link to="/login" style={{color:"#031d44"}}>Login</Link>
       </Button>
-        <Button variant="outlined" color="#012E3C">
+        <Button variant="outlined" color="#031d44">
           <Link to="/signup" style={{color:"#012E3C"}}>Beta Signup</Link>
         </Button>
       </div>

@@ -28,6 +28,7 @@ import InfoArea from "components/InfoArea/InfoArea.jsx";
 import Snackbar from "@material-ui/core/Snackbar";
 import SnackbarContent from "@material-ui/core/SnackbarContent";
 import WebFooter from "components/WebFooter/WebFooter.jsx";
+import Logo from "components/Logo/Logo.jsx";
 
 // utility functions
 import { validateSignup } from "utils/SignupPage/Verification.jsx"
@@ -121,7 +122,11 @@ class Components extends React.Component {
             <div className="row">
               <div className="col-md-12 text-center">
                 <Link to="/">
-                  <h2><b>WiseWallet</b></h2>
+                  <h2>
+          <img src={require("assets/img/logos/white-logo.png")}
+        height="42"
+        width="42"></img>
+                    <b>WiseWallet</b></h2>
                 </Link>
                   <div className="simpborder"></div>
                   <p>Put your money where your mind is.</p>

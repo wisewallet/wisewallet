@@ -16,6 +16,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Button from "@material-ui/core/Button";
+import Logo from "components/Logo/Logo.jsx";
 
 // material-ui icons
 import MenuIcon from "@material-ui/icons/Menu";
@@ -115,19 +116,7 @@ class NavBar extends Component{
             >
               <MenuIcon/>
             </IconButton>
-            <Link to="/search" 
-              style={{
-                fontSize: "30px",
-                marginLeft: "auto",
-                marginRight: "auto", 
-                color:"#FFFFFF"}}> 
-                <img src={require("assets/img/logos/white-logo.png")}
-              height="80"
-              width="80"></img>
-            <font style={{fontFamily: "gotham-bold"}}>
-            WiseWallet
-          </font>
-            </Link>
+            <Logo imgSize="50"/>
             <IconButton 
               style={{marginRight: "20px", outline: "none"}}
               disableRipple

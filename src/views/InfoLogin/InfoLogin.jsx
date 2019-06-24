@@ -84,7 +84,11 @@ class InfoLogin extends Component {
             <div className="row">
               <div className="col-md-12 text-center">
                 <Link to="/">
-                  <h2>WiseWallet</h2>
+<h2>
+          <img src={require("assets/img/logos/white-logo.png")}
+        height="42"
+        width="42"></img>
+                  WiseWallet</h2>
                 </Link>
                   <div className="simpborder"></div>
                   <p>Put your money where your mind is.</p>
