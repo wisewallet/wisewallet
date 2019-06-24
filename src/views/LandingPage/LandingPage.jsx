@@ -38,7 +38,7 @@ class LandingPage extends React.Component {
       ...rest
     } = this.props;
     return (
-      <div>
+      <div >
         <div style={{textAlign: "center", marginTop:"150px"}}>
           <img src={require("assets/img/logos/logo.png")} height="100" width="100"></img>
         <h1 style={{marginTop: "0px", fontFamily: "gotham-bold", color: "#031d44"}}>

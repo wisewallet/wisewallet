@@ -5,6 +5,7 @@ import { Router, Route, Switch } from "react-router";
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 import indexRoutes from "./routes/index.jsx";
+import WebFooter from "components/WebFooter/WebFooter.jsx";
 
 import "./assets/scss/material-kit-pro-react.css?v=1.1.0";
 

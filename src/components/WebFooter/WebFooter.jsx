@@ -5,9 +5,31 @@ import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 
 class WebFooter extends Component{
+  constructor(props){
+    super(props);
+    this.style = {
+      backgroundColor: "#F8F8F8",
+      borderTop: "1px solid #E7E7E7",
+      textAlign: "center",
+      padding: "20px",
+      position: "fixed",
+      left: "0",
+      bottom: "0",
+      height: "60px",
+      width: "100%",
+    }
+    this.phantom = {
+      display: 'block',
+      padding: '20px',
+      height: '60px',
+      width: '100%',
+    }
+  }
   render(){
     return(
-        <Footer content={<div>
+      <div>
+        <div style={this.phantom}/>
+        <Footer style={this.style} content={<div>
           <CustomButton justIcon="justIcon" simple="simple" href="https://twitter.com/mywisewallet" target="_blank" color="twitter">
           <i className="fab fa-twitter"/>
         </CustomButton>
@@ -28,6 +50,7 @@ class WebFooter extends Component{
         </GridContainer>
       </div>}>
       </Footer>
+    </div>
     )}
 }
 
