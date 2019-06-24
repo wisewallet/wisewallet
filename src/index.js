@@ -17,7 +17,12 @@ const THEME = createMuiTheme({
     "fontWeightLight": 300,
     "fontWeightRegular": 400,
     "fontWeightMedium": 500
-   }
+   },
+  palette:{
+    error: {
+      main: "#e8b89b"
+    }
+  }
 });
 
 ReactDOM.render(

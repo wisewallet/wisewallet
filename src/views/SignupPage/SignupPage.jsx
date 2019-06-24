@@ -32,6 +32,7 @@ import Logo from "components/Logo/Logo.jsx";
 
 // utility functions
 import { validateSignup } from "utils/SignupPage/Verification.jsx"
+import Mailchimp from "mailchimp-api-js";
 
 // styling & images 
 import signupPageStyle from "assets/jss/material-kit-pro-react/views/signupPageStyle.jsx";
@@ -111,6 +112,11 @@ class Components extends React.Component {
     }
   }
 
+  mailchimpRegister = () => {
+    const mailchimp = new Mailchimp("WiseWallet", "12282ab4749c9cf79956abf705903cfa-us17");
+    mailchimp.members.add();
+  }
+
   render() {
     const {
       classes,
@@ -135,7 +141,7 @@ class Components extends React.Component {
           </div>
       </header>
         <center>
-          <h2><b> Beta Sign Up</b></h2>
+          <h2><b>WaitList Sign Up</b></h2>
           <div className="simpborder"></div>
           <form 
             autoComplete='off'>
@@ -166,26 +172,6 @@ class Components extends React.Component {
             onChange={this.handleChange("email")}
             margin="normal"/>
           <br></br>
-          <TextField
-            id="username"
-            label="Username"
-            required
-            className={classes.textField}
-            value={this.state.username}
-            onChange={this.handleChange("username")}
-            margin="normal"/>
-          <br></br>
-          <TextField
-            id="password"
-            label="Password"
-            required
-            className={classes.textField}
-            type="password"
-            value={this.state.password}
-            onChange={this.handleChange("password")}
-            autoComplete="current-password"
-            margin="normal"/>
-          <br></br>
         </form>
         <Button
           color="primary"
@@ -212,4 +198,23 @@ class Components extends React.Component {
 
 export default withStyles(signupPageStyle)(Components);
 
-
+// <TextField
+// id="username"
+//           label="Username"
+//           required
+//           className={classes.textField}
+//            value={this.state.username}
+//            onChange={this.handleChange("username")}
+//            margin="normal"/>
+//          <br></br>
+//          <TextField
+//            id="password"
+//            label="Password"
+//            required
+//            className={classes.textField}
+//            type="password"
+//            value={this.state.password}
+//            onChange={this.handleChange("password")}
+//            autoComplete="current-password"
+//            margin="normal"/>
+//          <br></br>

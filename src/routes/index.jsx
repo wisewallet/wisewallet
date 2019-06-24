@@ -14,6 +14,7 @@ import About from "views/About/About.jsx";
 import FAQ from "views/FAQ/FAQ.jsx";
 import Causes from "views/Causes/Causes.jsx";
 import Properties from "views/Properties/Properties.jsx";
+import TempLanding from "views/TempLanding/TempLanding.jsx";
 
 var indexRoutes = [
 	{path: "/login", name: "Login", component: InfoLogin},
@@ -29,8 +30,9 @@ var indexRoutes = [
 	{path: "/charts", name: "WiseWallet", component: Charts},
   {path: "/faq", name: "WiseWallet", component: FAQ},
 	{path: "/about", name: "WiseWallet", component: About},
+  {path: "/beta", name: "WiseWallet", component: LandingPage},
 	{path: "/privacy", name: "WiseWallet", component: PrivacyPage},
-	{path: "/", name: "WiseWallet", component: LandingPage}
+	{path: "/", name: "WiseWallet", component: TempLanding},
 ];
 
 export default indexRoutes;
