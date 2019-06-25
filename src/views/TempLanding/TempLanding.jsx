@@ -27,27 +27,28 @@ class TempLanding extends React.Component{
     super(props);
   }
 
-  colors = createMuiTheme({
-    palette: {
-      primary: {
-        main: "#e8b89b"
+  color = createMuiTheme({
+    palette:{
+      secondary: {
+        main: "#e8b89b" 
       }
     }
-  })
+  });
 
   render(){
     return(
-      <div>
+      <MuiThemeProvider theme={this.color}>
       <div style={{
         padding: "40px",
         textAlign: "left",
         background: "#81A391",
         fontSize: "40px",
         color: "white",
-        fontFamily: "gotham-bold",
       }}>
+      <Link style={{fontFamily: "gotham-bold", color: "white"}} to="/">
       <img src={require("assets/img/logos/white-logo.png")} height="80" width="100"></img>
         WiseWallet
+      </Link>
       </div>
       <Grid
         style={{padding: "40px"}}
@@ -63,11 +64,11 @@ class TempLanding extends React.Component{
         WiseWallet is currently in private beta. Join the waitlist to unlock WiseWallet before it reaches the public.
       </p>
       <center>
-      <Button>
-        <a style={{color: "#80a391"}}
+      <Button variant="contained" color="secondary">
+        <a style={{color: "white"}}
         href="https://mywisewallet.us17.list-manage.com/subscribe?u=0815905065d9f52c9957a3506&id=fce1ac23fe"
         target="_blank">
-      <p style={{textAlign: "center", lineHeight: 1.3, fontFamily: "gotham-bold", fontSize:20}}>
+      <p style={{textAlign: "center", paddingTop: 5, lineHeight: 1, fontFamily: "gotham-bold", fontSize:20}}>
       Sign Up
     </p></a>
       </Button>
@@ -78,7 +79,7 @@ class TempLanding extends React.Component{
       </Grid>
       </Grid>
       <WebFooter/>
-    </div>
+    </MuiThemeProvider>
     )
   }
 }

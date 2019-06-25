@@ -19,6 +19,11 @@ const THEME = createMuiTheme({
     "fontWeightRegular": 400,
     "fontWeightMedium": 500
    },
+  palette:{
+    primary: {
+      main: green[500]
+    }
+  }
 });
 
 ReactDOM.render(
