@@ -117,8 +117,8 @@ class Components extends React.Component {
       ...rest
     } = this.props;
     return (<div>
-      <header>
-          <div className="container">
+      <header style={{backgroundColor:"#031D44" }}>
+          <div  className="container">
             <div className="row">
               <div className="col-md-12 text-center">
                 <Link to="/">
