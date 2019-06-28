@@ -31,7 +31,7 @@ class Causes extends Component{
     return(
     <div>
       <NavBar/>
-    <section id="sone">
+    <section style={{backgroundColor: "#EEEEEE"}} id="sone">
       <div class="container">
         <div class="col-md-12">
           <h2 style={{paddingTop: "10px"}}>Cause Overviews & Methodologies</h2>
@@ -39,9 +39,6 @@ class Causes extends Component{
           <figure style={{textAlign:'center'}}>
             <img src={require("../../assets/img/causes/women.png")} 
               alt="Women" width="100" height="100"></img>
-            <figcaption class="caption">
-              Taken from <b><a class="nocolor" href="https://thenounproject.com/" target="_blank">The Noun Project</a></b>
-            </figcaption>
           </figure>
           <h3 style={{textAlign: 'center'}}>
             <b>
@@ -76,9 +73,6 @@ This cause focuses on women-led businesses. We’ve screened for businesses that
           <figure style={{textAlign:'center'}}>
             <img src={require("../../assets/img/causes/lgbtq.png")} 
               alt="Women" width="100" height="100"></img>
-            <figcaption class="caption">
-              Taken from <b><a class="nocolor" href="https://thenounproject.com/" target="_blank">The Noun Project</a></b>
-            </figcaption>
           </figure>
           <h3 style={{textAlign: 'center'}}>
             <b>

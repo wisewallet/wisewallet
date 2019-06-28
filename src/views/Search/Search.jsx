@@ -19,6 +19,7 @@ import Menu from "@material-ui/core/Menu";
 import FormControl from '@material-ui/core/FormControl';
 import AppBar from "@material-ui/core/AppBar";
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 
 // react-components
 import Footer from "components/WebFooter/WebFooter.jsx";
@@ -198,9 +199,11 @@ class Search extends Component{
             justify="center"
             spacing={3}>
             <Grid style={{textAlign: 'center'}} item xs={12}>
+              <Typography component="div">
               <h2 style={{fontFamily: "gotham-regular"}}> Find&nbsp;
                 <TextField
                   id="standard-select-category"
+                  fontSize="40"
                   select
                   style={{minWidth:200}}
                   label="Company Category"
@@ -213,7 +216,7 @@ class Search extends Component{
                   }}
                   margin="normal">
                   {this.state.categories.map(option => (
-                    <MenuItem key={option} value={option}>
+                    <MenuItem style={{fontSize: 20}} key={option} value={option}>
                       {option}
                     </MenuItem>
                   ))}
@@ -222,13 +225,13 @@ class Search extends Component{
                 <FormControl>
                   <InputLabel htmlFor="select-multiple-chip">Company Causes</InputLabel>
                 <Select
-                  style={{minWidth: 150, maxWidth: 500}}
+                  style={{minWidth: 200, maxWidth: 800}}
                   multiple
                   value={this.state.causes}
                   onChange={this.handleChange("causes")}
                   input={<Input id="select-multiple-chip" />}
                   renderValue={selected => (
-                    <div style={{display:"flex", flexWrap:"wrap"}}>
+                    <div style={{fontSize: 20, display:"flex", flexWrap:"wrap"}}>
                       {selected.map(value => (
                         <Chip
                           key={value}
@@ -239,13 +242,14 @@ class Search extends Component{
                   )}
                   MenuProps={this.MenuProps}>
                   {this.state.causelist.map(cause => (
-                    <MenuItem key={cause.property_id} value={cause.property_name}>
+                    <MenuItem style={{fontSize: 20}} key={cause.property_id} value={cause.property_name}>
                       {cause.property_name}
                     </MenuItem>
                   ))}
                 </Select>
               </FormControl>
               </h2>
+              </Typography>
             </Grid>
             <Grid style={{textAlign: 'center'}} item xs={3}>
               <Button onClick={this.search}>

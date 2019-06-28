@@ -31,7 +31,7 @@ class About extends Component{
     return(
       <div>
         <NavBar/>
-        <section id="sone">
+        <section style={{backgroundColor: "#EEEEEE"}} id="sone">
           <div class="container">
             <div class="col-md-12">
               <h2 style={{paddingTop: "20px"}}>Our Mission</h2>

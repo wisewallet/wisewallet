@@ -15,6 +15,7 @@ var hist = createBrowserHistory();
 const THEME = createMuiTheme({
    typography: {
     "fontFamily": "gotham-regular",
+    "fontColor": "#031D44",
     "fontWeightLight": 300,
     "fontWeightRegular": 400,
     "fontWeightMedium": 500

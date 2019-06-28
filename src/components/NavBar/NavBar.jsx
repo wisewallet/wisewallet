@@ -104,7 +104,7 @@ class NavBar extends Component{
     else{
     return(
       <div>
-      <AppBar style={{background: "#81A391", flexGrow: 1}} position="static">
+      <AppBar style={{background: "#031D44", flexGrow: 1}} position="static">
           <Toolbar>
             <IconButton
               style={{outline: "none"}}

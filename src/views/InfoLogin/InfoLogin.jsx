@@ -79,7 +79,7 @@ class InfoLogin extends Component {
       return(<Redirect to="/search"/>)
     }
     return (<div>
-      <header>
+      <header style={{backgroundColor: "#031D44"}} >
           <div className="container">
             <div className="row">
               <div className="col-md-12 text-center">

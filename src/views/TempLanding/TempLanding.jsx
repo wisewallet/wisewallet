@@ -41,7 +41,7 @@ class TempLanding extends React.Component{
       <div style={{
         padding: "40px",
         textAlign: "left",
-        background: "#81A391",
+        background: "#031D44",
         fontSize: "40px",
         color: "white",
       }}>

@@ -32,7 +32,7 @@ class FAQ extends Component{
         <div>
           <NavBar/>
           <body>
-          <section id="sone">
+          <section style={{backgroundColor: "#EEEEEE"}} id="sone">
             <div class="container">
               <div class="col-md-12">
                 <h2>FAQ's & A's</h2>
