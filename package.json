@@ -78,5 +78,5 @@
     "browserslist": "4.6.2",
     "caniuse-lite": "1.0.30000974"
   },
-  "proxy": "http://0.0.0.0:8000"
+  "proxy": "https://dev-test.mywisewallet.com"
 }
