@@ -1,23 +1,16 @@
-import React from "react";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import Icon from "@material-ui/core/Icon";
-// @material-ui/icons
-import Email from "@material-ui/icons/Email";
-// core components
-import Header from "components/Header/Header.jsx";
-import GridContainer from "components/Grid/GridContainer.jsx";
-import GridItem from "components/Grid/GridItem.jsx";
-import Button from "components/CustomButtons/Button.jsx";
+import TextField from "@material-ui/core/TextField";
+import loginPageStyle from "assets/jss/material-kit-pro-react/views/loginPageStyle.jsx";
 import Card from "components/Card/Card.jsx";
 import CardBody from "components/Card/CardBody.jsx";
 import CardHeader from "components/Card/CardHeader.jsx";
+import GridContainer from "components/Grid/GridContainer.jsx";
+import GridItem from "components/Grid/GridItem.jsx";
+// core components
+import Header from "components/Header/Header.jsx";
+import React from "react";
 
-import TextField from "@material-ui/core/TextField";
-import loginPageStyle from "assets/jss/material-kit-pro-react/views/loginPageStyle.jsx";
-
-import image from "assets/img/wisewalletA1.jpg";
 
 class LoginPage extends React.Component {
   constructor(props) {
@@ -38,7 +31,7 @@ class LoginPage extends React.Component {
   };
   onSignIn() {
     const {email, password} = this.state;
-    console.log("Trying...");
+    
     fetch("https://tldpv6umn7.execute-api.us-east-1.amazonaws.com/default/signIn", {
       method: "POST",
       headers: {
@@ -46,9 +39,9 @@ class LoginPage extends React.Component {
       },
       body: JSON.stringify({email: email, password: password})
     }).then(response => response.json()).then(json => {
-      console.log('json', json);
+      
       if(json.success){
-        console.log("success");
+        
         sessionStorage.setItem('userID', json.userID);
         this.props.history.push('/dashboard');
       }
@@ -56,7 +49,7 @@ class LoginPage extends React.Component {
   }
   render() {
     const {classes} = this.props;
-    console.log(sessionStorage.getItem("userID"));
+    
 
     return (<div>
       <Header absolute="absolute" color="transparent" brand="WiseWallet"/>

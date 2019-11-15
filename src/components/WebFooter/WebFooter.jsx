@@ -30,13 +30,13 @@ class WebFooter extends Component{
       <div>
         <div style={this.phantom}/>
         <Footer style={this.style} content={<div>
-          <CustomButton justIcon="justIcon" simple="simple" href="https://twitter.com/mywisewallet" target="_blank" color="twitter">
+          <CustomButton justIcon={true} simple={true} href="https://twitter.com/mywisewallet" target="_blank" rel="noopener noreferrer" color="twitter">
           <i className="fab fa-twitter"/>
         </CustomButton>
-        <CustomButton justIcon="justIcon" simple="simple" href="https://www.facebook.com/mywisewallet" target="_blank" color="facebook">
+        <CustomButton justIcon={true} simple={true} href="https://www.facebook.com/mywisewallet" target="_blank" rel="noopener noreferrer" color="facebook">
           <i className="fab fa-facebook-square"/>
         </CustomButton>
-        <CustomButton justIcon="justIcon" simple="simple" href="https://www.instagram.com/mywisewallet/" target="_blank" color="instagram">
+        <CustomButton justIcon={true} simple={true} href="https://www.instagram.com/mywisewallet/" target="_blank" rel="noopener noreferrer" color="instagram">
           <i className="fab fa-instagram"/>
         </CustomButton>
         <GridContainer>
@@ -45,7 +45,7 @@ class WebFooter extends Component{
           <GridItem sm={6}>
           <div style={{width: 'auto'}}>
             Copyright &copy; {1900 + new Date().getYear()}{" "}
-            <a href="http://www.mywisewallet.com">WiseWallet Inc. </a> 
+            <a href="https://www.mywisewallet.com">WiseWallet Inc. </a> 
             All Rights Reserved. </div></GridItem>
         </GridContainer>
       </div>}>

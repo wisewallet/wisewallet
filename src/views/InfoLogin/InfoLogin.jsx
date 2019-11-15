@@ -1,28 +1,13 @@
-import React, { Component } from "react";
-import {Redirect} from "react-router";
+import Button from "@material-ui/core/Button";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import Icon from "@material-ui/core/Icon";
-// @material-ui/icons
-import Email from "@material-ui/icons/Email";
-// core components
-import Header from "components/Header/Header.jsx";
-import Button from "@material-ui/core/Button";
-import Card from "@material-ui/core/Card";
-import CardBody from "components/Card/CardBody.jsx";
-import CardHeader from "components/Card/CardHeader.jsx";
-import { Link } from "react-router-dom";
-import CustomButton from "components/CustomButtons/Button.jsx";
-import GridContainer from "components/Grid/GridContainer.jsx";
-import GridItem from "components/Grid/GridItem.jsx";
-
 import TextField from "@material-ui/core/TextField";
+import "assets/css/style.css";
 import loginPageStyle from "assets/jss/material-kit-pro-react/views/loginPageStyle.jsx";
 import WebFooter from "components/WebFooter/WebFooter.jsx";
-
-import image from "assets/img/wisewalletA1.jpg";
-import "assets/css/style.css";
+import React, { Component } from "react";
+import { Redirect } from "react-router";
+import { Link } from "react-router-dom";
 
 
 class InfoLogin extends Component {
@@ -40,95 +25,106 @@ class InfoLogin extends Component {
   }
 
   handleChange = name => event => {
-    this.setState({[name]: event.target.value});
+    this.setState({ [name]: event.target.value });
   };
 
   handleClick() {
-    const {email, password} = this.state;
-    console.log("Trying...");
+    const { email, password } = this.state;
     fetch("/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({email: email, password: password})
+      body: JSON.stringify({ email: email, password: password })
     })
       .then(response => response.json())
       .then(json => {
-        console.log('json', json);
-        if(json.data.code === 200){
-          console.log("success");
+        if (json.data.code === 200) {
           sessionStorage.setItem('userID', json.data.userdata.user_id);
           sessionStorage.setItem('isAdmin', json.data.userdata.isAdmin);
-          if(json.data.userdata.isAdmin){
+          if (json.data.userdata.isAdmin) {
             this.props.history.push('/companyInfo');
           }
           else
             this.props.history.push('/search');
         }
-        else{
-          alert("Username or Password is invalid")
+        else {
+          alert("Email or Password is invalid")
         }
       })
       .catch(error => console.log(error));
   }
 
   render() {
-    const {classes} = this.props;
-    if(sessionStorage.getItem("userID")){
-      return(<Redirect to="/search"/>)
+    const { classes } = this.props;
+    if (sessionStorage.getItem("userID")) {
+      return (<Redirect to="/search" />)
     }
     return (<div>
-      <header style={{backgroundColor: "#031D44"}} >
-          <div className="container">
-            <div className="row">
-              <div className="col-md-12 text-center">
-                <Link to="/">
-<h2>
-          <img src={require("assets/img/logos/white-logo.png")}
-        height="42"
-        width="42"></img>
+      <header style={{ backgroundColor: "#031D44" }} >
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12 text-center">
+              <Link to="/">
+                <h2>
+                  <img src={require("assets/img/logos/white-logo.png")}
+                    height="42"
+                    width="42"></img>
                   WiseWallet</h2>
-                </Link>
-                  <div className="simpborder"></div>
-                  <p>Put your money where your mind is.</p>
-              </div>
+              </Link>
+              <div className="simpborder"></div>
+              <p>Put your money where your mind is.</p>
             </div>
           </div>
+        </div>
       </header>
       <div>
         <center>
-        <h2 style={{fontFamily:"gotham-bold"}}>Login</h2>
-        <form
-          autoComplete="off">
-          <div className="simpborder"></div>
-          <TextField
-            id="email"
-            label="Email"
-            className={classes.textField}
-            value={this.state.email}
-            onChange={this.handleChange("email")}
-            margin="normal"/>
-          <br></br>
-          <TextField
-            id="password"
-            label="Password"
-            required
-            className={classes.textField}
-            type="password"
-            value={this.state.password}
-            onChange={this.handleChange("password")}
-            autoComplete="current-password"
-            margin="normal"/>
-          <br></br>
-          <Button
-            onClick={this.handleClick}>
-            Login
+          <h2 style={{ fontFamily: "gotham-bold" }}>Login</h2>
+          <form
+            autoComplete="off">
+            <div className="simpborder"></div>
+            <TextField
+              id="email"
+              label="Email"
+              className={classes.textField}
+              value={this.state.email}
+              onChange={this.handleChange("email")}
+              margin="normal" />
+            <br></br>
+            <TextField
+              id="password"
+              label="Password"
+              required
+              className={classes.textField}
+              type="password"
+              value={this.state.password}
+              onChange={this.handleChange("password")}
+              autoComplete="current-password"
+              margin="normal" />
+            <br></br>
+            <Button style={{ marginRight: "10px" }} variant="outlined" color="#031d44"
+              onClick={this.handleClick}>
+              Login
           </Button>
-        </form>
+            <Button variant="outlined" color="#031d44">
+              <Link to="/company/login" style={{ color: "#012E3C" }}>If you are company</Link>
+            </Button><br></br><br></br>
+            Don't have account
+            <Button style={{ marginLeft: "10px" }} variant="outlined" color="#031d44">
+              <Link to="/signup" style={{ color: "#012E3C" }}>Beta Signup</Link>
+            </Button>
+            <br></br>
+            <br></br>
+            If you are Company User
+            <Button style={{ marginLeft: "10px" }} variant="outlined" color="#031d44">
+              <Link to="/company/signup" style={{ color: "#012E3C" }}>Beta Company Signup</Link>
+            </Button>
+
+          </form>
         </center>
       </div>
-      <WebFooter/>
+      <WebFooter />
     </div>);
   }
 }

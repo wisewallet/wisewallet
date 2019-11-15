@@ -55,7 +55,7 @@ class CompanyInformation extends Component {
     })
       .then(response => response.json())
       .then(json => {
-        if(json.data.code == 200)
+        if(json.data.code === 200)
           this.setState({company_data: json.data.company_data});
       })
       .catch(error => console.log("Caught Error", error));
@@ -102,7 +102,7 @@ class CompanyInformation extends Component {
     var userID = sessionStorage.getItem("userID");
     var isAdmin = sessionStorage.getItem("isAdmin");
     //Redirects the user to the correct page if they are not an admin
-    if (userID== '')
+    if (userID=== '')
       return (<Redirect to="/login"/>);
     else if(isAdmin){
       return(

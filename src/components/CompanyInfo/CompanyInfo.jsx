@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
-import { withRouter, Redirect} from 'react-router';
-
-// @material-ui/core components
-import TableBody from '@material-ui/core/Table';
+import Button from '@material-ui/core/Button';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
-import Button from '@material-ui/core/Button';
+import React, { Component } from 'react';
+import { withRouter } from 'react-router';
+
 
 class CompanyInfo extends Component{
   constructor(props){
@@ -24,9 +22,7 @@ class CompanyInfo extends Component{
     })
       .then(response => response.json())
       .then(json => {
-        console.log("json", json);
-        if(json.data.code == 200){
-          console.log("success");
+        if(json.data.code === 200){
           window.location.reload();
         }
       })
@@ -63,7 +59,7 @@ class CompanyInfo extends Component{
       <TableCell>{this.props.name}</TableCell>
       <TableCell> {this.props.category} </TableCell>
       <TableCell> {this.props.cause.toString()} </TableCell>
-      <TableCell> <a style={{color: "blue"}} href={this.props.link} target="_blank"> {this.props.link}</a> </TableCell>
+      <TableCell> <a style={{color: "blue"}} href={this.props.link} target="_blank" rel="noopener noreferrer"> {this.props.link}</a> </TableCell>
       <TableCell>
         <Button variant="contained" onClick={this.handleClick}>
           Edit

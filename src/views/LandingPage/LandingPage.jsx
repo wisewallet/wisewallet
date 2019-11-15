@@ -39,29 +39,38 @@ class LandingPage extends React.Component {
     } = this.props;
     return (
       <div >
-        <div style={{textAlign: "center", marginTop:"150px"}}>
+        <div style={{ textAlign: "center", marginTop: "150px" }}>
           <img src={require("assets/img/logos/logo.png")} height="100" width="100"></img>
-        <h1 style={{marginTop: "0px", fontFamily: "gotham-bold", color: "#031D44"}}>
-          WiseWallet
+          <h1 style={{ marginTop: "0px", fontFamily: "gotham-bold", color: "#031D44" }}>
+            WiseWallet
         </h1>
-        <p style={{marginLeft:"25%",
-          marginRight:"25%",
-          fontSize:"25px",
-          fontFamily: "gotham-regular",
-          color: "#031D44"}}>
-          
-          A sustainability-focused business directory
+          <p style={{
+            marginLeft: "25%",
+            marginRight: "25%",
+            fontSize: "25px",
+            fontFamily: "gotham-regular",
+            color: "#031D44"
+          }}>
+
+            A sustainability-focused business directory
         </p>
-        <Button style={{marginRight: "10px"}}
-        variant="outlined"
-        color="#012E3C">
-        <Link to="/login" style={{color:"#031d44"}}>Login</Link>
-      </Button>
-        <Button variant="outlined" color="#031d44">
-          <Link to="/signup" style={{color:"#012E3C"}}>Beta Signup</Link>
-        </Button>
-      </div>
-      <WebFooter/>
+          <Button style={{ marginRight: "10px" }}
+            variant="outlined"
+            color="#012E3C">
+            <Link to="/login" style={{ color: "#031d44" }}>Login</Link>
+          </Button>
+          <Button style={{ marginRight: "10px" }} variant="outlined" color="#031d44">
+            <Link to="/company/login" style={{ color: "#012E3C" }}>Beta Company Login</Link>
+          </Button>
+          <Button style={{ marginRight: "10px" }}
+            variant="outlined" color="#031d44">
+            <Link to="/signup" style={{ color: "#012E3C" }}>Beta Signup</Link>
+          </Button>
+          <Button variant="outlined" color="#031d44">
+            <Link to="/company/signup" style={{ color: "#012E3C" }}>Beta Company Signup</Link>
+          </Button>
+        </div>
+        <WebFooter />
       </div>
     );
   }

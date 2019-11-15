@@ -1,14 +1,13 @@
+import Button from '@material-ui/core/Button';
+import Chip from '@material-ui/core/Chip';
+import FormControl from '@material-ui/core/FormControl';
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
+import TextField from '@material-ui/core/TextField';
 import React, { Component } from 'react';
 
-import TextField from '@material-ui/core/TextField';
-import Chip from '@material-ui/core/Chip';
-import InputLabel from '@material-ui/core/InputLabel';
-import Select from '@material-ui/core/Select';
-import Button from '@material-ui/core/Button';
-import Input from '@material-ui/core/Input';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
 
 class AddCompany extends Component{
   constructor(props){
@@ -45,7 +44,7 @@ class AddCompany extends Component{
     })
       .then(response => response.json())
       .then(json => {
-        if(json.data.code == 200){
+        if(json.data.code === 200){
           this.getCategories(json.data);
         }
  
@@ -61,7 +60,7 @@ class AddCompany extends Component{
     })
       .then(response => response.json())
       .then(json => {
-        if(json.data.code == 200)
+        if(json.data.code === 200)
           this.setState({causelist: json.data.property_data});
       })
       .catch(error => console.log("Caught Error", error));
@@ -100,9 +99,7 @@ class AddCompany extends Component{
     })
       .then(response => response.json())
       .then(json => {
-        console.log('json', json);
-        if(json.data.code == 200){
-          console.log("success");
+        if(json.data.code === 200){
           window.location.reload();
         }})
       .catch(error => console.log("Error found", error));

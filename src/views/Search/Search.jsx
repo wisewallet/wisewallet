@@ -1,36 +1,27 @@
-import React, { Component } from "react";
-import {Redirect} from "react-router";
-import { Link } from "react-router-dom";
-
-// styling
-import "assets/css/style.css";
-import "assets/css/bootstrap.min.css";
-
+import Button from '@material-ui/core/Button';
+import Chip from '@material-ui/core/Chip';
+import FormControl from '@material-ui/core/FormControl';
 // material-ui components
 import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
-import Chip from '@material-ui/core/Chip';
-import InputLabel from '@material-ui/core/InputLabel';
-import Select from '@material-ui/core/Select';
-import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import Menu from "@material-ui/core/Menu";
-import FormControl from '@material-ui/core/FormControl';
-import AppBar from "@material-ui/core/AppBar";
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import Select from '@material-ui/core/Select';
+import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
-
-// react-components
-import Footer from "components/WebFooter/WebFooter.jsx";
-import CustomButton from "components/CustomButtons/Button.jsx";
-import GridContainer from "components/Grid/GridContainer.jsx";
-import GridItem from "components/Grid/GridItem.jsx";
+import "assets/css/bootstrap.min.css";
+// styling
+import "assets/css/style.css";
 import CompanyCard from "components/CompanyCard/CompanyCard.jsx";
 import NavBar from "components/NavBar/NavBar.jsx";
+// react-components
+import Footer from "components/WebFooter/WebFooter.jsx";
+import React, { Component } from "react";
+import { Redirect } from "react-router";
 
-class Search extends Component{
-  constructor(props){
+
+class Search extends Component {
+  constructor(props) {
     super(props);
     this.state = {
       name: "",
@@ -65,7 +56,7 @@ class Search extends Component{
    * Make sure to change the query so that admin's are not the only ones who
    * can access this information
    */
-  componentDidMount(){
+  componentDidMount() {
     //Retrieve list of companies & categories
     fetch("/dashboard", {
       method: "GET",
@@ -75,11 +66,11 @@ class Search extends Component{
     })
       .then(response => response.json())
       .then(json => {
-        if(json.data.code == 200){
+        if (json.data.code === 200) {
           //this.setState({companies: json.data.company_data});
           this.getCategories(json.data);
         }
- 
+
       })
       .catch(error => console.log("Caught Error", error));
 
@@ -92,8 +83,8 @@ class Search extends Component{
     })
       .then(response => response.json())
       .then(json => {
-        if(json.data.code == 200)
-          this.setState({causelist: json.data.property_data});
+        if (json.data.code === 200)
+          this.setState({ causelist: json.data.property_data });
       })
       .catch(error => console.log("Caught Error", error));
   }
@@ -102,13 +93,13 @@ class Search extends Component{
    * Functions for handling parsing the data retrieved from API calls
    */
 
-  getCategories = (data) => { 
+  getCategories = (data) => {
     var categories = data.company_data.map(info => info.company_category[0]);
 
     //filters out categories to remove duplicates
     var seen = {};
     categories = categories.filter(item => seen.hasOwnProperty(item) ? false : (seen[item] = true));
-    this.setState({categories: categories});
+    this.setState({ categories: categories });
   }
 
 
@@ -117,7 +108,7 @@ class Search extends Component{
    */
 
   handleChange = name => event => {
-    this.setState({[name]: event.target.value });
+    this.setState({ [name]: event.target.value });
   };
 
   //Resets the search queries that the user selected.
@@ -132,9 +123,9 @@ class Search extends Component{
 
   search = () => {
     const body = {
-        search_company_name: this.state.name,
-        search_company_category: this.state.category == "" ? [] : [this.state.category],
-        search_company_causes: this.state.causes
+      search_company_name: this.state.name,
+      search_company_category: this.state.category === "" ? [] : [this.state.category],
+      search_company_causes: this.state.causes
     }
 
     //Retrieve list of companies that correspond to the criteria
@@ -147,8 +138,8 @@ class Search extends Component{
     })
       .then(response => response.json())
       .then(json => {
-        if(json.data.code == 200){
-          this.setState({companies: json.data.company_data});
+        if (json.data.code === 200) {
+          this.setState({ companies: json.data.company_data });
         }
       })
       .catch(error => console.log("caught error", error));
@@ -157,9 +148,9 @@ class Search extends Component{
   returnCompanies = () => {
     var companies = this.state.companies;
 
-    if(companies.length != 0){
+    if (companies.length !== 0) {
       return companies.map(company =>
-        <Grid style={{padding: 10}} item xs={3}>
+        <Grid style={{ padding: 10 }} item xs={3}>
           <CompanyCard
             name={company.company_name}
             cause={company.company_cause}
@@ -181,180 +172,171 @@ class Search extends Component{
     this.searchByCategory = false;
     this.reset();
   }
-  
+
   changeToCategory = () => {
     this.searchByName = false;
     this.searchByCategory = true;
     this.reset();
   }
-  
+
   //Returns search bar depending on the state
   searchBar = () => {
-    if(this.searchByCategory){
-      return(
+    if (this.searchByCategory) {
+      return (
         <div>
-        <Grid 
-            style={{padding: 10}}
+          <Grid
+            style={{ padding: 10 }}
             container
             justify="center"
-            spacing={3}>
-            <Grid style={{textAlign: 'center'}} item xs={12}>
+            spacing={8}>
+            <Grid style={{ textAlign: 'center' }} item xs={12}>
               <Typography component="div">
-              <h2 style={{fontFamily: "gotham-regular"}}> Find&nbsp;
+                <h2 style={{ fontFamily: "gotham-regular" }}> Find&nbsp;
                 <TextField
-                  id="standard-select-category"
-                  fontSize="40"
-                  select
-                  style={{minWidth:200}}
-                  label="Company Category"
-                  value={this.state.category}
-                  onChange={this.handleChange("category")}
-                  SelectProps={{
-                    MenuProps: {
-                      width: 200
-                    },
-                  }}
-                  margin="normal">
-                  {this.state.categories.map(option => (
-                    <MenuItem style={{fontSize: 20}} key={option} value={option}>
-                      {option}
-                    </MenuItem>
-                  ))}
-                </TextField>
-              &nbsp;that are&nbsp;
+                    id="standard-select-category"
+                    fontSize="40"
+                    select
+                    style={{ minWidth: 200 }}
+                    label="Company Category"
+                    value={this.state.category}
+                    onChange={this.handleChange("category")}
+                    SelectProps={{
+                      MenuProps: {
+                        width: 200
+                      },
+                    }}
+                    margin="normal">
+                    {this.state.categories.map(option => (
+                      <MenuItem style={{ fontSize: 20 }} key={option} value={option}>
+                        {option}
+                      </MenuItem>
+                    ))}
+                  </TextField>
+                  &nbsp;that are&nbsp;
                 <FormControl>
-                  <InputLabel htmlFor="select-multiple-chip">Company Causes</InputLabel>
-                <Select
-                  style={{minWidth: 200, maxWidth: 800}}
-                  multiple
-                  value={this.state.causes}
-                  onChange={this.handleChange("causes")}
-                  input={<Input id="select-multiple-chip" />}
-                  renderValue={selected => (
-                    <div style={{fontSize: 20, display:"flex", flexWrap:"wrap"}}>
-                      {selected.map(value => (
-                        <Chip
-                          key={value}
-                          label={value}
-                          style={{margin:2}}/>
+                    <InputLabel htmlFor="select-multiple-chip">Company Causes</InputLabel>
+                    <Select
+                      style={{ minWidth: 200, maxWidth: 800 }}
+                      multiple
+                      value={this.state.causes}
+                      onChange={this.handleChange("causes")}
+                      input={<Input id="select-multiple-chip" />}
+                      renderValue={selected => (
+                        <div style={{ fontSize: 20, display: "flex", flexWrap: "wrap" }}>
+                          {selected.map(value => (
+                            <Chip
+                              key={value}
+                              label={value}
+                              style={{ margin: 2 }} />
+                          ))}
+                        </div>
+                      )}
+                      MenuProps={this.MenuProps}>
+                      {this.state.causelist.map(cause => (
+                        <MenuItem style={{ fontSize: 20 }} key={cause.property_id} value={cause.property_name}>
+                          {cause.property_name}
+                        </MenuItem>
                       ))}
-                    </div>
-                  )}
-                  MenuProps={this.MenuProps}>
-                  {this.state.causelist.map(cause => (
-                    <MenuItem style={{fontSize: 20}} key={cause.property_id} value={cause.property_name}>
-                      {cause.property_name}
-                    </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-              </h2>
+                    </Select>
+                  </FormControl>
+                </h2>
               </Typography>
             </Grid>
-            <Grid style={{textAlign: 'center'}} item xs={3}>
+            <Grid style={{ textAlign: 'center' }} item xs={3}>
               <Button onClick={this.search}>
                 Search
               </Button>
             </Grid>
-            <Grid style={{textAlign: 'center'}} item xs={3}>
+            <Grid style={{ textAlign: 'center' }} item xs={3}>
               <Button onClick={this.reset}>
-                  Reset Search
+                Reset Search
               </Button>
             </Grid>
           </Grid>
-        <Grid 
-            style={{padding: 10}}
+          <Grid
+            style={{ padding: 10 }}
             container
-            justify="centered"
-            spacing={3}>
+            justify="flex-start"
+            spacing={8}>
             {this.returnCompanies()}
           </Grid>
-      </div>
+        </div>
       )
     }
-    else if(this.searchByName){
-      return(
+    else if (this.searchByName) {
+      return (
         <div>
-        <Grid 
-            style={{padding: 10}}
+          <Grid
+            style={{ padding: 10 }}
             container
             justify="center"
-            spacing={3}>
-            <Grid style={{textAlign: 'center'}} item xs={12}>
+            spacing={8}>
+            <Grid style={{ textAlign: 'center' }} item xs={12}>
               <TextField
                 id="name"
                 autoComplete="off"
                 label="Search By Name"
                 value={this.state.name}
                 onChange={this.handleChange("name")}
-                style={{width: 500}}
-                margin="normal"/>
+                style={{ width: 500 }}
+                margin="normal" />
             </Grid>
-            <Grid style={{textAlign: 'center'}} item xs={3}>
+            <Grid style={{ textAlign: 'center' }} item xs={3}>
               <Button onClick={this.search}>
                 Search
               </Button>
             </Grid>
-            <Grid style={{textAlign: 'center'}} item xs={3}>
+            <Grid style={{ textAlign: 'center' }} item xs={3}>
               <Button onClick={this.reset}>
                 Reset Search
               </Button>
             </Grid>
           </Grid>
-        <Grid 
-            style={{padding: 10}}
+          <Grid
+            style={{ padding: 10 }}
             container
-            justify="centered"
-            spacing={3}>
+            justify="flex-start"
+            spacing={8}>
             {this.returnCompanies()}
-            </Grid>
-          </div>
+          </Grid>
+        </div>
       )
     }
   }
 
-    /*
-  handleMenu = (event) => {
-    this.setState({setAnchorEl: event.currentTarget});
-  }
 
-  handleClose = () => {
-    this.setState({setAnchorEl: null});
-  }
-  */
-
-  render(){
+  render() {
     var userId = sessionStorage.getItem("userID");
 
-    if(userId === null){
-      return(<Redirect to="/login"/>);
+    if (userId === null || !userId) {
+      return (<Redirect to="/login" />);
     }
-    else{
-    return(
-    <div>
-      <NavBar/>
-        <Grid 
-          style={{padding:10}}
-          container
-          justify="center"
-          spacing={3}>
-          <Grid style={{textAlign: 'center'}} item xs={3}>
-            <Button variant="outlined" onClick={this.changeToName}>
-              Search by Name
+    else {
+      return (
+        <div>
+          <NavBar />
+          <Grid
+            style={{ padding: 10 }}
+            container
+            justify="center"
+            spacing={8}>
+            <Grid style={{ textAlign: 'center' }} item xs={3}>
+              <Button variant="outlined" onClick={this.changeToName}>
+                Search by Name
             </Button>
-          </Grid>
-          <Grid style={{textAlign: 'center'}} item xs={3}>
-            <Button variant="outlined" onClick={this.changeToCategory}>
-              Search by Category
+            </Grid>
+            <Grid style={{ textAlign: 'center' }} item xs={3}>
+              <Button variant="outlined" onClick={this.changeToCategory}>
+                Search by Category
             </Button>
+            </Grid>
           </Grid>
-        </Grid>
-        {this.searchBar()}
-        <Footer/>
-    </div>
-    )
+          {this.searchBar()}
+          <Footer />
+        </div>
+      )
+    }
   }
-    }
 }
 
 export default Search;

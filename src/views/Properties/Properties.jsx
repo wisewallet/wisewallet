@@ -58,7 +58,7 @@ class Properties extends Component {
     })
       .then(response => response.json())
       .then(json => {
-        if(json.data.code == 200)
+        if(json.data.code === 200)
           this.setState({property_list: json.data.property_data});
       })
       .catch(error => console.log("Caught Error", error));
@@ -98,7 +98,7 @@ class Properties extends Component {
     var isAdmin = sessionStorage.getItem("isAdmin");
 
     //Redirects the user to the correct page if they are not an admin
-    if (userID == '')
+    if (userID === '')
       return (<Redirect to="/login"/>);
     else if(!isAdmin)
       return (<Redirect to="/search"/>);

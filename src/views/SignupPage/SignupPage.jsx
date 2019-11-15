@@ -46,7 +46,7 @@ class Components extends React.Component {
       error: false,
       errorMessage: "",
       success: false,
-      
+
       //User info
       email: "",
       username: "",
@@ -56,7 +56,7 @@ class Components extends React.Component {
     }
     this.onSignUp = this.onSignUp.bind(this);
   }
-    
+
   componentDidMount() {
     window.scrollTo(0, 0);
     document.body.scrollTop = 0;
@@ -65,11 +65,11 @@ class Components extends React.Component {
 
   //Handles changes in the form 
   handleChange = name => event => {
-    this.setState({[name]: event.target.value});
+    this.setState({ [name]: event.target.value });
   };
 
   handleClose = () => {
-    this.setState({error: false});
+    this.setState({ error: false });
   }
 
   onSignUp = () => {
@@ -81,14 +81,14 @@ class Components extends React.Component {
     });
 
     var info = {
-          "email": this.state.email,
-          "username": this.state.username,
-          "first_name": this.state.first_name,
-          "last_name": this.state.last_name,
-          "password": this.state.password
+      "email": this.state.email,
+      "username": this.state.username,
+      "first_name": this.state.first_name,
+      "last_name": this.state.last_name,
+      "password": this.state.password
     }
 
-    if(results.success){
+    if (results.success) {
       fetch("/register", {
         method: "POST",
         headers: {
@@ -99,11 +99,10 @@ class Components extends React.Component {
       })
         .then(response => response.json())
         .then(json => {
-          console.log('json', json.data.code);
-          if(json.data.code == 200){
+          if (json.data.code === 200) {
             this.props.history.push('/');
           }
-          if(json.data.code == 400){
+          if (json.data.code === 400) {
             alert("This username or email already exists");
           }
         })
@@ -117,36 +116,36 @@ class Components extends React.Component {
       ...rest
     } = this.props;
     return (<div>
-      <header style={{backgroundColor:"#031D44" }}>
-          <div  className="container">
-            <div className="row">
-              <div className="col-md-12 text-center">
-                <Link to="/">
-                  <h2>
-          <img src={require("assets/img/logos/white-logo.png")}
-        height="42"
-        width="42"></img>
-                    <b>WiseWallet</b></h2>
-                </Link>
-                  <div className="simpborder"></div>
-                  <p>Put your money where your mind is.</p>
-              </div>
+      <header style={{ backgroundColor: "#031D44" }}>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12 text-center">
+              <Link to="/">
+                <h2>
+                  <img src={require("assets/img/logos/white-logo.png")}
+                    height="42"
+                    width="42"></img>
+                  <b>WiseWallet</b></h2>
+              </Link>
+              <div className="simpborder"></div>
+              <p>Put your money where your mind is.</p>
             </div>
           </div>
+        </div>
       </header>
-        <center>
-          <h2><b>Waitlist Sign Up</b></h2>
-          <div className="simpborder"></div>
-          <form 
-            autoComplete='off'>
-            <TextField
-              id="firstName"
-              label="First Name"
-              required
-              className={classes.textField}
-              value={this.state.first_name}
-              onChange={this.handleChange("first_name")}
-              margin="normal"/>
+      <center>
+        <h2><b>Waitlist Sign Up</b></h2>
+        <div className="simpborder"></div>
+        <form
+          autoComplete='off'>
+          <TextField
+            id="firstName"
+            label="First Name"
+            required
+            className={classes.textField}
+            value={this.state.first_name}
+            onChange={this.handleChange("first_name")}
+            margin="normal" />
           <br></br>
           <TextField
             id="lastName"
@@ -155,7 +154,7 @@ class Components extends React.Component {
             className={classes.textField}
             value={this.state.last_name}
             onChange={this.handleChange("last_name")}
-            margin="normal"/>
+            margin="normal" />
           <br></br>
           <TextField
             id="email"
@@ -164,7 +163,7 @@ class Components extends React.Component {
             className={classes.textField}
             value={this.state.email}
             onChange={this.handleChange("email")}
-            margin="normal"/>
+            margin="normal" />
           <br></br>
           <TextField
             id="username"
@@ -173,7 +172,7 @@ class Components extends React.Component {
             className={classes.textField}
             value={this.state.username}
             onChange={this.handleChange("username")}
-            margin="normal"/>
+            margin="normal" />
           <br></br>
           <TextField
             id="password"
@@ -184,7 +183,7 @@ class Components extends React.Component {
             value={this.state.password}
             onChange={this.handleChange("password")}
             autoComplete="current-password"
-            margin="normal"/>
+            margin="normal" />
           <br></br>
         </form>
         <Button
@@ -193,20 +192,20 @@ class Components extends React.Component {
           size="medium">
           Sign up
         </Button>
-        </center>
+      </center>
 
-        <Snackbar anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'center',
-          }}
-          open={this.state.error}
-          autoHideDuration={6000}
-          onClose={this.handleClose}
-          message={<span id="message-id">{this.state.errorMessage}</span>}
-        >
-        </Snackbar>
-        <WebFooter/>
-      </div>);
+      <Snackbar anchorOrigin={{
+        vertical: 'top',
+        horizontal: 'center',
+      }}
+        open={this.state.error}
+        autoHideDuration={6000}
+        onClose={this.handleClose}
+        message={<span id="message-id">{this.state.errorMessage}</span>}
+      >
+      </Snackbar>
+      <WebFooter />
+    </div>);
   }
 }
 

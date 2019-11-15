@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Redirect} from "react-router";
+import { Redirect } from "react-router";
 import { Link } from "react-router-dom";
 import { withRouter } from 'react-router-dom';
 
@@ -22,8 +22,8 @@ import Logo from "components/Logo/Logo.jsx";
 import MenuIcon from "@material-ui/icons/Menu";
 import AccountCircle from '@material-ui/icons/AccountCircle';
 
-class NavBar extends Component{
-  constructor(props){
+class NavBar extends Component {
+  constructor(props) {
     super(props);
     this.state = {
       active: sessionStorage.getItem("userID") != null,
@@ -33,50 +33,49 @@ class NavBar extends Component{
     this.sideBar = this.sideBar.bind(this);
     this.close = this.close.bind(this);
     this.list = [
-      { name: "About Us", url: "about"},
-      { name: "Causes", url: 'causes'},
-      { name: "FAQ", url: 'faq'},
-      { name: "Search", url: 'search'}
+      { name: "About Us", url: "about" },
+      { name: "Causes", url: 'causes' },
+      { name: "FAQ", url: 'faq' },
+      { name: "Search", url: 'search' }
     ]
     this.adminList = [
-      { name: "Property List", url: "properties"},
-      { name: "Company Information", url: 'companyInfo'},
+      { name: "Property List", url: "properties" },
+      { name: "Company Information", url: 'companyInfo' },
     ]
-    console.log(sessionStorage.getItem("isAdmin") == true)
   }
 
   sideBar = () => {
-    this.setState({open: true});
+    this.setState({ open: true });
   }
 
   close = () => {
-    this.setState({open:false});
+    this.setState({ open: false });
   }
 
   barList = () => {
-    return(
+    return (
       <div
-        style={{width:"150px"}}
+        style={{ width: "150px" }}
         role="presentation"
       >
-      <List>
-        <ListItem>
-          <Button onClick={this.props.history.goBack}>Back</Button>
-        </ListItem>
-        {this.list.map(item => (
+        <List>
           <ListItem>
-            <Link to={"/" + item.url}><ListItemText primary={item.name} /></Link>
+            <Button onClick={this.props.history.goBack}>Back</Button>
           </ListItem>
-        ))}
-        {sessionStorage.getItem("isAdmin") == "true" 
-          ? this.adminList.map(item => (
-              <ListItem>
+          {this.list.map(item => (
+            <ListItem key={item.name}>
+              <Link to={"/" + item.url}><ListItemText primary={item.name} /></Link>
+            </ListItem>
+          ))}
+          {sessionStorage.getItem("isAdmin") === "true"
+            ? this.adminList.map(item => (
+              <ListItem key={item.name}>
                 <Link to={"/" + item.url}><ListItemText primary={item.name} /></Link>
               </ListItem>
             ))
-            : null 
-        }
-      </List>
+            : null
+          }
+        </List>
       </div>)
   }
 
@@ -87,54 +86,58 @@ class NavBar extends Component{
         "Content-Type": "application/json",
       },
     })
-      .then(response => {console.log(response); return response.json()})
+      .then(response => { console.log(response); return response.json() })
       .then(json => {
-        sessionStorage.setItem("userID", "");
+        sessionStorage.removeItem('userID');
+        sessionStorage.removeItem('isAdmin');
+        sessionStorage.removeItem('isCompany');
+        // this.props.history.push('/');
         window.location.reload();
       })
-    .catch(error => console.log("error thrown", error));
+      .catch(error => console.log("error thrown", error));
   }
 
 
-  render(){
+  render() {
     var user = sessionStorage.getItem("userID");
-    if(!user){
-      return(<Redirect to="/login"/>);
+    console.log("user=> ", user);
+    if (user === null || !user) {
+      return <Redirect to="/login" />;
     }
-    else{
-    return(
-      <div>
-      <AppBar style={{background: "#031D44", flexGrow: 1}} position="static">
-          <Toolbar>
-            <IconButton
-              style={{outline: "none"}}
-              disableRipple
-              edge="start"
-              color="inherit"
-              aria-label="Menu"
-              onClick={this.sideBar}
-            >
-              <MenuIcon/>
+    else {
+      return (
+        <div>
+          <AppBar style={{ background: "#031D44", flexGrow: 1 }} position="static">
+            <Toolbar>
+              <IconButton
+                style={{ outline: "none" }}
+                disableRipple
+                edge="start"
+                color="inherit"
+                aria-label="Menu"
+                onClick={this.sideBar}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Logo imgSize="50" />
+              <IconButton
+                style={{ marginRight: "20px", outline: "none" }}
+                disableRipple
+                aria-haspopup="true"
+                aria-label="Account"
+                aria-controls="customized-menu"
+                color="inherit"
+                onClick={this.logout}
+              > <AccountCircle /> Logout
             </IconButton>
-            <Logo imgSize="50"/>
-            <IconButton 
-              style={{marginRight: "20px", outline: "none"}}
-              disableRipple
-              aria-haspopup="true"
-              aria-label="Account"
-              aria-controls="customized-menu"
-              color="inherit"
-              onClick={this.logout}
-            > <AccountCircle/> Logout 
-            </IconButton>
-          </Toolbar>
-        </AppBar>
-        <Drawer open={this.state.open} onClose={this.close}>
-          {this.barList()}
-        </Drawer>
-      </div>
-    )
-  }
+            </Toolbar>
+          </AppBar>
+          <Drawer open={this.state.open} onClose={this.close}>
+            {this.barList()}
+          </Drawer>
+        </div>
+      )
+    }
   }
 }
 

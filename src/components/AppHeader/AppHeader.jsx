@@ -1,26 +1,25 @@
-import React from "react";
-import {Link} from "react-router-dom";
-import {Redirect} from 'react-router'
-// nodejs library that concatenates classes
-import classNames from "classnames";
-// nodejs library to set properties for components
-import PropTypes from "prop-types";
+import AppBar from "@material-ui/core/AppBar";
+import Button from "@material-ui/core/Button";
+import Drawer from "@material-ui/core/Drawer";
+import Hidden from "@material-ui/core/Hidden";
+import IconButton from "@material-ui/core/IconButton";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
-import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
-import Button from "@material-ui/core/Button";
-import Hidden from "@material-ui/core/Hidden";
-import Drawer from "@material-ui/core/Drawer";
+import Close from "@material-ui/icons/Close";
 // @material-ui/icons
 import Menu from "@material-ui/icons/Menu";
-import Close from "@material-ui/icons/Close";
-import GridContainer from "components/Grid/GridContainer.jsx";
-import GridItem from "components/Grid/GridItem.jsx";
+import logo from "assets/img/logo.png";
 // core components
 import headerStyle from "assets/jss/material-kit-pro-react/components/headerStyle.jsx";
-import logo from "assets/img/logo.png";
+// nodejs library that concatenates classes
+import classNames from "classnames";
+import GridContainer from "components/Grid/GridContainer.jsx";
+// nodejs library to set properties for components
+import PropTypes from "prop-types";
+import React from "react";
+import { Redirect } from 'react-router';
+import { Link } from "react-router-dom";
 class AppHeader extends React.Component {
   constructor(props) {
     super(props);
@@ -59,7 +58,9 @@ class AppHeader extends React.Component {
   }
   onLogOut() {
     sessionStorage.removeItem('userID');
-    return <Redirect to='/'/>
+    sessionStorage.removeItem('isAdmin');
+    sessionStorage.removeItem('isCompany');
+    return <Redirect to='/login'/>
   }
   render() {
     const {

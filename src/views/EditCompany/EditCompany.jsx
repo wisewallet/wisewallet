@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Redirect} from "react-router";
+import { Redirect } from "react-router";
 
 // react component used to create nice image meadia player
 // @material-ui/core components
@@ -28,28 +28,51 @@ import dashboardStyle from "assets/jss/material-kit-pro-react/views/dashboardSty
 import NavBar from "components/NavBar/NavBar.jsx";
 
 class EditCompany extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.id = this.props.location.state.id;
+    if (!this.id) {
+      this.user_is_company = sessionStorage.getItem("isCompany");
+    }
+    else this.user_is_company = false;
+
   }
 
   componentDidMount() {
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
     document.body.scrollTop = 0;
   }
 
-  render(){
-    if(!this.id)
-      return (<Redirect to="/companyInfo"/>);
-    else
-      return(
-        <div>
-        <NavBar/>
-          <div style={{
-            marginLeft:"10px"
+  render() {
+    if (!this.id) {
+      if (!this.user_is_company)
+        return (<Redirect to="/companyInfo" />);
+      else {
+        return (
+          <div>
+            <NavBar />
+            <div style={{
+              marginLeft: "10px"
             }}>
-          <h3>Edit Company Info </h3> 
-          <Company id={this.id}/>
+              <h3>Edit Company Info </h3>
+              <Company id={this.id} />
+            </div>
+            
+            <footer> Copyright © 2019 WiseWallet Inc. All Rights Reserved.</footer>
+          </div>
+        )
+      }
+    }
+
+    else
+      return (
+        <div>
+          <NavBar />
+          <div style={{
+            marginLeft: "10px"
+          }}>
+            <h3>Edit Company Info </h3>
+            <Company id={this.id} />
           </div>
           <footer> Copyright © 2019 WiseWallet Inc. All Rights Reserved.</footer>
         </div>

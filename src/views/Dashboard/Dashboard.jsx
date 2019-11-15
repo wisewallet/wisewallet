@@ -7,13 +7,10 @@ import {Redirect} from "react-router";
 import withStyles from "@material-ui/core/styles/withStyles";
 // core components
 import AppHeader from "components/AppHeader/AppHeader.jsx";
-import Header from "components/Header/Header.jsx";
-import AppHeaderLinks from "components/AppHeader/AppHeaderLinks.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import Button from "components/CustomButtons/Button.jsx";
 import Card from "components/Card/Card.jsx";
-import CardBody from "components/Card/CardBody.jsx";
 import Table from "@material-ui/core/Table";
 import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
@@ -53,10 +50,8 @@ class Dashboard extends React.Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({userID: sessionStorage.getItem("userID")})
-      // body: JSON.stringify({userID: "5f61cc8a-1cc7-48b1-b4bb-e8f3ab318bc3"})
     }).then(response => {
       response.json().then(json => {
-        console.log(json);
         this.setState({
           eScore: json.eScore,
           sScore: json.sScore,
@@ -91,7 +86,7 @@ class Dashboard extends React.Component {
   render() {
     const classes = this.props;
     var userID = sessionStorage.getItem("userID");
-    if (userID == null) {
+    if (userID === null) {
       return <Redirect to="/login"/>;
     }
     // get data Here

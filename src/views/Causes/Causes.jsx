@@ -62,7 +62,7 @@ This cause focuses on women-led businesses. We’ve screened for businesses that
             </b>
           </h3>
           <ul style={{textAlign: "center"}}>
-            <li className="center"><a class="nocolor" href="https://www.catalyst.org" target="_blank"> Catalyst </a></li>
+            <li className="center"><a class="nocolor" href="https://www.catalyst.org" target="_blank" rel="noopener noreferrer"> Catalyst </a></li>
             <li className="center">Company Financial Statements         </li>
             <li className="center">Company Web Pages                    </li>
             <li className="center">Women Owned Business Directories     </li>

@@ -67,7 +67,7 @@ class TempLanding extends React.Component{
       <Button variant="contained" color="secondary">
         <a style={{color: "white"}}
         href="https://mywisewallet.us17.list-manage.com/subscribe?u=0815905065d9f52c9957a3506&id=fce1ac23fe"
-        target="_blank">
+        target="_blank" rel="noopener noreferrer">
       <p style={{textAlign: "center", paddingTop: 5, lineHeight: 1, fontFamily: "gotham-bold", fontSize:20}}>
       Sign Up
     </p></a>

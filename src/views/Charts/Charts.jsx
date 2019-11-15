@@ -44,6 +44,7 @@ class Charts extends React.Component {
               A react wrapper for{" "}
               <a
                 target="_blank"
+                rel="noopener noreferrer"
                 href="https://gionkunz.github.io/chartist-js/"
                 rel="noopener noreferrer"
               >

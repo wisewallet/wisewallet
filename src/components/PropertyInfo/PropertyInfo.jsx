@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter, Redirect} from 'react-router';
+import { withRouter, Redirect } from 'react-router';
 
 // @material-ui/core components
 import TableBody from '@material-ui/core/Table';
@@ -8,8 +8,8 @@ import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 import Button from '@material-ui/core/Button';
 
-class PropertyInfo extends Component{
-  constructor(props){
+class PropertyInfo extends Component {
+  constructor(props) {
     super(props);
     this.state = this.props;
     this.handleClick = this.handleClick.bind(this);
@@ -17,7 +17,7 @@ class PropertyInfo extends Component{
   }
 
   handleChange = name => event => {
-    this.setState({[name]: event.target.value });
+    this.setState({ [name]: event.target.value });
   };
 
   deleteValue = () => {
@@ -30,9 +30,9 @@ class PropertyInfo extends Component{
     })
       .then(response => response.json())
       .then(json => {
-        console.log("json", json);
-        if(json.data.code == 200){
-          console.log("success");
+
+        if (json.data.code === 200) {
+
           window.location.reload();
         }
       })
@@ -51,37 +51,35 @@ class PropertyInfo extends Component{
     })
       .then(response => response.json())
       .then(json => {
-        console.log("json", json);
-        if(json.data.code == 200){
-          console.log("success");
-          window.location.reload();
+
+        if (json.data.code === 200) {
         }
       })
       .catch(error => console.log("Error caught", error));
   }
 
-  render(){
-    return(
-    <TableRow>
-      <TableCell>{this.props.id}</TableCell>
-      <TableCell>
-        <TextField 
-          id="standard-name"
-          value={this.state.name}
-          onChange={this.handleChange("name")}
-          margin="normal"/>
-      </TableCell>
-      <TableCell>
-        <Button variant="contained" onClick={this.handleClick}>
-          Save Changes
+  render() {
+    return (
+      <TableRow>
+        <TableCell>{this.props.id}</TableCell>
+        <TableCell>
+          <TextField
+            id="standard-name"
+            value={this.state.name}
+            onChange={this.handleChange("name")}
+            margin="normal" />
+        </TableCell>
+        <TableCell>
+          <Button variant="contained" onClick={this.handleClick}>
+            Save Changes
         </Button>
-      </TableCell>
-      <TableCell> 
-        <Button variant="contained" onClick={this.deleteValue} color="secondary" >
-          Delete 
+        </TableCell>
+        <TableCell>
+          <Button variant="contained" onClick={this.deleteValue} color="secondary" >
+            Delete
         </Button>
-      </TableCell>
-    </TableRow>
+        </TableCell>
+      </TableRow>
     )
   }
 

@@ -31,8 +31,7 @@ class AddProperty extends Component{
     })
       .then(response => response.json())
       .then(json => {
-        if(json.data.code == 200){
-          console.log("success");
+        if(json.data.code === 200){
           window.location.reload();
         }})
       .catch(error => console.log("Error found", error));

@@ -14,7 +14,7 @@ import Card from "components/Card/Card.jsx";
 import CardBody from "components/Card/CardBody.jsx";
 import plaidLinkStyle from "assets/jss/material-kit-pro-react/views/plaidLinkStyle.jsx";
 import PlaidLink from "react-plaid-link";
-import {Redirect} from 'react-router';
+import { Redirect } from 'react-router';
 
 import image from "assets/img/thankyou.jpg";
 
@@ -35,21 +35,21 @@ class Components extends React.Component {
     document.body.scrollTop = 0;
     var userID = sessionStorage.getItem("userID");
     var firstName = sessionStorage.getItem("firstName");
-    this.setState({firstName: firstName});
-    this.setState({userID: userID});
+    this.setState({ firstName: firstName });
+    this.setState({ userID: userID });
   }
   handleChange = name => event => {
-    this.setState({[name]: event.target.value});
+    this.setState({ [name]: event.target.value });
   };
   handleOnSuccess(token, metadata) {
-    console.log("Plaid Public Token: " + token);
-    console.log("userID: " + sessionStorage.getItem("userID"));
+
+
     fetch("https://tldpv6umn7.execute-api.us-east-1.amazonaws.com/default/exchangetoken", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({userID: sessionStorage.getItem("userID"), public_token: token})
+      body: JSON.stringify({ userID: sessionStorage.getItem("userID"), public_token: token })
     }).then(response => response.json()).then(json => console.log(json)).then(this.props.history.push('/login'));
   }
   handleOnExit() {
@@ -66,42 +66,44 @@ class Components extends React.Component {
     var welcome = "Thank you for signing up. We will get back to you shortly."
     return (
       <div>
-        <Header absolute="absolute" color="transparent" brand="WiseWallet" { ...rest }/>
-        <div className = {classes.pageHeader} style = {{backgroundImage: "url(" + image + ")",
-                                                        backgroundSize: "cover",
-                                                        backgroundPosition: "top center"}} >
+        <Header absolute="absolute" color="transparent" brand="WiseWallet" {...rest} />
+        <div className={classes.pageHeader} style={{
+          backgroundImage: "url(" + image + ")",
+          backgroundSize: "cover",
+          backgroundPosition: "top center"
+        }} >
           <div className={classes.container}>
             <GridContainer justify="center">
               <GridItem xs={12} sm={6} md={6}>
                 <Card className={classes.cardSignup}>
                   <h2 className={classes.cardTitle}> {welcome} </h2>
-                    <CardBody>
-                      <center>
+                  <CardBody>
+                    <center>
 
-                       <form>
-
-
-
-                         
-
-
-
-
-                       </form>
+                      <form>
 
 
 
 
 
-                      </center>
 
-                    </CardBody>
-                  </Card>
-                </GridItem>
-              </GridContainer>
-            </div>
-            
-      
+
+
+                      </form>
+
+
+
+
+
+                    </center>
+
+                  </CardBody>
+                </Card>
+              </GridItem>
+            </GridContainer>
+          </div>
+
+
         </div>
       </div>
     );
