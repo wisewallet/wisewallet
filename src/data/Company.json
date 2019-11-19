@@ -1,0 +1,268 @@
+{
+    "data": {
+        "code": 200,
+        "company_data": [
+            {
+                "company_category": "coffee shops",
+                "company_cause": [
+                    "Pro-LGBTQIA+",
+                    "Public Company"
+                ],
+                "company_id": 9,
+                "company_link": null,
+                "company_name": "Starbucks"
+            },
+            {
+                "company_category": "wireless,it",
+                "company_cause": [
+                    "Pro-LGBTQIA+",
+                    "Public Company"
+                ],
+                "company_id": 10,
+                "company_link": null,
+                "company_name": "Verizon"
+            },
+            {
+                "company_category": "wireless, it",
+                "company_cause": [
+                    "Pro-LGBTQIA+",
+                    "Public Company"
+                ],
+                "company_id": 12,
+                "company_link": null,
+                "company_name": "AT&T"
+            },
+            {
+                "company_category": "Hotels",
+                "company_cause": [
+                    "Pro-LGBTQIA+",
+                    "Pro-Refugee"
+                ],
+                "company_id": 13,
+                "company_link": null,
+                "company_name": "Airbnb"
+            },
+            {
+                "company_category": "retail",
+                "company_cause": [
+                    "Pro-LGBTQIA+",
+                    "Public Company"
+                ],
+                "company_id": 14,
+                "company_link": null,
+                "company_name": "Amazon"
+            },
+            {
+                "company_category": "computer hardware",
+                "company_cause": [
+                    "Pro-LGBTQIA+",
+                    "Public Company"
+                ],
+                "company_id": 15,
+                "company_link": null,
+                "company_name": "Apple"
+            },
+            {
+                "company_category": "credit card",
+                "company_cause": [
+                    "Pro-LGBTQIA+",
+                    "Public Company"
+                ],
+                "company_id": 16,
+                "company_link": null,
+                "company_name": "American Express"
+            },
+            {
+                "company_category": "retail electronics",
+                "company_cause": [
+                    "Pro-LGBTQIA+",
+                    "Public Company"
+                ],
+                "company_id": 17,
+                "company_link": null,
+                "company_name": "Best Buy"
+            },
+            {
+                "company_category": "computer hardware",
+                "company_cause": [
+                    "Pro-LGBTQIA+",
+                    "Public Company"
+                ],
+                "company_id": 18,
+                "company_link": null,
+                "company_name": "Microsoft"
+            },
+            {
+                "company_category": "bank",
+                "company_cause": [
+                    "Pro-LGBTQIA+",
+                    "Public Company"
+                ],
+                "company_id": 19,
+                "company_link": null,
+                "company_name": "Capital One"
+            },
+            {
+                "company_category": "bank",
+                "company_cause": [
+                    "Pro-LGBTQIA+",
+                    "Public Company"
+                ],
+                "company_id": 20,
+                "company_link": null,
+                "company_name": "Citigroup"
+            },
+            {
+                "company_category": "airline",
+                "company_cause": [
+                    "Pro-LGBTQIA+",
+                    "Public Company"
+                ],
+                "company_id": 21,
+                "company_link": null,
+                "company_name": "Delta Air Lines"
+            },
+            {
+                "company_category": "fast food",
+                "company_cause": [
+                    "Public Company"
+                ],
+                "company_id": 22,
+                "company_link": null,
+                "company_name": "Chipotle"
+            },
+            {
+                "company_category": "ride hailing",
+                "company_cause": [
+                    "Pro-LGBTQIA+",
+                    "Public Company"
+                ],
+                "company_id": 23,
+                "company_link": null,
+                "company_name": "Lyft"
+            },
+            {
+                "company_category": "ride hailing",
+                "company_cause": [
+                    "Pro-LGBTQIA+"
+                ],
+                "company_id": 24,
+                "company_link": null,
+                "company_name": "Uber"
+            },
+            {
+                "company_category": "sports apparel",
+                "company_cause": [
+                    "Pro-LGBTQIA+",
+                    "Public Company"
+                ],
+                "company_id": 25,
+                "company_link": null,
+                "company_name": "Adidas"
+            },
+            {
+                "company_category": "clothing",
+                "company_cause": [
+                    "Pro-LGBTQIA+",
+                    "Public Company"
+                ],
+                "company_id": 26,
+                "company_link": null,
+                "company_name": "Abercrombie & Fitch"
+            },
+            {
+                "company_category": "clothing",
+                "company_cause": [
+                    "Made in America"
+                ],
+                "company_id": 27,
+                "company_link": null,
+                "company_name": "rag & bone"
+            },
+            {
+                "company_category": "restaurants",
+                "company_cause": [
+                    "Local Business",
+                    "WomenOwned"
+                ],
+                "company_id": 28,
+                "company_link": null,
+                "company_name": "King"
+            },
+            {
+                "company_category": "restaurants",
+                "company_cause": [
+                    "Local Business",
+                    "WomenOwned"
+                ],
+                "company_id": 29,
+                "company_link": null,
+                "company_name": "otway"
+            },
+            {
+                "company_category": "restaurants",
+                "company_cause": [
+                    "Local Business",
+                    "Minority Owned",
+                    "WomenOwned"
+                ],
+                "company_id": 30,
+                "company_link": null,
+                "company_name": "mokbar"
+            },
+            {
+                "company_category": "restaurants",
+                "company_cause": [
+                    "Local Business",
+                    "WomenOwned"
+                ],
+                "company_id": 31,
+                "company_link": null,
+                "company_name": "Pearl Oyster Bar"
+            },
+            {
+                "company_category": "restaurants",
+                "company_cause": [
+                    "LGBTQIA+ Owned",
+                    "Local Business",
+                    "WomenOwned"
+                ],
+                "company_id": 32,
+                "company_link": null,
+                "company_name": "Via Carota"
+            },
+            {
+                "company_category": "restaurants",
+                "company_cause": [
+                    "LGBTQIA+ Owned",
+                    "Local Business",
+                    "WomenOwned"
+                ],
+                "company_id": 33,
+                "company_link": null,
+                "company_name": "Buvette"
+            },
+            {
+                "company_category": "restaurants, bars, coffee shops",
+                "company_cause": [
+                    "LGBTQIA+ Owned",
+                    "Local Business",
+                    "WomenOwned"
+                ],
+                "company_id": 34,
+                "company_link": null,
+                "company_name": "Bar Pisellino"
+            },
+            {
+                "company_category": "restaurants",
+                "company_cause": [
+                    "Local Business",
+                    "Veteran Owned"
+                ],
+                "company_id": 35,
+                "company_link": null,
+                "company_name": "BRQ Seafood & Barbeque"
+            }
+        ]
+    }
+}

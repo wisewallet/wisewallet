@@ -3,22 +3,25 @@ import React from "react";
 import classNames from "classnames";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
+import Button from "@material-ui/core/Button";
 // @material-ui/icons
 // core components
+import "assets/css/style.css";
+import "assets/css/bootstrap.min.css";
 import Header from "components/Header/Header.jsx";
 import Footer from "components/Footer/Footer.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
-import Button from "components/CustomButtons/Button.jsx";
+import CustomButton from "components/CustomButtons/Button.jsx";
 import HeaderLinks from "components/Header/HeaderLinks.jsx";
 import Parallax from "components/Parallax/Parallax.jsx";
+import { Link } from "react-router-dom";
 import ReactGA from 'react-ga';
 import landingPageStyle from "assets/jss/material-kit-pro-react/views/landingPageStyle.jsx";
+import WebFooter from "components/WebFooter/WebFooter.jsx";
 
 // Sections for this page
 import SectionProduct from "./Sections/SectionProduct.jsx";
-
-const dashboardRoutes = [];
 
 class LandingPage extends React.Component {
   componentDidMount() {
@@ -26,55 +29,41 @@ class LandingPage extends React.Component {
     document.body.scrollTop = 0;
     ReactGA.initialize('UA-125368215-1');
     ReactGA.pageview(window.location.pathname + window.location.search);
-    sessionStorage.setItem('myData', 100);
-    console.log(sessionStorage.getItem('myData'));
   }
+
+
   render() {
     const {
       classes,
       ...rest
     } = this.props;
-    return (<div>
-      <Header color="transparent" routes={dashboardRoutes} brand="WiseWallet" fixed="fixed" changeColorOnScroll={{
-          height: 300,
-          color: "#99cc99"
-        }} {...rest}/>
-      <Parallax image={require("assets/img/wisewalletA2.jpg")} filter="light">
-        <div className={classes.container}>
-          <GridContainer>
-            <GridItem xs={12} sm={6} md={6}>
-              <h1 className={classes.title}> Put your money where your mind is. </h1>
-              <h4 className = {classes.subtitle}>
-                Coming soon. Sign up and stay tuned.
-              </h4>
-              <br/>
-              <Button color="#99cc99" size="lg" href='/signup' target="" className = {classes.landButton}>
-                Get Early Access!
-              </Button>
-            </GridItem>
-          </GridContainer>
-        </div>
-      </Parallax>
-      <Footer theme="white" content={<div > <Button justIcon="justIcon" simple="simple" href="https://twitter.com/mywisewallet" color="twitter">
-          <i className="fab fa-twitter"/>
+    return (
+      <div >
+        <div style={{textAlign: "center", marginTop:"150px"}}>
+          <img src={require("assets/img/logos/logo.png")} height="100" width="100"></img>
+        <h1 style={{marginTop: "0px", fontFamily: "gotham-bold", color: "#031D44"}}>
+          WiseWallet
+        </h1>
+        <p style={{marginLeft:"25%",
+          marginRight:"25%",
+          fontSize:"25px",
+          fontFamily: "gotham-regular",
+          color: "#031D44"}}>
+          
+          A sustainability-focused business directory
+        </p>
+        <Button style={{marginRight: "10px"}}
+        variant="outlined"
+        color="#012E3C">
+        <Link to="/login" style={{color:"#031d44"}}>Login</Link>
+      </Button>
+        <Button variant="outlined" color="#031d44">
+          <Link to="/signup" style={{color:"#012E3C"}}>Beta Signup</Link>
         </Button>
-        <Button justIcon="justIcon" simple="simple" href="https://www.facebook.com/mywisewallet" color="facebook">
-          <i className="fab fa-facebook-square"/>
-        </Button>
-        <Button justIcon="justIcon" simple="simple" href="https://www.instagram.com/mywisewallet/" color="instagram">
-          <i className="fab fa-instagram"/>
-        </Button>
-        <GridContainer>
-          <GridItem sm={3}>
-          </GridItem>
-          <GridItem sm={6}>
-        <div className={classNames(classes.pullCenter, classes.copyRight)} style={{width: 'auto'}}>
-          Copyright &copy; {1900 + new Date().getYear()}{" "}
-          <a href="http://www.mywisewallet.com">WiseWallet Inc. </a> 
-           All Rights Reserved. </div></GridItem>
-      </GridContainer>
-      </div>}></Footer>
-    </div>);
+      </div>
+      <WebFooter/>
+      </div>
+    );
   }
 }
 

@@ -1,0 +1,3 @@
+/*
+ * Function for logging out
+ */ 
