@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Redirect} from "react-router";
+import { Redirect } from "react-router";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -24,7 +24,6 @@ import WebFooter from "components/WebFooter/WebFooter.jsx";
 import image from "assets/img/wisewalletA1.jpg";
 import "assets/css/style.css";
 
-
 class InfoLogin extends Component {
   constructor(props) {
     super(props);
@@ -40,96 +39,96 @@ class InfoLogin extends Component {
   }
 
   handleChange = name => event => {
-    this.setState({[name]: event.target.value});
+    this.setState({ [name]: event.target.value });
   };
 
   handleClick() {
-    const {email, password} = this.state;
+    const { email, password } = this.state;
     console.log("Trying...");
     fetch("/login", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json"
       },
-      body: JSON.stringify({email: email, password: password})
+      body: JSON.stringify({ email: email, password: password })
     })
       .then(response => response.json())
       .then(json => {
-        console.log('json', json);
-        if(json.data.code === 200){
+        console.log("json", json);
+        if (json.data.code === 200) {
           console.log("success");
-          sessionStorage.setItem('userID', json.data.userdata.user_id);
-          sessionStorage.setItem('isAdmin', json.data.userdata.isAdmin);
-          if(json.data.userdata.isAdmin){
-            this.props.history.push('/companyInfo');
-          }
-          else
-            this.props.history.push('/search');
-        }
-        else{
-          alert("Username or Password is invalid")
+          sessionStorage.setItem("userID", json.data.userdata.user_id);
+          sessionStorage.setItem("isAdmin", json.data.userdata.isAdmin);
+          if (json.data.userdata.isAdmin) {
+            this.props.history.push("/companyInfo");
+          } else this.props.history.push("/search");
+        } else {
+          alert("Username or Password is invalid");
         }
       })
       .catch(error => console.log(error));
   }
 
   render() {
-    const {classes} = this.props;
-    if(sessionStorage.getItem("userID")){
-      return(<Redirect to="/search"/>)
+    const { classes } = this.props;
+    if (sessionStorage.getItem("userID")) {
+      return <Redirect to="/search" />;
     }
-    return (<div>
-      <header style={{backgroundColor: "#031D44"}} >
+    return (
+      <div>
+        <header style={{ backgroundColor: "#031D44" }}>
           <div className="container">
             <div className="row">
               <div className="col-md-12 text-center">
                 <Link to="/">
-<h2>
-          <img src={require("assets/img/logos/white-logo.png")}
-        height="42"
-        width="42"></img>
-                  WiseWallet</h2>
+                  <h2>
+                    <img
+                      src={require("assets/img/logos/white-logo.png")}
+                      height="42"
+                      width="42"
+                    ></img>
+                    WiseWallet
+                  </h2>
                 </Link>
-                  <div className="simpborder"></div>
-                  <p>Put your money where your mind is.</p>
+                <div className="simpborder"></div>
+                <p>Put your money where your mind is.</p>
               </div>
             </div>
           </div>
-      </header>
-      <div>
-        <center>
-        <h2 style={{fontFamily:"gotham-bold"}}>Login</h2>
-        <form
-          autoComplete="off">
-          <div className="simpborder"></div>
-          <TextField
-            id="email"
-            label="Email"
-            className={classes.textField}
-            value={this.state.email}
-            onChange={this.handleChange("email")}
-            margin="normal"/>
-          <br></br>
-          <TextField
-            id="password"
-            label="Password"
-            required
-            className={classes.textField}
-            type="password"
-            value={this.state.password}
-            onChange={this.handleChange("password")}
-            autoComplete="current-password"
-            margin="normal"/>
-          <br></br>
-          <Button
-            onClick={this.handleClick}>
-            Login
-          </Button>
-        </form>
-        </center>
+        </header>
+        <div>
+          <center>
+            <h2 style={{ fontFamily: "gotham-bold" }}>Login</h2>
+            <form autoComplete="off">
+              <div className="simpborder"></div>
+              <TextField
+                id="email"
+                label="Email"
+                className={classes.textField}
+                value={this.state.email}
+                onChange={this.handleChange("email")}
+                margin="normal"
+              />
+              <br></br>
+              <TextField
+                id="password"
+                label="Password"
+                required
+                className={classes.textField}
+                type="password"
+                value={this.state.password}
+                onChange={this.handleChange("password")}
+                autoComplete="current-password"
+                margin="normal"
+              />
+              <br></br>
+              <Button onClick={this.handleClick}>Login</Button>
+            </form>
+          </center>
+        </div>
+        <WebFooter />
       </div>
-      <WebFooter/>
-    </div>);
+    );
   }
 }
 
