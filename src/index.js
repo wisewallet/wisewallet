@@ -4,7 +4,10 @@ import { createBrowserHistory } from "history";
 import { Router, Route, Switch } from "react-router";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import { green } from "@material-ui/core/colors";
+<<<<<<< HEAD
 import CompanyInformation from "views/CompanyInformation/CompanyInformation.jsx";
+=======
+>>>>>>> 9bd8da78b997125c3e6ef8fbe41eadbb13533c74
 
 import indexRoutes from "./routes/index.jsx";
 import WebFooter from "components/WebFooter/WebFooter.jsx";
@@ -29,12 +32,16 @@ ReactDOM.render(
       <Switch>
         {indexRoutes.map((prop, key) => {
           return (
+<<<<<<< HEAD
             <Route
               exact
               path={prop.path}
               key={key}
               component={prop.component}
             />
+=======
+            <Route path={prop.path} key={key} component={prop.component} />
+>>>>>>> 9bd8da78b997125c3e6ef8fbe41eadbb13533c74
           );
         })}
       </Switch>
