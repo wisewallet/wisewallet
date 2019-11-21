@@ -27,10 +27,17 @@ class AboutUsPage extends React.Component {
     const { classes } = this.props;
     return (
       <div>
-        <Header color="transparent" routes={dashboardRoutes} brand="WiseWallet" links={<HeaderLinks dropdownHoverColor = "primary" />} fixed="fixed" changeColorOnScroll={{
+        <Header
+          color="transparent"
+          routes={dashboardRoutes}
+          brand="WiseWallet"
+          links={<HeaderLinks dropdownHoverColor="primary" />}
+          fixed="fixed"
+          changeColorOnScroll={{
             height: 300,
             color: "primary"
-          }}/>
+          }}
+        />
         <Parallax image={require("assets/img/bg99.jpg")} filter="dark" small>
           <div className={classes.container}>
             <GridContainer justify="center">
@@ -53,10 +60,12 @@ class AboutUsPage extends React.Component {
             <SectionServices />
           </div>
         </div>
-        <div style={{
-            height: "100px", width: "100px"
-          }}>
-        </div>
+        <div
+          style={{
+            height: "100px",
+            width: "100px"
+          }}
+        ></div>
       </div>
     );
   }

@@ -74,5 +74,5 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "proxy": "http://test.mywisewallet.com"
+  "proxy": "https://test.mywisewallet.com"
 }

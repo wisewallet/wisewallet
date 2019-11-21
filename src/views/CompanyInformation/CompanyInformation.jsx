@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import {Redirect} from "react-router";
 
 // react component used to create nice image meadia player
 // @material-ui/core components
@@ -26,27 +25,25 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import dashboardStyle from "assets/jss/material-kit-pro-react/views/dashboardStyle.jsx";
 import AddCompany from "components/AddCompany/AddCompany.jsx";
-import Grid from '@material-ui/core/Grid';
+import Grid from "@material-ui/core/Grid";
 import { Link } from "react-router-dom";
 import NavBar from "components/NavBar/NavBar.jsx";
 import "assets/css/style.css";
 import "assets/css/bootstrap.min.css";
 
 class CompanyInformation extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      company_data: [],
-      addMode: false,
+      company_data: []
     };
-    this.changeMode = this.changeMode.bind(this);
   }
 
-  componentDidMount(){
-    window.scrollTo(0,0);
+  componentDidMount() {
+    window.scrollTo(0, 0);
     document.body.scrollTop = 0;
 
-    //Update the state to contain the company info 
+    //Update the state to contain the company info
     fetch("/admin/company", {
       method: "GET",
       headers: {
@@ -55,18 +52,14 @@ class CompanyInformation extends Component {
     })
       .then(response => response.json())
       .then(json => {
-        if(json.data.code == 200)
-          this.setState({company_data: json.data.company_data});
+        if (json.data.code == 200)
+          this.setState({ company_data: json.data.company_data });
       })
       .catch(error => console.log("Caught Error", error));
   }
 
-  changeMode = () => {
-    this.setState({addMode: !this.state.addMode});
-  }
-
   companyInfo = () => {
-    return(
+    return (
       <Table>
         <TableHead>
           <TableRow>
@@ -79,71 +72,54 @@ class CompanyInformation extends Component {
           </TableRow>
         </TableHead>
         <TableBody>
-        {this.state.company_data.map(info => 
-          <CompanyInfo 
-            logo={info.company_logo}
-            id={info.company_id}
-            name={info.company_name}
-            category={info.company_category}
-            cause={info.company_cause}
-            link={info.company_link}
-          />
-        )}
-      </TableBody>
+          {this.state.company_data.map(info => (
+            <CompanyInfo
+              logo={info.company_logo}
+              id={info.company_id}
+              name={info.company_name}
+              category={info.company_category}
+              cause={info.company_cause}
+              link={info.company_link}
+            />
+          ))}
+        </TableBody>
       </Table>
-    )
-  }
+    );
+  };
 
-  addCompany = () => {
-    return <AddCompany/>
-  }
-
-  render(){
-    var userID = sessionStorage.getItem("userID");
-    var isAdmin = sessionStorage.getItem("isAdmin");
-    //Redirects the user to the correct page if they are not an admin
-    if (userID== '')
-      return (<Redirect to="/login"/>);
-    else if(isAdmin){
-      return(
-        <div>
-          <NavBar/>
-          <Grid
-            style={{padding:10}}
-            container
-            justify="center"
-            spacing={3}>
-            <Grid style={{textAlign: 'center'}} item xs={6}>
-              <Button>
-              <font style={{fontFamily:"gotham-regular"}}>
-                <Link style={{color: '#000'}} to="/CompanyInfo"> Company Information </Link>
+  render() {
+    return (
+      <div>
+        <NavBar />
+        <Grid style={{ padding: 10 }} container justify="center" spacing={3}>
+          <Grid style={{ textAlign: "center" }} item xs={6}>
+            <Button>
+              <font style={{ fontFamily: "gotham-regular" }}>
+                <Link style={{ color: "#000" }} to="/CompanyInfo">
+                  {" "}
+                  Company Information{" "}
+                </Link>
               </font>
-              </Button>
-            </Grid>
-            <Grid style={{textAlign: 'center'}} item xs={6}>
-              <Button>
-              <font style={{fontFamily:"gotham-regular"}}>
-                <Link style={{color: '#000'}} to="/properties"> Properties </Link>
-              </font>
-              </Button>
-            </Grid>
-          </Grid>
-          <font style={{fontFamily:"gotham-regular"}}>
-            <h1 style={{textAlign: 'center'}}> Company Information </h1>
-          </font>
-          <div style={{textAlign: 'center'}}> 
-            <Button variant="outlined" onClick={this.changeMode}>
-              {this.state.addMode ? "Show Companies" : "Add Company Info" }
             </Button>
-          </div>
-          {this.state.addMode ? this.addCompany() : this.companyInfo()}
+          </Grid>
+          <Grid style={{ textAlign: "center" }} item xs={6}>
+            <Button>
+              <font style={{ fontFamily: "gotham-regular" }}>
+                <Link style={{ color: "#000" }} to="/properties">
+                  {" "}
+                  Properties{" "}
+                </Link>
+              </font>
+            </Button>
+          </Grid>
+        </Grid>
+        <font style={{ fontFamily: "gotham-regular" }}>
+          <h1 style={{ textAlign: "center" }}> Company Information </h1>
+        </font>
+        {this.companyInfo()}
         <footer> Copyright © 2019 WiseWallet Inc. All Rights Reserved.</footer>
       </div>
-      )
-    }
-    else{
-      return (<Redirect to="/search"/>);
-    }
+    );
   }
 }
 

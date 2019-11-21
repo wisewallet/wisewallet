@@ -17,22 +17,15 @@ import Properties from "views/Properties/Properties.jsx";
 import TempLanding from "views/TempLanding/TempLanding.jsx";
 
 var indexRoutes = [
-	{path: "/login", name: "Login", component: InfoLogin},
-  {path: "/companyInfo", name: "WiseWallet", component: CompanyInformation},
-  {path: "/edit", name: "Edit", component: EditCompany},
-  {path: "/search", name: "Search", component: Search},
-  //{path: "/filter", name: "Filter", component: Filter},
-  {path: "/properties", name: "Properties", component: Properties},
-	{path: "/signup", name: "WiseWallet", component: SignupPage},
-	{path: "/link", name: "WiseWallet", component: PlaidLink},
-	{path: "/dashboard", name: "WiseWallet", component: Dashboard},
-  {path: "/causes", name: "WiseWallet", component: Causes},
-	{path: "/charts", name: "WiseWallet", component: Charts},
-  {path: "/faq", name: "WiseWallet", component: FAQ},
-	{path: "/about", name: "WiseWallet", component: About},
-  {path: "/beta", name: "WiseWallet", component: LandingPage},
-	{path: "/privacy", name: "WiseWallet", component: PrivacyPage},
-	{path: "/", name: "WiseWallet", component: TempLanding},
+  { path: "/", name: "WiseWallet", component: CompanyInformation },
+  { path: "/CompanyInfo", name: "WiseWallet", component: CompanyInformation },
+  { path: "/search", name: "Search", component: Search },
+  { path: "/filter", name: "Filter", component: Filter },
+  { path: "/properties", name: "Properties", component: Properties },
+  { path: "/causes", name: "WiseWallet", component: Causes },
+  { path: "/login", name: "WiseWallet", component: InfoLogin },
+  { path: "/faq", name: "WiseWallet", component: FAQ },
+  { path: "/about", name: "WiseWallet", component: About }
 ];
 
 export default indexRoutes;
