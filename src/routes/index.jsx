@@ -20,10 +20,8 @@ var indexRoutes = [
   { path: "/", name: "WiseWallet", component: CompanyInformation },
   { path: "/CompanyInfo", name: "WiseWallet", component: CompanyInformation },
   { path: "/search", name: "Search", component: Search },
-  { path: "/filter", name: "Filter", component: Filter },
   { path: "/properties", name: "Properties", component: Properties },
   { path: "/causes", name: "WiseWallet", component: Causes },
-  { path: "/login", name: "WiseWallet", component: InfoLogin },
   { path: "/faq", name: "WiseWallet", component: FAQ },
   { path: "/about", name: "WiseWallet", component: About }
 ];

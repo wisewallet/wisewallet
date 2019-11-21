@@ -24,9 +24,6 @@ import NavBar from "components/NavBar/NavBar.jsx";
 
 class Causes extends Component {
   render() {
-    var userID = sessionStorage.getItem("userID");
-
-    if (userID === null) return <Redirect to="/login" />;
     return (
       <div>
         <NavBar />
