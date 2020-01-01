@@ -1,20 +1,15 @@
-import LandingPage from "views/LandingPage/LandingPage.jsx";
-import LoginPage from "views/LoginPage/LoginPage.jsx";
-import SignupPage from "views/SignupPage/SignupPage.jsx";
-import PlaidLink from "views/PlaidLink/PlaidLink.jsx";
-import Dashboard from "views/Dashboard/Dashboard.jsx";
-import AboutUsPage from "views/AboutUsPage/AboutUsPage.jsx";
-import PrivacyPage from "views/Privacy/PrivacyPage.jsx";
-import Charts from "views/Charts/Charts.jsx";
+import Home from "../views/Home.jsx";
+import Search from "../views/Search.jsx";
+import About from "../views/About.jsx";
+import Add from "../views/Add.jsx";
+import Contact from "../views/Contact.jsx";
+
 var indexRoutes = [
-	{path: "/login", name: "Login", component: LoginPage},
-	{path: "/signup", name: "WiseWallet", component: SignupPage},
-	{path: "/link", name: "WiseWallet", component: PlaidLink},
-	{path: "/dashboard", name: "WiseWallet", component: Dashboard},
-	{path: "/charts", name: "WiseWallet", component: Charts},
-	{path: "/about", name: "WiseWallet", component: AboutUsPage},
-	{path: "/privacy", name: "WiseWallet", component: PrivacyPage},
-	{path: "/", name: "WiseWallet", component: LandingPage}
+  { path: "/", name: "Home", component: Home },
+  { path: "/search", name: "Search", component: Search },
+  { path: "/about", name: "About", component: About },
+  { path: "/contact", name: "Contact", component: Contact },
+  { path: "/add", name: "Add", component: Add }
 ];
 
 export default indexRoutes;
