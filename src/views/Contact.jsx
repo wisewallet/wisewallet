@@ -41,7 +41,7 @@ class Contact extends Component {
         message_html: `<p> First Name: ${this.state.first}, Last Name: ${this.state.last}, Company: ${this.state.company}, Title: ${this.state.title}, City: ${this.state.city}, Email: ${this.state.email}, Message: ${this.state.message}</p>`,
         from_name: "user",
         reply_to: "no-reply",
-        to_name: "mywisewalletdemo@gmail.com"
+        to_name: "russell@mywisewallet.com"
       });
     }
   }

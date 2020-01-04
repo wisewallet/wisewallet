@@ -26,8 +26,8 @@ class Home extends Component {
                 is
               </h1>
               <p>
-                We provide transparency to consumers through data that empowers
-                them.
+                Our directory makes it easy for you to exercise your buying
+                power.
               </p>
               <a href="/about">
                 <Button className="button">
@@ -56,8 +56,8 @@ class Home extends Component {
               </FadeInSection>
               <FadeInSection>
                 <p>
-                  Our data empowers consumers to drive the positive social
-                  and/or environmental changes they seek through consumption.
+                  Filter by a cause you wish to support or by category and
+                  understand what type of business you are supporting.
                 </p>
               </FadeInSection>
               <FadeInSection>

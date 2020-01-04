@@ -33,12 +33,11 @@ class Add extends Component {
       alert("Please enter in all the fields!");
     } else {
       const templateId = "template_o7xYCsSx";
-
       this.sendFeedback(templateId, {
         message_html: `<h1>Company: ${this.state.company}, Social Values: ${this.state.socialValues}, Location: ${this.state.location}</h1>`,
         from_name: "user",
         reply_to: "no-reply",
-        to_name: "mywisewalletdemo@gmail.com"
+        to_name: "russell@mywisewallet.com"
       });
     }
   }

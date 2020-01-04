@@ -56,37 +56,9 @@ class About extends Component {
                 }}
               >
                 WiseWallet’s mission is to provide transparency to consumers
-                through data that empowers them to shop according to their
-                personal values and in turn drive the positive social and/or
-                environmental changes that they seek.
-              </p>
-            </div>
-          </FadeInSection>
-          <FadeInSection>
-            <h1>Our data comes from...</h1>
-          </FadeInSection>
-          <FadeInSection>
-            <h3>Non-Governmental Organizations</h3>
-            <h3>Trustworthy Databases</h3>
-            <h3>Company Benefit Packages</h3>
-            <h3>Financial Statements</h3>
-            <h3> and more...</h3>
-          </FadeInSection>
-          <FadeInSection>
-            <div
-              class="col-sm-12"
-              style={{ paddingTop: "5%", backgroundColor: "#f6fdf6" }}
-            >
-              <p
-                style={{
-                  paddingLeft: "5%",
-                  paddingBottom: "5%",
-                  textAlign: "left",
-                  paddingRight: "5%"
-                }}
-              >
-                We are fully transparent regarding the methodology and the data
-                sources behind each of the causes we allow users to filter by.
+                through information that empowers them to shop according to
+                their personal values and in turn drive the positive social
+                and/or environmental changes that they seek.
               </p>
             </div>
           </FadeInSection>
